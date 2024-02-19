@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		400746202B524E0700696D02 /* HP15C-Simulator-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4007461F2B524E0700696D02 /* HP15C-Simulator-Font.ttf */; };
+		40DDDE2F2B530DB3005F95B3 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE2E2B530DB3005F95B3 /* Stack.swift */; };
+		40DDDE312B548EDE005F95B3 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE302B548EDE005F95B3 /* Double.swift */; };
+		EF0C097D2B51F2950085CE3B /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
+		EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* HP-35App.swift */; };
+		EF0C0FF42B50C4E90033250C /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF32B50C4E90033250C /* DisplayView.swift */; };
+		EF0C0FF62B50C4EB0033250C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF52B50C4EB0033250C /* Assets.xcassets */; };
+		EF0C0FF92B50C4EB0033250C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
+		EF0C101C2B50C5150033250C /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
+		EF0C101E2B50C7710033250C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101D2B50C7710033250C /* Images.swift */; };
+		EF6E10E02B780A7400F746E0 /* Model35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DB2B780A7400F746E0 /* Model35.swift */; };
+		EF6E10E12B780A7400F746E0 /* KeyboardView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DC2B780A7400F746E0 /* KeyboardView35.swift */; };
+		EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1AF7D2B825AE400B8946A /* InfoView35.swift */; };
+		EF9A63A92B7B12490096822D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A63A82B7B12490096822D /* Global.swift */; };
+		EFB91B122B60BAE000A6347F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB91B112B60BAE000A6347F /* String.swift */; };
+		EFBF5F542B8172E700634ED5 /* HP-35Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBF5F532B8172E700634ED5 /* HP-35Tests.swift */; };
+		EFBF5F5A2B81737300634ED5 /* HP-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* HP-35App.swift */; };
+		EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
+		EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE2E2B530DB3005F95B3 /* Stack.swift */; };
+		EFBF5F5D2B81737F00634ED5 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
+		EFBF5F5E2B81738200634ED5 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A63A82B7B12490096822D /* Global.swift */; };
+		EFBF5F5F2B8173B400634ED5 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF32B50C4E90033250C /* DisplayView.swift */; };
+		EFBF5F632B8173C700634ED5 /* KeyboardView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DC2B780A7400F746E0 /* KeyboardView35.swift */; };
+		EFBF5F642B8173CA00634ED5 /* Model35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DB2B780A7400F746E0 /* Model35.swift */; };
+		EFBF5F652B8173D000634ED5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC32B6DC5C60051134A /* Color.swift */; };
+		EFBF5F662B8173D200634ED5 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE302B548EDE005F95B3 /* Double.swift */; };
+		EFBF5F672B8173D600634ED5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB91B112B60BAE000A6347F /* String.swift */; };
+		EFBF5F682B8173D900634ED5 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101D2B50C7710033250C /* Images.swift */; };
+		EFBF5F692B8173DC00634ED5 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC12B6DC4150051134A /* View.swift */; };
+		EFBF5F6A2B8173E000634ED5 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAD52B76CCC00051134A /* DebugView.swift */; };
+		EFBF5F6B2B8173E300634ED5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF52B50C4EB0033250C /* Assets.xcassets */; };
+		EFBF5F6C2B8173E600634ED5 /* HP15C-Simulator-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4007461F2B524E0700696D02 /* HP15C-Simulator-Font.ttf */; };
+		EFBF5F6D2B8173EC00634ED5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
+		EFC1AF7E2B825AE400B8946A /* InfoView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1AF7D2B825AE400B8946A /* InfoView35.swift */; };
+		EFECEAC22B6DC4150051134A /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC12B6DC4150051134A /* View.swift */; };
+		EFECEAC42B6DC5C60051134A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC32B6DC5C60051134A /* Color.swift */; };
+		EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAD52B76CCC00051134A /* DebugView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EFBF5F552B8172E700634ED5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF0C0FE62B50C4E90033250C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF0C0FED2B50C4E90033250C;
+			remoteInfo = Retro35;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4007461F2B524E0700696D02 /* HP15C-Simulator-Font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HP15C-Simulator-Font.ttf"; sourceTree = "<group>"; };
+		400746212B524E2500696D02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		40DDDE2E2B530DB3005F95B3 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		40DDDE302B548EDE005F95B3 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		EF0C097C2B51F2950085CE3B /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
+		EF0C0FEE2B50C4E90033250C /* HP-35.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HP-35.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF0C0FF12B50C4E90033250C /* HP-35App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HP-35App.swift"; sourceTree = "<group>"; };
+		EF0C0FF32B50C4E90033250C /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
+		EF0C0FF52B50C4EB0033250C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EF0C101B2B50C5150033250C /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		EF0C101D2B50C7710033250C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		EF6E10DB2B780A7400F746E0 /* Model35.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model35.swift; sourceTree = "<group>"; };
+		EF6E10DC2B780A7400F746E0 /* KeyboardView35.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardView35.swift; sourceTree = "<group>"; };
+		EF9A63A82B7B12490096822D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		EFB91B112B60BAE000A6347F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		EFBF5F512B8172E700634ED5 /* HP-35Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HP-35Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFBF5F532B8172E700634ED5 /* HP-35Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HP-35Tests.swift"; sourceTree = "<group>"; };
+		EFC1AF7D2B825AE400B8946A /* InfoView35.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView35.swift; sourceTree = "<group>"; };
+		EFECEAC12B6DC4150051134A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		EFECEAC32B6DC5C60051134A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		EFECEAD52B76CCC00051134A /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF0C0FEB2B50C4E90033250C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFBF5F4E2B8172E700634ED5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF0C0FE52B50C4E90033250C = {
+			isa = PBXGroup;
+			children = (
+				EF0C0FF02B50C4E90033250C /* HP-35 */,
+				EFBF5F522B8172E700634ED5 /* HP-35Tests */,
+				EF0C0FEF2B50C4E90033250C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF0C0FEF2B50C4E90033250C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF0C0FEE2B50C4E90033250C /* HP-35.app */,
+				EFBF5F512B8172E700634ED5 /* HP-35Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF0C0FF02B50C4E90033250C /* HP-35 */ = {
+			isa = PBXGroup;
+			children = (
+				400746212B524E2500696D02 /* Info.plist */,
+				EF0C0FF12B50C4E90033250C /* HP-35App.swift */,
+				EF0C101B2B50C5150033250C /* AppService.swift */,
+				40DDDE2E2B530DB3005F95B3 /* Stack.swift */,
+				EF0C097C2B51F2950085CE3B /* Operations.swift */,
+				EF9A63A82B7B12490096822D /* Global.swift */,
+				EFECEACD2B71BABE0051134A /* DisplayView */,
+				EFECEAC92B71BA1A0051134A /* InfoView */,
+				EFECEACC2B71BA840051134A /* KeyboardView */,
+				EFECEACE2B71BB230051134A /* Utilities */,
+				EF0C0FF52B50C4EB0033250C /* Assets.xcassets */,
+				4007461F2B524E0700696D02 /* HP15C-Simulator-Font.ttf */,
+				EF0C0FF72B50C4EB0033250C /* Preview Content */,
+			);
+			path = "HP-35";
+			sourceTree = "<group>";
+		};
+		EF0C0FF72B50C4EB0033250C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EFBF5F522B8172E700634ED5 /* HP-35Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EFBF5F532B8172E700634ED5 /* HP-35Tests.swift */,
+			);
+			path = "HP-35Tests";
+			sourceTree = "<group>";
+		};
+		EFECEAC92B71BA1A0051134A /* InfoView */ = {
+			isa = PBXGroup;
+			children = (
+				EFC1AF7D2B825AE400B8946A /* InfoView35.swift */,
+			);
+			path = InfoView;
+			sourceTree = "<group>";
+		};
+		EFECEACC2B71BA840051134A /* KeyboardView */ = {
+			isa = PBXGroup;
+			children = (
+				EF6E10DC2B780A7400F746E0 /* KeyboardView35.swift */,
+				EF6E10DB2B780A7400F746E0 /* Model35.swift */,
+			);
+			path = KeyboardView;
+			sourceTree = "<group>";
+		};
+		EFECEACD2B71BABE0051134A /* DisplayView */ = {
+			isa = PBXGroup;
+			children = (
+				EF0C0FF32B50C4E90033250C /* DisplayView.swift */,
+			);
+			path = DisplayView;
+			sourceTree = "<group>";
+		};
+		EFECEACE2B71BB230051134A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EFECEAC32B6DC5C60051134A /* Color.swift */,
+				40DDDE302B548EDE005F95B3 /* Double.swift */,
+				EF0C101D2B50C7710033250C /* Images.swift */,
+				EFB91B112B60BAE000A6347F /* String.swift */,
+				EFECEAC12B6DC4150051134A /* View.swift */,
+				EFECEAD52B76CCC00051134A /* DebugView.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF0C0FED2B50C4E90033250C /* HP-35 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF0C10122B50C4EB0033250C /* Build configuration list for PBXNativeTarget "HP-35" */;
+			buildPhases = (
+				EF0C0FEA2B50C4E90033250C /* Sources */,
+				EF0C0FEB2B50C4E90033250C /* Frameworks */,
+				EF0C0FEC2B50C4E90033250C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HP-35";
+			productName = HP15C;
+			productReference = EF0C0FEE2B50C4E90033250C /* HP-35.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFBF5F502B8172E700634ED5 /* HP-35Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFBF5F592B8172E700634ED5 /* Build configuration list for PBXNativeTarget "HP-35Tests" */;
+			buildPhases = (
+				EFBF5F4D2B8172E700634ED5 /* Sources */,
+				EFBF5F4E2B8172E700634ED5 /* Frameworks */,
+				EFBF5F4F2B8172E700634ED5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFBF5F562B8172E700634ED5 /* PBXTargetDependency */,
+			);
+			name = "HP-35Tests";
+			productName = Retro35Tests;
+			productReference = EFBF5F512B8172E700634ED5 /* HP-35Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF0C0FE62B50C4E90033250C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					EF0C0FED2B50C4E90033250C = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					EFBF5F502B8172E700634ED5 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = EF0C0FED2B50C4E90033250C;
+					};
+				};
+			};
+			buildConfigurationList = EF0C0FE92B50C4E90033250C /* Build configuration list for PBXProject "HP-35" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF0C0FE52B50C4E90033250C;
+			productRefGroup = EF0C0FEF2B50C4E90033250C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF0C0FED2B50C4E90033250C /* HP-35 */,
+				EFBF5F502B8172E700634ED5 /* HP-35Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF0C0FEC2B50C4E90033250C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				400746202B524E0700696D02 /* HP15C-Simulator-Font.ttf in Resources */,
+				EF0C0FF92B50C4EB0033250C /* Preview Assets.xcassets in Resources */,
+				EF0C0FF62B50C4EB0033250C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFBF5F4F2B8172E700634ED5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBF5F6C2B8173E600634ED5 /* HP15C-Simulator-Font.ttf in Resources */,
+				EFBF5F6D2B8173EC00634ED5 /* Preview Assets.xcassets in Resources */,
+				EFBF5F6B2B8173E300634ED5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF0C0FEA2B50C4E90033250C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFECEAC22B6DC4150051134A /* View.swift in Sources */,
+				EF0C097D2B51F2950085CE3B /* Operations.swift in Sources */,
+				EF6E10E02B780A7400F746E0 /* Model35.swift in Sources */,
+				EFECEAC42B6DC5C60051134A /* Color.swift in Sources */,
+				EF9A63A92B7B12490096822D /* Global.swift in Sources */,
+				40DDDE2F2B530DB3005F95B3 /* Stack.swift in Sources */,
+				EF6E10E12B780A7400F746E0 /* KeyboardView35.swift in Sources */,
+				EF0C0FF42B50C4E90033250C /* DisplayView.swift in Sources */,
+				EFC1AF7E2B825AE400B8946A /* InfoView35.swift in Sources */,
+				EF0C101E2B50C7710033250C /* Images.swift in Sources */,
+				EF0C101C2B50C5150033250C /* AppService.swift in Sources */,
+				EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */,
+				EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */,
+				EFB91B122B60BAE000A6347F /* String.swift in Sources */,
+				40DDDE312B548EDE005F95B3 /* Double.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFBF5F4D2B8172E700634ED5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBF5F632B8173C700634ED5 /* KeyboardView35.swift in Sources */,
+				EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */,
+				EFBF5F692B8173DC00634ED5 /* View.swift in Sources */,
+				EFBF5F652B8173D000634ED5 /* Color.swift in Sources */,
+				EFBF5F5F2B8173B400634ED5 /* DisplayView.swift in Sources */,
+				EFBF5F662B8173D200634ED5 /* Double.swift in Sources */,
+				EFBF5F642B8173CA00634ED5 /* Model35.swift in Sources */,
+				EFBF5F5A2B81737300634ED5 /* HP-35App.swift in Sources */,
+				EFBF5F5E2B81738200634ED5 /* Global.swift in Sources */,
+				EFBF5F6A2B8173E000634ED5 /* DebugView.swift in Sources */,
+				EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */,
+				EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */,
+				EFBF5F672B8173D600634ED5 /* String.swift in Sources */,
+				EFBF5F682B8173D900634ED5 /* Images.swift in Sources */,
+				EFBF5F542B8172E700634ED5 /* HP-35Tests.swift in Sources */,
+				EFBF5F5D2B81737F00634ED5 /* Operations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EFBF5F562B8172E700634ED5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF0C0FED2B50C4E90033250C /* HP-35 */;
+			targetProxy = EFBF5F552B8172E700634ED5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EF0C10102B50C4EB0033250C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EF0C10112B50C4EB0033250C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF0C10132B50C4EB0033250C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HP-35/Preview Content\"";
+				DEVELOPMENT_TEAM = 5HRDTDUZ98;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HP-35/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.hp-35";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF0C10142B50C4EB0033250C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HP-35/Preview Content\"";
+				DEVELOPMENT_TEAM = 5HRDTDUZ98;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HP-35/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.hp-35";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EFBF5F572B8172E700634ED5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5HRDTDUZ98;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.code3e.Retro35Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HP-35.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HP-35";
+			};
+			name = Debug;
+		};
+		EFBF5F582B8172E700634ED5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5HRDTDUZ98;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.code3e.Retro35Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HP-35.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HP-35";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF0C0FE92B50C4E90033250C /* Build configuration list for PBXProject "HP-35" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF0C10102B50C4EB0033250C /* Debug */,
+				EF0C10112B50C4EB0033250C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF0C10122B50C4EB0033250C /* Build configuration list for PBXNativeTarget "HP-35" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF0C10132B50C4EB0033250C /* Debug */,
+				EF0C10142B50C4EB0033250C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFBF5F592B8172E700634ED5 /* Build configuration list for PBXNativeTarget "HP-35Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFBF5F572B8172E700634ED5 /* Debug */,
+				EFBF5F582B8172E700634ED5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF0C0FE62B50C4E90033250C /* Project object */;
+}
