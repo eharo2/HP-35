@@ -19,22 +19,24 @@ struct DisplayView: View {
     }
 
     func lcdView() -> some View {
-        VStack(spacing: 0) {
-            ZStack {
-                display35()
-                    .padding(.vertical, Global.displayVerticalPadding)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                VStack(spacing: 0) {
-                    Text(displayInfo.output)
-                        .lineLimit(1)
-                    .kerning(5)
-                    .font(Font.custom("HP15C-Simulator-Font", size: Global.displayFontSize))
-                    .foregroundColor(.red)
-                    .padding(.bottom, 5)
-                    .padding(.leading, 5)
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                ZStack {
+                    display35()
+                        .padding(.vertical, Global.displayVerticalPadding)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    VStack(spacing: 0) {
+                        Text(displayInfo.output)
+                            .lineLimit(1)
+                        .kerning(5)
+                        .font(Font.custom("HP15C-Simulator-Font", size: geometry.size.width/13))
+                        .foregroundColor(.red)
+                        .padding(.bottom, 5)
+                        .padding(.leading, 5)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 6)
                 }
-                .padding(.horizontal, 25)
-                .padding(.top, 6)
             }
         }
     }
