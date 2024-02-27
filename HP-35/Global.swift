@@ -1,6 +1,6 @@
 //
 //  Global.swift
-// HP-35
+//  HP-35
 //
 //  Created by Enrique Haro on 2/12/24.
 //
@@ -19,7 +19,7 @@ struct Global {
     init() {
         #if os(iOS)
         Self.displayVerticalPadding = 5.0
-        Self.displayFontSize = 34
+        Self.displayFontSize = 28
         Self.fFontFactor = 1.1
         Self.bFontFactor = 1.2
         Self.keySizeFactor = 1.1
