@@ -14,7 +14,7 @@ struct Retro35App: App {
     #if os(iOS)
     @State var showKeyboard: Bool = true
     #else
-    @State var showKeyboard: Bool = false
+    @State var showKeyboard: Bool = true
     #endif
     @State var showInfo: Bool = false
 

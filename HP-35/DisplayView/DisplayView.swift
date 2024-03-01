@@ -16,6 +16,11 @@ struct DisplayView: View {
             .onChange(of: appService.displayInfo) { _, displayInfo in
                 self.displayInfo = displayInfo
             }
+            .onTapGesture {
+                Global.model = Global.model == .hp35 ? .hp45 : .hp35
+                appService.stack.clear()
+                appService.stack.inspect    ()
+            }
     }
 
     func lcdView() -> some View {

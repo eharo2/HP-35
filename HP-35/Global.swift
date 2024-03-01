@@ -9,6 +9,8 @@ import Foundation
 
 struct Global {
 
+    static var model: Model = .hp45
+
     // HP35
     static var displayVerticalPadding: CGFloat = 0.0
     static var displayFontSize: CGFloat = 0.0
@@ -31,4 +33,8 @@ struct Global {
         Self.keySizeFactor = 1.0
     #endif
     }
+}
+
+enum Model {
+    case hp35, hp45
 }
