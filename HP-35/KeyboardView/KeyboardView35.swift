@@ -54,7 +54,15 @@ struct KeyboardView35: View {
 
 struct KeyView35: View {
     @Binding var ops: [Op]
-    @State var clicked: Bool = false
+    @State var clicked: Bool = false {
+        didSet {
+            guard clicked else { return }
+            Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { _ in
+                clicked = false
+            }
+        }
+    }
+
     #if os(iOS)
     let haptic = UIImpactFeedbackGenerator(style: .soft)
     #endif
