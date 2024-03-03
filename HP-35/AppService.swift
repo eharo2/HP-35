@@ -24,8 +24,7 @@ class AppService: ObservableObject, StackDelegate {
     var numberOfDigits: Int = 2
     var didLstX = false
 
-    // HP35
-    var arcKey: Bool = false
+    var fShiftKey: Bool = false // arc in HP-35, orangeKey in HP-45
     var enteringEex: Bool = false
 
     init() {
@@ -50,24 +49,24 @@ class AppService: ObservableObject, StackDelegate {
 
     func processOps(_ ops: [Op]) {
         var op: Op
-        if arcKey {
+        if fShiftKey {
             guard ops.count > 1 else {
-                print("Ignore. After 'arc': \(ops[0])")
+                print("Ignore. After \(Global.model == .hp35 ? "'arc'" : "'shift'"): \(ops[0])")
                 return
             }
-            guard ops[1].isArcOp else {
+            if Global.model == .hp35 && !ops[1].isArcOp {
                 print("Ignore. No trigonometric op: \(ops[1])")
                 return
             }
             op = ops[1]
-            arcKey = false
+            fShiftKey = false
         } else {
             op = ops[0]
         }
         switch op {
-        case .arc:
-            print("Op: arc")
-            arcKey = true
+        case .fShift:
+            print("Op: \(Global.model == .hp35 ? "arc" : "shift")")
+            fShiftKey = true
         case .eex:
             enteringEex = true
             expInput = " 00"

@@ -10,6 +10,8 @@
 		400746202B524E0700696D02 /* HP15C-Simulator-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4007461F2B524E0700696D02 /* HP15C-Simulator-Font.ttf */; };
 		40DDDE2F2B530DB3005F95B3 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE2E2B530DB3005F95B3 /* Stack.swift */; };
 		40DDDE312B548EDE005F95B3 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE302B548EDE005F95B3 /* Double.swift */; };
+		EF02EA682B93E71E00B917F0 /* FInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA662B93E71D00B917F0 /* FInput.swift */; };
+		EF02EA692B93E71E00B917F0 /* GInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA672B93E71E00B917F0 /* GInput.swift */; };
 		EF0C097D2B51F2950085CE3B /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
 		EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* HP-35App.swift */; };
 		EF0C0FF42B50C4E90033250C /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF32B50C4E90033250C /* DisplayView.swift */; };
@@ -18,7 +20,7 @@
 		EF0C101C2B50C5150033250C /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
 		EF0C101E2B50C7710033250C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101D2B50C7710033250C /* Images.swift */; };
 		EF6E10E02B780A7400F746E0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DB2B780A7400F746E0 /* DataModel.swift */; };
-		EF6E10E12B780A7400F746E0 /* KeyboardView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DC2B780A7400F746E0 /* KeyboardView35.swift */; };
+		EF6E10E12B780A7400F746E0 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DC2B780A7400F746E0 /* KeyboardView.swift */; };
 		EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1AF7D2B825AE400B8946A /* InfoView35.swift */; };
 		EF9A63A92B7B12490096822D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A63A82B7B12490096822D /* Global.swift */; };
 		EFB91B122B60BAE000A6347F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB91B112B60BAE000A6347F /* String.swift */; };
@@ -29,7 +31,7 @@
 		EFBF5F5D2B81737F00634ED5 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
 		EFBF5F5E2B81738200634ED5 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A63A82B7B12490096822D /* Global.swift */; };
 		EFBF5F5F2B8173B400634ED5 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF32B50C4E90033250C /* DisplayView.swift */; };
-		EFBF5F632B8173C700634ED5 /* KeyboardView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DC2B780A7400F746E0 /* KeyboardView35.swift */; };
+		EFBF5F632B8173C700634ED5 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DC2B780A7400F746E0 /* KeyboardView.swift */; };
 		EFBF5F642B8173CA00634ED5 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DB2B780A7400F746E0 /* DataModel.swift */; };
 		EFBF5F652B8173D000634ED5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC32B6DC5C60051134A /* Color.swift */; };
 		EFBF5F662B8173D200634ED5 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE302B548EDE005F95B3 /* Double.swift */; };
@@ -63,6 +65,8 @@
 		400746212B524E2500696D02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		40DDDE2E2B530DB3005F95B3 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		40DDDE302B548EDE005F95B3 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		EF02EA662B93E71D00B917F0 /* FInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FInput.swift; sourceTree = "<group>"; };
+		EF02EA672B93E71E00B917F0 /* GInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GInput.swift; sourceTree = "<group>"; };
 		EF0C097C2B51F2950085CE3B /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		EF0C0FEE2B50C4E90033250C /* HP-35.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HP-35.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0C0FF12B50C4E90033250C /* HP-35App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HP-35App.swift"; sourceTree = "<group>"; };
@@ -72,7 +76,7 @@
 		EF0C101B2B50C5150033250C /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		EF0C101D2B50C7710033250C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		EF6E10DB2B780A7400F746E0 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		EF6E10DC2B780A7400F746E0 /* KeyboardView35.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardView35.swift; sourceTree = "<group>"; };
+		EF6E10DC2B780A7400F746E0 /* KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		EF9A63A82B7B12490096822D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		EFB91B112B60BAE000A6347F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		EFBF5F512B8172E700634ED5 /* HP-35Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HP-35Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,10 +130,12 @@
 			children = (
 				400746212B524E2500696D02 /* Info.plist */,
 				EF0C0FF12B50C4E90033250C /* HP-35App.swift */,
+				EF9A63A82B7B12490096822D /* Global.swift */,
 				EF0C101B2B50C5150033250C /* AppService.swift */,
 				40DDDE2E2B530DB3005F95B3 /* Stack.swift */,
+				EF02EA662B93E71D00B917F0 /* FInput.swift */,
+				EF02EA672B93E71E00B917F0 /* GInput.swift */,
 				EF0C097C2B51F2950085CE3B /* Operations.swift */,
-				EF9A63A82B7B12490096822D /* Global.swift */,
 				EFECEACD2B71BABE0051134A /* DisplayView */,
 				EFECEAC92B71BA1A0051134A /* InfoView */,
 				EFECEACC2B71BA840051134A /* KeyboardView */,
@@ -168,7 +174,7 @@
 		EFECEACC2B71BA840051134A /* KeyboardView */ = {
 			isa = PBXGroup;
 			children = (
-				EF6E10DC2B780A7400F746E0 /* KeyboardView35.swift */,
+				EF6E10DC2B780A7400F746E0 /* KeyboardView.swift */,
 				EF6E10DB2B780A7400F746E0 /* DataModel.swift */,
 				EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */,
 				EFFBE2962B8EA76F0012685A /* DataModel45.swift */,
@@ -308,7 +314,7 @@
 				EFECEAC42B6DC5C60051134A /* Color.swift in Sources */,
 				EF9A63A92B7B12490096822D /* Global.swift in Sources */,
 				40DDDE2F2B530DB3005F95B3 /* Stack.swift in Sources */,
-				EF6E10E12B780A7400F746E0 /* KeyboardView35.swift in Sources */,
+				EF6E10E12B780A7400F746E0 /* KeyboardView.swift in Sources */,
 				EF0C0FF42B50C4E90033250C /* DisplayView.swift in Sources */,
 				EFC1AF7E2B825AE400B8946A /* InfoView35.swift in Sources */,
 				EF0C101E2B50C7710033250C /* Images.swift in Sources */,
@@ -317,7 +323,9 @@
 				EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */,
 				EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */,
 				EFB91B122B60BAE000A6347F /* String.swift in Sources */,
+				EF02EA692B93E71E00B917F0 /* GInput.swift in Sources */,
 				40DDDE312B548EDE005F95B3 /* Double.swift in Sources */,
+				EF02EA682B93E71E00B917F0 /* FInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFBF5F632B8173C700634ED5 /* KeyboardView35.swift in Sources */,
+				EFBF5F632B8173C700634ED5 /* KeyboardView.swift in Sources */,
 				EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */,
 				EFBF5F692B8173DC00634ED5 /* View.swift in Sources */,
 				EFBF5F652B8173D000634ED5 /* Color.swift in Sources */,

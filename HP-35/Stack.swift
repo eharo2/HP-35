@@ -76,9 +76,6 @@ class Stack {
         case .toDeg: regX     = regX.toDeg
         case .toRad: regX     = regX.toRad
 
-        // case .toH: regX       = regX.toH
-        // case .toHMS: regX     = regX.toHMS
-
         // DOUBLE OPERAND
         case .add: regX        = regY + regX
         case .substract: regX  = regY - regX
@@ -88,6 +85,24 @@ class Stack {
         case .powerXY: regX    = pow(regX, regY) // HP35
         case .root: regX       = pow(regY, 1/regX)
         case .percentage: regX = regY * regX/100
+
+        case .toP:
+            let r = sqrt(pow(regX, 2) + pow(regY, 2))
+            var angle = acos(regX/r)
+            if regY < 0.0 {
+                angle += Double.pi/2 * (regX < 0 ? 1 : 3)
+            }
+            regX = r
+            regY = angle.convertTo(degrees)
+
+        case .toR:
+            let r = regX
+            let angle = regY
+            regX = r * cos(angle.convertFrom(degrees))
+            regY = r * sin(angle.convertFrom(degrees))
+
+        case .toH: regX   = regX.toH //.fromHMS in HP-45
+        case .toHMS: regX = regX.toHMS
 
         /// MISC
         case .clr: clear()

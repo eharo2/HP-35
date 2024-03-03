@@ -37,19 +37,20 @@ class DataModel {
         let fLabel2Size: CGFloat
         let fOffset: CGFloat
 
+        // Initializer for HP-35 keys
         init(
             type: KeyType = .none,
             ops: [Op] = [],
-            _ bLabel1: String,
-            _ bLabel2: String,
-            _ bLabel1Size: CGFloat,
-            _ bLabel2Size: CGFloat,
-            _ bOffset: CGFloat,
-            _ fLabel1: String,
-            _ fLabel2: String,
-            _ fLabel1Size: CGFloat,
-            _ fLabel2Size: CGFloat,
-            _ fOffset: CGFloat) {
+            bLabel1: String = "",
+            bLabel2: String = "",
+            bLabel1Size: CGFloat = 17,
+            bLabel2Size: CGFloat = 17,
+            bOffset: CGFloat = 6,
+            fLabel1: String = "",
+            fLabel2: String = "",
+            fLabel1Size: CGFloat = 16,
+            fLabel2Size: CGFloat = 11,
+            fOffset: CGFloat = 4) {
                 self.type = type
                 self.ops = ops
                 self.bLabel1 = bLabel1
@@ -64,19 +65,20 @@ class DataModel {
                 self.fOffset = fOffset
             }
 
+        // Aditional initializer to simplify HP-45 keys
         init(
             type: KeyType = .none,
             ops: [Op] = [],
-            bLabel1: String = "",
-            bLabel2: String = "",
-            bLabel1Size: CGFloat = 17,
-            bLabel2Size: CGFloat = 17,
-            bOffset: CGFloat = 6,
-            fLabel1: String = "",
-            fLabel2: String = "",
-            fLabel1Size: CGFloat = 16,
-            fLabel2Size: CGFloat = 11,
-            fOffset: CGFloat = 4) {
+            _ bLabel1: String,
+            _ bLabel2: String,
+            _ bLabel1Size: CGFloat,
+            _ bLabel2Size: CGFloat,
+            _ bOffset: CGFloat,
+            _ fLabel1: String,
+            _ fLabel2: String,
+            _ fLabel1Size: CGFloat,
+            _ fLabel2Size: CGFloat,
+            _ fOffset: CGFloat) {
                 self.type = type
                 self.ops = ops
                 self.bLabel1 = bLabel1
@@ -126,7 +128,6 @@ class DataModel {
 
 struct Sym {
     static let x = "\u{1D499}"
-    static let macron = "\u{0305}"
     static let y = "\u{1D49A}"
     static let pi = "\u{1D6D1}"
     static let e = "\u{1D486}"
@@ -141,8 +142,6 @@ struct Sym {
     static let up = "\u{21E7}"
     static let down = "\u{21E9}"
     static let exchange = "\u{1D499}\u{2276}\u{1D49A}"
-    static let delta = "\u{0394}"
-    static let summation = "\u{2211}"
 
     static let upTriangle = "\u{25B2}"
     static let downTriangle = "\u{25BC}"
@@ -156,6 +155,11 @@ extension Sym {
     //  HP-35
     static let down35 = "\u{2193}"
     static let up35 = "\u{2191}"
+
+    //  HP-45
+    static let macron = "\u{0305}"
+    static let delta = "\u{0394}"
+    static let summation = "\u{2211}"
 }
 
 extension String {
@@ -167,7 +171,7 @@ extension String {
         case "e": [.ex]
         case "C": [.clr]
         case "q": [.sqrt]
-        case "a": [.arc]
+        case "a": [.fShift]
         case "s": [.sin, .asin]
         case "c": [.cos, .acos]
         case "t": [.tan, .atan]

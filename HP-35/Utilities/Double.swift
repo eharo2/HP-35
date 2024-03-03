@@ -62,11 +62,54 @@ extension Double {
     }
 
     var toH: Double {
+//        if value > 1000000 {
+//            updateDisplayWithStackPush(value)
+//            return
+//        }
+//        let components = string.components(separatedBy: ".")
+//        let integerString = components[0]
+//        var fractionString = ""
+//        var minutesString = ""
+//        var secondsString = ""
+//        if components.count > 1 {
+//            fractionString = components[1]
+//        }
+//        switch fractionString.count {
+//        case 0: break
+//        case 1: minutesString = fractionString + "0"
+//        case 2: minutesString = fractionString
+//        case 3:
+//            minutesString = String(fractionString.prefix(2))
+//            secondsString = String(fractionString.suffix(fractionString.count - 2)) + "0"
+//        case 4:
+//            minutesString = String(fractionString.prefix(2))
+//            secondsString = String(fractionString.suffix(fractionString.count - 2))
+//        default:
+//            minutesString = String(fractionString.prefix(2))
+//            var reminder = String(fractionString.suffix(fractionString.count - 2))
+//            secondsString = String(reminder.prefix(2))
+//            reminder = String(reminder.suffix(reminder.count - 2))
+//            secondsString = secondsString + "." + reminder
+//        }
+//        let hours = Double(integerString) ?? 0.0
+//        let minutes = (Double(minutesString) ?? 0.0)/60.0
+//        let seconds = (Double(secondsString) ?? 0.0)/60.0/60.0
+//        value = hours + minutes + seconds
+//        updateDisplayWithStackPush(value)
         self
     }
 
     var toHMS: Double {
-        self
+        let integer = Int(trunc(self))
+        let fraction = self - Double(integer)
+        var seconds = fraction * 3600
+        let minutes = trunc(seconds/60)
+        let minutesString = minutes < 10 ? "0\(Int(minutes))" : "\(Int(minutes))"
+        seconds = seconds - minutes * 60
+        var secondsString = "\(seconds)"
+        secondsString = secondsString.replacingOccurrences(of: ".", with: "")
+        let hms = "\(integer)." + minutesString + secondsString
+        return Double(hms) ?? self
     }
 
     private var timeString: String {

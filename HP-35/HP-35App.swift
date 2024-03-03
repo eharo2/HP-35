@@ -57,7 +57,7 @@ struct Retro35App: App {
                     }
                 }
             if showKeyboard {
-                KeyboardView35()
+                KeyboardView()
                     .environmentObject(appService)
                     #if os(macOS)
                     .frame(height: 550)

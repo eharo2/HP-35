@@ -31,7 +31,7 @@ enum Op: Identifiable, Equatable {
 
     /// Misc
     case clr, clrX, lstX
-    case polar, cartesian
+    case toP, toR // Polar / Cartesian
     case toH, toHMS
 
     case fix, sci, eng
@@ -41,7 +41,7 @@ enum Op: Identifiable, Equatable {
     case rotateDown, rotateUp, exchangeXY
     case delete
     case sto, rcl
-    case arc // HP35
+    case fShift // arc in HP-35, orangeKey in HP-45
     case none
 
     // HP35
@@ -61,7 +61,8 @@ enum Op: Identifiable, Equatable {
 
     var noLift: Bool {
         switch self {
-        case .sqrt, .inverse, .log, .ln, .ex, .pi, .chs: true
+        case .sqrt, .powTwo, .inverse, .log, .tenX, .ln, .ex, .pi, .chs: true
+        case .toP, .toR: true
         default: false
         }
     }

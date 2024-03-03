@@ -1,5 +1,5 @@
 //
-//  KeyboardViewHP35.swift
+//  KeyboardViewHP.swift
 //  HP-35
 //
 //  Created by Enrique Haro on 2/8/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct KeyboardView35: View {
+struct KeyboardView: View {
     @EnvironmentObject var appService: AppService
     @State var ops: [Op] = []
 

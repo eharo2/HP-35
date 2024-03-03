@@ -19,12 +19,12 @@ extension DataModel {
                                                  "10", Sym.x, 13, 12, 8),
             Key(type: .gray, ops: [.fix, .sci], "FIX", "", 14, 0, 0,
                                                 "", "SCI", 0, 13, 2),
-            Key(type: .orange, ops: [.arc], "", "", 0, 0, 0, "", "", 0, 0, 0),
+            Key(type: .orange, ops: [.fShift], "", "", 0, 0, 0, "", "", 0, 0, 0),
             // Row 1
             Key(type: .gray, ops: [.powTwo, .sqrt], Sym.x, "2", 14, 12, 6,
                                                Sym.sqrt, Sym.x, 17, 14, 0),
 
-            Key(type: .black, ops: [.polar, .cartesian], Sym.right, "P", 10, 14, 0,
+            Key(type: .black, ops: [.toP, .toR], Sym.right, "P", 10, 14, 0,
                                                          Sym.right, "R", 10, 14, 2),
 
             Key(type: .black, ops: [.sin, .asin], "SIN", "", 14, 0, 0,
@@ -53,7 +53,7 @@ extension DataModel {
                                                "GRD", "", 13, 0, 0),
             Key(type: .lightGray, ops: [.clrX], "CL ", Sym.x, 14, 17, 2,
                                                 "CLEAR", "", 13, 0, 0),
-            Key(type: .lightGray, ops: [.substract], Sym.substract, "", 24, 0, 0, "", "", 0, 0, 0),
+            Key(type: .lightGray, ops: [.substract], "", Sym.substract, 0, 24, 2, "", "", 0, 0, 0),
             Key(type: .white, "7", "", 17, 0, 0, "cm/in", "", 14, 0, 0),
             Key(type: .white, "8", "", 17, 0, 0, "kg/lb", "", 14, 0, 0),
             Key(type: .white, "9", "", 17, 0, 0, "ltr/gal", "", 14, 0, 0),
@@ -65,7 +65,7 @@ extension DataModel {
             Key(type: .white, "1", "", 17, 0, 0, "", "", 0, 0, 0),
             Key(type: .white, "2", "", 17, 0, 0, "", "", 0, 0, 0),
             Key(type: .white, "3", "", 17, 0, 0, "", "", 0, 0, 0),
-            Key(type: .lightGray, ops: [.divide], Sym.divide, "", 24, 0, 0, "", "", 0, 0, 0),
+            Key(type: .lightGray, ops: [.divide], "", Sym.divide, 0, 24, 2, "", "", 0, 0, 0),
             Key(type: .white, "0", "", 17, 0, 0, "LAST ", Sym.x, 12, 16, 4),
             Key(type: .white, ops: [.decimalPoint, .pi], Sym.dot, "", 17, 0, 0, "", Sym.pi, 0, 19, 2),
             Key(type: .white, Sym.summation, "+", 17, 17, 0, "", "\(Sym.summation)-", 14, 14, 2),

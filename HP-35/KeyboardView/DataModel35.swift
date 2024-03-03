@@ -16,7 +16,7 @@ extension DataModel {
             Key(type: .black, ops: [.ex], fLabel1: Sym.e, fLabel2: Sym.x, fLabel1Size: 17, fLabel2Size: 13, fOffset: 4),
             Key(type: .blue, ops: [.clr],  fLabel1: "CLR", fLabel1Size: 14),
             Key(type: .black, ops: [.sqrt], fLabel1: Sym.sqrt, fLabel2: Sym.x, fLabel2Size: 17),
-            Key(type: .brown, ops: [.arc], fLabel1: "arc"),
+            Key(type: .brown, ops: [.fShift], fLabel1: "arc"),
             Key(type: .brown, ops: [.sin, .asin], fLabel1: "sin"),
             Key(type: .brown, ops: [.cos, .acos], fLabel1: "cos"),
             Key(type: .brown, ops: [.tan, .atan], fLabel1: "tan"),
