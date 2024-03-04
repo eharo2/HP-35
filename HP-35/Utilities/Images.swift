@@ -15,4 +15,8 @@ struct Images {
     static let brownKey     = Image("brown-key").resizable()
     static let whiteKey     = Image("white-key").resizable()
 
+    static let logoHP35     = Image("logo-35").resizable()
+    static let logoHP45     = Image("logo-45").resizable()
+    static let hpLogoBlue   = Image("hp-logo-blue").resizable()
+    static let hpLogoGray   = Image("hp-logo-gray").resizable()
 }

@@ -11,7 +11,6 @@ enum Op: Identifiable, Equatable {
     var id: String { UUID().uuidString }
 
     case digit(_ value: String)
-    case decimalPoint
     case enter
 
     /// Single Operand

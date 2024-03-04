@@ -27,8 +27,8 @@ struct KeyboardView: View {
                 ForEach(0..<4) { row in
                     keysRow(index: row * 4 + 19, numKeys: 4)
                 }
+                logoLabelView()
             }
-            .padding(.bottom, 20)
             .background(Color.clear)
             .padding(Global.displayVerticalPadding)
             .padding(.bottom, 5)
@@ -48,6 +48,41 @@ struct KeyboardView: View {
                 }
             }
             .padding(.horizontal, width * 0.5)
+        }
+    }
+
+    func logoLabelView() -> some View {
+        Group {
+            Rectangle()
+                .foregroundColor(.fKey35)
+                .frame(height: 0.5)
+                .padding(10)
+            HStack {
+                if Global.model == .hp35 {
+                    Images.hpLogoBlue
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 20)
+                } else {
+                    Images.hpLogoGray
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 20)
+                }
+                Spacer()
+                Text(" RPN \(Sym.dot) CALCULATOR  \(Global.model == .hp35 ? "35" : "45")")
+                    .font(Font.custom("Century Gothic", size: 18))
+                    .kerning(5)
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+                    .foregroundColor(.white)
+                Spacer()
+            }
+            .padding(.bottom, 5)
+            .padding(.horizontal, 20)
+            .onTapGesture {
+                Global.model = Global.model == .hp35 ? .hp45 : .hp35
+                appService.stack.clear()
+                appService.stack.inspect()
+            }
         }
     }
 }
@@ -101,8 +136,9 @@ struct KeyView35: View {
             haptic.impactOccurred()
             #endif
             clicked = true
-            ops = key.ops == [.decimalPoint] ? [.digit(".")] :
-                  key.ops.isEmpty ? [.digit(key.bLabel1)] : key.ops
+            DispatchQueue.global().async {
+                ops = key.ops.isEmpty ? [.digit(key.bLabel1)] : key.ops
+            }
         }
     }
 

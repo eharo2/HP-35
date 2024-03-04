@@ -14,12 +14,9 @@ struct DisplayView: View {
     var body: some View {
         lcdView()
             .onChange(of: appService.displayInfo) { _, displayInfo in
-                self.displayInfo = displayInfo
-            }
-            .onTapGesture {
-                Global.model = Global.model == .hp35 ? .hp45 : .hp35
-                appService.stack.clear()
-                appService.stack.inspect    ()
+                DispatchQueue.main.async {
+                    self.displayInfo = displayInfo
+                }
             }
     }
 
@@ -40,7 +37,9 @@ struct DisplayView: View {
                         .padding(.leading, 5)
                     }
                     .padding(.horizontal, 20)
+                    #if os(macOS)
                     .padding(.top, 6)
+                    #endif
                 }
             }
         }

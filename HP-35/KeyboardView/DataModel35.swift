@@ -45,7 +45,7 @@ extension DataModel {
             Key(type: .white, bLabel1: "3"),
             Key(type: .blue, ops: [.divide], bLabel1: Sym.divide, bLabel1Size: 24),
             Key(type: .white, bLabel1: "0"),
-            Key(type: .white, ops: [.decimalPoint], bLabel1: Sym.dot),
+            Key(type: .white, ops: [.digit(".")], bLabel1: Sym.dot),
             Key(type: .white, ops: [.pi], bLabel1: Sym.pi, bLabel1Size: 22),
         ]
     }

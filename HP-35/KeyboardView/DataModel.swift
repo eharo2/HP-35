@@ -74,11 +74,11 @@ class DataModel {
             _ bLabel1Size: CGFloat,
             _ bLabel2Size: CGFloat,
             _ bOffset: CGFloat,
-            _ fLabel1: String,
-            _ fLabel2: String,
-            _ fLabel1Size: CGFloat,
-            _ fLabel2Size: CGFloat,
-            _ fOffset: CGFloat) {
+            _ fLabel1: String = "",
+            _ fLabel2: String = "",
+            _ fLabel1Size: CGFloat = 0,
+            _ fLabel2Size: CGFloat = 0,
+            _ fOffset: CGFloat = 0) {
                 self.type = type
                 self.ops = ops
                 self.bLabel1 = bLabel1
