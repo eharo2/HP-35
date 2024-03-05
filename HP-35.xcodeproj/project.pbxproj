@@ -12,6 +12,7 @@
 		40DDDE312B548EDE005F95B3 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE302B548EDE005F95B3 /* Double.swift */; };
 		EF02EA682B93E71E00B917F0 /* FInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA662B93E71D00B917F0 /* FInput.swift */; };
 		EF02EA692B93E71E00B917F0 /* GInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA672B93E71E00B917F0 /* GInput.swift */; };
+		EF02EA6C2B96A92A00B917F0 /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA6B2B96A92A00B917F0 /* KeyView.swift */; };
 		EF0C097D2B51F2950085CE3B /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
 		EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* HP-35App.swift */; };
 		EF0C0FF42B50C4E90033250C /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF32B50C4E90033250C /* DisplayView.swift */; };
@@ -67,6 +68,7 @@
 		40DDDE302B548EDE005F95B3 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		EF02EA662B93E71D00B917F0 /* FInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FInput.swift; sourceTree = "<group>"; };
 		EF02EA672B93E71E00B917F0 /* GInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GInput.swift; sourceTree = "<group>"; };
+		EF02EA6B2B96A92A00B917F0 /* KeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyView.swift; sourceTree = "<group>"; };
 		EF0C097C2B51F2950085CE3B /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		EF0C0FEE2B50C4E90033250C /* HP-35.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HP-35.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0C0FF12B50C4E90033250C /* HP-35App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HP-35App.swift"; sourceTree = "<group>"; };
@@ -107,6 +109,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF02EA6A2B96A8EF00B917F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF6E10DB2B780A7400F746E0 /* DataModel.swift */,
+				EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */,
+				EFFBE2962B8EA76F0012685A /* DataModel45.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EF0C0FE52B50C4E90033250C = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +151,7 @@
 				EFECEACD2B71BABE0051134A /* DisplayView */,
 				EFECEAC92B71BA1A0051134A /* InfoView */,
 				EFECEACC2B71BA840051134A /* KeyboardView */,
+				EF02EA6A2B96A8EF00B917F0 /* Model */,
 				EFECEACE2B71BB230051134A /* Utilities */,
 				EF0C0FF52B50C4EB0033250C /* Assets.xcassets */,
 				4007461F2B524E0700696D02 /* HP15C-Simulator-Font.ttf */,
@@ -175,9 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				EF6E10DC2B780A7400F746E0 /* KeyboardView.swift */,
-				EF6E10DB2B780A7400F746E0 /* DataModel.swift */,
-				EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */,
-				EFFBE2962B8EA76F0012685A /* DataModel45.swift */,
+				EF02EA6B2B96A92A00B917F0 /* KeyView.swift */,
 			);
 			path = KeyboardView;
 			sourceTree = "<group>";
@@ -319,6 +330,7 @@
 				EFC1AF7E2B825AE400B8946A /* InfoView35.swift in Sources */,
 				EF0C101E2B50C7710033250C /* Images.swift in Sources */,
 				EF0C101C2B50C5150033250C /* AppService.swift in Sources */,
+				EF02EA6C2B96A92A00B917F0 /* KeyView.swift in Sources */,
 				EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */,
 				EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */,
 				EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */,

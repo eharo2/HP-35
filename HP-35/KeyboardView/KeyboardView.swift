@@ -56,27 +56,22 @@ struct KeyboardView: View {
             Rectangle()
                 .foregroundColor(.fKey35)
                 .frame(height: 0.5)
-                .padding(10)
+                .padding([.bottom, .horizontal], 8)
+                .padding(.top, 13)
             HStack {
-                if Global.model == .hp35 {
-                    Images.hpLogoBlue
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 20)
-                } else {
-                    Images.hpLogoGray
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 20)
-                }
+                logoImage
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 20)
                 Spacer()
                 Text(" RPN \(Sym.dot) CALCULATOR  \(Global.model == .hp35 ? "35" : "45")")
-                    .font(Font.custom("Century Gothic", size: 18))
+                    .font(Font.custom("Century Gothic", size: 16))
                     .kerning(5)
-                    .minimumScaleFactor(0.5)
+                    .minimumScaleFactor(0.8)
                     .lineLimit(1)
                     .foregroundColor(.white)
                 Spacer()
             }
-            .padding(.bottom, 5)
+            .padding(.bottom, 4)
             .padding(.horizontal, 20)
             .onTapGesture {
                 Global.model = Global.model == .hp35 ? .hp45 : .hp35
@@ -85,146 +80,8 @@ struct KeyboardView: View {
             }
         }
     }
-}
 
-struct KeyView35: View {
-    @Binding var ops: [Op]
-    @State var clicked: Bool = false {
-        didSet {
-            guard clicked else { return }
-            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
-                clicked = false
-            }
-        }
+    var logoImage: Image {
+        Global.model == .hp35 ? Images.hpLogoBlue : Images.hpLogoGray
     }
-
-    #if os(iOS)
-    let haptic = UIImpactFeedbackGenerator(style: .soft)
-    #endif
-
-    var key: DataModel.Key
-    var width: CGFloat
-
-    var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            HStack(spacing: 0) {
-                if key.type == .lightGrayLarge { Spacer() }
-                key.fLabel
-                    .foregroundColor(.fKey35)
-                if key.type == .lightGrayLarge { Spacer().frame(width: 16) }
-            }
-            ZStack {
-                Rectangle()
-                    .foregroundColor(.black)
-                    .cornerRadius(5)
-                ZStack {
-                    keyView(keyColor)
-                    key.bLabel
-                        .foregroundColor(foregroundColor)
-                        .padding(.bottom, 9)
-                        .padding(.trailing, 1)
-                }
-                .padding(1)
-                .padding(.top, clicked ? 2 : 0)
-            }
-            .frame(width: keyWidth * Global.keySizeFactor, height: width * Global.keySizeFactor)
-            .padding(.bottom, 5)
-        }
-        .onTapGesture {
-            #if os(iOS)
-            haptic.impactOccurred()
-            #endif
-            clicked = true
-            DispatchQueue.global().async {
-                ops = key.ops.isEmpty ? [.digit(key.bLabel1)] : key.ops
-            }
-        }
-    }
-
-    func keyView(_ color: Color) -> some View {
-        ZStack {
-            subview(.black)
-            subview(color).opacity(0.5)
-            subview(color)
-                .padding([.leading, .top, .trailing], 2)
-                .padding(.bottom, 8)
-            subview(.white)
-                .padding([.leading, .top, .trailing], 4)
-                .padding(.bottom, 11)
-            subview(color)
-                .padding([.leading, .top], 4)
-                .padding(.trailing, 6)
-                .padding(.bottom, 13)
-        }
-    }
-
-    func subview(_ color: Color) -> some View {
-        GeometryReader { geometry in
-            let w = geometry.size.width
-            let h = geometry.size.height
-            let r = h * 0.1
-            Path { path in
-                path.move(to: CGPoint(x: r, y: 0))
-                path.addArc(tangent1End: CGPoint(x: w, y: 0),
-                            tangent2End: CGPoint(x: w, y: r), radius: r)
-                path.addArc(tangent1End: CGPoint(x: w, y: h),
-                            tangent2End: CGPoint(x: w - r, y: h), radius: r)
-                path.addArc(tangent1End: CGPoint(x: 0, y: h),
-                            tangent2End: CGPoint(x: 0, y: h - r), radius: r)
-                path.addArc(tangent1End: CGPoint(x: 0, y: 0),
-                            tangent2End: CGPoint(x: r, y: 0), radius: r)
-            }
-            .fill(color)
-        }
-    }
-
-    var keyWidth: CGFloat {
-        switch key.type {
-        // HP35
-        case .blueLarge, .lightGrayLarge: width * 3
-        case .white: width * 1.5
-        case.brown: width
-        // HP45
-        case .gray, .lightGray: width * 1.2
-        case .black: width * (Global.model == .hp35 ? 1.0 : 1.2)
-        default: width
-        }
-    }
-
-    var keyColor: Color {
-        switch key.type {
-        // HP35
-        case .blue, .blueLarge: .keyCyan35
-        case .brown: .keyBrown35
-
-        // HP45
-        case .orange: .keyOrange45
-        case .gray: .keyGray45
-        case .lightGray, .lightGrayLarge: .keyLightGray45
-        case .white: .keyWhite45
-        case .black: .keyBlack45
-        default: .clear
-        }
-    }
-
-    var foregroundColor: Color {
-        switch key.type {
-        case .blue, .blueLarge: .white
-        case .white, .brown: .black
-        // HP45
-        case .gray, .black: .white
-        case .lightGray, .lightGrayLarge: .black
-        default: .white
-        }
-    }
-}
-
-enum KeyType {
-    // HP35
-    case blue, blueLarge, brown, black, white
-    // HP45
-    case orange, gray, lightGray, lightGrayLarge
-
-    case none
 }

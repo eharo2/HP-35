@@ -9,7 +9,7 @@ import Foundation
 
 extension DataModel {
     var hp35Keys: [Key] {
-        [
+    [
             Key(type: .black, ops: [.powerXY], fLabel1: Sym.x, fLabel2: Sym.y, fLabel1Size: 17, fLabel2Size: 13, fOffset: 6),
             Key(type: .black, ops: [.log], fLabel1: "log"),
             Key(type: .black, ops: [.ln], fLabel1: "ln"),

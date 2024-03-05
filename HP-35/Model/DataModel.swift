@@ -105,8 +105,8 @@ class DataModel {
                 Text(key.bLabel1)
                     .font(.system(size: key.bLabel1Size * Global.bFontFactor, weight: .regular))
                 Text(key.bLabel2)
-                    .baselineOffset(key.bOffset)
                     .font(.system(size: key.bLabel2Size * Global.bFontFactor, weight: .regular))
+                    .baselineOffset(key.bOffset)
             }
         }
     }
