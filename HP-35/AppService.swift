@@ -27,6 +27,10 @@ class AppService: ObservableObject, StackDelegate {
     var fShiftKey: Bool = false // arc in HP-35, orangeKey in HP-45
     var enteringEex: Bool = false
 
+    // HP-45
+    var formatInput = false
+    var format: Format = .fix(2)
+
     init() {
 #if os(macOS)
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event -> NSEvent? in
@@ -48,7 +52,25 @@ class AppService: ObservableObject, StackDelegate {
     }
 
     func processOps(_ ops: [Op]) {
-        var op: Op
+        var op: Op = ops[0]
+        if op == .fix {
+            formatInput = true
+            print("Op: Fix")
+            return
+        }
+        if formatInput {
+            switch ops[0] {
+            case .digit(let value):
+                if let value = Int(value) {
+                    print("Fix \(value)")
+                    // numberOfDigits = value
+                    format = .fix(value)
+                }
+            default: print("Ignore: Fix \(ops)")
+            }
+            formatInput = false
+            return
+        }
         if fShiftKey {
             guard ops.count > 1 else {
                 print("Ignore. After \(Global.model == .hp35 ? "'arc'" : "'shift'"): \(ops[0])")
@@ -60,6 +82,10 @@ class AppService: ObservableObject, StackDelegate {
             }
             op = ops[1]
             fShiftKey = false
+            if op == .deg || op == .rad {
+                self.displayInfo.degrees = op == .deg ? .deg : .rad
+                return
+            }
         } else {
             op = ops[0]
         }
@@ -73,7 +99,7 @@ class AppService: ObservableObject, StackDelegate {
             if numericInput.isEmpty {
                 numericInput = "1.0"
             }
-            displayInfo.output = numericInput.padded + expInput
+            updateDisplay(with: numericInput)
         case .digit(let input):
             if enteringEex {
                 guard input != "." else { return }
@@ -95,7 +121,7 @@ class AppService: ObservableObject, StackDelegate {
                         stack.shouldLiftAtInput = false
                     }
                     stack.regX = value
-                    displayInfo.output = numericInput.padded + expInput
+                    updateDisplay(with: numericInput)
                 }
                 stack.inspect()
             }
@@ -109,10 +135,10 @@ class AppService: ObservableObject, StackDelegate {
             guard displayInfo.output != 0.format(numberOfDigits) else { return }
             numericInput = String(numericInput.dropLast())
             if numericInput.count == 0 {
-                displayInfo.output = 0.format(numberOfDigits).padded.noExp
+                updateDisplay(with: 0.format(numberOfDigits), addExponent: false)
                 return
             }
-            displayInfo.output = numericInput.padded.noExp
+            updateDisplay(with: numericInput, addExponent: false)
         case .chs:
             print("Op: \(op)")
             if enteringEex {
@@ -128,7 +154,7 @@ class AppService: ObservableObject, StackDelegate {
                     stack.regX = -stack.regX
                 } else {
                     numericInput = "-"
-                    displayInfo.output = numericInput.padded + expInput
+                    updateDisplay(with: numericInput)
                 }
             } else {
                 if numericInput.starts(with: "-") {
@@ -156,7 +182,7 @@ class AppService: ObservableObject, StackDelegate {
             } else if op.isTrigonometric {
                 stack.execute(op, degrees: displayInfo.degrees)
             } else {
-                print("No Op \(op)")
+                print("No Op: \(op)")
             }
             stack.shouldLiftAtInput = !op.noStackOperation
             stack.inspect()
@@ -173,8 +199,16 @@ class AppService: ObservableObject, StackDelegate {
             stack.shouldLiftAtInput = false
         }
         stack.regX = coeficient * pow(10, exponent)
-        displayInfo.output = numericInput.padded + expInput
+        updateDisplay(with: numericInput)
         stack.inspect()
+    }
+
+    func updateDisplay(with string: String, addExponent: Bool = true) {
+        if addExponent {
+            displayInfo.output = string.padded + expInput
+        } else {
+            displayInfo.output = string.padded.noExp
+        }
     }
 
     func reset() {
@@ -204,3 +238,15 @@ extension NSEvent {
     }
 }
 #endif
+
+enum Format {
+    case fix(_ value: Int)
+    case sci(_ value: Int)
+
+    var digits: Int {
+        switch self {
+        case .fix(let value): return value
+        case .sci(let value): return value
+        }
+    }
+}
