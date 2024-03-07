@@ -19,6 +19,7 @@ class AppService: ObservableObject, StackDelegate {
         }
     }
     var stack = Stack()
+    var displayManager = DisplayManager()
     var numericInput = ""
     var expInput = "   "
     var numberOfDigits: Int = 2

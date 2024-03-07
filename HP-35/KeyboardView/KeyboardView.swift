@@ -18,7 +18,8 @@ struct KeyboardView: View {
             RoundedRectangle(cornerRadius: 3)
                 .stroke(Color.fKey35, lineWidth: 2)
                 .background(Color.gray35)
-                .padding(5)
+                .padding(.horizontal, 5)
+                .padding(.bottom, CGFloat(-1, 2))
             VStack(spacing: 0) {
                 ForEach(0..<3) { row in
                     keysRow(index: row * 5, numKeys: 5)
@@ -62,17 +63,15 @@ struct KeyboardView: View {
                 logoImage
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 20)
-                Spacer()
                 Text(" RPN \(Sym.dot) CALCULATOR  \(Global.model == .hp35 ? "35" : "45")")
-                    .font(Font.custom("Century Gothic", size: 16))
+                    .font(Font.custom("Century Gothic", size: CGFloat(16, 14)))
                     .kerning(5)
                     .minimumScaleFactor(0.8)
                     .lineLimit(1)
                     .foregroundColor(.white)
-                Spacer()
             }
-            .padding(.bottom, 4)
-            .padding(.horizontal, 20)
+            .padding(.bottom, CGFloat(8, 4))
+            .padding(.horizontal, CGFloat(20, 10))
             .onTapGesture {
                 Global.model = Global.model == .hp35 ? .hp45 : .hp35
                 appService.stack.clear()

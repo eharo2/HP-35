@@ -50,6 +50,10 @@
 		EFF476642B981DB300A5744A /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA6B2B96A92A00B917F0 /* KeyView.swift */; };
 		EFF476652B981DCD00A5744A /* DataModel35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */; };
 		EFF476662B981DD100A5744A /* DataModel45.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFBE2962B8EA76F0012685A /* DataModel45.swift */; };
+		EFF476682B981E7300A5744A /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF476672B981E7300A5744A /* DisplayManager.swift */; };
+		EFF476692B981E7300A5744A /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF476672B981E7300A5744A /* DisplayManager.swift */; };
+		EFF4766C2B992B1E00A5744A /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4766B2B992B1E00A5744A /* CGFloat.swift */; };
+		EFF4766D2B992B1E00A5744A /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4766B2B992B1E00A5744A /* CGFloat.swift */; };
 		EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */; };
 		EFFBE2972B8EA76F0012685A /* DataModel45.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFBE2962B8EA76F0012685A /* DataModel45.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +94,8 @@
 		EFECEAC12B6DC4150051134A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EFECEAC32B6DC5C60051134A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EFECEAD52B76CCC00051134A /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		EFF476672B981E7300A5744A /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
+		EFF4766B2B992B1E00A5744A /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel35.swift; sourceTree = "<group>"; };
 		EFFBE2962B8EA76F0012685A /* DataModel45.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel45.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,10 +153,7 @@
 				EF0C0FF12B50C4E90033250C /* HP-35App.swift */,
 				EF9A63A82B7B12490096822D /* Global.swift */,
 				EF0C101B2B50C5150033250C /* AppService.swift */,
-				40DDDE2E2B530DB3005F95B3 /* Stack.swift */,
-				EF02EA662B93E71D00B917F0 /* FInput.swift */,
-				EF02EA672B93E71E00B917F0 /* GInput.swift */,
-				EF0C097C2B51F2950085CE3B /* Operations.swift */,
+				EFF4766A2B981EB000A5744A /* StackManager */,
 				EFECEACD2B71BABE0051134A /* DisplayView */,
 				EFECEAC92B71BA1A0051134A /* InfoView */,
 				EFECEACC2B71BA840051134A /* KeyboardView */,
@@ -200,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				EF0C0FF32B50C4E90033250C /* DisplayView.swift */,
+				EFF476672B981E7300A5744A /* DisplayManager.swift */,
 			);
 			path = DisplayView;
 			sourceTree = "<group>";
@@ -207,6 +211,7 @@
 		EFECEACE2B71BB230051134A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				EFF4766B2B992B1E00A5744A /* CGFloat.swift */,
 				EFECEAC32B6DC5C60051134A /* Color.swift */,
 				40DDDE302B548EDE005F95B3 /* Double.swift */,
 				EF0C101D2B50C7710033250C /* Images.swift */,
@@ -215,6 +220,17 @@
 				EFECEAD52B76CCC00051134A /* DebugView.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EFF4766A2B981EB000A5744A /* StackManager */ = {
+			isa = PBXGroup;
+			children = (
+				40DDDE2E2B530DB3005F95B3 /* Stack.swift */,
+				EF0C097C2B51F2950085CE3B /* Operations.swift */,
+				EF02EA662B93E71D00B917F0 /* FInput.swift */,
+				EF02EA672B93E71E00B917F0 /* GInput.swift */,
+			);
+			path = StackManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +339,7 @@
 			files = (
 				EFECEAC22B6DC4150051134A /* View.swift in Sources */,
 				EF0C097D2B51F2950085CE3B /* Operations.swift in Sources */,
+				EFF4766C2B992B1E00A5744A /* CGFloat.swift in Sources */,
 				EFFBE2972B8EA76F0012685A /* DataModel45.swift in Sources */,
 				EF6E10E02B780A7400F746E0 /* DataModel.swift in Sources */,
 				EFECEAC42B6DC5C60051134A /* Color.swift in Sources */,
@@ -334,6 +351,7 @@
 				EF0C101E2B50C7710033250C /* Images.swift in Sources */,
 				EF0C101C2B50C5150033250C /* AppService.swift in Sources */,
 				EF02EA6C2B96A92A00B917F0 /* KeyView.swift in Sources */,
+				EFF476682B981E7300A5744A /* DisplayManager.swift in Sources */,
 				EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */,
 				EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */,
 				EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */,
@@ -357,6 +375,7 @@
 				EFBF5F5F2B8173B400634ED5 /* DisplayView.swift in Sources */,
 				EFBF5F662B8173D200634ED5 /* Double.swift in Sources */,
 				EFF476642B981DB300A5744A /* KeyView.swift in Sources */,
+				EFF4766D2B992B1E00A5744A /* CGFloat.swift in Sources */,
 				EFBF5F642B8173CA00634ED5 /* DataModel.swift in Sources */,
 				EFBF5F5A2B81737300634ED5 /* HP-35App.swift in Sources */,
 				EFBF5F5E2B81738200634ED5 /* Global.swift in Sources */,
@@ -364,6 +383,7 @@
 				EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */,
 				EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */,
 				EFBF5F672B8173D600634ED5 /* String.swift in Sources */,
+				EFF476692B981E7300A5744A /* DisplayManager.swift in Sources */,
 				EFBF5F682B8173D900634ED5 /* Images.swift in Sources */,
 				EFBF5F542B8172E700634ED5 /* HP-35Tests.swift in Sources */,
 				EFBF5F5D2B81737F00634ED5 /* Operations.swift in Sources */,

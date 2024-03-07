@@ -25,9 +25,10 @@ struct Retro35App: App {
                 Rectangle()
                     .foregroundColor(.black)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .ignoresSafeArea()
                 mainView()
+                    .padding([.top], 25)
             }
+            .ignoresSafeArea()
         #else
             mainView()
         #endif
@@ -39,6 +40,7 @@ struct Retro35App: App {
         VStack(spacing: 0) {
             DisplayView()
                 .frame(height: 80)
+                .padding(.top, 5)
                 .environmentObject(appService)
                 .toolbar {
                     HStack {
