@@ -9,13 +9,8 @@ import SwiftUI
 
 @main
 struct Retro35App: App {
-    let global = Global()
     @StateObject var appService = AppService()
-    #if os(iOS)
-    @State var showKeyboard: Bool = true
-    #else
-    @State var showKeyboard: Bool = true
-    #endif
+    @State var showKeyboard: Bool = !.mac
     @State var showInfo: Bool = false
 
     var body: some Scene {
@@ -26,7 +21,7 @@ struct Retro35App: App {
                     .foregroundColor(.black)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 mainView()
-                    .padding([.top], 25)
+                    .padding(.top, 40)
             }
             .ignoresSafeArea()
         #else
@@ -40,7 +35,7 @@ struct Retro35App: App {
         VStack(spacing: 0) {
             DisplayView()
                 .frame(height: 80)
-                .padding(.top, 5)
+                .padding(.bottom, 5)
                 .environmentObject(appService)
                 .toolbar {
                     HStack {
@@ -62,7 +57,7 @@ struct Retro35App: App {
                 KeyboardView()
                     .environmentObject(appService)
                     #if os(macOS)
-                    .frame(height: 550)
+                    .frame(height: 580)
                     #else
                     .frame(maxHeight: .infinity)
                     #endif

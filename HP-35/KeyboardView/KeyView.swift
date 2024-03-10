@@ -48,7 +48,7 @@ struct KeyView35: View {
                 .padding(1)
                 .padding(.top, clicked ? 2 : 0)
             }
-            .frame(width: keyWidth * Global.keySizeFactor, height: width * Global.keySizeFactor)
+            .frame(width: keyWidth, height: width)
             .padding(.bottom, 5)
         }
         .onTapGesture {
@@ -107,7 +107,7 @@ struct KeyView35: View {
         case.brown: width
         // HP45
         case .gray, .lightGray: width * 1.2
-        case .black: width * (Global.model == .hp35 ? 1.0 : 1.2)
+        case .black: width * (.hp35 ? 1.0 : 1.2)
         default: width
         }
     }

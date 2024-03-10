@@ -34,14 +34,14 @@ import Darwin
 //    }
 //
 //    func notationInput() {
-//        state.numberOfDigits = valueForIndex()
+//        state.displayManager.numberOfDigits = valueForIndex()
 //        switch input {
 //        case .sciInput: state.notation = .sci
 //        case .engInput: state.notation = .eng
 //        default: state.notation = .fix
 //        }
 //        input = .baseInput
-//        state.saveNumberOfDigits()      // Save in UserDefaults
+//        state.savedisplayManager.numberOfDigits()      // Save in UserDefaults
 //        state.saveNotation()            // Save in UserDefaults
 //    }
 //

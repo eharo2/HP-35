@@ -103,9 +103,9 @@ class DataModel {
         var body: some View {
             HStack(spacing: 0) {
                 Text(key.bLabel1)
-                    .font(.system(size: key.bLabel1Size * Global.bFontFactor, weight: .regular))
+                    .font(.system(size: key.bLabel1Size * (.mac ? 1.0 : 1.2), weight: .regular))
                 Text(key.bLabel2)
-                    .font(.system(size: key.bLabel2Size * Global.bFontFactor, weight: .regular))
+                    .font(.system(size: key.bLabel2Size * (.mac ? 1.0 : 1.2), weight: .regular))
                     .baselineOffset(key.bOffset)
             }
         }
@@ -117,10 +117,10 @@ class DataModel {
         var body: some View {
             HStack(spacing: 0) {
                 Text(key.fLabel1)
-                    .font(.system(size: key.fLabel1Size * Global.fFontFactor, weight: .regular))
+                    .font(.system(size: key.fLabel1Size * (.mac ? 1.0 : 1.2), weight: .regular))
                 Text(key.fLabel2)
                     .baselineOffset(key.fOffset)
-                    .font(.system(size: key.fLabel2Size * Global.fFontFactor, weight: .regular))
+                    .font(.system(size: key.fLabel2Size * (.mac ? 1.0 : 1.2), weight: .regular))
             }
         }
     }

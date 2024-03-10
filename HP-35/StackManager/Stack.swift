@@ -18,7 +18,7 @@ protocol StackDelegate {
 
 class Stack {
     var delegate: StackDelegate?
-    var shouldLiftAtInput: Bool = false // xIsResultAndShouldLiftAtNumericInput
+    var shouldLiftAtInput: Bool = false // xIsResultAndShouldLiftAtdisplayManager.numericInput
 
     /// Previous Values used for Debugging purposes.
     var preT: Double = 0
@@ -38,9 +38,30 @@ class Stack {
         }
     }
 
-    func execute(_ operation: Op, degrees: Degrees = .deg) {
-        print("Stack Op: \(operation)")
-        switch operation {
+    func processOp(_ op: Op, _ degrees: Degrees, _ numericInputIsEmpty: Bool) {
+        if op.shouldDrop {
+            executeOp(op)
+            drop()
+            shouldLiftAtInput = true
+        } else if op.shouldLift {
+            if shouldLiftAtInput || !numericInputIsEmpty {
+                lift()
+            }
+            executeOp(op)
+        } else if op.noLift || op.noStackOperation {
+            executeOp(op)
+        } else if op.isTrigonometric {
+            executeOp(op, degrees: degrees)
+        } else {
+            print("No Op: \(op)")
+        }
+        shouldLiftAtInput = !op.noStackOperation
+        inspect()
+    }
+
+    func executeOp(_ op: Op, degrees: Degrees = .deg) {
+        print("Stack Op: \(op)")
+        switch op {
         // NO OPERAND
         case .exchangeXY: exchangeXY()
         case .rotateUp: rotateUp()
@@ -108,7 +129,7 @@ class Stack {
         case .clr: clear()
         case .clrX: regX       = 0.0
         case .lstX: lift(lstX)
-        default: print("NOP: \(operation)")
+        default: print("NOP: \(op)")
         }
     }
 

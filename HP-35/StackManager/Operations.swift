@@ -85,3 +85,18 @@ enum Op: Identifiable, Equatable {
         return ops.contains(self)
     }
 }
+
+extension Op {
+    var name: String {
+        var name = String("\(self)".split(separator: ".").last ?? "")
+        name = String(name.replacingOccurrences(of: "\"", with: ""))
+        name = String(name.replacingOccurrences(of: "\\", with: ""))
+        return ".\(name)"
+    }
+}
+
+extension [Op] {
+    var names: String {
+        "\(self.map { $0.name })".replacingOccurrences(of: "\"", with: "")
+    }
+}

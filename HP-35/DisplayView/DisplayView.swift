@@ -25,7 +25,7 @@ struct DisplayView: View {
             VStack(spacing: 0) {
                 ZStack {
                     display35()
-                        .padding(.vertical, Global.displayVerticalPadding)
+                        .padding(.vertical, 0)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     VStack(spacing: 0) {
                         Text(displayInfo.output)
@@ -37,9 +37,6 @@ struct DisplayView: View {
                         .padding(.leading, 5)
                     }
                     .padding(.horizontal, 20)
-                    #if os(macOS)
-                    .padding(.top, 6)
-                    #endif
                 }
             }
         }
@@ -67,25 +64,6 @@ extension DisplayView {
                 .padding(.leading, 5)
         }
     }
-}
-
-struct DisplayInfo: Equatable {
-    var output = ""
-    var fKey = false {
-        didSet {
-            if fKey {
-                gKey = false
-            }
-        }
-    }
-    var gKey = false {
-        didSet {
-            if gKey {
-                fKey = false
-            }
-        }
-    }
-    var degrees: Degrees = .deg
 }
 
 extension View {

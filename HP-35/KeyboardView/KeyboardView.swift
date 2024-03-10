@@ -12,28 +12,27 @@ struct KeyboardView: View {
     @State var ops: [Op] = []
 
     var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(.black)
-            RoundedRectangle(cornerRadius: 3)
-                .stroke(Color.fKey35, lineWidth: 2)
-                .background(Color.gray35)
-                .padding(.horizontal, 5)
-                .padding(.bottom, CGFloat(-1, 2))
-            VStack(spacing: 0) {
-                ForEach(0..<3) { row in
-                    keysRow(index: row * 5, numKeys: 5)
+        VStack {
+            ZStack {
+                RoundedRectangle(cornerRadius: 3)
+                    .stroke(Color.fKey35, lineWidth: 2)
+                    .background(Color.gray35)
+                    .padding(.horizontal, 5)
+                    .padding(.bottom, .mac ? 2 : -1)
+                VStack(spacing: 0) {
+                    ForEach(0..<3) { row in
+                        keysRow(index: row * 5, numKeys: 5)
+                    }
+                    keysRow(index: 15, numKeys: 4)
+                    ForEach(0..<4) { row in
+                        keysRow(index: row * 4 + 19, numKeys: 4)
+                    }
                 }
-                keysRow(index: 15, numKeys: 4)
-                ForEach(0..<4) { row in
-                    keysRow(index: row * 4 + 19, numKeys: 4)
-                }
-                logoLabelView()
+                .padding(.bottom, 15)
             }
-            .background(Color.clear)
-            .padding(Global.displayVerticalPadding)
-            .padding(.bottom, 5)
+            logoLabelView()
         }
+        .background(Color.gray35)
         .syncOps($appService.ops, with: $ops)
     }
 
@@ -53,34 +52,28 @@ struct KeyboardView: View {
     }
 
     func logoLabelView() -> some View {
-        Group {
-            Rectangle()
-                .foregroundColor(.fKey35)
-                .frame(height: 0.5)
-                .padding([.bottom, .horizontal], 8)
-                .padding(.top, 13)
-            HStack {
-                logoImage
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 20)
-                Text(" RPN \(Sym.dot) CALCULATOR  \(Global.model == .hp35 ? "35" : "45")")
-                    .font(Font.custom("Century Gothic", size: CGFloat(16, 14)))
-                    .kerning(5)
-                    .minimumScaleFactor(0.8)
-                    .lineLimit(1)
-                    .foregroundColor(.white)
-            }
-            .padding(.bottom, CGFloat(8, 4))
-            .padding(.horizontal, CGFloat(20, 10))
-            .onTapGesture {
-                Global.model = Global.model == .hp35 ? .hp45 : .hp35
-                appService.stack.clear()
-                appService.stack.inspect()
-            }
+        HStack {
+            logoImage
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 20)
+            Text(" RPN \(Sym.dot) CALCULATOR  \(.hp35 ? "35" : "45")")
+                .font(Font.custom("Century Gothic", size: .mac ? 14 : 16))
+                .kerning(5)
+                .minimumScaleFactor(0.8)
+                .lineLimit(1)
+                .foregroundColor(.white)
+        }
+        .padding(.top, 5)
+        .padding(.bottom, .mac ? 10 : 20)
+        .padding(.horizontal, .mac ? 10 : 20)
+        .onTapGesture {
+            Global.model = .hp35 ? .hp45 : .hp35
+            appService.stack.clear()
+            appService.stack.inspect()
         }
     }
 
     var logoImage: Image {
-        Global.model == .hp35 ? Images.hpLogoBlue : Images.hpLogoGray
+        .hp35 ? Images.hpLogoBlue : Images.hpLogoGray
     }
 }

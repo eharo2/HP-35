@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-class AppService: ObservableObject, StackDelegate {
+class AppService: ObservableObject, DisplayManagerDelegate {
     @Published var displayInfo = DisplayInfo()
+    @Published var model: Model!
     @Published var ops: [Op] = [] {
         didSet {
             guard !ops.isEmpty else { return }
@@ -18,22 +19,17 @@ class AppService: ObservableObject, StackDelegate {
             }
         }
     }
-    var stack = Stack()
     var displayManager = DisplayManager()
-    var numericInput = ""
-    var expInput = "   "
-    var numberOfDigits: Int = 2
-    var didLstX = false
-
+    var stack = Stack()
     var fShiftKey: Bool = false // arc in HP-35, orangeKey in HP-45
-    var enteringEex: Bool = false
+
+    var didLstX = false
 
     // HP-45
     var formatInput = false
-    var format: Format = .fix(2)
 
     init() {
-#if os(macOS)
+        #if os(macOS)
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event -> NSEvent? in
             guard !event.isARepeat else { return nil }
             let input = event.input
@@ -44,15 +40,17 @@ class AppService: ObservableObject, StackDelegate {
             self?.processOps(input.ops35)
             return nil
         }
-#endif
-        stack.delegate = self
-        numberOfDigits = 12
-        Timer.scheduledTimer(withTimeInterval: 0.05, repeats: false) { _ in
+        #endif
+        model = Global.model
+        displayManager.delegate = self
+        stack.delegate = displayManager
+        Timer.scheduledTimer(withTimeInterval: 0.01, repeats: false) { _ in
             self.stack.regX = 0
         }
     }
 
     func processOps(_ ops: [Op]) {
+        // print("Process: \(ops.names)")
         var op: Op = ops[0]
         if op == .fix {
             formatInput = true
@@ -60,31 +58,23 @@ class AppService: ObservableObject, StackDelegate {
             return
         }
         if formatInput {
-            switch ops[0] {
-            case .digit(let value):
-                if let value = Int(value) {
-                    print("Fix \(value)")
-                    // numberOfDigits = value
-                    format = .fix(value)
-                }
-            default: print("Ignore: Fix \(ops)")
-            }
+            displayManager.processFormatInput(ops)
             formatInput = false
             return
         }
         if fShiftKey {
             guard ops.count > 1 else {
-                print("Ignore. After \(Global.model == .hp35 ? "'arc'" : "'shift'"): \(ops[0])")
+                print("Ignore. After \(.hp35 ? "'arc'" : "'shift'"): \(ops[0])")
                 return
             }
-            if Global.model == .hp35 && !ops[1].isArcOp {
+            if .hp35 && !ops[1].isArcOp {
                 print("Ignore. No trigonometric op: \(ops[1])")
                 return
             }
             op = ops[1]
             fShiftKey = false
             if op == .deg || op == .rad {
-                self.displayInfo.degrees = op == .deg ? .deg : .rad
+                self.displayManager.displayInfo.degrees = op == .deg ? .deg : .rad
                 return
             }
         } else {
@@ -92,137 +82,96 @@ class AppService: ObservableObject, StackDelegate {
         }
         switch op {
         case .fShift:
-            print("Op: \(Global.model == .hp35 ? "arc" : "shift")")
+            print("Op: \(.hp35 ? "arc" : "shift")")
             fShiftKey = true
-        case .eex:
-            enteringEex = true
-            expInput = " 00"
-            if numericInput.isEmpty {
-                numericInput = "1.0"
-            }
-            updateDisplay(with: numericInput)
+        case .eex: displayManager.processEEXInput()
         case .digit(let input):
-            if enteringEex {
+            if displayManager.enteringEex {
                 guard input != "." else { return }
-                guard let first = expInput.first else { return }
-                expInput = String((expInput.dropFirst() + input).suffix(2))
-                expInput = "\(first)\(expInput)"
+                guard let first = displayManager.expInput.first else { return }
+                displayManager.expInput = String((displayManager.expInput.dropFirst() + input).suffix(2))
+                displayManager.expInput = "\(first)\(displayManager.expInput)"
                 processEEX()
                 return
             }
-            if (numericInput + input).isNumeric {
-                numericInput += input
-                if numericInput == "." {
-                    numericInput = "0."
+            if (displayManager.numericInput + input).isNumeric {
+                displayManager.numericInput += input
+                if displayManager.numericInput == "." {
+                    displayManager.numericInput = "0."
                 }
-                if let value = Double(numericInput) {
+                if let value = Double(displayManager.numericInput) {
                     print("Digit Input: \(value)")
                     if stack.shouldLiftAtInput {
                         stack.lift()
                         stack.shouldLiftAtInput = false
                     }
                     stack.regX = value
-                    updateDisplay(with: numericInput)
+                    displayManager.update(with: displayManager.numericInput)
                 }
                 stack.inspect()
             }
         case .enter:
-            numericInput = ""
-            expInput = "   "
-            enteringEex = false
+            displayManager.processEnter()
             stack.lift(stack.regX)
             stack.inspect()
         case .delete:
-            guard displayInfo.output != 0.format(numberOfDigits) else { return }
-            numericInput = String(numericInput.dropLast())
-            if numericInput.count == 0 {
-                updateDisplay(with: 0.format(numberOfDigits), addExponent: false)
+            guard displayManager.displayInfo.output != 0.format(displayManager.numberOfDigits) else { return }
+            displayManager.numericInput = String(displayManager.numericInput.dropLast())
+            if displayManager.numericInput.count == 0 {
+                displayManager.update(with: 0.format(displayManager.numberOfDigits), addExponent: false)
                 return
             }
-            updateDisplay(with: numericInput, addExponent: false)
+            displayManager.update(with: displayManager.numericInput, addExponent: false)
         case .chs:
             print("Op: \(op)")
-            if enteringEex {
-                if let first = expInput.first {
-                    let exp = String(expInput.suffix(2))
-                    expInput = first == "-" ? " \(exp)" : "-\(exp)"
+            if displayManager.enteringEex {
+                if let first = displayManager.expInput.first {
+                    let exp = String(displayManager.expInput.suffix(2))
+                    displayManager.expInput = first == "-" ? " \(exp)" : "-\(exp)"
                 }
                 processEEX()
                 return
             }
-            if numericInput.isEmpty {
+            if displayManager.numericInput.isEmpty {
                 if stack.shouldLiftAtInput {
                     stack.regX = -stack.regX
                 } else {
-                    numericInput = "-"
-                    updateDisplay(with: numericInput)
+                    displayManager.numericInput = "-"
+                    displayManager.update(with: displayManager.numericInput)
                 }
             } else {
-                if numericInput.starts(with: "-") {
-                    numericInput = String(numericInput.dropFirst())
+                if displayManager.numericInput.starts(with: "-") {
+                    displayManager.numericInput = String(displayManager.numericInput.dropFirst())
                 } else {
-                    numericInput = "-\(numericInput)"
+                    displayManager.numericInput = "-\(displayManager.numericInput)"
                 }
-                if let value = Double(numericInput) {
+                if let value = Double(displayManager.numericInput) {
                     stack.regX = value
                 }
             }
             stack.inspect()
         default:
-            if op.shouldDrop {
-                stack.execute(op)
-                stack.drop()
-                stack.shouldLiftAtInput = true
-            } else if op.shouldLift {
-                if stack.shouldLiftAtInput || !numericInput.isEmpty {
-                    stack.lift()
-                }
-                stack.execute(op)
-            } else if op.noLift || op.noStackOperation {
-                stack.execute(op)
-            } else if op.isTrigonometric {
-                stack.execute(op, degrees: displayInfo.degrees)
-            } else {
-                print("No Op: \(op)")
-            }
-            stack.shouldLiftAtInput = !op.noStackOperation
-            stack.inspect()
-            reset()
+            stack.processOp(op, displayInfo.degrees, displayManager.numericInput.isEmpty)
+            displayManager.reset()
         }
     }
 
     func processEEX() {
-        let exp = expInput.contains("-") ? expInput : String(expInput.suffix(2))
-        guard let coeficient = Double(numericInput), let exponent = Double(exp) else { return }
+        let exp = displayManager.expInput.contains("-") ? displayManager.expInput : String(displayManager.expInput.suffix(2))
+        guard let coeficient = Double(displayManager.numericInput), let exponent = Double(exp) else { return }
         print("Digit Input: \(coeficient), exponent: \(exponent)")
         if stack.shouldLiftAtInput {
             stack.lift()
             stack.shouldLiftAtInput = false
         }
         stack.regX = coeficient * pow(10, exponent)
-        updateDisplay(with: numericInput)
+        displayManager.update(with: displayManager.numericInput)
         stack.inspect()
     }
 
-    func updateDisplay(with string: String, addExponent: Bool = true) {
-        if addExponent {
-            displayInfo.output = string.padded + expInput
-        } else {
-            displayInfo.output = string.padded.noExp
-        }
-    }
-
-    func reset() {
-        numericInput = ""
-        expInput = "   "
-        enteringEex = false
-        displayInfo.fKey = false
-        displayInfo.gKey = false
-    }
-
-    // MARK: - StackDelegate
-    func stackDidUpdateRegX(value: Double) {
-        displayInfo.output = value.scientificNotation()
+    // MARK: - DisplayManagerDelegate
+    func displayDidUpdateInfo(_ info: DisplayInfo) {
+        displayInfo = info
     }
 }
 
@@ -239,15 +188,3 @@ extension NSEvent {
     }
 }
 #endif
-
-enum Format {
-    case fix(_ value: Int)
-    case sci(_ value: Int)
-
-    var digits: Int {
-        switch self {
-        case .fix(let value): return value
-        case .sci(let value): return value
-        }
-    }
-}
