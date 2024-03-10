@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct KeyView35: View {
+struct KeyView: View {
     @Binding var ops: [Op]
     @State var clicked: Bool = false {
         didSet {
@@ -29,10 +29,12 @@ struct KeyView35: View {
         VStack(spacing: 0) {
             Spacer()
             HStack(spacing: 0) {
-                if key.type == .lightGrayLarge { Spacer() }
+                if key.type == .lightGrayLarge {
+                    Spacer()
+                }
                 key.fLabel
                     .foregroundColor(.fKey35)
-                if key.type == .lightGrayLarge { Spacer().frame(width: 16) }
+                    .padding(.trailing, key.type == .lightGrayLarge ? 15 : 0)
             }
             ZStack {
                 Rectangle()
@@ -48,9 +50,10 @@ struct KeyView35: View {
                 .padding(1)
                 .padding(.top, clicked ? 2 : 0)
             }
-            .frame(width: keyWidth, height: width)
+            .frame(height: width)
             .padding(.bottom, 5)
         }
+        .frame(width: keyWidth)
         .onTapGesture {
             #if os(iOS)
             haptic.impactOccurred()
@@ -106,7 +109,7 @@ struct KeyView35: View {
         case .white: width * 1.5
         case.brown: width
         // HP45
-        case .gray, .lightGray: width * 1.2
+        case .orange, .gray, .lightGray: width * 1.2
         case .black: width * (.hp35 ? 1.0 : 1.2)
         default: width
         }

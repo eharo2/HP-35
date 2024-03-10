@@ -41,10 +41,10 @@ struct KeyboardView: View {
             let width = geometry.size.width/10 * 1.1
             let keys = DataModel.shared.keys(for: Global.model)
             HStack(spacing: 0) {
-                KeyView35(ops: $ops, key: keys[index], width: width)
+                KeyView(ops: $ops, key: keys[index], width: width)
                 ForEach(1..<numKeys, id: \.self) { position in
                     Spacer()
-                    KeyView35(ops: $ops, key: keys[index + position], width: width)
+                    KeyView(ops: $ops, key: keys[index + position], width: width)
                 }
             }
             .padding(.horizontal, width * 0.5)
