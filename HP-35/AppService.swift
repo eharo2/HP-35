@@ -19,7 +19,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
         }
     }
-    var displayManager = DisplayManager()
+    var display = Display()
     var stack = Stack()
     var fShiftKey: Bool = false // arc in HP-35, orangeKey in HP-45
 
@@ -42,8 +42,8 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         }
         #endif
         model = Global.model
-        displayManager.delegate = self
-        stack.delegate = displayManager
+        display.delegate = self
+        stack.delegate = display
         Timer.scheduledTimer(withTimeInterval: 0.01, repeats: false) { _ in
             self.stack.regX = 0
         }
@@ -58,7 +58,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             return
         }
         if formatInput {
-            displayManager.processFormatInput(ops)
+            display.processFormatInput(ops)
             formatInput = false
             return
         }
@@ -74,7 +74,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             op = ops[1]
             fShiftKey = false
             if op == .deg || op == .rad {
-                self.displayManager.displayInfo.degrees = op == .deg ? .deg : .rad
+                self.display.displayInfo.degrees = op == .deg ? .deg : .rad
                 return
             }
         } else {
@@ -84,88 +84,88 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         case .fShift:
             print("Op: \(.hp35 ? "arc" : "shift")")
             fShiftKey = true
-        case .eex: displayManager.processEEXInput()
+        case .eex: display.processEEXInput()
         case .digit(let input):
-            if displayManager.enteringEex {
+            if display.enteringEex {
                 guard input != "." else { return }
-                guard let first = displayManager.expInput.first else { return }
-                displayManager.expInput = String((displayManager.expInput.dropFirst() + input).suffix(2))
-                displayManager.expInput = "\(first)\(displayManager.expInput)"
+                guard let first = display.expInput.first else { return }
+                display.expInput = String((display.expInput.dropFirst() + input).suffix(2))
+                display.expInput = "\(first)\(display.expInput)"
                 processEEX()
                 return
             }
-            if (displayManager.numericInput + input).isNumeric {
-                displayManager.numericInput += input
-                if displayManager.numericInput == "." {
-                    displayManager.numericInput = "0."
+            if (display.numericInput + input).isNumeric {
+                display.numericInput += input
+                if display.numericInput == "." {
+                    display.numericInput = "0."
                 }
-                if let value = Double(displayManager.numericInput) {
+                if let value = Double(display.numericInput) {
                     print("Digit Input: \(value)")
                     if stack.shouldLiftAtInput {
                         stack.lift()
                         stack.shouldLiftAtInput = false
                     }
                     stack.regX = value
-                    displayManager.update(with: displayManager.numericInput)
+                    display.update(with: display.numericInput)
                 }
                 stack.inspect()
             }
         case .enter:
-            displayManager.processEnter()
+            display.processEnter()
             stack.lift(stack.regX)
             stack.inspect()
         case .delete:
-            guard displayManager.displayInfo.output != 0.format(displayManager.numberOfDigits) else { return }
-            displayManager.numericInput = String(displayManager.numericInput.dropLast())
-            if displayManager.numericInput.count == 0 {
-                displayManager.update(with: 0.format(displayManager.numberOfDigits), addExponent: false)
+            guard display.displayInfo.output != 0.format(display.numberOfDigits) else { return }
+            display.numericInput = String(display.numericInput.dropLast())
+            if display.numericInput.count == 0 {
+                display.update(with: 0.format(display.numberOfDigits), addExponent: false)
                 return
             }
-            displayManager.update(with: displayManager.numericInput, addExponent: false)
+            display.update(with: display.numericInput, addExponent: false)
         case .chs:
             print("Op: \(op)")
-            if displayManager.enteringEex {
-                if let first = displayManager.expInput.first {
-                    let exp = String(displayManager.expInput.suffix(2))
-                    displayManager.expInput = first == "-" ? " \(exp)" : "-\(exp)"
+            if display.enteringEex {
+                if let first = display.expInput.first {
+                    let exp = String(display.expInput.suffix(2))
+                    display.expInput = first == "-" ? " \(exp)" : "-\(exp)"
                 }
                 processEEX()
                 return
             }
-            if displayManager.numericInput.isEmpty {
+            if display.numericInput.isEmpty {
                 if stack.shouldLiftAtInput {
                     stack.regX = -stack.regX
                 } else {
-                    displayManager.numericInput = "-"
-                    displayManager.update(with: displayManager.numericInput)
+                    display.numericInput = "-"
+                    display.update(with: display.numericInput)
                 }
             } else {
-                if displayManager.numericInput.starts(with: "-") {
-                    displayManager.numericInput = String(displayManager.numericInput.dropFirst())
+                if display.numericInput.starts(with: "-") {
+                    display.numericInput = String(display.numericInput.dropFirst())
                 } else {
-                    displayManager.numericInput = "-\(displayManager.numericInput)"
+                    display.numericInput = "-\(display.numericInput)"
                 }
-                if let value = Double(displayManager.numericInput) {
+                if let value = Double(display.numericInput) {
                     stack.regX = value
                 }
             }
             stack.inspect()
         default:
-            stack.processOp(op, displayInfo.degrees, displayManager.numericInput.isEmpty)
-            displayManager.reset()
+            stack.processOp(op, displayInfo.degrees, display.numericInput.isEmpty)
+            display.reset()
         }
     }
 
     func processEEX() {
-        let exp = displayManager.expInput.contains("-") ? displayManager.expInput : String(displayManager.expInput.suffix(2))
-        guard let coeficient = Double(displayManager.numericInput), let exponent = Double(exp) else { return }
+        let exp = display.expInput.contains("-") ? display.expInput : String(display.expInput.suffix(2))
+        guard let coeficient = Double(display.numericInput), let exponent = Double(exp) else { return }
         print("Digit Input: \(coeficient), exponent: \(exponent)")
         if stack.shouldLiftAtInput {
             stack.lift()
             stack.shouldLiftAtInput = false
         }
         stack.regX = coeficient * pow(10, exponent)
-        displayManager.update(with: displayManager.numericInput)
+        display.update(with: display.numericInput)
         stack.inspect()
     }
 

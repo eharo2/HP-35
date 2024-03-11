@@ -50,8 +50,8 @@
 		EFF476642B981DB300A5744A /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA6B2B96A92A00B917F0 /* KeyView.swift */; };
 		EFF476652B981DCD00A5744A /* DataModel35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */; };
 		EFF476662B981DD100A5744A /* DataModel45.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFBE2962B8EA76F0012685A /* DataModel45.swift */; };
-		EFF476682B981E7300A5744A /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF476672B981E7300A5744A /* DisplayManager.swift */; };
-		EFF476692B981E7300A5744A /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF476672B981E7300A5744A /* DisplayManager.swift */; };
+		EFF476682B981E7300A5744A /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF476672B981E7300A5744A /* Display.swift */; };
+		EFF476692B981E7300A5744A /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF476672B981E7300A5744A /* Display.swift */; };
 		EFF4766C2B992B1E00A5744A /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4766B2B992B1E00A5744A /* Bool.swift */; };
 		EFF4766D2B992B1E00A5744A /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4766B2B992B1E00A5744A /* Bool.swift */; };
 		EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */; };
@@ -94,7 +94,7 @@
 		EFECEAC12B6DC4150051134A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EFECEAC32B6DC5C60051134A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EFECEAD52B76CCC00051134A /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
-		EFF476672B981E7300A5744A /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
+		EFF476672B981E7300A5744A /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		EFF4766B2B992B1E00A5744A /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel35.swift; sourceTree = "<group>"; };
 		EFFBE2962B8EA76F0012685A /* DataModel45.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel45.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				EF0C0FF32B50C4E90033250C /* DisplayView.swift */,
-				EFF476672B981E7300A5744A /* DisplayManager.swift */,
+				EFF476672B981E7300A5744A /* Display.swift */,
 			);
 			path = DisplayView;
 			sourceTree = "<group>";
@@ -351,7 +351,7 @@
 				EF0C101E2B50C7710033250C /* Images.swift in Sources */,
 				EF0C101C2B50C5150033250C /* AppService.swift in Sources */,
 				EF02EA6C2B96A92A00B917F0 /* KeyView.swift in Sources */,
-				EFF476682B981E7300A5744A /* DisplayManager.swift in Sources */,
+				EFF476682B981E7300A5744A /* Display.swift in Sources */,
 				EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */,
 				EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */,
 				EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */,
@@ -383,7 +383,7 @@
 				EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */,
 				EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */,
 				EFBF5F672B8173D600634ED5 /* String.swift in Sources */,
-				EFF476692B981E7300A5744A /* DisplayManager.swift in Sources */,
+				EFF476692B981E7300A5744A /* Display.swift in Sources */,
 				EFBF5F682B8173D900634ED5 /* Images.swift in Sources */,
 				EFBF5F542B8172E700634ED5 /* HP-35Tests.swift in Sources */,
 				EFBF5F5D2B81737F00634ED5 /* Operations.swift in Sources */,

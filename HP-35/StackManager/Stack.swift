@@ -18,7 +18,7 @@ protocol StackDelegate {
 
 class Stack {
     var delegate: StackDelegate?
-    var shouldLiftAtInput: Bool = false // xIsResultAndShouldLiftAtdisplayManager.numericInput
+    var shouldLiftAtInput: Bool = false // xIsResultAndShouldLiftAtdisplay.numericInput
 
     /// Previous Values used for Debugging purposes.
     var preT: Double = 0

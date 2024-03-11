@@ -1,5 +1,5 @@
 //
-//  DisplayManager.swift
+//  Display.swift
 //  HP-35
 //
 //  Created by Enrique Haro on 3/5/24.
@@ -11,7 +11,7 @@ protocol DisplayManagerDelegate {
     func displayDidUpdateInfo(_ info: DisplayInfo)
 }
 
-class DisplayManager: StackDelegate {
+class Display: StackDelegate {
     var delegate: DisplayManagerDelegate?
 
     var displayInfo = DisplayInfo() {
