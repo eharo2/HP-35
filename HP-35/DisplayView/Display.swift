@@ -25,10 +25,27 @@ class Display: StackDelegate {
     var enteringEex: Bool = false
 
     // HP-45
+    // HP-45
+    var enteringFormat = false
     var outputFormat: Format = .fix(2)
 
     init() {
         numberOfDigits = 12
+    }
+
+    func processOps(_ ops: [Op]) {
+        // print("Process: \(ops.names)")
+        var op: Op = ops[0]
+        if op == .fix {
+            enteringFormat = true
+            print("Op: Fix")
+            return
+        }
+        if enteringFormat {
+            processFormatInput(ops)
+            enteringFormat = false
+            return
+        }
     }
 
     func processEnter() {

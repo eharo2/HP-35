@@ -25,9 +25,6 @@ class AppService: ObservableObject, DisplayManagerDelegate {
 
     var didLstX = false
 
-    // HP-45
-    var formatInput = false
-
     init() {
         #if os(macOS)
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event -> NSEvent? in
@@ -53,13 +50,13 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         // print("Process: \(ops.names)")
         var op: Op = ops[0]
         if op == .fix {
-            formatInput = true
+            display.enteringFormat = true
             print("Op: Fix")
             return
         }
-        if formatInput {
+        if display.enteringFormat {
             display.processFormatInput(ops)
-            formatInput = false
+            display.enteringFormat = false
             return
         }
         if fShiftKey {
