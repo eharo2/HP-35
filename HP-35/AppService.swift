@@ -89,6 +89,9 @@ class AppService: ObservableObject, StackDelegate {
                 if numericInput == "." {
                     numericInput = "0."
                 }
+                if numericInput.starts(with: "-0") {
+                    numericInput = numericInput.replacingOccurrences(of: "-0", with: "-")
+                }
                 if let value = Double(numericInput) {
                     print("Digit Input: \(value)")
                     if stack.shouldLiftAtInput {

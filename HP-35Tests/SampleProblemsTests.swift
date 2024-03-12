@@ -1,14 +1,14 @@
 //
-//  HP-35Tests.swift
+//  SampleProblemsTests.swift
 //  HP-35Tests
 //
-//  Created by Enrique Haro on 2/17/24.
+//  Created by Enrique Haro on 3/11/24.
 //
 
 import XCTest
 import HP_35
 
-final class HP_35Tests: XCTestCase {
+final class SampleProblemsTests: XCTestCase {
     let appService = AppService()
 
     override func setUpWithError() throws { }
