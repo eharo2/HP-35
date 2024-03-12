@@ -99,7 +99,7 @@ class AppService: ObservableObject, StackDelegate {
                         stack.shouldLiftAtInput = false
                     }
                     stack.regX = value
-                    displayInfo.output = numericInput.padded + expInput
+                    displayInfo.output = numericInput.padded(keepZeros: true) + expInput
                 }
                 stack.inspect()
             }
@@ -128,11 +128,12 @@ class AppService: ObservableObject, StackDelegate {
                 return
             }
             if numericInput.isEmpty {
-                if stack.shouldLiftAtInput {
-                    stack.regX = -stack.regX
-                } else {
+                stack.regX = -stack.regX
+                if !stack.shouldLiftAtInput {
                     numericInput = "-"
-                    displayInfo.output = numericInput.padded + expInput
+                }
+                if numericInput == "-" && stack.regX == 0 {
+                    displayInfo.output = "-0.".padded.noExp
                 }
             } else {
                 if numericInput.starts(with: "-") {

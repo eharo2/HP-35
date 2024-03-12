@@ -31,65 +31,12 @@ final class ManualTests: XCTestCase {
 
         let input = ["h", "3", "\r", "h", "4", "*", "5", "h", "*", "6", "h", "*"]
 
-        var index = 0
-        var key = input[index]
-        var expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
-        index += 1
-        key = input[index]
-        expectedResult = results[index]
-        appService.processOps(key.ops35)
-        XCTAssertEqual(appService.displayInfo.output, expectedResult, "Op \(key.ops35)")
+        for index in 0..<input.count {
+            let index = 0
+            let key = input[index]
+            let expectedResult = results[index]
+            appService.processOps(key.ops35)
+            XCTAssertEqual(appService.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
+        }
     }
 }
