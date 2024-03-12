@@ -26,6 +26,7 @@ extension Double {
     func scientificNotation() -> String {
         guard abs(self) < pow(10, 100) else { return "9.9999999999 99" }
         guard abs(self) > pow(10, -99) else { return "0.             " }
+        guard abs(self) < pow(10, -3) else { return String(self).padded.noExp }
         guard self > pow(10, 10) || self < pow(10, -2) else { return String(self).padded.noExp }
         let scientificNotation = String(format: "%.12e", self)
         let components = scientificNotation.components(separatedBy: "e")

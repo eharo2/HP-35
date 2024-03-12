@@ -20,20 +20,21 @@
 		EF0C0FF92B50C4EB0033250C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
 		EF0C101C2B50C5150033250C /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
 		EF0C101E2B50C7710033250C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101D2B50C7710033250C /* Images.swift */; };
-		EF6E10E02B780A7400F746E0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DB2B780A7400F746E0 /* DataModel.swift */; };
-		EF6E10E12B780A7400F746E0 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DC2B780A7400F746E0 /* KeyboardView.swift */; };
+		EF57C55C2B9FCAEF0045DAFB /* SampleProblemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55B2B9FCAEF0045DAFB /* SampleProblemsTests.swift */; };
+		EF57C55E2BA10F550045DAFB /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55D2BA10F550045DAFB /* DataModel.swift */; };
+		EF57C55F2BA10F550045DAFB /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55D2BA10F550045DAFB /* DataModel.swift */; };
+		EF57C5612BA10F8E0045DAFB /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C5602BA10F8E0045DAFB /* KeyboardView.swift */; };
+		EF57C5622BA10F8E0045DAFB /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C5602BA10F8E0045DAFB /* KeyboardView.swift */; };
 		EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1AF7D2B825AE400B8946A /* InfoView35.swift */; };
 		EF9A63A92B7B12490096822D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A63A82B7B12490096822D /* Global.swift */; };
 		EFB91B122B60BAE000A6347F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB91B112B60BAE000A6347F /* String.swift */; };
-		EFBF5F542B8172E700634ED5 /* HP-35Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBF5F532B8172E700634ED5 /* HP-35Tests.swift */; };
+		EFBF5F542B8172E700634ED5 /* ManualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBF5F532B8172E700634ED5 /* ManualTests.swift */; };
 		EFBF5F5A2B81737300634ED5 /* HP-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* HP-35App.swift */; };
 		EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
 		EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE2E2B530DB3005F95B3 /* Stack.swift */; };
 		EFBF5F5D2B81737F00634ED5 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
 		EFBF5F5E2B81738200634ED5 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A63A82B7B12490096822D /* Global.swift */; };
 		EFBF5F5F2B8173B400634ED5 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF32B50C4E90033250C /* DisplayView.swift */; };
-		EFBF5F632B8173C700634ED5 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DC2B780A7400F746E0 /* KeyboardView.swift */; };
-		EFBF5F642B8173CA00634ED5 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E10DB2B780A7400F746E0 /* DataModel.swift */; };
 		EFBF5F652B8173D000634ED5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC32B6DC5C60051134A /* Color.swift */; };
 		EFBF5F662B8173D200634ED5 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE302B548EDE005F95B3 /* Double.swift */; };
 		EFBF5F672B8173D600634ED5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB91B112B60BAE000A6347F /* String.swift */; };
@@ -84,12 +85,13 @@
 		EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF0C101B2B50C5150033250C /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		EF0C101D2B50C7710033250C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		EF6E10DB2B780A7400F746E0 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		EF6E10DC2B780A7400F746E0 /* KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		EF57C55B2B9FCAEF0045DAFB /* SampleProblemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleProblemsTests.swift; sourceTree = "<group>"; };
+		EF57C55D2BA10F550045DAFB /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		EF57C5602BA10F8E0045DAFB /* KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		EF9A63A82B7B12490096822D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		EFB91B112B60BAE000A6347F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		EFBF5F512B8172E700634ED5 /* HP-35Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HP-35Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFBF5F532B8172E700634ED5 /* HP-35Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HP-35Tests.swift"; sourceTree = "<group>"; };
+		EFBF5F532B8172E700634ED5 /* ManualTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualTests.swift; sourceTree = "<group>"; };
 		EFC1AF7D2B825AE400B8946A /* InfoView35.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView35.swift; sourceTree = "<group>"; };
 		EFECEAC12B6DC4150051134A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EFECEAC32B6DC5C60051134A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -121,7 +123,7 @@
 		EF02EA6A2B96A8EF00B917F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EF6E10DB2B780A7400F746E0 /* DataModel.swift */,
+				EF57C55D2BA10F550045DAFB /* DataModel.swift */,
 				EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */,
 				EFFBE2962B8EA76F0012685A /* DataModel45.swift */,
 			);
@@ -177,7 +179,8 @@
 		EFBF5F522B8172E700634ED5 /* HP-35Tests */ = {
 			isa = PBXGroup;
 			children = (
-				EFBF5F532B8172E700634ED5 /* HP-35Tests.swift */,
+				EFBF5F532B8172E700634ED5 /* ManualTests.swift */,
+				EF57C55B2B9FCAEF0045DAFB /* SampleProblemsTests.swift */,
 			);
 			path = "HP-35Tests";
 			sourceTree = "<group>";
@@ -193,7 +196,7 @@
 		EFECEACC2B71BA840051134A /* KeyboardView */ = {
 			isa = PBXGroup;
 			children = (
-				EF6E10DC2B780A7400F746E0 /* KeyboardView.swift */,
+				EF57C5602BA10F8E0045DAFB /* KeyboardView.swift */,
 				EF02EA6B2B96A92A00B917F0 /* KeyView.swift */,
 			);
 			path = KeyboardView;
@@ -341,11 +344,9 @@
 				EF0C097D2B51F2950085CE3B /* Operations.swift in Sources */,
 				EFF4766C2B992B1E00A5744A /* Bool.swift in Sources */,
 				EFFBE2972B8EA76F0012685A /* DataModel45.swift in Sources */,
-				EF6E10E02B780A7400F746E0 /* DataModel.swift in Sources */,
 				EFECEAC42B6DC5C60051134A /* Color.swift in Sources */,
 				EF9A63A92B7B12490096822D /* Global.swift in Sources */,
 				40DDDE2F2B530DB3005F95B3 /* Stack.swift in Sources */,
-				EF6E10E12B780A7400F746E0 /* KeyboardView.swift in Sources */,
 				EF0C0FF42B50C4E90033250C /* DisplayView.swift in Sources */,
 				EFC1AF7E2B825AE400B8946A /* InfoView35.swift in Sources */,
 				EF0C101E2B50C7710033250C /* Images.swift in Sources */,
@@ -353,6 +354,8 @@
 				EF02EA6C2B96A92A00B917F0 /* KeyView.swift in Sources */,
 				EFF476682B981E7300A5744A /* Display.swift in Sources */,
 				EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */,
+				EF57C55E2BA10F550045DAFB /* DataModel.swift in Sources */,
+				EF57C5612BA10F8E0045DAFB /* KeyboardView.swift in Sources */,
 				EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */,
 				EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */,
 				EFB91B122B60BAE000A6347F /* String.swift in Sources */,
@@ -366,26 +369,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFBF5F632B8173C700634ED5 /* KeyboardView.swift in Sources */,
 				EFF476662B981DD100A5744A /* DataModel45.swift in Sources */,
 				EFF476652B981DCD00A5744A /* DataModel35.swift in Sources */,
 				EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */,
 				EFBF5F692B8173DC00634ED5 /* View.swift in Sources */,
 				EFBF5F652B8173D000634ED5 /* Color.swift in Sources */,
+				EF57C55C2B9FCAEF0045DAFB /* SampleProblemsTests.swift in Sources */,
 				EFBF5F5F2B8173B400634ED5 /* DisplayView.swift in Sources */,
 				EFBF5F662B8173D200634ED5 /* Double.swift in Sources */,
 				EFF476642B981DB300A5744A /* KeyView.swift in Sources */,
 				EFF4766D2B992B1E00A5744A /* Bool.swift in Sources */,
-				EFBF5F642B8173CA00634ED5 /* DataModel.swift in Sources */,
 				EFBF5F5A2B81737300634ED5 /* HP-35App.swift in Sources */,
 				EFBF5F5E2B81738200634ED5 /* Global.swift in Sources */,
 				EFBF5F6A2B8173E000634ED5 /* DebugView.swift in Sources */,
 				EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */,
+				EF57C55F2BA10F550045DAFB /* DataModel.swift in Sources */,
+				EF57C5622BA10F8E0045DAFB /* KeyboardView.swift in Sources */,
 				EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */,
 				EFBF5F672B8173D600634ED5 /* String.swift in Sources */,
 				EFF476692B981E7300A5744A /* Display.swift in Sources */,
 				EFBF5F682B8173D900634ED5 /* Images.swift in Sources */,
-				EFBF5F542B8172E700634ED5 /* HP-35Tests.swift in Sources */,
+				EFBF5F542B8172E700634ED5 /* ManualTests.swift in Sources */,
 				EFBF5F5D2B81737F00634ED5 /* Operations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
