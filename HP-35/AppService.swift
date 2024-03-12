@@ -89,6 +89,9 @@ class AppService: ObservableObject, StackDelegate {
                 if numericInput == "." {
                     numericInput = "0."
                 }
+                if numericInput.starts(with: "-0") {
+                    numericInput = numericInput.replacingOccurrences(of: "-0", with: "-")
+                }
                 if let value = Double(numericInput) {
                     print("Digit Input: \(value)")
                     if stack.shouldLiftAtInput {
@@ -96,7 +99,7 @@ class AppService: ObservableObject, StackDelegate {
                         stack.shouldLiftAtInput = false
                     }
                     stack.regX = value
-                    displayInfo.output = numericInput.padded + expInput
+                    displayInfo.output = numericInput.padded(keepZeros: true) + expInput
                 }
                 stack.inspect()
             }
@@ -125,11 +128,12 @@ class AppService: ObservableObject, StackDelegate {
                 return
             }
             if numericInput.isEmpty {
-                if stack.shouldLiftAtInput {
-                    stack.regX = -stack.regX
-                } else {
+                stack.regX = -stack.regX
+                if !stack.shouldLiftAtInput {
                     numericInput = "-"
-                    displayInfo.output = numericInput.padded + expInput
+                }
+                if numericInput == "-" && stack.regX == 0 {
+                    displayInfo.output = "-0.".padded.noExp
                 }
             } else {
                 if numericInput.starts(with: "-") {
