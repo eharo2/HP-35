@@ -75,7 +75,7 @@ extension String {
         case 1: string = "\(components[0])."
         default: break
         }
-        let upperBound = string.starts(with: "-") ? 13 : 12
+        let upperBound = 12
         if string.count <= upperBound {
             for _ in string.count..<upperBound {
                 string += " "

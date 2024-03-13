@@ -71,7 +71,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             op = ops[1]
             fShiftKey = false
             if op == .deg || op == .rad {
-                self.display.displayInfo.degrees = op == .deg ? .deg : .rad
+                display.displayInfo.degrees = op == .deg ? .deg : .rad
                 return
             }
         } else {
