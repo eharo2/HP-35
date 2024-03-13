@@ -24,10 +24,10 @@ extension Double {
 
     // HP35
     func scientificNotation() -> String {
-        guard abs(self) < pow(10, 100) else { return "9.9999999999 99" }
-        guard abs(self) > pow(10, -99) else { return "0.             " }
-        guard abs(self) < pow(10, -3) else { return String(self).padded.noExp }
-        guard self > pow(10, 10) || self < pow(10, -2) else { return String(self).padded.noExp }
+        if self >= pow(10, 100)       { return "9.9999999999 99" }
+        if self < pow(10, 100) * -1.0 { return "-9.999999999 99" }
+        if abs(self) < pow(10, -99)   { return "0.             " }
+        if self >= pow(10, -3) && self <= pow(10, 10) { return String(self).padded.noExp }
         let scientificNotation = String(format: "%.12e", self)
         let components = scientificNotation.components(separatedBy: "e")
         guard components.count == 2, let exp = Int(components[1]) else {
