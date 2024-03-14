@@ -49,6 +49,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     func processOps(_ ops: [Op]) {
         // print("Process: \(ops.names)")
         var op: Op = ops[0]
+        if op != .clr && displayInfo.error { return }
         if op == .fix {
             display.enteringFormat = true
             print("Op: Fix")

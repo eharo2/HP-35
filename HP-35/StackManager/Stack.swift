@@ -14,6 +14,7 @@ import SwiftUI
 
 protocol StackDelegate {
     func stackDidUpdateRegX(value: Double)
+    func stackDidUpdateError(error: Bool)
 }
 
 class Stack {
@@ -62,15 +63,20 @@ class Stack {
     func executeOp(_ op: Op, degrees: Degrees = .deg) {
         print("Stack Op: \(op)")
         switch op {
-        // NO OPERAND
-        case .exchangeXY: exchangeXY()
-        case .rotateUp: rotateUp()
-        case .rotateDown: rotateDown()
-        case .sto: regS       = regX
-        case .rcl: regX       = regS
-
-        case .pi: regX        = Double.pi
-        case .random: regX    = Double.random(in: 0..<1)
+        // DOUBLE OPERAND
+        case .add: regX        = regY + regX
+        case .substract: regX  = regY - regX
+        case .multiply: regX   = regY * regX
+        case .divide:
+            if regX == 0 {
+                delegate?.stackDidUpdateError(error: true)
+                return
+            }
+            regX     = regY / regX
+        case .powerYX: regX    = pow(regY, regX)
+        case .powerXY: regX    = pow(regX, regY) // HP35
+        case .root: regX       = pow(regY, 1/regX)
+        case .percentage: regX = regY * regX/100
 
         // SINGLE OPERAND
         case .sqrt: regX      = sqrt(regX)
@@ -97,16 +103,6 @@ class Stack {
         case .toDeg: regX     = regX.toDeg
         case .toRad: regX     = regX.toRad
 
-        // DOUBLE OPERAND
-        case .add: regX        = regY + regX
-        case .substract: regX  = regY - regX
-        case .multiply: regX   = regY * regX
-        case .divide: regX     = regY / regX
-        case .powerYX: regX    = pow(regY, regX)
-        case .powerXY: regX    = pow(regX, regY) // HP35
-        case .root: regX       = pow(regY, 1/regX)
-        case .percentage: regX = regY * regX/100
-
         case .toP:
             let r = sqrt(pow(regX, 2) + pow(regY, 2))
             var angle = acos(regX/r)
@@ -125,6 +121,16 @@ class Stack {
         case .toH: regX   = regX.toH //.fromHMS in HP-45
         case .toHMS: regX = regX.toHMS
 
+        // NO OPERAND
+        case .exchangeXY: exchangeXY()
+        case .rotateUp: rotateUp()
+        case .rotateDown: rotateDown()
+        case .sto: regS       = regX
+        case .rcl: regX       = regS
+
+        case .pi: regX        = Double.pi
+        case .random: regX    = Double.random(in: 0..<1)
+
         /// MISC
         case .clr: clear()
         case .clrX: regX       = 0.0
@@ -142,6 +148,7 @@ class Stack {
         regT = 0
         regS = 0
         lstX = 0
+        delegate?.stackDidUpdateError(error: false)
         copyValues()
     }
 

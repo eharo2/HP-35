@@ -35,7 +35,7 @@ class Display: StackDelegate {
 
     func processOps(_ ops: [Op]) {
         // print("Process: \(ops.names)")
-        var op: Op = ops[0]
+        let op: Op = ops[0]
         if op == .fix {
             enteringFormat = true
             print("Op: Fix")
@@ -97,10 +97,18 @@ class Display: StackDelegate {
     func stackDidUpdateRegX(value: Double) {
         displayInfo.output = value.scientificNotation()
     }
+
+    func stackDidUpdateError(error: Bool) {
+        displayInfo.error = error
+        if error {
+            displayInfo.output = "-9.99999999999-99"
+        }
+    }
 }
 
 struct DisplayInfo: Equatable {
     var output = ""
+    var error: Bool = false
     var fKey = false {
         didSet {
             if fKey {
