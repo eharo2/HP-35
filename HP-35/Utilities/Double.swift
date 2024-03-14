@@ -27,7 +27,7 @@ extension Double {
         if abs(self) < pow(10, -99)   { return "0.             " }
         if self >= pow(10, 100)       { return "9.9999999999 99" }
         if self < pow(10, 100) * -1.0 { return "-9.999999999 99" }
-        if abs(self) <= pow(10, 10) && abs(self) > pow(10, -3) {
+        if abs(self) <= pow(10, 9) && abs(self) > pow(10, -3) {
             return String(self).padded.noExp
         }
         let scientificNotation = String(format: "%.12e", self)

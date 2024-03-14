@@ -1,5 +1,5 @@
 //
-//  ManualTests.swift
+//  ManualTests1.swift
 //  HP-35Tests
 //
 //  Created by Enrique Haro on 2/17/24.
@@ -8,7 +8,7 @@
 import XCTest
 import HP_35
 
-final class ManualTests: XCTestCase {
+final class ManualTests1: XCTestCase {
     let appService = AppService()
 
     override func setUpWithError() throws {
@@ -204,28 +204,164 @@ final class ManualTests: XCTestCase {
         }
     }
 
-    func test_14_NegativeNumbers() throws {
+    func test_7_Stack() throws {
         //             "1234567890ABCDE"
-        let results = ["-0.            ",
-                       "-3.            ",
-                       "-3.            ",
+        let results = ["3.             ",
                        "3.             ",
-                       "-4.            ",
+                       "4.             ",
                        "12.            ",
                        "5.             ",
-                       "-5.            ",
-                       "-60.           ",
+                       "5.             ",
                        "6.             ",
-                       "-6.            ",
-                       "360.           "]
+                       "30.            ",
+                       "42.            "]
+        let regY: [Double] = [0, 3, 3, 0, 12, 5, 5, 12, 0]
+        let regZ: [Double] = [0, 0, 0, 0, 0, 12, 12, 0, 0]
 
-        let input = ["h", "3", "\r", "h", "4", "*", "5", "h", "*", "6", "h", "*"]
+        let inputs = ["3", "\r", "4", "*", "5", "\r", "6", "*", "+"]
 
-        for index in 0..<input.count {
-            let key = input[index]
+        for index in 0..<inputs.count {
+            let input = inputs[index]
             let expectedResult = results[index]
-            appService.processOps(key.ops35)
-            XCTAssertEqual(appService.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+            XCTAssertEqual(appService.displayInfo.output, expectedResult, 
+                           "Index: \(index), Input \(input)")
+            XCTAssertEqual(appService.stack.regY, regY[index])
+            XCTAssertEqual(appService.stack.regZ, regZ[index])
         }
-    }
+     }
+
+    func test_8_SimpleProblems() throws {
+        //             "1234567890ABCDE"
+        let results = ["4.             ", //Square Root
+                       "49.            ",
+                       "7.             ",
+                       "2.             ", // Reciprocal
+                       "25.            ",
+                       "0.04           ",
+                       "3.             ", // Hypotenuse
+                       "3.             ",
+                       "9.             ",
+                       "4.             ",
+                       "4.             ",
+                       "16.            ",
+                       "25.            ",
+                       "5.             ",
+                       "3.             ", // Area of Circle
+                       "3.             ",
+                       "9.             ",
+                       "3.1415926535   ", // "3.141592654    "
+                       "28.274333882   "] // "28.27433389    "
+
+        let inputs = ["4", "9", "q", "2", "5", "i", "3", "\r", "*", "4", "\r", "*", "+", "q",
+                      "3", "\r", "*", "p", "*"]
+
+        for index in 0..<inputs.count {
+            let input = inputs[index]
+            let expectedResult = results[index]
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+                           "Index: \(index), Input \(input)")
+            print("RegX: \(appService.stack.regX)")
+        }
+     }
+
+    func test_9_PowerOfNumbers() throws {
+        //             "1234567890ABCDE"
+        let results = ["7.             ",
+                       "7.             ",
+                       "2.             ",
+                       "128.           ",
+
+                       "2.             ",
+                       "2.             ",
+                       "3.             ",
+                       "0.6666666666   ",
+                       "8.             ",
+                       "3.9999999999   "]
+
+        let inputs = ["7", "\r", "2", "^",
+                      "2", "\r", "3", "/", "8", "^"]
+
+        for index in 0..<inputs.count {
+            let input = inputs[index]
+            let expectedResult = results[index]
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+                           "Index: \(index), Input \(input)")
+        }
+     }
+
+    func test_10_ProblemsInFinance() throws {
+        //             "1234567890ABCDE"
+        let results = ["17.            ", // Compound Interest
+                       "17.            ",
+                       "1.05           ",
+                       "2.2920183178   ", // "2.292018319    "
+
+                       "1972.          ", // Compound Growth Rate
+                       "1972.          ",
+                       "1965.          ",
+                       "7.             ",
+                       "0.1428571428   ", // "0.1428571429   "
+                       "1.37         09",
+                       "1.37         09",
+                       "926.         06",
+                       "1.4794816414   ", // "1.479481641    "
+                       "1.0575511178   "] // "1.057551119    "
+
+        let inputs = ["17", "\r", "1.05", "^",
+                      "1972", "\r", "1965", "-", "i", "1.37E9", "\r", "926E6", "/", "^"]
+
+        for index in 0..<inputs.count {
+            let input = inputs[index]
+            let expectedResult = results[index]
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+                           "Index: \(index), Input \(input)")
+        }
+     }
+
+    func test_11_ProblemsInFinance() throws {
+        //             "1234567890ABCDE"
+        let results = ["30000.         ",
+                       "30000.         ",
+                       "0.005          ",
+                       "150.           ",
+                       "1.             ",
+                       "1.             ",
+                       "360.           ",
+                       "360.           ",
+                       "1.005          ",
+                       "6.0225752122   ", // "6.0225.        "
+                       "0.166041928    ", // "0.16604        ",
+                       "0.8339580719   ", // "0.83395        ",
+                       "179.86515754   "] // "179.86         "
+
+        let inputs = ["30000", "\r", ".005", "*", "1", "\r", "360", "\r",
+                      "1.005", "^", "i", "-", "/"]
+
+        for index in 0..<inputs.count {
+            let input = inputs[index]
+            let expectedResult = results[index]
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+                           "Index: \(index), Input \(input)")
+        }
+     }
 }
