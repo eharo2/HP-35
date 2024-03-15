@@ -117,26 +117,108 @@ final class ManualTests2: XCTestCase {
 
     func test_15_MoreMemory() throws {
         //             "1234567890ABCDE"
-        let results = ["-0.            ",
-                       "-3.            ",
-                       "-3.            ",
+        let results = ["25.            ",
+                       "25.            ",
+                       "1.             ",
+                       "25.            ",
+                       "0.04           ",
                        "3.             ",
-                       "-4.            ",
-                       "12.            ",
+                       "25.            ",
+                       "0.12           ",
                        "5.             ",
-                       "-5.            ",
-                       "-60.           ",
-                       "6.             ",
-                       "-6.            ",
-                       "360.           "]
+                       "25.            ",
+                       "0.2            ",
+                       "7.             ",
+                       "25.            ",
+                       "0.28           ",
+                       "9.             ",
+                       "25.            ",
+                       "0.36           "]
 
-        let input = ["h", "3", "\r", "h", "4", "*", "5", "h", "*", "6", "h", "*"]
+        let inputs = ["25", "S", "1", "R", "/", "3", "R", "/",
+                      "5", "R", "/", "7", "R", "/", "9", "R", "/"]
 
-        for index in 0..<input.count {
-            let key = input[index]
+        for index in 0..<inputs.count {
+            let input = inputs[index]
             let expectedResult = results[index]
-            appService.processOps(key.ops35)
-            // XCTAssertEqual(appService.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+                           "Index: \(index), Input \(input)")
+        }
+    }
+
+    func test_16_Stack() throws {
+        //             "1234567890ABCDE"
+        let results = ["512.           ",
+                       "512.           ",
+                       "9.             ",
+                       "0.1111111111   ",
+                       "512.           ",
+                       "2.             "]
+
+        let inputs = ["512", "\r", "9", "i", "L", "^"]
+
+        for index in 0..<inputs.count {
+            let input = inputs[index]
+            let expectedResult = results[index]
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+                           "Index: \(index), Input \(input)")
+        }
+    }
+
+    func test_18_Logarithms() throws {
+        //             "1234567890ABCDE"
+        let results = ["25000.         ",
+                       "25000.         ",
+                       "30.            ",
+                       "30.            ",
+                       "9.4            ",
+                       "3.1914893617   ", // "3.191489362    "
+                       "1.1604876923   ", // "1.160487693    "
+                       "29012.192309   "] // "29012.19233    "
+
+        let inputs = ["25000", "\r", "30", "\r", "9.4", "/", "n", "*"]
+
+        for index in 0..<inputs.count {
+            let input = inputs[index]
+            let expectedResult = results[index]
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+                           "Index: \(index), Input \(input)")
+        }
+    }
+
+    func test_19_Trigonometry_1() throws {
+        //             "1234567890ABCDE"
+        let results = ["30.5           ",
+                       "0.5075383629   ", // "0.5075383628   "
+                       "150.           ",
+                       "-0.866025403   ", // "-0.8660254041  "
+                       "0.8660254037   ", // "0.8660254041   "
+                       "-25.6          ",
+                       "-0.479119721   "] // "-0.4791197214  "
+
+        let inputs = ["30.5", "s", "150", "c", "h", "25.6", "t"]
+
+        for index in 0..<inputs.count {
+            let input = inputs[index]
+            let expectedResult = results[index]
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+             XCTAssertEqual(appService.displayInfo.output, expectedResult,
+                            "Index: \(index), Input \(input)")
         }
     }
 }

@@ -101,13 +101,13 @@ class Display: StackDelegate {
     func stackDidUpdateError(error: Bool) {
         displayInfo.error = error
         if error {
-            displayInfo.output = "-9.99999999999-99"
+            displayInfo.output = "-9.999999999-99"
         }
     }
 }
 
 struct DisplayInfo: Equatable {
-    var output = ""
+    var output = "0.".padded.noExp
     var error: Bool = false
     var fKey = false {
         didSet {

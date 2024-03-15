@@ -41,13 +41,11 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         model = Global.model
         display.delegate = self
         stack.delegate = display
-        Timer.scheduledTimer(withTimeInterval: 0.01, repeats: false) { _ in
-            self.stack.regX = 0
-        }
     }
 
     func processOps(_ ops: [Op]) {
         // print("Process: \(ops.names)")
+        guard ops.count > 0 else { return }
         var op: Op = ops[0]
         if op != .clr && displayInfo.error { return }
         if op == .fix {
@@ -135,10 +133,8 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
             if display.numericInput.isEmpty {
                 stack.regX = -stack.regX
-                if !stack.shouldLiftAtInput {
-                    display.numericInput = "-"
-                }
-                if display.numericInput == "-" && stack.regX == 0 {
+                display.numericInput = "-"
+                if stack.regX == 0 {
                     display.displayInfo.output = "-0.".padded.noExp
                 }
             } else {
