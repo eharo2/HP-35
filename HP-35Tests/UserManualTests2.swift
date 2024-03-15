@@ -1,5 +1,5 @@
 //
-//  ManualTests2.swift
+//  UserManualTests2.swift
 //  HP-35Tests
 //
 //  Created by Enrique Haro on 3/13/24.
@@ -8,7 +8,7 @@
 import XCTest
 import HP_35
 
-final class ManualTests2: XCTestCase {
+final class UserManualTests2: XCTestCase {
     let appService = AppService()
 
     override func setUpWithError() throws {
