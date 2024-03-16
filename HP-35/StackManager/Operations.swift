@@ -11,7 +11,6 @@ enum Op: Identifiable, Equatable {
     var id: String { UUID().uuidString }
 
     case digit(_ value: String)
-    case decimalPoint
     case enter
 
     /// Single Operand
@@ -31,7 +30,7 @@ enum Op: Identifiable, Equatable {
 
     /// Misc
     case clr, clrX, lstX
-    case polar, cartesian
+    case toP, toR // Polar / Cartesian
     case toH, toHMS
 
     case fix, sci, eng
@@ -41,13 +40,13 @@ enum Op: Identifiable, Equatable {
     case rotateDown, rotateUp, exchangeXY
     case delete
     case sto, rcl
-    case arc // HP35
+    case fShift // arc in HP-35, orangeKey in HP-45
     case none
 
     // HP35
     var shouldDrop: Bool {
         switch self {
-        case .add, .substract, .multiply, .divide, .powerXY: true
+        case .add, .substract, .multiply, .divide, .powerXY, .powerYX: true
         default: false
         }
     }
@@ -61,7 +60,8 @@ enum Op: Identifiable, Equatable {
 
     var noLift: Bool {
         switch self {
-        case .sqrt, .inverse, .log, .ln, .ex, .pi, .chs: true
+        case .sqrt, .powTwo, .inverse, .log, .tenX, .ln, .ex, .pi, .chs: true
+        case .toP, .toR: true
         default: false
         }
     }
@@ -83,5 +83,20 @@ enum Op: Identifiable, Equatable {
     var isArcOp: Bool {
         let ops: [Op] = [.sin, .cos, .tan, .asin, .acos, .atan]
         return ops.contains(self)
+    }
+}
+
+extension Op {
+    var name: String {
+        var name = String("\(self)".split(separator: ".").last ?? "")
+        name = String(name.replacingOccurrences(of: "\"", with: ""))
+        name = String(name.replacingOccurrences(of: "\\", with: ""))
+        return ".\(name)"
+    }
+}
+
+extension [Op] {
+    var names: String {
+        "\(self.map { $0.name })".replacingOccurrences(of: "\"", with: "")
     }
 }

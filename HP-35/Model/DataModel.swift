@@ -12,52 +12,14 @@ import AppKit
 #endif
 import SwiftUI
 
-class Model35 {
-    static let shared = Model35()
+class DataModel {
+    static let shared = DataModel()
 
-    var keys = [Key]()
-
-    init() {
-        self.keys = [
-            Key(type: .black, ops: [.powerXY], fLabel1: Sym.x, fLabel2: Sym.y, fLabel1Size: 17, fLabel2Size: 13, fOffset: 6),
-            Key(type: .black, ops: [.log], fLabel1: "log"),
-            Key(type: .black, ops: [.ln], fLabel1: "ln"),
-            Key(type: .black, ops: [.ex], fLabel1: Sym.e, fLabel2: Sym.x, fLabel1Size: 17, fLabel2Size: 13, fOffset: 4),
-            Key(type: .blue, ops: [.clr],  fLabel1: "CLR", fLabel1Size: 14),
-            Key(type: .black, ops: [.sqrt], fLabel1: Sym.sqrt, fLabel2: Sym.x, fLabel2Size: 17),
-            Key(type: .brown, ops: [.arc], fLabel1: "arc"),
-            Key(type: .brown, ops: [.sin, .asin], fLabel1: "sin"),
-            Key(type: .brown, ops: [.cos, .acos], fLabel1: "cos"),
-            Key(type: .brown, ops: [.tan, .atan], fLabel1: "tan"),
-            Key(type: .black, ops: [.inverse], fLabel1: "1/", fLabel2: Sym.x, fLabel1Size: 13, fLabel2Size: 16, fOffset: 0),
-            Key(type: .black, ops: [.exchangeXY], fLabel1: Sym.exchange),
-            Key(type: .black, ops: [.rotateDown], fLabel1: "R\(Sym.down35)", fLabel1Size: 14),
-            Key(type: .black, ops: [.sto], fLabel1: "STO", fLabel1Size: 14),
-            Key(type: .black, ops: [.rcl], fLabel1: "RCL", fLabel1Size: 14),
-
-            Key(type: .blueLarge, ops: [.enter], bLabel1: "ENTER \(Sym.up35)"),
-            Key(type: .blue, ops: [.chs], fLabel1: "CH S", fLabel1Size: 14),
-            Key(type: .blue, ops: [.eex], fLabel1: "E EX", fLabel1Size: 14),
-            Key(type: .blue, ops: [.clrX], fLabel1: "CL ", fLabel2: Sym.x, fLabel1Size: 14, fLabel2Size: 17, fOffset: 2),
-
-            Key(type: .blue, ops: [.substract], bLabel1: Sym.substract, bLabel1Size: 24),
-            Key(type: .white, bLabel1: "7"),
-            Key(type: .white, bLabel1: "8"),
-            Key(type: .white, bLabel1: "9"),
-            Key(type: .blue, ops: [.add], bLabel1: Sym.add, bLabel1Size: 24),
-            Key(type: .white, bLabel1: "4"),
-            Key(type: .white, bLabel1: "5"),
-            Key(type: .white, bLabel1: "6"),
-            Key(type: .blue, ops: [.multiply], bLabel1: Sym.multiply, bLabel1Size: 24),
-            Key(type: .white, bLabel1: "1"),
-            Key(type: .white, bLabel1: "2"),
-            Key(type: .white, bLabel1: "3"),
-            Key(type: .blue, ops: [.divide], bLabel1: Sym.divide, bLabel1Size: 24),
-            Key(type: .white, bLabel1: "0"),
-            Key(type: .white, ops: [.decimalPoint], bLabel1: Sym.dot),
-            Key(type: .white, ops: [.pi], bLabel1: Sym.pi, bLabel1Size: 22),
-        ]
+    func keys(for model: Model) -> [Key] {
+        model == .hp35 ? hp35Keys : hp45Keys
     }
+
+    init() {}
 
     struct Key: Identifiable {
         let id: String = UUID().uuidString
@@ -65,7 +27,9 @@ class Model35 {
         let ops: [Op]
 
         let bLabel1: String
+        let bLabel2: String
         let bLabel1Size: CGFloat
+        let bLabel2Size: CGFloat
         let bOffset: CGFloat
         let fLabel1: String
         let fLabel2: String
@@ -73,12 +37,15 @@ class Model35 {
         let fLabel2Size: CGFloat
         let fOffset: CGFloat
 
+        // Initializer for HP-35 keys
         init(
             type: KeyType = .none,
             ops: [Op] = [],
             bLabel1: String = "",
+            bLabel2: String = "",
             bLabel1Size: CGFloat = 17,
-            bOffset: CGFloat = 0,
+            bLabel2Size: CGFloat = 17,
+            bOffset: CGFloat = 6,
             fLabel1: String = "",
             fLabel2: String = "",
             fLabel1Size: CGFloat = 16,
@@ -87,7 +54,9 @@ class Model35 {
                 self.type = type
                 self.ops = ops
                 self.bLabel1 = bLabel1
+                self.bLabel2 = bLabel2
                 self.bLabel1Size = bLabel1Size
+                self.bLabel2Size = bLabel2Size
                 self.bOffset = bOffset
                 self.fLabel1 = fLabel1
                 self.fLabel2 = fLabel2
@@ -96,12 +65,50 @@ class Model35 {
                 self.fOffset = fOffset
             }
 
-        var bLabel: some View {
-            Text(self.bLabel1)
-                .font(.system(size: bLabel1Size * Global.bFontFactor, weight: .regular))
-                .padding(.bottom, 2)
-        }
+        // Aditional initializer to simplify HP-45 keys
+        init(
+            type: KeyType = .none,
+            ops: [Op] = [],
+            _ bLabel1: String,
+            _ bLabel2: String,
+            _ bLabel1Size: CGFloat,
+            _ bLabel2Size: CGFloat,
+            _ bOffset: CGFloat,
+            _ fLabel1: String = "",
+            _ fLabel2: String = "",
+            _ fLabel1Size: CGFloat = 0,
+            _ fLabel2Size: CGFloat = 0,
+            _ fOffset: CGFloat = 0) {
+                self.type = type
+                self.ops = ops
+                self.bLabel1 = bLabel1
+                self.bLabel2 = bLabel2
+                self.bLabel1Size = bLabel1Size
+                self.bLabel2Size = bLabel2Size
+                self.bOffset = bOffset
+                self.fLabel1 = fLabel1
+                self.fLabel2 = fLabel2
+                self.fLabel1Size = fLabel1Size
+                self.fLabel2Size = fLabel2Size
+                self.fOffset = fOffset
+            }
+
+        var bLabel: some View { BLabel(key: self) }
         var fLabel: some View { FLabel(key: self) }
+    }
+
+    struct BLabel: View {
+        let key: Key
+
+        var body: some View {
+            HStack(spacing: 0) {
+                Text(key.bLabel1)
+                    .font(.system(size: key.bLabel1Size * (.mac ? 1.0 : 1.2), weight: .regular))
+                Text(key.bLabel2)
+                    .font(.system(size: key.bLabel2Size * (.mac ? 1.0 : 1.2), weight: .regular))
+                    .baselineOffset(key.bOffset)
+            }
+        }
     }
 
     struct FLabel: View {
@@ -110,10 +117,10 @@ class Model35 {
         var body: some View {
             HStack(spacing: 0) {
                 Text(key.fLabel1)
-                    .font(.system(size: key.fLabel1Size * Global.fFontFactor, weight: .regular))
+                    .font(.system(size: key.fLabel1Size * (.mac ? 1.0 : 1.2), weight: .regular))
                 Text(key.fLabel2)
                     .baselineOffset(key.fOffset)
-                    .font(.system(size: key.fLabel2Size * Global.fFontFactor, weight: .regular))
+                    .font(.system(size: key.fLabel2Size * (.mac ? 1.0 : 1.2), weight: .regular))
             }
         }
     }
@@ -148,6 +155,11 @@ extension Sym {
     //  HP-35
     static let down35 = "\u{2193}"
     static let up35 = "\u{2191}"
+
+    //  HP-45
+    static let macron = "\u{0305}"
+    static let delta = "\u{0394}"
+    static let summation = "\u{2211}"
 }
 
 extension String {
@@ -159,7 +171,7 @@ extension String {
         case "e": [.ex]
         case "C": [.clr]
         case "q": [.sqrt]
-        case "a": [.arc]
+        case "a": [.fShift]
         case "s": [.sin, .asin]
         case "c": [.cos, .acos]
         case "t": [.tan, .atan]

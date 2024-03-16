@@ -14,7 +14,9 @@ struct DisplayView: View {
     var body: some View {
         lcdView()
             .onChange(of: appService.displayInfo) { _, displayInfo in
-                self.displayInfo = displayInfo
+                DispatchQueue.main.async {
+                    self.displayInfo = displayInfo
+                }
             }
     }
 
@@ -22,20 +24,9 @@ struct DisplayView: View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 ZStack {
-                    display35()
-                        .padding(.vertical, Global.displayVerticalPadding)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    VStack(spacing: 0) {
-                        Text(displayInfo.output)
-                            .lineLimit(1)
-                        .kerning(5)
-                        .font(Font.custom("HP15C-Simulator-Font", size: geometry.size.width/13))
-                        .foregroundColor(.red)
-                        .padding(.bottom, 5)
-                        .padding(.leading, 5)
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.top, 6)
+                    displayBackground()
+                    LedsView(displayInfo: self.displayInfo,
+                             fontSize: geometry.size.width/13)
                 }
             }
         }
@@ -44,7 +35,7 @@ struct DisplayView: View {
 
 // MARK: - HP35
 extension DisplayView {
-    func display35() -> some View {
+    func displayBackground() -> some View {
         ZStack {
             Rectangle()
                 .foregroundColor(.black)
@@ -62,26 +53,45 @@ extension DisplayView {
                 .padding(10.5)
                 .padding(.leading, 5)
         }
+        .padding(.vertical, 0)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
-struct DisplayInfo: Equatable {
-    var output = ""
-    var fKey = false {
-        didSet {
-            if fKey {
-                gKey = false
+struct LedsView: View {
+    @ObservedObject var timer: LedTimer
+    let fontSize: CGFloat
+
+    init(displayInfo: DisplayInfo, fontSize: CGFloat) {
+        self.timer = LedTimer(displayInfo)
+        self.fontSize = fontSize
+    }
+    var body: some View {
+        VStack(spacing: 0) {
+            Text(timer.text)
+                .lineLimit(1)
+            .kerning(5)
+            .font(Font.custom("HP15C-Simulator-Font", size: fontSize))
+            .foregroundColor(.red)
+            .padding(.bottom, 5)
+            .padding(.leading, 5)
+        }
+        .padding(.horizontal, 20)
+    }
+
+    class LedTimer: ObservableObject {
+        @Published var text: String = ""
+
+        init(_ displayInfo: DisplayInfo) {
+            if displayInfo.error {
+                Timer.scheduledTimer(withTimeInterval: 0.4, repeats: true) { _ in
+                    self.text = self.text.isEmpty ? displayInfo.output : ""
+                }
+            } else {
+                self.text = displayInfo.output
             }
         }
     }
-    var gKey = false {
-        didSet {
-            if gKey {
-                fKey = false
-            }
-        }
-    }
-    var degrees: Degrees = .deg
 }
 
 extension View {

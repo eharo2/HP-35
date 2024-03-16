@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct InfoView35: View {
-    let model = Model35.shared
-
     var body: some View {
         HStack(spacing: 0) {
             columnView(left: true)
@@ -57,7 +55,7 @@ struct InfoView35: View {
         VStack( spacing: 0) {
             ZStack {
                 VStack(spacing: 0) {
-                    let inputs = left ? Model35.leftSideKeys : Model35.rightSideKeys
+                    let inputs = left ? DataModel.leftSideKeys : DataModel.rightSideKeys
                     ForEach(inputs, id: \.self) { input in
                         HStack(spacing: 0) {
                             ZStack {
@@ -89,7 +87,7 @@ struct InfoView35: View {
     }
 
     @ViewBuilder
-    func label(_ key: Model35.Key?) -> some View {
+    func label(_ key: DataModel.Key?) -> some View {
         if let key {
             if key.type == .brown || key.type == .black {
                 key.fLabel
@@ -109,12 +107,12 @@ struct InfoView35: View {
         }
     }
 
-    func foregroundColor(_ key: Model35.Key?) -> Color {
+    func foregroundColor(_ key: DataModel.Key?) -> Color {
         guard let key, let op = key.ops.first else { return .clear }
         return op == .pi ? .black : .white
     }
 
-    func keyWidth(_ key: Model35.Key?) -> CGFloat {
+    func keyWidth(_ key: DataModel.Key?) -> CGFloat {
         guard let key, let op = key.ops.first else { return 0 }
         return op == .enter ? 75 : 40
     }
@@ -131,7 +129,7 @@ struct InfoView35: View {
         }
     }
 
-    func backgroundColor(_ key: Model35.Key?) -> Color {
+    func backgroundColor(_ key: DataModel.Key?) -> Color {
         guard let key else { return .clear }
         return switch key.type {
         case .blue, .blueLarge: .blue
@@ -143,14 +141,14 @@ struct InfoView35: View {
     }
 }
 
-extension Model35 {
+extension DataModel {
     static let leftSideKeys = ["^", "l", "n", "e", "q", "a", "s", "c", "t", "i", "L", "D"]
     static let rightSideKeys = ["\r", "C", "h", "E", "x", "-", "+", "*", "/", "p", "S", "R"]
 }
 
 extension String {
-    var key: Model35.Key? {
-        for key in Model35.shared.keys {
+    var key: DataModel.Key? {
+        for key in DataModel.shared.keys(for: Global.model) {
             if let first = key.ops.first, first == self.ops35.first {
                 return key
             }
