@@ -68,6 +68,7 @@ struct KeyboardView: View {
         .padding(.horizontal, .mac ? 10 : 20)
         .onTapGesture {
             Global.model = .hp35 ? .hp45 : .hp35
+            appService.display.info.error = false
             appService.stack.clear()
             appService.stack.inspect()
         }

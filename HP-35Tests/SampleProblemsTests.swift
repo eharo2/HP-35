@@ -11,7 +11,10 @@ import HP_35
 final class SampleProblemsTests: XCTestCase {
     let appService = AppService()
 
-    override func setUpWithError() throws { }
+    override func setUpWithError() throws {
+        appService.processOps("C".ops35)
+    }
+
     override func tearDownWithError() throws { }
 
     func test_clearKey() throws {

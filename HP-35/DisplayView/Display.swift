@@ -14,9 +14,9 @@ protocol DisplayManagerDelegate {
 class Display: StackDelegate {
     var delegate: DisplayManagerDelegate?
 
-    var displayInfo = DisplayInfo() {
+    var info = DisplayInfo() {
         didSet {
-            self.delegate?.displayDidUpdateInfo(displayInfo)
+            self.delegate?.displayDidUpdateInfo(info)
         }
     }
     var numericInput = ""
@@ -66,9 +66,9 @@ class Display: StackDelegate {
 
     func update(with string: String, addExponent: Bool = true) {
         if addExponent {
-            displayInfo.output = string.padded + expInput
+            info.output = string.padded + expInput
         } else {
-            displayInfo.output = string.padded.noExp
+            info.output = string.padded.noExp
         }
     }
 
@@ -76,8 +76,8 @@ class Display: StackDelegate {
         numericInput = ""
         expInput = "   "
         enteringEex = false
-        displayInfo.fKey = false
-        displayInfo.gKey = false
+        info.fKey = false
+        info.gKey = false
     }
 
     // HP-45
@@ -95,13 +95,13 @@ class Display: StackDelegate {
 
     // MARK: - StackDelegate
     func stackDidUpdateRegX(value: Double) {
-        displayInfo.output = value.scientificNotation()
+        info.output = value.scientificNotation()
     }
 
     func stackDidUpdateError(error: Bool) {
-        displayInfo.error = error
+        info.error = error
         if error {
-            displayInfo.output = "-9.999999999-99"
+            info.output = "-9.999999999-99"
         }
     }
 }

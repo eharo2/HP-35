@@ -74,27 +74,57 @@ class Stack {
             }
             regX     = regY / regX
         case .powerYX: regX    = pow(regY, regX)
-        case .powerXY: regX    = pow(regX, regY) // HP35
+        case .powerXY:
+            if regX <= 0 {
+                delegate?.stackDidUpdateError(error: true)
+                return
+            }
+            regX = pow(regX, regY) // HP35
         case .root: regX       = pow(regY, 1/regX)
         case .percentage: regX = regY * regX/100
 
         // SINGLE OPERAND
-        case .sqrt: regX      = sqrt(regX)
+        case .sqrt:
+            if regX < 0 {
+                delegate?.stackDidUpdateError(error: true)
+                return
+            }
+            regX = sqrt(regX)
         case .powTwo: regX    = pow(regX, 2.0)
         case .inverse: regX   = 1/regX
         case .abs: regX       = abs(regX)
         case .chs: regX       = regX * -1.0
 
-        case .log: regX       = log10(regX)
+        case .log:
+            if regX <= 0 {
+                delegate?.stackDidUpdateError(error: true)
+                return
+            }
+            regX = log10(regX)
         case .tenX: regX      = pow(10, regX)
-        case .ln: regX        = log(regX)
+        case .ln:
+            if regX <= 0 {
+                delegate?.stackDidUpdateError(error: true)
+                return
+            }
+            regX = log(regX)
         case .ex: regX        = pow(exp(1), regX)
 
         case .sin: regX       = sin(regX.convertFrom(degrees))
         case .cos: regX       = cos(regX.convertFrom(degrees))
         case .tan: regX       = tan(regX.convertFrom(degrees))
-        case .asin: regX      = asin(regX).convertTo(degrees)
-        case .acos: regX      = acos(regX).convertTo(degrees)
+        case .asin:
+            if abs(regX) > 1 {
+                delegate?.stackDidUpdateError(error: true)
+                return
+            }
+            regX = asin(regX).convertTo(degrees)
+        case .acos:
+            if abs(regX) > 1 {
+                delegate?.stackDidUpdateError(error: true)
+                return
+            }
+            regX = acos(regX).convertTo(degrees)
         case .atan: regX      = atan(regX).convertTo(degrees)
 
         case .frac: regX      = regX - trunc(regX)
@@ -133,7 +163,9 @@ class Stack {
 
         /// MISC
         case .clr: clear()
-        case .clrX: regX       = 0.0
+        case .clrX:
+            delegate?.stackDidUpdateError(error: false)
+            regX = 0.0
         case .lstX: lift(lstX)
         default: print("NOP: \(op)")
         }
@@ -148,7 +180,6 @@ class Stack {
         regT = 0
         regS = 0
         lstX = 0
-        delegate?.stackDidUpdateError(error: false)
         copyValues()
     }
 

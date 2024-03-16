@@ -12,7 +12,7 @@ final class UserManualTests1: XCTestCase {
     let appService = AppService()
 
     override func setUpWithError() throws {
-        appService.processOps("\r".ops35)
+        appService.processOps("C".ops35)
     }
 
     override func tearDownWithError() throws { }

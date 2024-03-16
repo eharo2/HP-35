@@ -12,7 +12,7 @@ final class UserManualTests2: XCTestCase {
     let appService = AppService()
 
     override func setUpWithError() throws {
-        appService.processOps("\r".ops35)
+        appService.processOps("C".ops35)
     }
 
     override func tearDownWithError() throws { }
@@ -209,6 +209,60 @@ final class UserManualTests2: XCTestCase {
                        "-0.479119721   "] // "-0.4791197214  "
 
         let inputs = ["30.5", "s", "150", "c", "h", "25.6", "t"]
+
+        for index in 0..<inputs.count {
+            let input = inputs[index]
+            let expectedResult = results[index]
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+                           "Index: \(index), Input \(input)")
+        }
+    }
+
+    func test_19_Trigonometry_2() throws {
+        //             "1234567890ABCDE"
+        let results = ["0.3            ",
+                       "17.457603123   ",
+                       "-17.45760312   ",
+                       "-.7            ",
+                       "134.427004     ",
+                       "10.2           ",
+                       "84.400660663   "] // "84.40066068    "
+
+        let inputs = [".3", "as", "h", ".7", "ac", "10.2", "at"]
+
+        for index in 0..<inputs.count {
+            let input = inputs[index]
+            let expectedResult = results[index]
+            for char in input {
+                let key = String(char)
+                appService.processOps(key.ops35)
+            }
+            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+                           "Index: \(index), Input \(input)")
+        }
+    }
+
+    func test_20_DecimalDegrees() throws {
+        //             "1234567890ABCDE"
+        let results = ["35.            ",
+                       "35.            ",
+                       "17.            ",
+                       "17.            ",
+                       "47.            ",
+                       "47.            ",
+                       "60.            ",
+                       "60.            ",
+                       "0.7833333333   ",
+                       "17.783333333   ",
+                       "60.            ",
+                       "0.2963888888   ",
+                       "35.296388888   "] // "35.296388889   "
+
+        let inputs = ["35", "\r", "17", "\r", "47", "\r", "60", "S", "/", "+", "R", "/", "+"]
 
         for index in 0..<inputs.count {
             let input = inputs[index]

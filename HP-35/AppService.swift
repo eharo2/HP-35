@@ -47,7 +47,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         // print("Process: \(ops.names)")
         guard ops.count > 0 else { return }
         var op: Op = ops[0]
-        if op != .clr && displayInfo.error { return }
+        if op != .clrX && displayInfo.error { return }
         if op == .fix {
             display.enteringFormat = true
             print("Op: Fix")
@@ -70,7 +70,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             op = ops[1]
             fShiftKey = false
             if op == .deg || op == .rad {
-                display.displayInfo.degrees = op == .deg ? .deg : .rad
+                display.info.degrees = op == .deg ? .deg : .rad
                 return
             }
         } else {
@@ -114,7 +114,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             stack.lift(stack.regX)
             stack.inspect()
         case .delete:
-            guard display.displayInfo.output != 0.format(display.numberOfDigits) else { return }
+            guard display.info.output != 0.format(display.numberOfDigits) else { return }
             display.numericInput = String(display.numericInput.dropLast())
             if display.numericInput.count == 0 {
                 display.update(with: 0.format(display.numberOfDigits), addExponent: false)
@@ -135,7 +135,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
                 stack.regX = -stack.regX
                 display.numericInput = "-"
                 if stack.regX == 0 {
-                    display.displayInfo.output = "-0.".padded.noExp
+                    display.info.output = "-0.".padded.noExp
                 }
             } else {
                 if display.numericInput.starts(with: "-") {
