@@ -90,6 +90,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
                 processEEX()
                 return
             }
+            guard display.numericInput.count < 12 else { return }
             if (display.numericInput + input).isNumeric {
                 display.numericInput += input
                 if display.numericInput == "." {
