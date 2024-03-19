@@ -12,6 +12,7 @@ final class ErrorTests2: XCTestCase {
     let appService = AppService()
 
     override func setUpWithError() throws {
+        Global.model = .hp35
         appService.processOps("C".ops35)
     }
 

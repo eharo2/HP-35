@@ -23,6 +23,12 @@ extension Double {
     }
 
     // HP35
+    func roundedToTwelvePositions() -> Double {
+        guard String(self).count > 12 else { return self }
+        let rounded = .hp35 ? self : (self * 10_000_000_000).rounded(.toNearestOrEven)/10_000_000_000
+        return rounded
+    }
+
     func scientificNotation() -> String {
         if abs(self) < pow(10, -99)   { return "0.             " }
         if self >= pow(10, 100)       { return "9.9999999999 99" }
@@ -137,6 +143,16 @@ extension Double {
         case .deg: return self.toDeg
         default: return self
         }
+    }
+
+    var factorial: Int? {
+        func fact(_ n: Int) -> Int {
+            if n == 0 { return 1 }
+            return n * fact(n - 1)
+        }
+
+        guard self >= 0 else { return nil }
+        return fact(Int(self))
     }
 }
 

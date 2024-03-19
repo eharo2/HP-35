@@ -115,10 +115,10 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             stack.lift(stack.regX)
             stack.inspect()
         case .delete:
-            guard display.info.output != 0.format(display.numberOfDigits) else { return }
+            guard display.info.output != 0.format(display.outputFormat.digits) else { return }
             display.numericInput = String(display.numericInput.dropLast())
             if display.numericInput.count == 0 {
-                display.update(with: 0.format(display.numberOfDigits), addExponent: false)
+                display.update(with: 0.format(display.outputFormat.digits), addExponent: false)
                 return
             }
             display.update(with: display.numericInput, addExponent: false)

@@ -73,7 +73,7 @@ class Stack {
                 return
             }
             regX     = regY / regX
-        case .powerYX: regX    = pow(regY, regX)
+        case .powerYX: regX = pow(regY, regX)
         case .powerXY:
             if regX <= 0 {
                 delegate?.stackDidUpdateError(error: true)
@@ -151,6 +151,12 @@ class Stack {
         case .toH: regX   = regX.toH //.fromHMS in HP-45
         case .toHMS: regX = regX.toHMS
 
+        case .factorial:
+            if let factorial = regX.factorial {
+                regX = Double(factorial)
+            } else {
+                delegate?.stackDidUpdateError(error: true)
+            }
         // NO OPERAND
         case .exchangeXY: exchangeXY()
         case .rotateUp: rotateUp()

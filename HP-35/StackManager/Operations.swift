@@ -46,7 +46,7 @@ enum Op: Identifiable, Equatable {
     // HP35
     var shouldDrop: Bool {
         switch self {
-        case .add, .substract, .multiply, .divide, .powerXY, .powerYX: true
+        case .add, .substract, .multiply, .divide, .powerXY, .powerYX, .percentage: true
         default: false
         }
     }
@@ -61,7 +61,7 @@ enum Op: Identifiable, Equatable {
     var noLift: Bool {
         switch self {
         case .sqrt, .powTwo, .inverse, .log, .tenX, .ln, .ex, .pi, .chs: true
-        case .toP, .toR: true
+        case .toP, .toR, .factorial: true
         default: false
         }
     }

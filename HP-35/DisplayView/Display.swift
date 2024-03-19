@@ -20,7 +20,6 @@ class Display: StackDelegate {
         }
     }
     var numericInput = ""
-    var numberOfDigits: Int = 2
     var expInput = "   "
     var enteringEex: Bool = false
 
@@ -29,9 +28,7 @@ class Display: StackDelegate {
     var enteringFormat = false
     var outputFormat: Format = .fix(2)
 
-    init() {
-        numberOfDigits = 12
-    }
+    init() { }
 
     func processOps(_ ops: [Op]) {
         // print("Process: \(ops.names)")
@@ -86,7 +83,6 @@ class Display: StackDelegate {
         case .digit(let value):
             if let value = Int(value) {
                 print("Fix \(value)")
-                // numberOfDigits = value
                 outputFormat = .fix(value)
             }
         default: print("Ignore: Fix \(ops)")
@@ -95,7 +91,8 @@ class Display: StackDelegate {
 
     // MARK: - StackDelegate
     func stackDidUpdateRegX(value: Double) {
-        info.output = value.scientificNotation()
+        let rounded = value.roundedToTwelvePositions()
+        info.output = rounded.scientificNotation()
     }
 
     func stackDidUpdateError(error: Bool) {
