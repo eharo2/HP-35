@@ -81,7 +81,6 @@ class Stack {
             }
             regX = pow(regX, regY) // HP35
         case .root: regX       = pow(regY, 1/regX)
-        case .percentage: regX = regY * regX/100
 
         // SINGLE OPERAND
         case .sqrt:
@@ -129,6 +128,9 @@ class Stack {
 
         case .frac: regX      = regX - trunc(regX)
         case .int: regX       = trunc(regX)
+
+        case .percentage: regX = regY * regX/100
+        case .delta: regX      = (regX/regY - 1) * 100
 
         case .toDeg: regX     = regX.toDeg
         case .toRad: regX     = regX.toRad

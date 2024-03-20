@@ -17,7 +17,7 @@ enum Op: Identifiable, Equatable {
     case sqrt, powTwo
     case log, tenX, ln, ex
     case sin, cos, tan, asin, acos, atan
-    case frac, int, abs, chs, inverse, factorial, percentage
+    case frac, int, abs, chs, inverse, factorial, percentage, delta
     case toDeg, toRad
 
     /// Two Operands
@@ -46,7 +46,7 @@ enum Op: Identifiable, Equatable {
     // HP35
     var shouldDrop: Bool {
         switch self {
-        case .add, .substract, .multiply, .divide, .powerXY, .powerYX, .percentage: true
+        case .add, .substract, .multiply, .divide, .powerXY, .powerYX: true
         default: false
         }
     }
@@ -61,7 +61,7 @@ enum Op: Identifiable, Equatable {
     var noLift: Bool {
         switch self {
         case .sqrt, .powTwo, .inverse, .log, .tenX, .ln, .ex, .pi, .chs: true
-        case .toP, .toR, .factorial: true
+        case .toP, .toR, .factorial, .percentage, .delta: true
         default: false
         }
     }

@@ -24,7 +24,6 @@ class Display: StackDelegate {
     var enteringEex: Bool = false
 
     // HP-45
-    // HP-45
     var enteringFormat = false
     var outputFormat: Format = .fix(2)
 
@@ -91,8 +90,12 @@ class Display: StackDelegate {
 
     // MARK: - StackDelegate
     func stackDidUpdateRegX(value: Double) {
-        let rounded = value.roundedToTwelvePositions()
-        info.output = rounded.scientificNotation()
+        if let string = value.processLargeAndSmallValues() {
+            info.output = string
+        } else {
+            let rounded = value.roundedToTwelvePositions()
+            info.output = rounded.scientificNotation()
+        }
     }
 
     func stackDidUpdateError(error: Bool) {

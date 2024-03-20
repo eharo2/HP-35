@@ -23,19 +23,29 @@ extension Double {
     }
 
     // HP35
+    func processLargeAndSmallValues() -> String? {
+        if abs(self) < pow(10, -99)   { return "0.             " }
+        if self >= pow(10, 100)       { return "9.9999999999 99" }
+        if self < pow(10, 100) * -1.0 { return "-9.999999999 99" }
+        return nil
+    }
+
+    // Required to reduce the accuracy discrepancies vs. the manual results
     func roundedToTwelvePositions() -> Double {
         guard String(self).count > 12 else { return self }
         let rounded = .hp35 ? self : (self * 10_000_000_000).rounded(.toNearestOrEven)/10_000_000_000
         return rounded
     }
 
-    func scientificNotation() -> String {
-        if abs(self) < pow(10, -99)   { return "0.             " }
-        if self >= pow(10, 100)       { return "9.9999999999 99" }
-        if self < pow(10, 100) * -1.0 { return "-9.999999999 99" }
+    // Result is in a fixed format for the range. Else use SCI format
+    func resultString() -> String {
         if abs(self) <= pow(10, 9) && abs(self) > pow(10, -3) {
             return String(self).padded.noExp
         }
+        return self.scientificNotation()
+    }
+
+    func scientificNotation() -> String {
         let scientificNotation = String(format: "%.12e", self)
         let components = scientificNotation.components(separatedBy: "e")
         guard components.count == 2, let exp = Int(components[1]) else {
