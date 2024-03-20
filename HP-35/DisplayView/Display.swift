@@ -62,9 +62,9 @@ class Display: StackDelegate {
 
     func update(with string: String, addExponent: Bool = true) {
         if addExponent {
-            info.output = string.padded + expInput
+            info.output = string.padded() + expInput
         } else {
-            info.output = string.padded.noExp
+            info.output = string.padded().noExp
         }
     }
 
@@ -90,12 +90,11 @@ class Display: StackDelegate {
 
     // MARK: - StackDelegate
     func stackDidUpdateRegX(value: Double) {
-        if let string = value.processLargeAndSmallValues() {
-            info.output = string
-        } else {
-            let rounded = value.roundedToTwelvePositions()
-            info.output = rounded.scientificNotation()
+        if let overflowResult = value.checkForOverflowResult() {
+            info.output = overflowResult
+            return
         }
+        info.output = value.roundedToTwelvePositions().restultString()
     }
 
     func stackDidUpdateError(error: Bool) {
@@ -107,7 +106,7 @@ class Display: StackDelegate {
 }
 
 struct DisplayInfo: Equatable {
-    var output = "0.".padded.noExp
+    var output = "0.".padded().noExp
     var error: Bool = false
     var fKey = false {
         didSet {

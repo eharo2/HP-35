@@ -136,7 +136,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
                 stack.regX = -stack.regX
                 display.numericInput = "-"
                 if stack.regX == 0 {
-                    display.info.output = "-0.".padded.noExp
+                    display.info.output = "-0.".padded().noExp
                 }
             } else {
                 if display.numericInput.starts(with: "-") {

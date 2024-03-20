@@ -23,7 +23,7 @@ extension Double {
     }
 
     // HP35
-    func processLargeAndSmallValues() -> String? {
+    func checkForOverflowResult() -> String? {
         if abs(self) < pow(10, -99)   { return "0.             " }
         if self >= pow(10, 100)       { return "9.9999999999 99" }
         if self < pow(10, 100) * -1.0 { return "-9.999999999 99" }
@@ -38,20 +38,20 @@ extension Double {
     }
 
     // Result is in a fixed format for the range. Else use SCI format
-    func resultString() -> String {
+    func restultString() -> String {
         if abs(self) <= pow(10, 9) && abs(self) > pow(10, -3) {
-            return String(self).padded.noExp
+            return String(self).padded().noExp
         }
         return self.scientificNotation()
     }
 
-    func scientificNotation() -> String {
+    private func scientificNotation() -> String {
         let scientificNotation = String(format: "%.12e", self)
         let components = scientificNotation.components(separatedBy: "e")
         guard components.count == 2, let exp = Int(components[1]) else {
-            return String(self).padded.noExp
+            return String(self).padded().noExp
         }
-        let coeficient = components[0].padded
+        let coeficient = components[0].padded()
         var exponent: String
         if exp == 0 {
             exponent = String().noExp
