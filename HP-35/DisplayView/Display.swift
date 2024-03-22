@@ -24,25 +24,9 @@ class Display: StackDelegate {
     var enteringEex: Bool = false
 
     // HP-45
-    var enteringFormat = false
     var outputFormat: Format = .fix(2)
 
     init() { }
-
-    func processOps(_ ops: [Op]) {
-        // print("Process: \(ops.names)")
-        let op: Op = ops[0]
-        if op == .fix {
-            enteringFormat = true
-            print("Op: Fix")
-            return
-        }
-        if enteringFormat {
-            processFormatInput(ops)
-            enteringFormat = false
-            return
-        }
-    }
 
     func processEnter() {
         numericInput = ""
@@ -76,25 +60,18 @@ class Display: StackDelegate {
         info.gKey = false
     }
 
-    // HP-45
-    func processFormatInput(_ ops: [Op]) {
-        switch ops[0] {
-        case .digit(let value):
-            if let value = Int(value) {
-                print("Fix \(value)")
-                outputFormat = .fix(value)
-            }
-        default: print("Ignore: Fix \(ops)")
-        }
-    }
-
     // MARK: - StackDelegate
     func stackDidUpdateRegX(value: Double) {
         if let overflowResult = value.checkForOverflowResult() {
             info.output = overflowResult
             return
         }
-        info.output = value.roundedToTwelvePositions().restultString()
+        let rounded = value.roundedToFormat(outputFormat)
+        let result = rounded.resultString(outputFormat)
+        print("Format Double Value    : [\(value)]")
+        print("Format Double Rounded  : [\(rounded)]")
+        print("Format Result as String: [\(result)]")
+        info.output = result
     }
 
     func stackDidUpdateError(error: Bool) {

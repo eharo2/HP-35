@@ -252,10 +252,10 @@ extension Stack {
             max = String(reg).count
         }
         print("===== STACK =====")
-        print("regT: \(preT.padded(max)) -> \(regT)")
-        print("regZ: \(preZ.padded(max)) -> \(regZ)")
-        print("regY: \(preY.padded(max)) -> \(regY)")
-        print("regX: \(preX.padded(max)) -> \(regX)")
+        print("regT: \(preT.stringValue(withSize: max)) -> \(regT)")
+        print("regZ: \(preZ.stringValue(withSize: max)) -> \(regZ)")
+        print("regY: \(preY.stringValue(withSize: max)) -> \(regY)")
+        print("regX: \(preX.stringValue(withSize: max)) -> \(regX)")
         print("STO:  \(regS)")
         print()
     }

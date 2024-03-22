@@ -188,10 +188,14 @@ extension String {
         case "+": [.add]
         case "*": [.multiply]
         case "/": [.divide]
-        case "p": [.pi]
+        case "p": .hp35 ? [.pi] : [.none, .pi]
         case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".": [.digit(self)]
 
-            // Mac Keyboard only
+        // HP-45
+        case "f": [.none, .fix]
+        case "P": [.toP, .toR]
+
+        // Mac Keyboard only
         case .delete: [.delete]
         default: []
         }

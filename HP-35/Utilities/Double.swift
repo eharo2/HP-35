@@ -31,21 +31,32 @@ extension Double {
     }
 
     // Required to reduce the accuracy discrepancies vs. the manual results
-    func roundedToTwelvePositions() -> Double {
-        guard String(self).count > 12 else { return self }
-        let rounded = .hp35 ? self : (self * 10_000_000_000).rounded(.toNearestOrEven)/10_000_000_000
-        return rounded
+    func roundedToFormat(_ format: Format) -> Double {
+        if .hp35 {
+            guard String(self).count > 12 else {
+                return self
+            }
+            return self
+//            let fixedPrecision = (self * 10_000_000_000).rounded(.toNearestOrEven)/10_000_000_000
+//            return fixedPrecision
+        } else {
+            // Needed to fix accuray discrepancies with the manual results
+            let fixedPrecision = (self * 10_000_000_000).rounded(.toNearestOrEven)/10_000_000_000
+            let factor = pow(10, Double(format.digits))
+            let rounded = (fixedPrecision * factor).rounded(.toNearestOrEven)/factor
+            return rounded
+        }
     }
 
     // Result is in a fixed format for the range. Else use SCI format
-    func restultString() -> String {
+    func resultString(_ format: Format) -> String {
         if abs(self) <= pow(10, 9) && abs(self) > pow(10, -3) {
-            return String(self).padded().noExp
+            return String(self).padded(digits: format.digits).noExp
         }
-        return self.scientificNotation()
+        return self.scientificNotation(format)
     }
 
-    private func scientificNotation() -> String {
+    private func scientificNotation(_ format: Format) -> String {
         let scientificNotation = String(format: "%.12e", self)
         let components = scientificNotation.components(separatedBy: "e")
         guard components.count == 2, let exp = Int(components[1]) else {
@@ -64,7 +75,7 @@ extension Double {
     }
 
     /// Used for Stack inspection only
-    func padded(_ size: Int) -> String {
+    func stringValue(withSize size: Int) -> String {
         var string = String(self)
         guard string.count < size else { return string }
         for _ in string.count..<size {

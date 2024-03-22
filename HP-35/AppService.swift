@@ -21,7 +21,8 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     }
     var display = Display()
     var stack = Stack()
-    var fShiftKey: Bool = false // arc in HP-35, orangeKey in HP-45
+    var enteringFormat = false
+    var fShiftKey: Bool = false
 
     var didLstX = false
 
@@ -29,12 +30,17 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         #if os(macOS)
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event -> NSEvent? in
             guard !event.isARepeat else { return nil }
+            guard let fShiftKey = self?.fShiftKey else { return nil }
             let input = event.input
-            guard !input.ops35.isEmpty else {
+            var ops = event.input.ops35
+            if event.input == "f" { // Function key (orange key in HP45)
+                ops = fShiftKey ? [.fix] : [.fShift]
+            }
+            guard !ops.isEmpty else {
                 print("Ignore: \(input)")
                 return nil
             }
-            self?.processOps(input.ops35)
+            self?.processOps(ops)
             return nil
         }
         #endif
@@ -44,18 +50,18 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     }
 
     func processOps(_ ops: [Op]) {
-        // print("Process: \(ops.names)")
+        print("Process: \(ops.names)")
         guard ops.count > 0 else { return }
         var op: Op = ops[0]
         if op != .clrX && displayInfo.error { return }
         if op == .fix {
-            display.enteringFormat = true
-            print("Op: Fix")
+            enteringFormat = true
             return
         }
-        if display.enteringFormat {
-            display.processFormatInput(ops)
-            display.enteringFormat = false
+        if enteringFormat {
+            processFormatInput(ops)
+            enteringFormat = false
+            fShiftKey = false
             return
         }
         if fShiftKey {
@@ -152,6 +158,19 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         default:
             stack.processOp(op, displayInfo.degrees, display.numericInput.isEmpty)
             display.reset()
+        }
+    }
+
+    // HP-45
+    func processFormatInput(_ ops: [Op]) {
+        switch ops[0] {
+        case .digit(let value):
+            if let value = Int(value) {
+                print("Fix: \(value)")
+                display.outputFormat = .fix(value)
+                stack.regX = stack.regX
+            }
+        default: print("Ignore: Fix \(ops)")
         }
     }
 
