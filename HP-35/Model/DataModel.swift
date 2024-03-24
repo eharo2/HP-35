@@ -169,7 +169,7 @@ extension String {
         case "l": [.log]
         case "n": [.ln]
         case "e": [.ex]
-        case "C": [.clr]
+        case "C": .hp35 ? [.clr] : [.none, .clr]
         case "q": [.sqrt]
         case "a": [.fShift]
         case "s": [.sin, .asin]
@@ -183,7 +183,7 @@ extension String {
         case "\r": [.enter]
         case "h": [.chs]
         case "E": [.eex]
-        case "x": [.clrX]
+        case "X": .hp35 ? [.clrX] : [.none, .clrX]
         case "-": [.substract]
         case "+": [.add]
         case "*": [.multiply]
@@ -192,8 +192,9 @@ extension String {
         case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".": [.digit(self)]
 
         // HP-45
-        case "f": [.none, .fix]
+        case "f": [.fShift]
         case "P": [.toP, .toR]
+        case "x": [.none, .lstX]
 
         // Mac Keyboard only
         case .delete: [.delete]

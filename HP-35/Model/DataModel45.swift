@@ -66,7 +66,8 @@ extension DataModel {
             Key(type: .white, ops: [.digit("2")], "2", "", 17, 0, 0),
             Key(type: .white, ops: [.digit("3")], "3", "", 17, 0, 0),
             Key(type: .lightGray, ops: [.divide], "", Sym.divide, 0, 24, 2),
-            Key(type: .white, ops: [.digit("0")], "0", "", 17, 0, 0, "LAST ", Sym.x, 12, 16, 4),
+            Key(type: .white, ops: [.digit("0"), .lstX], "0", "", 17, 0, 0,
+                                                         "LAST ", Sym.x, 12, 16, 4),
             Key(type: .white, ops: [.digit("."), .pi], Sym.dot, "", 17, 0, 0, "", Sym.pi, 0, 19, 2),
             Key(type: .white, Sym.summation, "+", 17, 17, 0, "", "\(Sym.summation)-", 14, 14, 2),
         ]

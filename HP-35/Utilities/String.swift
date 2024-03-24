@@ -27,7 +27,7 @@ extension String {
     }
 
     // Strips trailing '0's and add spaces up to 12 spaces
-    func padded(digits: Int = 0, keepZeros: Bool = false) -> String {
+    func padded(keepZeros: Bool = false) -> String {
         let truncated = String(String(self).prefix(12))
         let components = truncated.components(separatedBy: ".")
         var string = self

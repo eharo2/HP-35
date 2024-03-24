@@ -76,6 +76,7 @@ enum Op: Identifiable, Equatable {
     var noStackOperation: Bool {
         switch self {
         case .clr, .clrX, .exchangeXY, .rotateDown, .sto: true
+        case .lstX: true // HP45
         default: false
         }
     }

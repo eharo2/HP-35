@@ -32,10 +32,14 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             guard !event.isARepeat else { return nil }
             guard let fShiftKey = self?.fShiftKey else { return nil }
             let input = event.input
-            var ops = event.input.ops35
-            if event.input == "f" { // Function key (orange key in HP45)
-                ops = fShiftKey ? [.fix] : [.fShift]
+            if input == "\u{1B}" { // ESC. Safety mechanism to reset. Does not work in UnitTests
+                print("NSEvent: ESC")
+                self?.display.reset()
+                self?.stack.clear()
+                self?.stack.inspect()
+                return nil
             }
+            let ops = event.input.ops35
             guard !ops.isEmpty else {
                 print("Ignore: \(input)")
                 return nil
@@ -50,9 +54,21 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     }
 
     func processOps(_ ops: [Op]) {
-        print("Process: \(ops.names)")
+        if fShiftKey && ops == [.fShift] {
+            print("Process: \([Op.fix].names)")
+        } else {
+            print("Process: \(ops.names)")
+        }
         guard ops.count > 0 else { return }
         var op: Op = ops[0]
+        if op == .fShift {
+            if !fShiftKey {
+                fShiftKey = true
+                return
+            }
+            fShiftKey = false
+            op = .fix
+        }
         if op != .clrX && displayInfo.error { return }
         if op == .fix {
             enteringFormat = true

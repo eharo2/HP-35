@@ -33,12 +33,7 @@ extension Double {
     // Required to reduce the accuracy discrepancies vs. the manual results
     func roundedToFormat(_ format: Format) -> Double {
         if .hp35 {
-            guard String(self).count > 12 else {
-                return self
-            }
             return self
-//            let fixedPrecision = (self * 10_000_000_000).rounded(.toNearestOrEven)/10_000_000_000
-//            return fixedPrecision
         } else {
             // Needed to fix accuray discrepancies with the manual results
             let fixedPrecision = (self * 10_000_000_000).rounded(.toNearestOrEven)/10_000_000_000
@@ -48,12 +43,34 @@ extension Double {
         }
     }
 
-    // Result is in a fixed format for the range. Else use SCI format
     func resultString(_ format: Format) -> String {
-        if abs(self) <= pow(10, 9) && abs(self) > pow(10, -3) {
-            return String(self).padded(digits: format.digits).noExp
+        if .hp35 {
+            // Result is in a fixed format for the range. Else use SCI format
+            if abs(self) <= pow(10, 9) && abs(self) > pow(10, -3) {
+                return String(self).padded().noExp
+            }
+            return self.scientificNotation(format)
         }
-        return self.scientificNotation(format)
+        switch format {
+        case .fix(let digits):
+            var stringValue = String(self)
+            let components = stringValue.components(separatedBy: ".")
+            guard components.count == 2 else { return stringValue.padded().noExp }
+            let decimals = components[1].count
+            if decimals < digits {
+                for _ in decimals..<digits {
+                    stringValue += "0"
+                }
+                while stringValue.count < 12 {
+                    stringValue += " "
+                }
+                return stringValue.noExp
+            } else {
+                return stringValue.padded().noExp
+            }
+        case .sci(let digits):
+            return String(self)
+        }
     }
 
     private func scientificNotation(_ format: Format) -> String {

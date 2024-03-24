@@ -68,9 +68,9 @@ class Display: StackDelegate {
         }
         let rounded = value.roundedToFormat(outputFormat)
         let result = rounded.resultString(outputFormat)
-        print("Format Double Value    : [\(value)]")
-        print("Format Double Rounded  : [\(rounded)]")
-        print("Format Result as String: [\(result)]")
+//        print("Format Double Value    : [\(value)]")
+//        print("Format Double Rounded  : [\(rounded)]")
+//        print("Format Result as String: [\(result)]")
         info.output = result
     }
 

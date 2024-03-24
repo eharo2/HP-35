@@ -28,13 +28,14 @@ class Stack {
     var preX: Double = 0
 
     /// Registers
-    var lstX: Double = 0
+    var lstX: Double = 0 // HP45
     var regS: Double = 0 // HP35 STO
     var regT: Double = 0
     var regZ: Double = 0
     var regY: Double = 0
     var regX: Double = 0 {
         didSet {
+            lstX = oldValue
             delegate?.stackDidUpdateRegX(value: regX)
         }
     }
@@ -124,16 +125,16 @@ class Stack {
                 return
             }
             regX = acos(regX).convertTo(degrees)
-        case .atan: regX      = atan(regX).convertTo(degrees)
+        case .atan: regX       = atan(regX).convertTo(degrees)
 
-        case .frac: regX      = regX - trunc(regX)
-        case .int: regX       = trunc(regX)
+        case .frac: regX       = regX - trunc(regX)
+        case .int: regX        = trunc(regX)
 
         case .percentage: regX = regY * regX/100
         case .delta: regX      = (regX/regY - 1) * 100
 
-        case .toDeg: regX     = regX.toDeg
-        case .toRad: regX     = regX.toRad
+        case .toDeg: regX      = regX.toDeg
+        case .toRad: regX      = regX.toRad
 
         case .toP:
             let r = sqrt(pow(regX, 2) + pow(regY, 2))
@@ -256,7 +257,11 @@ extension Stack {
         print("regZ: \(preZ.stringValue(withSize: max)) -> \(regZ)")
         print("regY: \(preY.stringValue(withSize: max)) -> \(regY)")
         print("regX: \(preX.stringValue(withSize: max)) -> \(regX)")
-        print("STO:  \(regS)")
+        if .hp35 {
+            print("STO: \(regS)")
+        } else {
+            print("lstX: \(lstX)")
+        }
         print()
     }
 }
