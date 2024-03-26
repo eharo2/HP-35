@@ -9,23 +9,13 @@ import SwiftUI
 
 struct DisplayView: View {
     @EnvironmentObject var appService: AppService
-    @State var displayInfo = DisplayInfo()
 
     var body: some View {
-        lcdView()
-            .onChange(of: appService.displayInfo) { _, displayInfo in
-                DispatchQueue.main.async {
-                    self.displayInfo = displayInfo
-                }
-            }
-    }
-
-    func lcdView() -> some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 ZStack {
                     displayBackground()
-                    LedsView(displayInfo: self.displayInfo,
+                    LedsView(displayInfo: self.appService.displayInfo,
                              fontSize: geometry.size.width/13)
                 }
             }

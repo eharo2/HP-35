@@ -83,7 +83,7 @@ class Display: StackDelegate {
 }
 
 struct DisplayInfo: Equatable {
-    var output = Double(0).roundedToFormat(.fix(2)).resultString(.fix(2)).noExp
+    var output: String = ""
     var error: Bool = false
     var fKey = false {
         didSet {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 class AppService: ObservableObject, DisplayManagerDelegate {
-    @Published var displayInfo: DisplayInfo!
+    @Published var displayInfo = DisplayInfo()
     @Published var model: Model!
     @Published var ops: [Op] = [] {
         didSet {
@@ -28,10 +28,10 @@ class AppService: ObservableObject, DisplayManagerDelegate {
 #if os(macOS)
         setupNSEvents() // .macOS only
 #endif
-        displayInfo = DisplayInfo()
         display.delegate = self
         stack.delegate = display
         model = Global.model
+        stack.regX = 0 // Force display reload
     }
 
     func processOps(_ ops: [Op]) {
