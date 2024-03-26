@@ -62,7 +62,7 @@ class Display: StackDelegate {
 
     // MARK: - StackDelegate
     func stackDidUpdateRegX(value: Double) {
-        if let overflowResult = value.checkForOverflowResult() {
+        if let overflowResult = value.checkForOverflowResult(outputFormat) {
             info.output = overflowResult
             return
         }
@@ -83,7 +83,7 @@ class Display: StackDelegate {
 }
 
 struct DisplayInfo: Equatable {
-    var output = "0.".padded().noExp
+    var output = Double(0).roundedToFormat(.fix(2)).resultString(.fix(2)).noExp
     var error: Bool = false
     var fKey = false {
         didSet {

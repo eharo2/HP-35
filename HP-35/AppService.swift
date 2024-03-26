@@ -8,7 +8,7 @@
 import SwiftUI
 
 class AppService: ObservableObject, DisplayManagerDelegate {
-    @Published var displayInfo = DisplayInfo()
+    @Published var displayInfo: DisplayInfo!
     @Published var model: Model!
     @Published var ops: [Op] = [] {
         didSet {
@@ -24,33 +24,14 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     var enteringFormat = false
     var fShiftKey: Bool = false
 
-    var didLstX = false
-
     init() {
-        #if os(macOS)
-        NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event -> NSEvent? in
-            guard !event.isARepeat else { return nil }
-            guard let fShiftKey = self?.fShiftKey else { return nil }
-            let input = event.input
-            if input == "\u{1B}" { // ESC. Safety mechanism to reset. Does not work in UnitTests
-                print("NSEvent: ESC")
-                self?.display.reset()
-                self?.stack.clear()
-                self?.stack.inspect()
-                return nil
-            }
-            let ops = event.input.ops35
-            guard !ops.isEmpty else {
-                print("Ignore: \(input)")
-                return nil
-            }
-            self?.processOps(ops)
-            return nil
-        }
-        #endif
-        model = Global.model
+#if os(macOS)
+        setupNSEvents() // .macOS only
+#endif
+        displayInfo = DisplayInfo()
         display.delegate = self
         stack.delegate = display
+        model = Global.model
     }
 
     func processOps(_ ops: [Op]) {
@@ -208,17 +189,3 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         displayInfo = info
     }
 }
-
-#if os(macOS)
-extension NSEvent {
-    var input: String {
-        switch self.keyCode {
-        case 123: "L"
-        case 124: "R"
-        case 125: "D"
-        case 126: "U"
-        default: self.characters ?? "?"
-        }
-    }
-}
-#endif

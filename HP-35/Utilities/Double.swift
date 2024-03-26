@@ -23,8 +23,14 @@ extension Double {
     }
 
     // HP35
-    func checkForOverflowResult() -> String? {
-        if abs(self) < pow(10, -99)   { return "0.             " }
+    func checkForOverflowResult(_ format: Format) -> String? {
+        if abs(self) < pow(10, -99)   {
+            if .hp35 {
+                return "0.             "
+            } else {
+                return Double(0).roundedToFormat(format).resultString(format)
+            }
+        }
         if self >= pow(10, 100)       { return "9.9999999999 99" }
         if self < pow(10, 100) * -1.0 { return "-9.999999999 99" }
         return nil
@@ -43,7 +49,7 @@ extension Double {
         }
     }
 
-    func resultString(_ format: Format) -> String {
+    func resultString(_ format: Format, f: String = #function) -> String {
         if .hp35 {
             // Result is in a fixed format for the range. Else use SCI format
             if abs(self) <= pow(10, 9) && abs(self) > pow(10, -3) {
@@ -51,12 +57,15 @@ extension Double {
             }
             return self.scientificNotation(format)
         }
+        // .hp45
         switch format {
         case .fix(let digits):
+            // TODO move to SCI if large numbers
             var stringValue = String(self)
             let components = stringValue.components(separatedBy: ".")
             guard components.count == 2 else { return stringValue.padded().noExp }
             let decimals = components[1].count
+            print("[FIX \(stringValue), \(decimals), \(digits), \(f)")
             if decimals < digits {
                 for _ in decimals..<digits {
                     stringValue += "0"
@@ -69,7 +78,7 @@ extension Double {
                 return stringValue.padded().noExp
             }
         case .sci(let digits):
-            return String(self)
+            return self.scientificNotation(.sci(digits))
         }
     }
 

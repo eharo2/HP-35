@@ -5,11 +5,6 @@
 //  Created by Enrique Haro on 1/13/24.
 //
 
-#if os(iOS)
-import UIKit
-#else
-import AppKit
-#endif
 import SwiftUI
 
 protocol StackDelegate {
