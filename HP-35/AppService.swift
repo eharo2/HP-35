@@ -21,8 +21,9 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     }
     var display = Display()
     var stack = Stack()
-    var enteringFormat = false
-    var fShiftKey: Bool = false
+
+    var enteringFIX = false
+    var enteringSCI = false
 
     init() {
 #if os(macOS)
@@ -32,36 +33,63 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         stack.delegate = display
         model = Global.model
         stack.regX = 0 // Force display reload
+
+        let pi = Double.pi
+        let array = [pi, pi * -1.0, pi * 100_000_000_000_000, pi * -100_000_000_000_000, (pi * -1.0) / 100_000_000_000_000]
+        for value in array {
+            display.scientificNotation(value, digits: display.outputFormat.digits)
+        }
     }
 
     func processOps(_ ops: [Op]) {
-        if fShiftKey && ops == [.fShift] {
+        // Inspect
+        if display.info.fKey && ops == [.fShift] {
             print("Process: \([Op.fix].names)")
         } else {
             print("Process: \(ops.names)")
         }
+
         guard ops.count > 0 else { return }
         var op: Op = ops[0]
-        if op == .fShift {
-            if !fShiftKey {
-                fShiftKey = true
-                return
-            }
-            fShiftKey = false
-            op = .fix
-        }
+
         if op != .clrX && displayInfo.error { return }
+
+        // Shift Key - Handle Mac Keyboard Input
+        if op == .fShift {
+            if !display.info.fKey {
+                display.info.fKey = true
+            } else {
+                op = .fix
+            }
+            return
+        }
+
+        // FIX
+        if ops == [.fix, .sci] {
+            op = display.info.fKey ? ops[1] : ops[0]
+        }
         if op == .fix {
-            enteringFormat = true
+            print("Entering FIX")
+            enteringFIX = true
             return
         }
-        if enteringFormat {
-            processFormatInput(ops)
-            enteringFormat = false
-            fShiftKey = false
+        if op == .sci {
+            print("Entering SCI")
+            enteringSCI = true
             return
         }
-        if fShiftKey {
+        if enteringFIX {
+            processFormatInput(ops, isFix: true)
+            enteringFIX = false
+            return
+        }
+        if enteringSCI {
+            processFormatInput(ops, isFix: false)
+            enteringSCI = false
+            return
+        }
+
+        if display.info.fKey {
             guard ops.count > 1 else {
                 print("Ignore. After \(.hp35 ? "'arc'" : "'shift'"): \(ops[0])")
                 return
@@ -71,7 +99,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
                 return
             }
             op = ops[1]
-            fShiftKey = false
+            display.info.fKey = false
             if op == .deg || op == .rad {
                 display.info.degrees = op == .deg ? .deg : .rad
                 return
@@ -79,10 +107,11 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         } else {
             op = ops[0]
         }
+
         switch op {
         case .fShift:
             print("Op: \(.hp35 ? "arc" : "shift")")
-            fShiftKey = true
+            display.info.fKey = true
         case .eex: display.processEEXInput()
         case .digit(let input):
             if display.enteringEex {
@@ -159,12 +188,18 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     }
 
     // HP-45
-    func processFormatInput(_ ops: [Op]) {
+    func processFormatInput(_ ops: [Op], isFix: Bool) {
         switch ops[0] {
         case .digit(let value):
             if let value = Int(value) {
-                print("Fix: \(value)")
-                display.outputFormat = .fix(value)
+                if isFix {
+                    print("Format FIX: \(value)")
+                    display.outputFormat = .fix(value)
+                } else {
+                    print("Format SCI: \(value)")
+                    display.outputFormat = .sci(value)
+                }
+                display.info.fKey = false
                 stack.regX = stack.regX
             }
         default: print("Ignore: Fix \(ops)")

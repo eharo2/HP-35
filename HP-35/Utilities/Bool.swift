@@ -9,14 +9,18 @@ import Foundation
 
 extension Bool {
     static var mac: Bool {
-        #if os(macOS)
+#if os(macOS)
         return true
-        #else
+#else
         return false
-        #endif
+#endif
     }
 
     static var hp35: Bool {
         Global.model == .hp35
+    }
+
+    static var hp45: Bool {
+        Global.model == .hp45
     }
 }

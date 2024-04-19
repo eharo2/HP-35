@@ -60,12 +60,13 @@ extension Double {
         // .hp45
         switch format {
         case .fix(let digits):
-            // TODO move to SCI if large numbers
+            if !(abs(self) <= pow(10, 9) && abs(self) > pow(10, -3)) {
+                return self.scientificNotation(format)
+            }
             var stringValue = String(self)
             let components = stringValue.components(separatedBy: ".")
             guard components.count == 2 else { return stringValue.padded().noExp }
             let decimals = components[1].count
-            print("[FIX \(stringValue), \(decimals), \(digits), \(f)")
             if decimals < digits {
                 for _ in decimals..<digits {
                     stringValue += "0"
@@ -83,12 +84,28 @@ extension Double {
     }
 
     private func scientificNotation(_ format: Format) -> String {
-        let scientificNotation = String(format: "%.12e", self)
+        let digits = .hp35 ? 12 : format.digits
+        let scientificNotation = String(format: "%.\(digits)e", self)
         let components = scientificNotation.components(separatedBy: "e")
         guard components.count == 2, let exp = Int(components[1]) else {
             return String(self).padded().noExp
         }
-        let coeficient = components[0].padded()
+        var coeficient = components[0]
+        let coeficientComponents = coeficient.components(separatedBy: ".")
+        switch coeficientComponents.count {
+        case 1:
+            coeficient = "\(coeficientComponents[0])."
+            for _ in 0..<digits {
+                coeficient.append("0")
+            }
+        case 2:
+            for _ in coeficientComponents[1].count..<digits {
+                coeficient.append("0")
+            }
+        default:
+            return String(self).padded().noExp
+        }
+        coeficient = String(coeficient.padded().suffix(12))
         var exponent: String
         if exp == 0 {
             exponent = String().noExp
