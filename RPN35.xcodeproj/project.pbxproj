@@ -83,7 +83,7 @@
 		EF02EA672B93E71E00B917F0 /* GInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GInput.swift; sourceTree = "<group>"; };
 		EF02EA6B2B96A92A00B917F0 /* KeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyView.swift; sourceTree = "<group>"; };
 		EF0C097C2B51F2950085CE3B /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
-		EF0C0FEE2B50C4E90033250C /* HP-35.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HP-35.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF0C0FEE2B50C4E90033250C /* RPN35.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPN35.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0C0FF12B50C4E90033250C /* HP-35App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HP-35App.swift"; sourceTree = "<group>"; };
 		EF0C0FF32B50C4E90033250C /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		EF0C0FF52B50C4EB0033250C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		EF9A63A82B7B12490096822D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		EFB91B112B60BAE000A6347F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
-		EFBF5F512B8172E700634ED5 /* HP-35Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HP-35Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFBF5F512B8172E700634ED5 /* RPN35Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RPN35Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFBF5F532B8172E700634ED5 /* UserManualTests1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests1.swift; sourceTree = "<group>"; };
 		EFC1AF7D2B825AE400B8946A /* InfoView35.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView35.swift; sourceTree = "<group>"; };
 		EFECEAC12B6DC4150051134A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 		EF0C0FEF2B50C4E90033250C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EF0C0FEE2B50C4E90033250C /* HP-35.app */,
-				EFBF5F512B8172E700634ED5 /* HP-35Tests.xctest */,
+				EF0C0FEE2B50C4E90033250C /* RPN35.app */,
+				EFBF5F512B8172E700634ED5 /* RPN35Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,9 +268,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EF0C0FED2B50C4E90033250C /* HP-35 */ = {
+		EF0C0FED2B50C4E90033250C /* RPN35 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EF0C10122B50C4EB0033250C /* Build configuration list for PBXNativeTarget "HP-35" */;
+			buildConfigurationList = EF0C10122B50C4EB0033250C /* Build configuration list for PBXNativeTarget "RPN35" */;
 			buildPhases = (
 				EF0C0FEA2B50C4E90033250C /* Sources */,
 				EF0C0FEB2B50C4E90033250C /* Frameworks */,
@@ -280,14 +280,14 @@
 			);
 			dependencies = (
 			);
-			name = "HP-35";
+			name = RPN35;
 			productName = HP15C;
-			productReference = EF0C0FEE2B50C4E90033250C /* HP-35.app */;
+			productReference = EF0C0FEE2B50C4E90033250C /* RPN35.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EFBF5F502B8172E700634ED5 /* HP-35Tests */ = {
+		EFBF5F502B8172E700634ED5 /* RPN35Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFBF5F592B8172E700634ED5 /* Build configuration list for PBXNativeTarget "HP-35Tests" */;
+			buildConfigurationList = EFBF5F592B8172E700634ED5 /* Build configuration list for PBXNativeTarget "RPN35Tests" */;
 			buildPhases = (
 				EFBF5F4D2B8172E700634ED5 /* Sources */,
 				EFBF5F4E2B8172E700634ED5 /* Frameworks */,
@@ -298,9 +298,9 @@
 			dependencies = (
 				EFBF5F562B8172E700634ED5 /* PBXTargetDependency */,
 			);
-			name = "HP-35Tests";
+			name = RPN35Tests;
 			productName = Retro35Tests;
-			productReference = EFBF5F512B8172E700634ED5 /* HP-35Tests.xctest */;
+			productReference = EFBF5F512B8172E700634ED5 /* RPN35Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -322,7 +322,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EF0C0FE92B50C4E90033250C /* Build configuration list for PBXProject "HP-35" */;
+			buildConfigurationList = EF0C0FE92B50C4E90033250C /* Build configuration list for PBXProject "RPN35" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -335,8 +335,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EF0C0FED2B50C4E90033250C /* HP-35 */,
-				EFBF5F502B8172E700634ED5 /* HP-35Tests */,
+				EF0C0FED2B50C4E90033250C /* RPN35 */,
+				EFBF5F502B8172E700634ED5 /* RPN35Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -433,7 +433,7 @@
 /* Begin PBXTargetDependency section */
 		EFBF5F562B8172E700634ED5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EF0C0FED2B50C4E90033250C /* HP-35 */;
+			target = EF0C0FED2B50C4E90033250C /* RPN35 */;
 			targetProxy = EFBF5F552B8172E700634ED5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -646,7 +646,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HP-35.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HP-35";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RPN35.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RPN35";
 			};
 			name = Debug;
 		};
@@ -668,14 +668,14 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HP-35.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HP-35";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RPN35.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RPN35";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EF0C0FE92B50C4E90033250C /* Build configuration list for PBXProject "HP-35" */ = {
+		EF0C0FE92B50C4E90033250C /* Build configuration list for PBXProject "RPN35" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EF0C10102B50C4EB0033250C /* Debug */,
@@ -684,7 +684,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EF0C10122B50C4EB0033250C /* Build configuration list for PBXNativeTarget "HP-35" */ = {
+		EF0C10122B50C4EB0033250C /* Build configuration list for PBXNativeTarget "RPN35" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EF0C10132B50C4EB0033250C /* Debug */,
@@ -693,7 +693,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EFBF5F592B8172E700634ED5 /* Build configuration list for PBXNativeTarget "HP-35Tests" */ = {
+		EFBF5F592B8172E700634ED5 /* Build configuration list for PBXNativeTarget "RPN35Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFBF5F572B8172E700634ED5 /* Debug */,
