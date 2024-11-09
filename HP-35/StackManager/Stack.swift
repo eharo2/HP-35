@@ -57,7 +57,7 @@ class Stack {
     }
 
     func executeOp(_ op: Op, degrees: Degrees = .deg) {
-        print("Stack Op: \(op)")
+        print("Stack Op: \(op). regY: \(regY), regX: \(regX)")
         switch op {
         // DOUBLE OPERAND
         case .add: regX        = regY + regX
