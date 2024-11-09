@@ -1,6 +1,6 @@
 //
 //  SampleProblemsTests.swift
-//  HP-35Tests
+//  RPN-35Tests
 //
 //  Created by Enrique Haro on 3/11/24.
 //

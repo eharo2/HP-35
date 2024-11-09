@@ -1,6 +1,6 @@
 //
 //  UserManualTests1.swift
-//  HP-35Tests
+//  RPN-35Tests
 //
 //  Created by Enrique Haro on 2/17/24.
 //

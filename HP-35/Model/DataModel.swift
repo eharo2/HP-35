@@ -1,6 +1,6 @@
 //
 //  ModelHP35.swift
-//  HP-35
+//  RPN-35
 //
 //  Created by Enrique Haro on 2/8/24.
 //
@@ -147,7 +147,7 @@ struct Sym {
 }
 
 extension Sym {
-    //  HP-35
+    //  RPN-35
     static let down35 = "\u{2193}"
     static let up35 = "\u{2191}"
 

@@ -1,6 +1,6 @@
 //
 //  Stack2.swift
-//  HP-35
+//  RPN-35
 //
 //  Created by Enrique Haro on 1/13/24.
 //

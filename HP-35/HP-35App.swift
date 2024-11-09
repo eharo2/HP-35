@@ -1,6 +1,6 @@
 //
-//  HP-35App.swift
-//  HP-35
+//  RPN-35App.swift
+//  RPN-35
 //
 //  Created by Enrique Haro on 1/11/24.
 //

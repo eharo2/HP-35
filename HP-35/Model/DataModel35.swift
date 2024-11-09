@@ -1,6 +1,6 @@
 //
 //  DataModel35.swift
-//  HP-35
+//  RPN-35
 //
 //  Created by Enrique Haro on 2/27/24.
 //

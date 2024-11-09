@@ -1,6 +1,6 @@
 //
 //  Global.swift
-//  HP-35
+//  RPN-35
 //
 //  Created by Enrique Haro on 2/12/24.
 //
