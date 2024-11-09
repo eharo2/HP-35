@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Retro35App: App {
+struct RPN35App: App {
     @StateObject var appService = AppService()
     @State var showKeyboard: Bool = !.mac
     @State var showInfo: Bool = false

@@ -14,7 +14,7 @@
 		EF02EA692B93E71E00B917F0 /* GInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA672B93E71E00B917F0 /* GInput.swift */; };
 		EF02EA6C2B96A92A00B917F0 /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA6B2B96A92A00B917F0 /* KeyView.swift */; };
 		EF0C097D2B51F2950085CE3B /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
-		EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* HP-35App.swift */; };
+		EF0C0FF22B50C4E90033250C /* RPN-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* RPN-35App.swift */; };
 		EF0C0FF42B50C4E90033250C /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF32B50C4E90033250C /* DisplayView.swift */; };
 		EF0C0FF62B50C4EB0033250C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF52B50C4EB0033250C /* Assets.xcassets */; };
 		EF0C0FF92B50C4EB0033250C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
@@ -34,7 +34,7 @@
 		EFBDF48E2BAFCCF1002F3F64 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */; };
 		EFBDF48F2BAFCD10002F3F64 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */; };
 		EFBF5F542B8172E700634ED5 /* UserManualTests1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBF5F532B8172E700634ED5 /* UserManualTests1.swift */; };
-		EFBF5F5A2B81737300634ED5 /* HP-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* HP-35App.swift */; };
+		EFBF5F5A2B81737300634ED5 /* RPN-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* RPN-35App.swift */; };
 		EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
 		EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE2E2B530DB3005F95B3 /* Stack.swift */; };
 		EFBF5F5D2B81737F00634ED5 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
@@ -84,7 +84,7 @@
 		EF02EA6B2B96A92A00B917F0 /* KeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyView.swift; sourceTree = "<group>"; };
 		EF0C097C2B51F2950085CE3B /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		EF0C0FEE2B50C4E90033250C /* RPN35.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPN35.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF0C0FF12B50C4E90033250C /* HP-35App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HP-35App.swift"; sourceTree = "<group>"; };
+		EF0C0FF12B50C4E90033250C /* RPN-35App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RPN-35App.swift"; sourceTree = "<group>"; };
 		EF0C0FF32B50C4E90033250C /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		EF0C0FF52B50C4EB0033250C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		EF0C0FE52B50C4E90033250C = {
 			isa = PBXGroup;
 			children = (
-				EF0C0FF02B50C4E90033250C /* HP-35 */,
+				EF0C0FF02B50C4E90033250C /* RPN-35 */,
 				EFBF5F522B8172E700634ED5 /* HP-35Tests */,
 				EF0C0FEF2B50C4E90033250C /* Products */,
 			);
@@ -157,11 +157,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EF0C0FF02B50C4E90033250C /* HP-35 */ = {
+		EF0C0FF02B50C4E90033250C /* RPN-35 */ = {
 			isa = PBXGroup;
 			children = (
 				400746212B524E2500696D02 /* Info.plist */,
-				EF0C0FF12B50C4E90033250C /* HP-35App.swift */,
+				EF0C0FF12B50C4E90033250C /* RPN-35App.swift */,
 				EF9A63A82B7B12490096822D /* Global.swift */,
 				EF0C101B2B50C5150033250C /* AppService.swift */,
 				EFF4766A2B981EB000A5744A /* StackManager */,
@@ -174,7 +174,7 @@
 				4007461F2B524E0700696D02 /* HP15C-Simulator-Font.ttf */,
 				EF0C0FF72B50C4EB0033250C /* Preview Content */,
 			);
-			path = "HP-35";
+			path = "RPN-35";
 			sourceTree = "<group>";
 		};
 		EF0C0FF72B50C4EB0033250C /* Preview Content */ = {
@@ -386,7 +386,7 @@
 				EF57C55E2BA10F550045DAFB /* DataModel.swift in Sources */,
 				EF57C5612BA10F8E0045DAFB /* KeyboardView.swift in Sources */,
 				EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */,
-				EF0C0FF22B50C4E90033250C /* HP-35App.swift in Sources */,
+				EF0C0FF22B50C4E90033250C /* RPN-35App.swift in Sources */,
 				EFB91B122B60BAE000A6347F /* String.swift in Sources */,
 				EF02EA692B93E71E00B917F0 /* GInput.swift in Sources */,
 				40DDDE312B548EDE005F95B3 /* Double.swift in Sources */,
@@ -410,7 +410,7 @@
 				EF57C5802BA540250045DAFB /* ErrorTests.swift in Sources */,
 				EFF476642B981DB300A5744A /* KeyView.swift in Sources */,
 				EFF4766D2B992B1E00A5744A /* Bool.swift in Sources */,
-				EFBF5F5A2B81737300634ED5 /* HP-35App.swift in Sources */,
+				EFBF5F5A2B81737300634ED5 /* RPN-35App.swift in Sources */,
 				EFBF5F5E2B81738200634ED5 /* Global.swift in Sources */,
 				EFBF5F6A2B8173E000634ED5 /* DebugView.swift in Sources */,
 				EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */,
@@ -567,11 +567,11 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HP-35/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HP-35/Info.plist";
+				INFOPLIST_FILE = "RPN-35/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "RPN-35";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -602,11 +602,11 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HP-35/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HP-35/Info.plist";
+				INFOPLIST_FILE = "RPN-35/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "RPN-35";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
