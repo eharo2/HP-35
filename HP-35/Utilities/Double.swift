@@ -23,19 +23,89 @@ extension Double {
     }
 
     // HP35
-    func scientificNotation() -> String {
-        if abs(self) < pow(10, -99)   { return "0.             " }
+    func checkForOverflowResult(_ format: Format) -> String? {
+        if abs(self) < pow(10, -99)   {
+            if .hp35 {
+                return "0.             "
+            } else {
+                return Double(0).roundedToFormat(format).resultString(format)
+            }
+        }
         if self >= pow(10, 100)       { return "9.9999999999 99" }
         if self < pow(10, 100) * -1.0 { return "-9.999999999 99" }
-        if abs(self) <= pow(10, 9) && abs(self) > pow(10, -3) {
-            return String(self).padded.noExp
+        return nil
+    }
+
+    // Required to reduce the accuracy discrepancies vs. the manual results
+    func roundedToFormat(_ format: Format) -> Double {
+        if .hp35 {
+            return self
+        } else {
+            // Needed to fix accuray discrepancies with the manual results
+            let fixedPrecision = (self * 10_000_000_000).rounded(.toNearestOrEven)/10_000_000_000
+            let factor = pow(10, Double(format.digits))
+            let rounded = (fixedPrecision * factor).rounded(.toNearestOrEven)/factor
+            return rounded
         }
-        let scientificNotation = String(format: "%.12e", self)
+    }
+
+    func resultString(_ format: Format, f: String = #function) -> String {
+        if .hp35 {
+            // Result is in a fixed format for the range. Else use SCI format
+            if abs(self) <= pow(10, 9) && abs(self) > pow(10, -3) {
+                return String(self).padded().noExp
+            }
+            return self.scientificNotation(format)
+        }
+        // .hp45
+        switch format {
+        case .fix(let digits):
+            if !(abs(self) <= pow(10, 9) && abs(self) > pow(10, -3)) {
+                return self.scientificNotation(format)
+            }
+            var stringValue = String(self)
+            let components = stringValue.components(separatedBy: ".")
+            guard components.count == 2 else { return stringValue.padded().noExp }
+            let decimals = components[1].count
+            if decimals < digits {
+                for _ in decimals..<digits {
+                    stringValue += "0"
+                }
+                while stringValue.count < 12 {
+                    stringValue += " "
+                }
+                return stringValue.noExp
+            } else {
+                return stringValue.padded().noExp
+            }
+        case .sci(let digits):
+            return self.scientificNotation(.sci(digits))
+        }
+    }
+
+    private func scientificNotation(_ format: Format) -> String {
+        let digits = .hp35 ? 12 : format.digits
+        let scientificNotation = String(format: "%.\(digits)e", self)
         let components = scientificNotation.components(separatedBy: "e")
         guard components.count == 2, let exp = Int(components[1]) else {
-            return String(self).padded.noExp
+            return String(self).padded().noExp
         }
-        let coeficient = components[0].padded
+        var coeficient = components[0]
+        let coeficientComponents = coeficient.components(separatedBy: ".")
+        switch coeficientComponents.count {
+        case 1:
+            coeficient = "\(coeficientComponents[0])."
+            for _ in 0..<digits {
+                coeficient.append("0")
+            }
+        case 2:
+            for _ in coeficientComponents[1].count..<digits {
+                coeficient.append("0")
+            }
+        default:
+            return String(self).padded().noExp
+        }
+        coeficient = String(coeficient.padded().suffix(12))
         var exponent: String
         if exp == 0 {
             exponent = String().noExp
@@ -48,7 +118,7 @@ extension Double {
     }
 
     /// Used for Stack inspection only
-    func padded(_ size: Int) -> String {
+    func stringValue(withSize size: Int) -> String {
         var string = String(self)
         guard string.count < size else { return string }
         for _ in string.count..<size {
@@ -137,6 +207,16 @@ extension Double {
         case .deg: return self.toDeg
         default: return self
         }
+    }
+
+    var factorial: Int? {
+        func fact(_ n: Int) -> Int {
+            if n == 0 { return 1 }
+            return n * fact(n - 1)
+        }
+
+        guard self >= 0 else { return nil }
+        return fact(Int(self))
     }
 }
 

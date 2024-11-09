@@ -143,7 +143,7 @@ struct InfoView35: View {
 
 extension DataModel {
     static let leftSideKeys = ["^", "l", "n", "e", "q", "a", "s", "c", "t", "i", "L", "D"]
-    static let rightSideKeys = ["\r", "C", "h", "E", "x", "-", "+", "*", "/", "p", "S", "R"]
+    static let rightSideKeys = ["\r", "C", "X", "E", "h", "-", "+", "*", "/", "p", "S", "R"]
 }
 
 extension String {

@@ -21,44 +21,77 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     }
     var display = Display()
     var stack = Stack()
-    var fShiftKey: Bool = false // arc in HP-35, orangeKey in HP-45
 
-    var didLstX = false
+    var enteringFIX = false
+    var enteringSCI = false
 
     init() {
-        #if os(macOS)
-        NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event -> NSEvent? in
-            guard !event.isARepeat else { return nil }
-            let input = event.input
-            guard !input.ops35.isEmpty else {
-                print("Ignore: \(input)")
-                return nil
-            }
-            self?.processOps(input.ops35)
-            return nil
-        }
-        #endif
-        model = Global.model
+#if os(macOS)
+        setupNSEvents() // .macOS only
+#endif
         display.delegate = self
         stack.delegate = display
+        model = Global.model
+        stack.regX = 0 // Force display reload
+
+#if DEBUG
+        let pi = Double.pi
+        let array = [pi, pi * -1.0, pi * 100_000_000_000_000, pi * -100_000_000_000_000, (pi * -1.0) / 100_000_000_000_000]
+        for value in array {
+            display.scientificNotation(value, digits: display.outputFormat.digits)
+        }
+#endif
     }
 
     func processOps(_ ops: [Op]) {
-        // print("Process: \(ops.names)")
+        // Inspect
+        if display.info.fKey && ops == [.fShift] {
+            print("Process: \([Op.fix].names)")
+        } else {
+            print("Process: \(ops.names)")
+        }
+
         guard ops.count > 0 else { return }
         var op: Op = ops[0]
+
         if op != .clrX && displayInfo.error { return }
+
+        // Shift Key - Handle Mac Keyboard Input
+        if op == .fShift {
+            if !display.info.fKey {
+                display.info.fKey = true
+            } else {
+                op = .fix
+            }
+            return
+        }
+
+        // FIX
+        if ops == [.fix, .sci] {
+            op = display.info.fKey ? ops[1] : ops[0]
+        }
         if op == .fix {
-            display.enteringFormat = true
-            print("Op: Fix")
+            print("Entering FIX")
+            enteringFIX = true
             return
         }
-        if display.enteringFormat {
-            display.processFormatInput(ops)
-            display.enteringFormat = false
+        if op == .sci {
+            print("Entering SCI")
+            enteringSCI = true
             return
         }
-        if fShiftKey {
+        if enteringFIX {
+            processFormatInput(ops, isFix: true)
+            enteringFIX = false
+            return
+        }
+        if enteringSCI {
+            processFormatInput(ops, isFix: false)
+            enteringSCI = false
+            return
+        }
+
+        if display.info.fKey {
             guard ops.count > 1 else {
                 print("Ignore. After \(.hp35 ? "'arc'" : "'shift'"): \(ops[0])")
                 return
@@ -68,7 +101,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
                 return
             }
             op = ops[1]
-            fShiftKey = false
+            display.info.fKey = false
             if op == .deg || op == .rad {
                 display.info.degrees = op == .deg ? .deg : .rad
                 return
@@ -76,10 +109,11 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         } else {
             op = ops[0]
         }
+
         switch op {
         case .fShift:
             print("Op: \(.hp35 ? "arc" : "shift")")
-            fShiftKey = true
+            display.info.fKey = true
         case .eex: display.processEEXInput()
         case .digit(let input):
             if display.enteringEex {
@@ -115,10 +149,10 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             stack.lift(stack.regX)
             stack.inspect()
         case .delete:
-            guard display.info.output != 0.format(display.numberOfDigits) else { return }
+            guard display.info.output != 0.format(display.outputFormat.digits) else { return }
             display.numericInput = String(display.numericInput.dropLast())
             if display.numericInput.count == 0 {
-                display.update(with: 0.format(display.numberOfDigits), addExponent: false)
+                display.update(with: 0.format(display.outputFormat.digits), addExponent: false)
                 return
             }
             display.update(with: display.numericInput, addExponent: false)
@@ -136,7 +170,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
                 stack.regX = -stack.regX
                 display.numericInput = "-"
                 if stack.regX == 0 {
-                    display.info.output = "-0.".padded.noExp
+                    display.info.output = "-0.".padded().noExp
                 }
             } else {
                 if display.numericInput.starts(with: "-") {
@@ -152,6 +186,25 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         default:
             stack.processOp(op, displayInfo.degrees, display.numericInput.isEmpty)
             display.reset()
+        }
+    }
+
+    // HP-45
+    func processFormatInput(_ ops: [Op], isFix: Bool) {
+        switch ops[0] {
+        case .digit(let value):
+            if let value = Int(value) {
+                if isFix {
+                    print("Format FIX: \(value)")
+                    display.outputFormat = .fix(value)
+                } else {
+                    print("Format SCI: \(value)")
+                    display.outputFormat = .sci(value)
+                }
+                display.info.fKey = false
+                stack.regX = stack.regX
+            }
+        default: print("Ignore: Fix \(ops)")
         }
     }
 
@@ -173,17 +226,3 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         displayInfo = info
     }
 }
-
-#if os(macOS)
-extension NSEvent {
-    var input: String {
-        switch self.keyCode {
-        case 123: "L"
-        case 124: "R"
-        case 125: "D"
-        case 126: "U"
-        default: self.characters ?? "?"
-        }
-    }
-}
-#endif

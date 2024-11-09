@@ -14,7 +14,7 @@ struct KeyboardView: View {
     var body: some View {
         VStack {
             ZStack {
-                RoundedRectangle(cornerRadius: 3)
+                RoundedRectangle(cornerRadius: 4)
                     .stroke(Color.fKey35, lineWidth: 2)
                     .background(Color.gray35)
                     .padding(.horizontal, 5)

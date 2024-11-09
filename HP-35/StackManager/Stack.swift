@@ -5,11 +5,6 @@
 //  Created by Enrique Haro on 1/13/24.
 //
 
-#if os(iOS)
-import UIKit
-#else
-import AppKit
-#endif
 import SwiftUI
 
 protocol StackDelegate {
@@ -28,13 +23,14 @@ class Stack {
     var preX: Double = 0
 
     /// Registers
-    var lstX: Double = 0
+    var lstX: Double = 0 // HP45
     var regS: Double = 0 // HP35 STO
     var regT: Double = 0
     var regZ: Double = 0
     var regY: Double = 0
     var regX: Double = 0 {
         didSet {
+            lstX = oldValue
             delegate?.stackDidUpdateRegX(value: regX)
         }
     }
@@ -61,7 +57,7 @@ class Stack {
     }
 
     func executeOp(_ op: Op, degrees: Degrees = .deg) {
-        print("Stack Op: \(op)")
+        print("Stack Op: \(op). regY: \(regY), regX: \(regX)")
         switch op {
         // DOUBLE OPERAND
         case .add: regX        = regY + regX
@@ -73,7 +69,7 @@ class Stack {
                 return
             }
             regX     = regY / regX
-        case .powerYX: regX    = pow(regY, regX)
+        case .powerYX: regX = pow(regY, regX)
         case .powerXY:
             if regX <= 0 {
                 delegate?.stackDidUpdateError(error: true)
@@ -81,7 +77,6 @@ class Stack {
             }
             regX = pow(regX, regY) // HP35
         case .root: regX       = pow(regY, 1/regX)
-        case .percentage: regX = regY * regX/100
 
         // SINGLE OPERAND
         case .sqrt:
@@ -125,13 +120,16 @@ class Stack {
                 return
             }
             regX = acos(regX).convertTo(degrees)
-        case .atan: regX      = atan(regX).convertTo(degrees)
+        case .atan: regX       = atan(regX).convertTo(degrees)
 
-        case .frac: regX      = regX - trunc(regX)
-        case .int: regX       = trunc(regX)
+        case .frac: regX       = regX - trunc(regX)
+        case .int: regX        = trunc(regX)
 
-        case .toDeg: regX     = regX.toDeg
-        case .toRad: regX     = regX.toRad
+        case .percentage: regX = regY * regX/100
+        case .delta: regX      = (regX/regY - 1) * 100
+
+        case .toDeg: regX      = regX.toDeg
+        case .toRad: regX      = regX.toRad
 
         case .toP:
             let r = sqrt(pow(regX, 2) + pow(regY, 2))
@@ -151,6 +149,12 @@ class Stack {
         case .toH: regX   = regX.toH //.fromHMS in HP-45
         case .toHMS: regX = regX.toHMS
 
+        case .factorial:
+            if let factorial = regX.factorial {
+                regX = Double(factorial)
+            } else {
+                delegate?.stackDidUpdateError(error: true)
+            }
         // NO OPERAND
         case .exchangeXY: exchangeXY()
         case .rotateUp: rotateUp()
@@ -244,11 +248,15 @@ extension Stack {
             max = String(reg).count
         }
         print("===== STACK =====")
-        print("regT: \(preT.padded(max)) -> \(regT)")
-        print("regZ: \(preZ.padded(max)) -> \(regZ)")
-        print("regY: \(preY.padded(max)) -> \(regY)")
-        print("regX: \(preX.padded(max)) -> \(regX)")
-        print("STO:  \(regS)")
+        print("regT: \(preT.stringValue(withSize: max)) -> \(regT)")
+        print("regZ: \(preZ.stringValue(withSize: max)) -> \(regZ)")
+        print("regY: \(preY.stringValue(withSize: max)) -> \(regY)")
+        print("regX: \(preX.stringValue(withSize: max)) -> \(regX)")
+        if .hp35 {
+            print("STO: \(regS)")
+        } else {
+            print("lstX: \(lstX)")
+        }
         print()
     }
 }

@@ -20,33 +20,13 @@ class Display: StackDelegate {
         }
     }
     var numericInput = ""
-    var numberOfDigits: Int = 2
     var expInput = "   "
     var enteringEex: Bool = false
 
     // HP-45
-    // HP-45
-    var enteringFormat = false
     var outputFormat: Format = .fix(2)
 
-    init() {
-        numberOfDigits = 12
-    }
-
-    func processOps(_ ops: [Op]) {
-        // print("Process: \(ops.names)")
-        let op: Op = ops[0]
-        if op == .fix {
-            enteringFormat = true
-            print("Op: Fix")
-            return
-        }
-        if enteringFormat {
-            processFormatInput(ops)
-            enteringFormat = false
-            return
-        }
-    }
+    init() { }
 
     func processEnter() {
         numericInput = ""
@@ -66,9 +46,9 @@ class Display: StackDelegate {
 
     func update(with string: String, addExponent: Bool = true) {
         if addExponent {
-            info.output = string.padded + expInput
+            info.output = string.padded() + expInput
         } else {
-            info.output = string.padded.noExp
+            info.output = string.padded().noExp
         }
     }
 
@@ -80,22 +60,62 @@ class Display: StackDelegate {
         info.gKey = false
     }
 
-    // HP-45
-    func processFormatInput(_ ops: [Op]) {
-        switch ops[0] {
-        case .digit(let value):
-            if let value = Int(value) {
-                print("Fix \(value)")
-                // numberOfDigits = value
-                outputFormat = .fix(value)
-            }
-        default: print("Ignore: Fix \(ops)")
-        }
-    }
-
     // MARK: - StackDelegate
     func stackDidUpdateRegX(value: Double) {
-        info.output = value.scientificNotation()
+        if let overflowResult = value.checkForOverflowResult(outputFormat) {
+            info.output = overflowResult
+            return
+        }
+        let rounded = value.roundedToFormat(outputFormat)
+        let result = rounded.resultString(outputFormat)
+//        print("Format Double Value    : [\(value)]")
+//        print("Format Double Rounded  : [\(rounded)]")
+//        print("Format Result as String: [\(result)]")
+        info.output = result
+        scientificNotation(value, digits: outputFormat.digits)
+    }
+
+    func scientificNotation(_ value: Double, digits: Int) {
+        print("SCI - Value: \(value)")
+        var formatDigits = .hp35 ? 10 : digits
+        if value < 0 && formatDigits > 0 {
+            formatDigits -= 1
+        }
+        let scientificNotationString = String(format: "%.\(formatDigits)e", value)
+        var components = scientificNotationString.components(separatedBy: "e")
+        var mantissa = ""
+        var exponent = ""
+        guard components.count == 2 else { return }
+        if components[1] == "-00" || components[1] == "+00" {
+            exponent = "   "
+        } else {
+            exponent = String(components[1].replacingOccurrences(of: "+", with: " "))
+        }
+        mantissa = components[0]
+        components = mantissa.components(separatedBy: ".")
+        var integer = ""
+        var fraction = ""
+        if components.count > 0 {
+            integer = components[0]
+        }
+        if components.count > 1 {
+            fraction = components[1]
+        }
+        if fraction.count < digits {
+            for _ in fraction.count..<digits {
+                if (integer.count + fraction.count + 1) < 12 {
+                    fraction += "0"
+                }
+            }
+        }
+        let size = integer.count + fraction.count + 1
+        if size < 12 {
+            for _ in size..<12 {
+                fraction += " "
+            }
+        }
+        print("SCI -  1234567890ABCDE")
+        print("SCI - [\(integer).\(fraction)\(exponent)]")
     }
 
     func stackDidUpdateError(error: Bool) {
@@ -107,7 +127,7 @@ class Display: StackDelegate {
 }
 
 struct DisplayInfo: Equatable {
-    var output = "0.".padded.noExp
+    var output: String = ""
     var error: Bool = false
     var fKey = false {
         didSet {
