@@ -35,11 +35,11 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         stack.regX = 0 // Force display reload
 
 #if DEBUG
-        let pi = Double.pi
-        let array = [pi, pi * -1.0, pi * 100_000_000_000_000, pi * -100_000_000_000_000, (pi * -1.0) / 100_000_000_000_000]
-        for value in array {
-            display.scientificNotation(value, digits: display.outputFormat.digits)
-        }
+//        let pi = Double.pi
+//        let array = [pi, pi * -1.0, pi * 100_000_000_000_000, pi * -100_000_000_000_000, (pi * -1.0) / 100_000_000_000_000]
+//        for value in array {
+//             display.scientificNotation(value, digits: display.outputFormat.digits)
+//        }
 #endif
     }
 
