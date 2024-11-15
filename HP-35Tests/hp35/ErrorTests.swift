@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import HP_35
+import RPN35
 
 final class ErrorTests2: XCTestCase {
     let appService = AppService()
