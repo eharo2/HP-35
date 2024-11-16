@@ -20,6 +20,32 @@
 		EF0C0FF92B50C4EB0033250C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
 		EF0C101C2B50C5150033250C /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
 		EF0C101E2B50C7710033250C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101D2B50C7710033250C /* Images.swift */; };
+		EF21AEA12CE82E09007DAF66 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC12B6DC4150051134A /* View.swift */; };
+		EF21AEA22CE82E09007DAF66 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
+		EF21AEA32CE82E09007DAF66 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4766B2B992B1E00A5744A /* Bool.swift */; };
+		EF21AEA42CE82E09007DAF66 /* DataModel45.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFBE2962B8EA76F0012685A /* DataModel45.swift */; };
+		EF21AEA52CE82E09007DAF66 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC32B6DC5C60051134A /* Color.swift */; };
+		EF21AEA62CE82E09007DAF66 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A63A82B7B12490096822D /* Global.swift */; };
+		EF21AEA72CE82E09007DAF66 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE2E2B530DB3005F95B3 /* Stack.swift */; };
+		EF21AEA82CE82E09007DAF66 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF32B50C4E90033250C /* DisplayView.swift */; };
+		EF21AEA92CE82E09007DAF66 /* InfoView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1AF7D2B825AE400B8946A /* InfoView35.swift */; };
+		EF21AEAA2CE82E09007DAF66 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101D2B50C7710033250C /* Images.swift */; };
+		EF21AEAB2CE82E09007DAF66 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
+		EF21AEAC2CE82E09007DAF66 /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA6B2B96A92A00B917F0 /* KeyView.swift */; };
+		EF21AEAD2CE82E09007DAF66 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF476672B981E7300A5744A /* Display.swift */; };
+		EF21AEAE2CE82E09007DAF66 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAD52B76CCC00051134A /* DebugView.swift */; };
+		EF21AEAF2CE82E09007DAF66 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55D2BA10F550045DAFB /* DataModel.swift */; };
+		EF21AEB02CE82E09007DAF66 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C5602BA10F8E0045DAFB /* KeyboardView.swift */; };
+		EF21AEB12CE82E09007DAF66 /* DataModel35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */; };
+		EF21AEB22CE82E09007DAF66 /* RPN-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* RPN-35App.swift */; };
+		EF21AEB32CE82E09007DAF66 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB91B112B60BAE000A6347F /* String.swift */; };
+		EF21AEB42CE82E09007DAF66 /* GInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA672B93E71E00B917F0 /* GInput.swift */; };
+		EF21AEB52CE82E09007DAF66 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE302B548EDE005F95B3 /* Double.swift */; };
+		EF21AEB62CE82E09007DAF66 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */; };
+		EF21AEB72CE82E09007DAF66 /* FInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA662B93E71D00B917F0 /* FInput.swift */; };
+		EF21AEBA2CE82E09007DAF66 /* HP15C-Simulator-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4007461F2B524E0700696D02 /* HP15C-Simulator-Font.ttf */; };
+		EF21AEBB2CE82E09007DAF66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
+		EF21AEBC2CE82E09007DAF66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF52B50C4EB0033250C /* Assets.xcassets */; };
 		EF57C55C2B9FCAEF0045DAFB /* SampleProblemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55B2B9FCAEF0045DAFB /* SampleProblemsTests.swift */; };
 		EF57C55E2BA10F550045DAFB /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55D2BA10F550045DAFB /* DataModel.swift */; };
 		EF57C55F2BA10F550045DAFB /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55D2BA10F550045DAFB /* DataModel.swift */; };
@@ -90,6 +116,7 @@
 		EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF0C101B2B50C5150033250C /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		EF0C101D2B50C7710033250C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		EF21AEC02CE82E09007DAF66 /* RPN35DEV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPN35DEV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4425AF2CE6D4E000D14E0C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		EF57C55B2B9FCAEF0045DAFB /* SampleProblemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleProblemsTests.swift; sourceTree = "<group>"; };
 		EF57C55D2BA10F550045DAFB /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -114,6 +141,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		EF0C0FEB2B50C4E90033250C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF21AEB82CE82E09007DAF66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -155,6 +189,7 @@
 			children = (
 				EF0C0FEE2B50C4E90033250C /* RPN35.app */,
 				EFBF5F512B8172E700634ED5 /* RPN35Tests.xctest */,
+				EF21AEC02CE82E09007DAF66 /* RPN35DEV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -287,6 +322,23 @@
 			productReference = EF0C0FEE2B50C4E90033250C /* RPN35.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EF21AE9F2CE82E09007DAF66 /* RPN35DEV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF21AEBD2CE82E09007DAF66 /* Build configuration list for PBXNativeTarget "RPN35DEV" */;
+			buildPhases = (
+				EF21AEA02CE82E09007DAF66 /* Sources */,
+				EF21AEB82CE82E09007DAF66 /* Frameworks */,
+				EF21AEB92CE82E09007DAF66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RPN35DEV;
+			productName = HP15C;
+			productReference = EF21AEC02CE82E09007DAF66 /* RPN35DEV.app */;
+			productType = "com.apple.product-type.application";
+		};
 		EFBF5F502B8172E700634ED5 /* RPN35Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFBF5F592B8172E700634ED5 /* Build configuration list for PBXNativeTarget "RPN35Tests" */;
@@ -338,6 +390,7 @@
 			projectRoot = "";
 			targets = (
 				EF0C0FED2B50C4E90033250C /* RPN35 */,
+				EF21AE9F2CE82E09007DAF66 /* RPN35DEV */,
 				EFBF5F502B8172E700634ED5 /* RPN35Tests */,
 			);
 		};
@@ -351,6 +404,16 @@
 				400746202B524E0700696D02 /* HP15C-Simulator-Font.ttf in Resources */,
 				EF0C0FF92B50C4EB0033250C /* Preview Assets.xcassets in Resources */,
 				EF0C0FF62B50C4EB0033250C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF21AEB92CE82E09007DAF66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF21AEBA2CE82E09007DAF66 /* HP15C-Simulator-Font.ttf in Resources */,
+				EF21AEBB2CE82E09007DAF66 /* Preview Assets.xcassets in Resources */,
+				EF21AEBC2CE82E09007DAF66 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +457,36 @@
 				40DDDE312B548EDE005F95B3 /* Double.swift in Sources */,
 				EFBDF48E2BAFCCF1002F3F64 /* NSEvent.swift in Sources */,
 				EF02EA682B93E71E00B917F0 /* FInput.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF21AEA02CE82E09007DAF66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF21AEA12CE82E09007DAF66 /* View.swift in Sources */,
+				EF21AEA22CE82E09007DAF66 /* Operations.swift in Sources */,
+				EF21AEA32CE82E09007DAF66 /* Bool.swift in Sources */,
+				EF21AEA42CE82E09007DAF66 /* DataModel45.swift in Sources */,
+				EF21AEA52CE82E09007DAF66 /* Color.swift in Sources */,
+				EF21AEA62CE82E09007DAF66 /* Global.swift in Sources */,
+				EF21AEA72CE82E09007DAF66 /* Stack.swift in Sources */,
+				EF21AEA82CE82E09007DAF66 /* DisplayView.swift in Sources */,
+				EF21AEA92CE82E09007DAF66 /* InfoView35.swift in Sources */,
+				EF21AEAA2CE82E09007DAF66 /* Images.swift in Sources */,
+				EF21AEAB2CE82E09007DAF66 /* AppService.swift in Sources */,
+				EF21AEAC2CE82E09007DAF66 /* KeyView.swift in Sources */,
+				EF21AEAD2CE82E09007DAF66 /* Display.swift in Sources */,
+				EF21AEAE2CE82E09007DAF66 /* DebugView.swift in Sources */,
+				EF21AEAF2CE82E09007DAF66 /* DataModel.swift in Sources */,
+				EF21AEB02CE82E09007DAF66 /* KeyboardView.swift in Sources */,
+				EF21AEB12CE82E09007DAF66 /* DataModel35.swift in Sources */,
+				EF21AEB22CE82E09007DAF66 /* RPN-35App.swift in Sources */,
+				EF21AEB32CE82E09007DAF66 /* String.swift in Sources */,
+				EF21AEB42CE82E09007DAF66 /* GInput.swift in Sources */,
+				EF21AEB52CE82E09007DAF66 /* Double.swift in Sources */,
+				EF21AEB62CE82E09007DAF66 /* NSEvent.swift in Sources */,
+				EF21AEB72CE82E09007DAF66 /* FInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +723,76 @@
 			};
 			name = Release;
 		};
+		EF21AEBE2CE82E09007DAF66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDEV;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
+				DEVELOPMENT_TEAM = 5HRDTDUZ98;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RPN-35/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "RPN-35";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35DEV";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		EF21AEBF2CE82E09007DAF66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDEV;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
+				DEVELOPMENT_TEAM = 5HRDTDUZ98;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RPN-35/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "RPN-35";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35DEV";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		EFBF5F572B8172E700634ED5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -641,7 +804,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.code3e.Retro35Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -663,7 +826,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.code3e.Retro35Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -691,6 +854,15 @@
 			buildConfigurations = (
 				EF0C10132B50C4EB0033250C /* Debug */,
 				EF0C10142B50C4EB0033250C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF21AEBD2CE82E09007DAF66 /* Build configuration list for PBXNativeTarget "RPN35DEV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF21AEBE2CE82E09007DAF66 /* Debug */,
+				EF21AEBF2CE82E09007DAF66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
