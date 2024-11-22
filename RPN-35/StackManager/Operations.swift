@@ -32,6 +32,7 @@ enum Op: Identifiable, Equatable {
     case clr, clrX, lstX
     case toP, toR // Polar / Cartesian
     case toH, toHMS
+    case cmIn, kgLb, ltrGal // Metric conversions
 
     case fix, sci, eng
     case eex
@@ -62,6 +63,7 @@ enum Op: Identifiable, Equatable {
         switch self {
         case .sqrt, .powTwo, .inverse, .log, .tenX, .ln, .ex, .pi, .chs: true
         case .toP, .toR, .factorial, .percentage, .delta: true
+        case .cmIn, .kgLb, .ltrGal: true
         default: false
         }
     }

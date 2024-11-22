@@ -186,6 +186,18 @@ extension Double {
         return Double(hms) ?? self
     }
 
+    var cmToIn: Double {
+        return self / 2.54 // 1 In = 2.54 cms.
+    }
+
+    var kgToLb: Double {
+        return self / 0.453_592_37 // 1 Lb = 0.45359237 Kg.
+    }
+
+    var ltrToGal: Double {
+        return self / 3.785_411_784 // 1 Gal = 3.785411784 Ltr.
+    }
+
     private var timeString: String {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute, .second, .nanosecond]

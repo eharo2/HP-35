@@ -187,7 +187,7 @@ extension String {
         case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".": [.digit(self)]
 
         // HP-45
-        case "f": [.fShift]
+        case "f": [.fix]
         case "P": [.toP, .toR]
         case "x": [.none, .lstX]
 

@@ -155,6 +155,11 @@ class Stack {
             } else {
                 delegate?.stackDidUpdateError(error: true)
             }
+
+        case .cmIn: regX = regX.cmToIn
+        case .kgLb: regX = regX.kgToLb
+        case .ltrGal: regX = regX.ltrToGal
+
         // NO OPERAND
         case .exchangeXY: exchangeXY()
         case .rotateUp: rotateUp()
