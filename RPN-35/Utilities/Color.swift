@@ -27,8 +27,6 @@ extension Color {
     // HP35
     static let keyCyan35 = Color(hex: 0x67C1F7)
     static let keyBrown35 = Color(hex: 0x989798)
-    // static let keyWhite35 = Color(hex: 0xEFF0ED)
-    // static let keyBlack35 = Color(hex: 0x1F2527)
 
     static let keyOrange45 = Color(hex: 0xD48400)
     static let keyGray45 = Color(hex: 0x3B4445)
@@ -38,19 +36,28 @@ extension Color {
 
     // HP21
     static let hp21_yellow = Color(hex: 0xD7BD99)
-//    static let hp21_darkBrown = Color(hex: 0x504652)
-//    static let hp21_lightBrown = Color(hex: 0x615360)
-    static let hp21_blue = Color(hex: 0x33B4CC)
     static let hp21_black = Color(hex: 0x363436)
-    static let hp21_keyWhite1 = Color(hex: 0xFCF1DD)
-    static let hp21_keyWhite2 = Color(hex: 0xFFFAE3)
+    static let hp21_blue_1000 = Color(hex: 0x33B4CC)
+    static let hp21_blue_900 = Color(hex: 0x33B4CC, brightness: 0.9)
+    static let hp21_blue_800 = Color(hex: 0x33B4CC, brightness: 0.85)
+    static let hp21_blue_600 = Color(hex: 0x33B4CC, brightness: 0.6)
+    static let hp21_white_1000 = Color(hex: 0xFFFFFF)
+    static let hp21_white_950 = Color(hex: 0xFFFFFF, brightness: 0.95)
+    static let hp21_white_900 = Color(hex: 0xFFFFFF, brightness: 0.9)
+    static let hp21_white_850 = Color(hex: 0xFFFFFF, brightness: 0.85)
+    static let hp21_white_400 = Color(hex: 0xFFFFFF, brightness: 0.4)
+    static let hp21_gray_1000 = Color(hex: 0x777777)
+    static let hp21_gray_950 = Color(hex: 0x777777, brightness: 0.8)
+    static let hp21_gray_900 = Color(hex: 0x777777, brightness: 0.5)
+    static let hp21_gray_850 = Color(hex: 0x777777, brightness: 0.3)
+    static let hp21_gray_600 = Color(hex: 0x777777, brightness: 0.2)
 
-    init(hex: UInt, alpha: Double = 1) {
+    init(hex: UInt, brightness: Double = 1.0, alpha: Double = 1) {
         self.init(
             .sRGB,
-            red: Double((hex >> 16) & 0xFF)/255,
-            green: Double((hex >> 8) & 0xFF)/255,
-            blue: Double(hex & 0xFF)/255,
+            red: Double((hex >> 16) & 0xFF)/255.0 * brightness,
+            green: Double((hex >> 8) & 0xFF)/255.0 * brightness,
+            blue: Double(hex & 0xFF)/255.0 * brightness,
             opacity: alpha
         )
     }

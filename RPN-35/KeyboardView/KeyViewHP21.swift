@@ -22,6 +22,12 @@ extension KeyView {
                     Spacer()
                         .frame(height: animateKey ? 1.0 : 0.0)
                     ZStack {
+                        HStack {
+                            Spacer()
+                            Rectangle()
+                                .foregroundColor(viewSideColor)
+                                .padding(1.0)
+                        }
                         VStack {
                             GeometryReader { geometry in
                                 let rect = CGRect(origin: .zero, size: geometry.size)
@@ -34,6 +40,9 @@ extension KeyView {
                                         ZStack {
                                             ZStack {
                                                 Rectangle()
+                                                    .foregroundColor(viewBottomColor)
+                                                    .padding([.top, .trailing], 4.0)
+                                                Rectangle()
                                                     .foregroundColor(.white)
                                                     .cornerRadius(3.0)
                                                 Rectangle()
@@ -42,14 +51,6 @@ extension KeyView {
                                                     .padding(.trailing, 0.5)
                                                     .padding(.bottom, 1.5)
                                             }
-//                                            VStack(spacing: 0.0) {
-//                                                Spacer()
-//                                                Rectangle()
-//                                                    .foregroundColor(keyDividerColor)
-//                                                    .cornerRadius(3.0)
-//                                                    .frame(height: 2.0)
-//                                                    .padding(.trailing, 2.0)
-//                                            }
                                         }
                                         .padding(.trailing, 4.0)
                                         keyBottomView(in: rect, color: viewBottomColor)
@@ -74,7 +75,7 @@ extension KeyView {
                     }
                 }
             }
-            .frame(height: width * 1.3)
+            .frame(height: width * 1.2)
         }
         .frame(width: keyWidth)
         .onTapGesture {
@@ -96,10 +97,10 @@ extension KeyView {
 
     func keyTopView(in rect: CGRect, color: Color) -> some View {
         return Path() { path in
-            path.move(to: CGPoint(x: 0.0, y: rect.maxY))
-            path.addArc(tangent1End: CGPoint(x: 3.0, y: 0.0), tangent2End: CGPoint(x: rect.midX, y: 0.0), radius: 3.0)
-            path.addLine(to: CGPoint(x: rect.maxX, y: 0.0))
-            path.addLine(to: CGPoint(x: rect.maxX - 4.0, y: rect.maxY))
+            path.move(to: CGPoint(x: 1.0, y: rect.maxY))
+            path.addArc(tangent1End: CGPoint(x: 5.0, y: 0.0), tangent2End: CGPoint(x: rect.midX, y: 0.0), radius: 3.5)
+            path.addLine(to: CGPoint(x: rect.maxX - 1.0, y: 0.0))
+            path.addArc(tangent1End: CGPoint(x: rect.maxX - 4.0, y: rect.maxY), tangent2End: CGPoint(x: rect.maxX - 8.0, y: rect.maxY), radius: 4.0)
             path.closeSubpath()
         }
         .fill(color)
@@ -109,8 +110,9 @@ extension KeyView {
         let height = rect.maxY * 0.35
         return Path() { path in
             path.move(to: .zero)
-            path.addLine(to: CGPoint(x: rect.maxX - 4.0, y: 0.0))
-            path.addArc(tangent1End: CGPoint(x: rect.maxX, y: height), tangent2End: CGPoint(x: 3.0, y: height), radius: 2.0)
+            path.addLine(to: CGPoint(x: rect.maxX - 10.0, y: 0.0))
+            path.addArc(tangent1End: CGPoint(x: rect.maxX - 4.0, y: 0.0), tangent2End: CGPoint(x: rect.maxX - 2.0, y: height/2.0), radius: 3.0)
+            path.addArc(tangent1End: CGPoint(x: rect.maxX, y: height), tangent2End: CGPoint(x: 4.0, y: height), radius: 2.0)
             path.addArc(tangent1End: CGPoint(x: 3.0, y: height), tangent2End: .zero, radius: 2.0)
             path.closeSubpath()
         }
@@ -119,25 +121,33 @@ extension KeyView {
 
     var viewTopColor: Color {
         switch key.type {
-        case .blue: .hp21_blue
-        case .white: .gray(0.9)
-        default: .hp21_black
+        case .blue: .hp21_blue_1000
+        case .white: .hp21_white_950
+        default: .hp21_gray_1000
         }
     }
 
     var viewMidColor: Color {
         switch key.type {
-        case .blue: .hp21_blue
-        case .white: .gray(0.8)
-        default: .hp21_black
+        case .blue: .hp21_blue_900
+        case .white: .hp21_white_900
+        default: .hp21_gray_950
         }
     }
 
     var viewBottomColor: Color {
         switch key.type {
-        case .blue: .hp21_blue
-        case .white: .gray(0.7) // .hp21_keyWhite1
-        default: .gray(0.3)
+        case .blue: .hp21_blue_800
+        case .white: .hp21_white_850
+        default: .hp21_gray_900
+        }
+    }
+
+    var viewSideColor: Color {
+        switch key.type {
+        case .blue: .hp21_blue_600
+        case .white: .hp21_white_400
+        default: .hp21_gray_600
         }
     }
 
@@ -151,7 +161,7 @@ extension KeyView {
 
     var textTopColor: Color {
         switch key.type {
-        case .blue: .hp21_blue
+        case .blue: .hp21_blue_1000
         case .white: .black
         default: .white
         }
@@ -160,8 +170,8 @@ extension KeyView {
     var textBottomColor: Color {
         switch key.type {
         case .blue: .red
-        case .white: .hp21_blue
-        default: .hp21_blue
+        case .white: .hp21_blue_1000
+        default: .hp21_blue_1000
         }
     }
 }

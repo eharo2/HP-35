@@ -41,7 +41,7 @@ extension DataModel {
             Key(type: .lightGrayLarge, ops: [.enter, .deg], "ENTER \(Sym.up35)", "", 17, 0, 0,
                                                                                     "", "", 0),
             Key(type: .lightGray, ops: [.chs, .sqrt], "CHS", "", 14, 0, 0,
-                                               Sym.sqrt, Sym.x, 14, 14, 0),
+                                               Sym.sqrt, Sym.x, 12, 14, 0),
             Key(type: .lightGray, ops: [.eex, .pi], "EEX", "", 14, 0, 0,
                                                    "", Sym.pi, 0, 19, 2),
             Key(type: .lightGray, ops: [.clrX, .clr], "CL ", Sym.x, 14, 17, 2,
