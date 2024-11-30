@@ -11,7 +11,11 @@ class DataModel {
     static let shared = DataModel()
 
     func keys(for model: Model) -> [Key] {
-        model == .hp35 ? hp35Keys : hp45Keys
+        switch Global.model {
+        case .hp35: hp35Keys
+        case .hp45: hp45Keys
+        case .hp21: hp21Keys
+        }
     }
 
     init() {}

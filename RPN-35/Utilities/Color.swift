@@ -36,6 +36,15 @@ extension Color {
     static let keyLightGray45 = Color(hex: 0x9BA993)
     static let keyWhite45 = Color(hex: 0xE5E5CB)
 
+    // HP21
+    static let hp21_yellow = Color(hex: 0xD7BD99)
+//    static let hp21_darkBrown = Color(hex: 0x504652)
+//    static let hp21_lightBrown = Color(hex: 0x615360)
+    static let hp21_blue = Color(hex: 0x33B4CC)
+    static let hp21_black = Color(hex: 0x363436)
+    static let hp21_keyWhite1 = Color(hex: 0xFCF1DD)
+    static let hp21_keyWhite2 = Color(hex: 0xFFFAE3)
+
     init(hex: UInt, alpha: Double = 1) {
         self.init(
             .sRGB,

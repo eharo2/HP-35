@@ -17,6 +17,7 @@ struct KeyView: View {
             }
         }
     }
+    @State var animateKey: Bool = false
 
     #if os(iOS)
     let haptic = UIImpactFeedbackGenerator(style: .soft)
@@ -26,6 +27,14 @@ struct KeyView: View {
     var width: CGFloat
 
     var body: some View {
+        if Global.model == .hp21 {
+            hp21_KeyView()
+        } else {
+            hp35_45KeyView()
+        }
+    }
+
+    func hp35_45KeyView() -> some View {
         VStack(spacing: 0) {
             Spacer()
             HStack(spacing: 0) {

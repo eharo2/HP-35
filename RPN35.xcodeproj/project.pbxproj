@@ -46,6 +46,9 @@
 		EF21AEBA2CE82E09007DAF66 /* HP15C-Simulator-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4007461F2B524E0700696D02 /* HP15C-Simulator-Font.ttf */; };
 		EF21AEBB2CE82E09007DAF66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
 		EF21AEBC2CE82E09007DAF66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF52B50C4EB0033250C /* Assets.xcassets */; };
+		EF21AEC42CF025AB007DAF66 /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21AEC32CF0259E007DAF66 /* SnackBar.swift */; };
+		EF21AEC52CF025AB007DAF66 /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21AEC32CF0259E007DAF66 /* SnackBar.swift */; };
+		EF21AEC62CF025AB007DAF66 /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21AEC32CF0259E007DAF66 /* SnackBar.swift */; };
 		EF57C55C2B9FCAEF0045DAFB /* SampleProblemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55B2B9FCAEF0045DAFB /* SampleProblemsTests.swift */; };
 		EF57C55E2BA10F550045DAFB /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55D2BA10F550045DAFB /* DataModel.swift */; };
 		EF57C55F2BA10F550045DAFB /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55D2BA10F550045DAFB /* DataModel.swift */; };
@@ -56,6 +59,9 @@
 		EF57C5862BAA879C0045DAFB /* UserManualTests45.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C5852BAA879C0045DAFB /* UserManualTests45.swift */; };
 		EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1AF7D2B825AE400B8946A /* InfoView35.swift */; };
 		EF9A63A92B7B12490096822D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A63A82B7B12490096822D /* Global.swift */; };
+		EFA959692CF442F8009D557D /* KeyViewHP21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA959682CF442E2009D557D /* KeyViewHP21.swift */; };
+		EFA9596A2CF442F8009D557D /* KeyViewHP21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA959682CF442E2009D557D /* KeyViewHP21.swift */; };
+		EFA9596B2CF442F8009D557D /* KeyViewHP21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA959682CF442E2009D557D /* KeyViewHP21.swift */; };
 		EFB91B122B60BAE000A6347F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB91B112B60BAE000A6347F /* String.swift */; };
 		EFBDF48E2BAFCCF1002F3F64 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */; };
 		EFBDF48F2BAFCD10002F3F64 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */; };
@@ -86,6 +92,9 @@
 		EFF476692B981E7300A5744A /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF476672B981E7300A5744A /* Display.swift */; };
 		EFF4766C2B992B1E00A5744A /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4766B2B992B1E00A5744A /* Bool.swift */; };
 		EFF4766D2B992B1E00A5744A /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4766B2B992B1E00A5744A /* Bool.swift */; };
+		EFF7ABA22CF809EC00F06FBC /* DataModel21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7ABA12CF809E700F06FBC /* DataModel21.swift */; };
+		EFF7ABA32CF809EC00F06FBC /* DataModel21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7ABA12CF809E700F06FBC /* DataModel21.swift */; };
+		EFF7ABA42CF809EC00F06FBC /* DataModel21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7ABA12CF809E700F06FBC /* DataModel21.swift */; };
 		EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */; };
 		EFFBE2972B8EA76F0012685A /* DataModel45.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFBE2962B8EA76F0012685A /* DataModel45.swift */; };
 /* End PBXBuildFile section */
@@ -117,6 +126,7 @@
 		EF0C101B2B50C5150033250C /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		EF0C101D2B50C7710033250C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		EF21AEC02CE82E09007DAF66 /* RPN35DEV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPN35DEV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF21AEC32CF0259E007DAF66 /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
 		EF4425AF2CE6D4E000D14E0C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		EF57C55B2B9FCAEF0045DAFB /* SampleProblemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleProblemsTests.swift; sourceTree = "<group>"; };
 		EF57C55D2BA10F550045DAFB /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -125,6 +135,7 @@
 		EF57C57F2BA540250045DAFB /* ErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTests.swift; sourceTree = "<group>"; };
 		EF57C5852BAA879C0045DAFB /* UserManualTests45.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests45.swift; sourceTree = "<group>"; };
 		EF9A63A82B7B12490096822D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		EFA959682CF442E2009D557D /* KeyViewHP21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyViewHP21.swift; sourceTree = "<group>"; };
 		EFB91B112B60BAE000A6347F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
 		EFBF5F512B8172E700634ED5 /* RPN35Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RPN35Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +146,7 @@
 		EFECEAD52B76CCC00051134A /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		EFF476672B981E7300A5744A /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		EFF4766B2B992B1E00A5744A /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
+		EFF7ABA12CF809E700F06FBC /* DataModel21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel21.swift; sourceTree = "<group>"; };
 		EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel35.swift; sourceTree = "<group>"; };
 		EFFBE2962B8EA76F0012685A /* DataModel45.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel45.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +182,7 @@
 				EF57C55D2BA10F550045DAFB /* DataModel.swift */,
 				EFF8E6982B8EC7BA0004D2BF /* DataModel35.swift */,
 				EFFBE2962B8EA76F0012685A /* DataModel45.swift */,
+				EFF7ABA12CF809E700F06FBC /* DataModel21.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +210,7 @@
 		EF0C0FF02B50C4E90033250C /* RPN-35 */ = {
 			isa = PBXGroup;
 			children = (
+				EF21AEC22CF0258A007DAF66 /* SnackBar */,
 				400746212B524E2500696D02 /* Info.plist */,
 				EF0C0FF12B50C4E90033250C /* RPN-35App.swift */,
 				EF9A63A82B7B12490096822D /* Global.swift */,
@@ -220,6 +234,14 @@
 				EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EF21AEC22CF0258A007DAF66 /* SnackBar */ = {
+			isa = PBXGroup;
+			children = (
+				EF21AEC32CF0259E007DAF66 /* SnackBar.swift */,
+			);
+			path = SnackBar;
 			sourceTree = "<group>";
 		};
 		EF57C5832BAA875D0045DAFB /* hp35 */ = {
@@ -263,6 +285,7 @@
 			children = (
 				EF57C5602BA10F8E0045DAFB /* KeyboardView.swift */,
 				EF02EA6B2B96A92A00B917F0 /* KeyView.swift */,
+				EFA959682CF442E2009D557D /* KeyViewHP21.swift */,
 			);
 			path = KeyboardView;
 			sourceTree = "<group>";
@@ -448,14 +471,17 @@
 				EF02EA6C2B96A92A00B917F0 /* KeyView.swift in Sources */,
 				EFF476682B981E7300A5744A /* Display.swift in Sources */,
 				EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */,
+				EFF7ABA32CF809EC00F06FBC /* DataModel21.swift in Sources */,
 				EF57C55E2BA10F550045DAFB /* DataModel.swift in Sources */,
 				EF57C5612BA10F8E0045DAFB /* KeyboardView.swift in Sources */,
+				EFA959692CF442F8009D557D /* KeyViewHP21.swift in Sources */,
 				EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */,
 				EF0C0FF22B50C4E90033250C /* RPN-35App.swift in Sources */,
 				EFB91B122B60BAE000A6347F /* String.swift in Sources */,
 				EF02EA692B93E71E00B917F0 /* GInput.swift in Sources */,
 				40DDDE312B548EDE005F95B3 /* Double.swift in Sources */,
 				EFBDF48E2BAFCCF1002F3F64 /* NSEvent.swift in Sources */,
+				EF21AEC42CF025AB007DAF66 /* SnackBar.swift in Sources */,
 				EF02EA682B93E71E00B917F0 /* FInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,14 +504,17 @@
 				EF21AEAC2CE82E09007DAF66 /* KeyView.swift in Sources */,
 				EF21AEAD2CE82E09007DAF66 /* Display.swift in Sources */,
 				EF21AEAE2CE82E09007DAF66 /* DebugView.swift in Sources */,
+				EFF7ABA42CF809EC00F06FBC /* DataModel21.swift in Sources */,
 				EF21AEAF2CE82E09007DAF66 /* DataModel.swift in Sources */,
 				EF21AEB02CE82E09007DAF66 /* KeyboardView.swift in Sources */,
+				EFA9596A2CF442F8009D557D /* KeyViewHP21.swift in Sources */,
 				EF21AEB12CE82E09007DAF66 /* DataModel35.swift in Sources */,
 				EF21AEB22CE82E09007DAF66 /* RPN-35App.swift in Sources */,
 				EF21AEB32CE82E09007DAF66 /* String.swift in Sources */,
 				EF21AEB42CE82E09007DAF66 /* GInput.swift in Sources */,
 				EF21AEB52CE82E09007DAF66 /* Double.swift in Sources */,
 				EF21AEB62CE82E09007DAF66 /* NSEvent.swift in Sources */,
+				EF21AEC62CF025AB007DAF66 /* SnackBar.swift in Sources */,
 				EF21AEB72CE82E09007DAF66 /* FInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +525,7 @@
 			files = (
 				EFF476662B981DD100A5744A /* DataModel45.swift in Sources */,
 				EFF476652B981DCD00A5744A /* DataModel35.swift in Sources */,
+				EFF7ABA22CF809EC00F06FBC /* DataModel21.swift in Sources */,
 				EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */,
 				EFBF5F692B8173DC00634ED5 /* View.swift in Sources */,
 				EFBF5F652B8173D000634ED5 /* Color.swift in Sources */,
@@ -510,6 +540,7 @@
 				EFBF5F6A2B8173E000634ED5 /* DebugView.swift in Sources */,
 				EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */,
 				EFBDF48F2BAFCD10002F3F64 /* NSEvent.swift in Sources */,
+				EF21AEC52CF025AB007DAF66 /* SnackBar.swift in Sources */,
 				EF57C55F2BA10F550045DAFB /* DataModel.swift in Sources */,
 				EF57C5622BA10F8E0045DAFB /* KeyboardView.swift in Sources */,
 				EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */,
@@ -520,6 +551,7 @@
 				EFBF5F542B8172E700634ED5 /* UserManualTests1.swift in Sources */,
 				EFBF5F5D2B81737F00634ED5 /* Operations.swift in Sources */,
 				EF57C5862BAA879C0045DAFB /* UserManualTests45.swift in Sources */,
+				EFA9596B2CF442F8009D557D /* KeyViewHP21.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
