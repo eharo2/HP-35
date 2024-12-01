@@ -12,70 +12,25 @@ extension KeyView {
         VStack(spacing: 0.0) {
             Spacer()
             ZStack {
-                Rectangle() // HP21 backgroundBlack
-                    .foregroundColor(.hp21_black)
-                Rectangle() // HP21 key hole
+                Rectangle()
                     .foregroundColor(.black)
-                    .cornerRadius(2.0)
-                    .padding(.leading, 3.0)
-                VStack {
-                    Spacer()
-                        .frame(height: animateKey ? 1.0 : 0.0)
-                    ZStack {
-                        HStack {
-                            Spacer()
-                            Rectangle()
-                                .foregroundColor(viewSideColor)
-                                .padding(1.0)
-                        }
-                        VStack {
-                            GeometryReader { geometry in
-                                let rect = CGRect(origin: .zero, size: geometry.size)
-                                ZStack {
-                                    VStack(spacing: 0.0) {
-                                        let size = CGSize(width: rect.width, height: 5.0)
-                                        keyTopView(in: CGRect(origin: .zero,
-                                                              size: size), color: viewTopColor)
-                                        .frame(height: 5.0)
-                                        ZStack {
-                                            ZStack {
-                                                Rectangle()
-                                                    .foregroundColor(viewBottomColor)
-                                                    .padding([.top, .trailing], 4.0)
-                                                Rectangle()
-                                                    .foregroundColor(.white)
-                                                    .cornerRadius(3.0)
-                                                Rectangle()
-                                                    .foregroundColor(viewMidColor)
-                                                    .cornerRadius(3.0)
-                                                    .padding(.trailing, 0.5)
-                                                    .padding(.bottom, 1.5)
-                                            }
-                                        }
-                                        .padding(.trailing, 4.0)
-                                        keyBottomView(in: rect, color: viewBottomColor)
-                                            .frame(height: (geometry.size.height - 5.0) * 0.4)
-                                    }
-                                }
-                            }
-                        }
-                        .padding(.top, 1)
-                        VStack(spacing: 0.0) {
-                            key.bLabel
-                                .foregroundColor(textTopColor)
-                                .padding(.top, 4.0)
-                                .padding(.trailing, 2.0)
-                                .if(key.type == .blue) {
-                                    $0.frame(width: 45.0)
-                                }
-                            key.fLabel
-                                .foregroundColor(textBottomColor)
-                                .padding(.top, 8.0)
-                        }
+                    .cornerRadius(5)
+                ZStack {
+                    keyView_21(keyColor)
+                    VStack(spacing: 0.0) {
+                        key.bLabel
+                            .foregroundColor(foregroundColor)
+                        key.fLabel
+                            .foregroundColor(.hp21_blue_1000)
+                            .padding(.top, 5.0)
+                            .padding(.bottom, key.type == .white ? 2.0 : 0.0)
                     }
                 }
+                .padding(1.0)
+                .padding(.top, clicked ? 2.0 : 0.0)
             }
             .frame(height: width * 1.2)
+            .padding(.bottom, 5.0)
         }
         .frame(width: keyWidth)
         .onTapGesture {
@@ -86,92 +41,23 @@ extension KeyView {
             DispatchQueue.global().async {
                 ops = key.ops.isEmpty ? [.digit(key.bLabel1)] : key.ops
             }
-            animateKey = true
-            print("ANIMATE \(animateKey)")
-            DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-                self.animateKey = false
-                print("ANIMATE \(animateKey)")
-            }
         }
     }
 
-    func keyTopView(in rect: CGRect, color: Color) -> some View {
-        return Path() { path in
-            path.move(to: CGPoint(x: 1.0, y: rect.maxY))
-            path.addArc(tangent1End: CGPoint(x: 5.0, y: 0.0), tangent2End: CGPoint(x: rect.midX, y: 0.0), radius: 3.5)
-            path.addLine(to: CGPoint(x: rect.maxX - 1.0, y: 0.0))
-            path.addArc(tangent1End: CGPoint(x: rect.maxX - 4.0, y: rect.maxY), tangent2End: CGPoint(x: rect.maxX - 8.0, y: rect.maxY), radius: 4.0)
-            path.closeSubpath()
-        }
-        .fill(color)
-    }
-
-    func keyBottomView(in rect: CGRect, color: Color) -> some View {
-        let height = rect.maxY * 0.35
-        return Path() { path in
-            path.move(to: .zero)
-            path.addLine(to: CGPoint(x: rect.maxX - 10.0, y: 0.0))
-            path.addArc(tangent1End: CGPoint(x: rect.maxX - 4.0, y: 0.0), tangent2End: CGPoint(x: rect.maxX - 2.0, y: height/2.0), radius: 3.0)
-            path.addArc(tangent1End: CGPoint(x: rect.maxX, y: height), tangent2End: CGPoint(x: 4.0, y: height), radius: 2.0)
-            path.addArc(tangent1End: CGPoint(x: 3.0, y: height), tangent2End: .zero, radius: 2.0)
-            path.closeSubpath()
-        }
-        .fill(color)
-    }
-
-    var viewTopColor: Color {
-        switch key.type {
-        case .blue: .hp21_blue_1000
-        case .white: .hp21_white_950
-        default: .hp21_gray_1000
-        }
-    }
-
-    var viewMidColor: Color {
-        switch key.type {
-        case .blue: .hp21_blue_900
-        case .white: .hp21_white_900
-        default: .hp21_gray_950
-        }
-    }
-
-    var viewBottomColor: Color {
-        switch key.type {
-        case .blue: .hp21_blue_800
-        case .white: .hp21_white_850
-        default: .hp21_gray_900
-        }
-    }
-
-    var viewSideColor: Color {
-        switch key.type {
-        case .blue: .hp21_blue_600
-        case .white: .hp21_white_400
-        default: .hp21_gray_600
-        }
-    }
-
-    var keyDividerColor: Color {
-        switch key.type {
-        case .blue: .white
-        case .white: .white
-        default: .gray(0.9)
-        }
-    }
-
-    var textTopColor: Color {
-        switch key.type {
-        case .blue: .hp21_blue_1000
-        case .white: .black
-        default: .white
-        }
-    }
-
-    var textBottomColor: Color {
-        switch key.type {
-        case .blue: .red
-        case .white: .hp21_blue_1000
-        default: .hp21_blue_1000
+    func keyView_21(_ color: Color) -> some View {
+        ZStack {
+            subview(.black)
+            subview(color).opacity(0.5)
+            subview(color)
+                .padding([.leading, .top, .trailing], 2.0)
+                .padding(.bottom, 4.0)
+            subview(.white)
+                .padding([.leading, .top, .trailing], 4.0)
+                .padding(.bottom, 21.0)
+            subview(color)
+                .padding([.leading, .top], 4.0)
+                .padding(.trailing, 6.0)
+                .padding(.bottom, 23.0)
         }
     }
 }
@@ -180,53 +66,61 @@ extension KeyboardView {
     func hp21_DegRadToggleView() -> some View {
         ZStack {
             Rectangle()
-                .frame(height: 45)
+                .frame(height: 45.0)
                 .foregroundColor(.black)
-                .cornerRadius(8)
-                .padding(10)
-                .padding(.trailing, 5)
-                .padding(.bottom, -9)
+                .cornerRadius(8.0)
+                .padding(10.0)
+                .padding(.trailing, 5.0)
+                .padding(.bottom, -9.0)
             Rectangle()
-                .frame(height: 45)
+                .frame(height: 45.0)
                 .foregroundColor(.white)
-                .cornerRadius(8)
-                .padding(10)
+                .cornerRadius(8.0)
+                .padding(10.0)
                 .padding(.leading, 0.5)
                 .padding(.trailing, -0.5)
-                .padding(.bottom, -11)
+                .padding(.bottom, -11.0)
             HStack {
+                toggle(with: ["OFF", "ON"])
+                    .padding(.leading, 20.0)
                 Spacer()
-                ZStack {
-                    Text("DEG")
-                        .font(Font.custom("Century Gothic", size: 16))
-                        .foregroundColor(.gray(0.9))
-                        .padding(.trailing, -1.5)
-                        .padding(.bottom, -1)
-                    Text("DEG")
-                        .font(Font.custom("Century Gothic", size: 16))
-                }
-                .padding(.trailing, -10)
-                Toggle("", isOn: $radIsOn)
-                    .scaleEffect(0.8)
-                    .frame(width: 60)
-                    .toggleStyle(CustomToggleStyle(onColor: .black, offColor: .black, thumbColor: .hp21_black))
-                ZStack {
-                    Text("RAD")
-                        .font(Font.custom("Century Gothic", size: 16))
-                        .foregroundColor(.gray(0.9))
-                        .padding(.trailing, -1.5)
-                        .padding(.bottom, -1)
-                    Text("RAD")
-                        .font(Font.custom("Century Gothic", size: 16))
-                }
-                .padding(.trailing, 10)
-                .frame(height: 45)
+                toggle(with: ["DEG", "RAD"])
+                    .padding(.trailing, 20.0)
             }
             .background(Color.hp21_black)
-            .cornerRadius(8)
-            .padding(10)
+            .cornerRadius(8.0)
+            .padding(10.0)
             .padding(.leading, 0.5)
-            .padding(.bottom, -10)
+            .padding(.bottom, -10.0)
+        }
+    }
+
+    func toggle(with: [String]) -> some View {
+        HStack(spacing: 0.0) {
+            ZStack {
+                Text(with[0])
+                    .foregroundColor(.gray(0.9))
+                    .padding(.trailing, -1.5)
+                    .padding(.bottom, -1.0)
+                Text(with[0])
+                    .foregroundColor(.gray(0.1))
+            }
+            .padding(.trailing, -10.0)
+            Toggle("", isOn: $radIsOn)
+                .scaleEffect(0.8)
+                .frame(width: 60.0)
+                .toggleStyle(CustomToggleStyle(onColor: .black, offColor: .black, thumbColor: .hp21_black))
+            ZStack {
+                Text(with[1])
+                    .foregroundColor(.gray(0.9))
+                    .padding(.trailing, -1.5)
+                    .padding(.bottom, -1)
+                Text(with[1])
+                    .foregroundColor(.gray(0.1))
+            }
+            .padding(.trailing, 10.0)
+            .frame(height: 45.0)
+            .font(Font.custom("Century Gothic", size: 16))
         }
     }
 }
@@ -241,14 +135,14 @@ struct CustomToggleStyle: ToggleStyle {
             configuration.label
                 .font(.body)
             Spacer()
-            RoundedRectangle(cornerRadius: 16, style: .circular)
+            RoundedRectangle(cornerRadius: 16.0, style: .circular)
                 .fill(configuration.isOn ? onColor : offColor)
-                .frame(width: 50, height: 30)
+                .frame(width: 50.0, height: 30.0)
                 .overlay(
                     Circle()
                         .fill(thumbColor)
-                        .padding(2)
-                        .offset(x: configuration.isOn ? 10 : -10)
+                        .padding(2.0)
+                        .offset(x: configuration.isOn ? 10.0 : -10.0)
                 )
                 .onTapGesture {
                     withAnimation(.smooth(duration: 0.2)) {
