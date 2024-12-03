@@ -21,7 +21,7 @@ struct RPN35App: App {
                     .foregroundColor(.black)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 mainView()
-                    .padding(.top, 40)
+                    .padding(.top, 41)
             }
             .ignoresSafeArea()
         #else

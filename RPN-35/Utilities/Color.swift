@@ -37,20 +37,7 @@ extension Color {
     // HP21
     static let hp21_yellow = Color(hex: 0xD7BD99)
     static let hp21_black = Color(hex: 0x363436)
-    static let hp21_blue_1000 = Color(hex: 0x33B4CC)
-    static let hp21_blue_900 = Color(hex: 0x33B4CC, brightness: 0.9)
-    static let hp21_blue_800 = Color(hex: 0x33B4CC, brightness: 0.85)
-    static let hp21_blue_600 = Color(hex: 0x33B4CC, brightness: 0.6)
-    static let hp21_white_1000 = Color(hex: 0xFFFFFF)
-    static let hp21_white_950 = Color(hex: 0xFFFFFF, brightness: 0.95)
-    static let hp21_white_900 = Color(hex: 0xFFFFFF, brightness: 0.9)
-    static let hp21_white_850 = Color(hex: 0xFFFFFF, brightness: 0.85)
-    static let hp21_white_400 = Color(hex: 0xFFFFFF, brightness: 0.4)
-    static let hp21_gray_1000 = Color(hex: 0x777777)
-    static let hp21_gray_950 = Color(hex: 0x777777, brightness: 0.8)
-    static let hp21_gray_900 = Color(hex: 0x777777, brightness: 0.5)
-    static let hp21_gray_850 = Color(hex: 0x777777, brightness: 0.3)
-    static let hp21_gray_600 = Color(hex: 0x777777, brightness: 0.2)
+    static let hp21_blue = Color(hex: 0x33B4CC)
 
     init(hex: UInt, brightness: Double = 1.0, alpha: Double = 1) {
         self.init(

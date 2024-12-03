@@ -156,9 +156,16 @@ class Stack {
                 delegate?.stackDidUpdateError(error: true)
             }
 
+        // HP-45
         case .cmIn: regX = regX.cmToIn
         case .kgLb: regX = regX.kgToLb
         case .ltrGal: regX = regX.ltrToGal
+
+        // HP-21
+        case .mSubstract: regS -= regX
+        case .mAdd: regS += regX
+        case .mMultiply: regS = regS * regX
+        case .mDivide: regS = regS / regX
 
         // NO OPERAND
         case .exchangeXY: exchangeXY()

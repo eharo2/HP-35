@@ -21,7 +21,7 @@ extension KeyView {
                         key.bLabel
                             .foregroundColor(foregroundColor)
                         key.fLabel
-                            .foregroundColor(.hp21_blue_1000)
+                            .foregroundColor(.hp21_blue)
                             .padding(.top, 5.0)
                             .padding(.bottom, key.type == .white ? 2.0 : 0.0)
                     }
@@ -51,7 +51,7 @@ extension KeyView {
             subview(color)
                 .padding([.leading, .top, .trailing], 2.0)
                 .padding(.bottom, 4.0)
-            subview(.white)
+            subview(shineColor)
                 .padding([.leading, .top, .trailing], 4.0)
                 .padding(.bottom, 21.0)
             subview(color)
@@ -60,10 +60,17 @@ extension KeyView {
                 .padding(.bottom, 23.0)
         }
     }
+
+    var shineColor: Color {
+        switch key.type {
+        case .black, .blackLarge: .gray(0.6)
+        default: .white
+        }
+    }
 }
 
 extension KeyboardView {
-    func hp21_DegRadToggleView() -> some View {
+    func topToggleView() -> some View {
         ZStack {
             Rectangle()
                 .frame(height: 45.0)
@@ -81,10 +88,10 @@ extension KeyboardView {
                 .padding(.trailing, -0.5)
                 .padding(.bottom, -11.0)
             HStack {
-                toggle(with: ["OFF", "ON"])
+                toggle(with: ["OFF", "ON"], value: $hp21IsOn)
                     .padding(.leading, 20.0)
                 Spacer()
-                toggle(with: ["DEG", "RAD"])
+                toggle(with: ["DEG", "RAD"], value: $radIsOn)
                     .padding(.trailing, 20.0)
             }
             .background(Color.hp21_black)
@@ -95,7 +102,7 @@ extension KeyboardView {
         }
     }
 
-    func toggle(with: [String]) -> some View {
+    func toggle(with: [String], value: Binding<Bool>) -> some View {
         HStack(spacing: 0.0) {
             ZStack {
                 Text(with[0])
@@ -106,7 +113,7 @@ extension KeyboardView {
                     .foregroundColor(.gray(0.1))
             }
             .padding(.trailing, -10.0)
-            Toggle("", isOn: $radIsOn)
+            Toggle("", isOn: value)
                 .scaleEffect(0.8)
                 .frame(width: 60.0)
                 .toggleStyle(CustomToggleStyle(onColor: .black, offColor: .black, thumbColor: .hp21_black))

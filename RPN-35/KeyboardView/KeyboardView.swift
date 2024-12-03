@@ -11,14 +11,16 @@ struct KeyboardView: View {
     @EnvironmentObject var appService: AppService
     @State var ops: [Op] = []
 
-    // HP-21
     @State var showModelSelectionView = false
+
+    // HP-21
+    @State var hp21IsOn = true
     @State var radIsOn = false
 
     var body: some View {
         VStack {
             if .hp21 {
-                hp21_DegRadToggleView()
+                topToggleView()
             }
             ZStack {
                 RoundedRectangle(cornerRadius: 4)

@@ -214,7 +214,6 @@
 		EF0C0FF02B50C4E90033250C /* RPN-35 */ = {
 			isa = PBXGroup;
 			children = (
-				EF21AEC22CF0258A007DAF66 /* SnackBar */,
 				400746212B524E2500696D02 /* Info.plist */,
 				EF0C0FF12B50C4E90033250C /* RPN-35App.swift */,
 				EF9A63A82B7B12490096822D /* Global.swift */,
@@ -307,6 +306,7 @@
 		EFECEACE2B71BB230051134A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				EF21AEC22CF0258A007DAF66 /* SnackBar */,
 				EFF4766B2B992B1E00A5744A /* Bool.swift */,
 				EFECEAC32B6DC5C60051134A /* Color.swift */,
 				40DDDE302B548EDE005F95B3 /* Double.swift */,

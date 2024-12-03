@@ -17,7 +17,6 @@ struct KeyView: View {
             }
         }
     }
-    @State var animateKey: Bool = false
 
     #if os(iOS)
     let haptic = UIImpactFeedbackGenerator(style: .soft)

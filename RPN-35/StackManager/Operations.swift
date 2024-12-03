@@ -44,7 +44,10 @@ enum Op: Identifiable, Equatable {
     case fShift // arc in HP-35, orangeKey in HP-45
     case none
 
-    // HP35
+    // HP-21
+    case mSubstract, mAdd, mMultiply, mDivide
+
+    // HP-35
     var shouldDrop: Bool {
         switch self {
         case .add, .substract, .multiply, .divide, .powerXY, .powerYX: true
@@ -64,6 +67,8 @@ enum Op: Identifiable, Equatable {
         case .sqrt, .powTwo, .inverse, .log, .tenX, .ln, .ex, .pi, .chs: true
         case .toP, .toR, .factorial, .percentage, .delta: true
         case .cmIn, .kgLb, .ltrGal: true
+        // HP-21
+        case .mSubstract, .mAdd, .mMultiply, .mDivide: true
         default: false
         }
     }
