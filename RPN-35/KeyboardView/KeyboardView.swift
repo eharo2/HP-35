@@ -13,10 +13,6 @@ struct KeyboardView: View {
 
     @State var showModelSelectionView = false
 
-    // HP-21
-    @State var hp21IsOn = true
-    @State var radIsOn = false
-
     var body: some View {
         VStack {
             if .hp21 {
@@ -77,6 +73,7 @@ struct KeyboardView: View {
 
     func resetView() {
         appService.display.info.error = false
+        appService.hp21IsOn = true
         appService.stack.clear()
         appService.stack.inspect()
     }

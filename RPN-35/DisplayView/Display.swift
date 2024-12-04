@@ -143,7 +143,11 @@ struct DisplayInfo: Equatable {
             }
         }
     }
-    var degrees: Degrees = .deg
+    var degrees: Degrees = .deg {
+        didSet {
+            print("\(degrees.name.uppercased()) is set")
+        }
+    }
 }
 
 enum Format {

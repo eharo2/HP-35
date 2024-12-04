@@ -19,6 +19,21 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
         }
     }
+    // HP-21
+    @Published var hp21IsOn = true {
+        didSet {
+            if hp21IsOn {
+                display.reset()
+            }
+        }
+    }
+    @Published var radIsOn = false
+//    {
+//        didSet {
+//            displayInfo.degrees = radIsOn ? .rad : .deg
+//        }
+//    }
+
     var display = Display()
     var stack = Stack()
 
@@ -184,7 +199,11 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
             stack.inspect()
         default:
-            stack.processOp(op, displayInfo.degrees, display.numericInput.isEmpty)
+            var degrees = displayInfo.degrees
+            if .hp21  {
+                degrees = self.radIsOn ? .rad : .deg
+            }
+            stack.processOp(op, degrees, display.numericInput.isEmpty)
             display.reset()
         }
     }

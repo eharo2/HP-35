@@ -88,10 +88,10 @@ extension KeyboardView {
                 .padding(.trailing, -0.5)
                 .padding(.bottom, -11.0)
             HStack {
-                toggle(with: ["OFF", "ON"], value: $hp21IsOn)
+                toggle(with: ["OFF", "ON"], value: $appService.hp21IsOn)
                     .padding(.leading, 20.0)
                 Spacer()
-                toggle(with: ["DEG", "RAD"], value: $radIsOn)
+                toggle(with: ["DEG", "RAD"], value: $appService.radIsOn)
                     .padding(.trailing, 20.0)
             }
             .background(Color.hp21_black)

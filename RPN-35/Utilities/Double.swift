@@ -237,7 +237,7 @@ enum Degrees {
 
     var name: String {
         switch self {
-        case .deg: return ""
+        // case .deg: return ""
         default: return "\(self)".uppercased()
         }
     }
