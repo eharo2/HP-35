@@ -264,7 +264,7 @@ extension Stack {
         print("regZ: \(preZ.stringValue(withSize: max)) -> \(regZ)")
         print("regY: \(preY.stringValue(withSize: max)) -> \(regY)")
         print("regX: \(preX.stringValue(withSize: max)) -> \(regX)")
-        if .hp35 || .hp21 {
+        if .isHP35 || .isHP21 {
             print("STO: \(regS)")
         } else {
             print("lstX: \(lstX)")

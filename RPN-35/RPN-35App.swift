@@ -35,7 +35,7 @@ struct RPN35App: App {
         VStack(spacing: 0) {
             DisplayView()
                 .frame(height: 80)
-                .if(!.hp21) {
+                .if(!.isHP21) {
                     $0.padding(.bottom, 5)
                 }
                 .environmentObject(appService)
@@ -70,7 +70,7 @@ struct RPN35App: App {
             }
             #endif
         }
-        .if(.hp21) { view in
+        .if(.isHP21) { view in
             ZStack {
                 Rectangle()
                     .border(Color.hp21_yellow, width: 6)

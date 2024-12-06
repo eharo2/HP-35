@@ -118,7 +118,7 @@ struct KeyView: View {
         case.brown: width
         // HP45
         case .orange, .gray, .lightGray: width * 1.2
-        case .black: width * (.hp35 ? 1.0 : 1.2)
+        case .black: width * (.isHP35 ? 1.0 : 1.2)
         // HP21
         case .blue: width * 1.15
         case .blackLarge: width * 3.0

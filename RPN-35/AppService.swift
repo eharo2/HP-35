@@ -108,10 +108,10 @@ class AppService: ObservableObject, DisplayManagerDelegate {
 
         if display.info.fKey {
             guard ops.count > 1 else {
-                print("Ignore After \(.hp35 ? "'arc'" : "'shift'"): \(ops[0])")
+                print("Ignore After \(.isHP35 ? "'arc'" : "'shift'"): \(ops[0])")
                 return
             }
-            if .hp35 && !ops[1].isArcOp {
+            if .isHP35 && !ops[1].isArcOp {
                 print("Ignore. No trigonometric op: \(ops[1])")
                 return
             }
@@ -127,7 +127,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
 
         switch op {
         case .fShift:
-            print("Op: \(.hp35 ? "arc" : "shift")")
+            print("Op: \(.isHP35 ? "arc" : "shift")")
             display.info.fKey = true
         case .eex: display.processEEXInput()
         case .digit(let input):
@@ -200,7 +200,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             stack.inspect()
         default:
             var degrees = displayInfo.degrees
-            if .hp21  {
+            if .isHP21  {
                 degrees = self.radIsOn ? .rad : .deg
             }
             stack.processOp(op, degrees, display.numericInput.isEmpty)

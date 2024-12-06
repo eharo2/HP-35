@@ -57,9 +57,10 @@ enum Op: Identifiable, Equatable {
 
     var shouldLift: Bool {
         switch self {
-        case .pi, .sto, .rcl: true
+        case .pi, .rcl: true
         // HP-21
         case .mSubstract, .mAdd, .mMultiply, .mDivide: true
+        case .sto: .isHP21
         default: false
         }
     }
@@ -83,7 +84,8 @@ enum Op: Identifiable, Equatable {
     var noStackOperation: Bool {
         switch self {
         case .clr, .clrX, .exchangeXY, .rotateDown: true
-        case .lstX: true // HP45
+        case .lstX: true // HP-45
+        case .sto: !.isHP21 // HP-21
         default: false
         }
     }
@@ -97,7 +99,7 @@ enum Op: Identifiable, Equatable {
 extension Op {
     var name: String {
         var name = String("\(self)".split(separator: ".").last ?? "")
-        name = String(name.replacingOccurrences(of: ")", with: ""))
+        // name = String(name.replacingOccurrences(of: ")", with: ""))
         name = String(name.replacingOccurrences(of: "\"", with: ""))
         name = String(name.replacingOccurrences(of: "\\", with: ""))
         return ".\(name)"

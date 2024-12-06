@@ -15,17 +15,17 @@ struct KeyboardView: View {
 
     var body: some View {
         VStack {
-            if .hp21 {
+            if .isHP21 {
                 topToggleView()
             }
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
-                    .stroke(Color.fKey35, lineWidth: .hp21 ? 0.5 : 2)
+                    .stroke(Color.fKey35, lineWidth: .isHP21 ? 0.5 : 2)
                     .background(keyboardBackgroundColor)
                     .padding(.horizontal, 5)
                     .padding(.bottom, .mac ? 2 : -1)
                 VStack(spacing: 0) {
-                    if .hp21 {
+                    if .isHP21 {
                         ForEach(1..<3) { row in
                             keysRow(index: row * 5, numKeys: 5)
                         }
@@ -79,6 +79,6 @@ struct KeyboardView: View {
     }
 
     var logoImage: Image {
-        .hp45 ? Images.hpLogoGray : Images.hpLogoBlue
+        .isHP45 ? Images.hpLogoGray : Images.hpLogoBlue
     }
 }
