@@ -108,7 +108,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
 
         if display.info.fKey {
             guard ops.count > 1 else {
-                print("Ignore. After \(.hp35 ? "'arc'" : "'shift'"): \(ops[0])")
+                print("Ignore After \(.hp35 ? "'arc'" : "'shift'"): \(ops[0])")
                 return
             }
             if .hp35 && !ops[1].isArcOp {

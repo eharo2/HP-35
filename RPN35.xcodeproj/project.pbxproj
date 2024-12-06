@@ -85,6 +85,7 @@
 		EFDA13512CFFE20100F52D07 /* DebugInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */; };
 		EFDA13522CFFE20100F52D07 /* DebugInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */; };
 		EFDA13532CFFE20100F52D07 /* DebugInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */; };
+		EFE102982D028DFB00B0D0A6 /* UserManualTests21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA13552D014DB600F52D07 /* UserManualTests21.swift */; };
 		EFECEAC22B6DC4150051134A /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC12B6DC4150051134A /* View.swift */; };
 		EFECEAC42B6DC5C60051134A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC32B6DC5C60051134A /* Color.swift */; };
 		EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAD52B76CCC00051134A /* DebugView.swift */; };
@@ -112,6 +113,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = EF0C0FED2B50C4E90033250C;
 			remoteInfo = Retro35;
+		};
+		EFE102992D028E4500B0D0A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF0C0FE62B50C4E90033250C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF21AE9F2CE82E09007DAF66;
+			remoteInfo = RPN35DEV;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -148,6 +156,8 @@
 		EFBF5F532B8172E700634ED5 /* UserManualTests1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests1.swift; sourceTree = "<group>"; };
 		EFC1AF7D2B825AE400B8946A /* InfoView35.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView35.swift; sourceTree = "<group>"; };
 		EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugInspector.swift; sourceTree = "<group>"; };
+		EFDA13552D014DB600F52D07 /* UserManualTests21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests21.swift; sourceTree = "<group>"; };
+		EFE1029B2D0291ED00B0D0A6 /* HP-35Tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "HP-35Tests"; sourceTree = "<group>"; };
 		EFECEAC12B6DC4150051134A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EFECEAC32B6DC5C60051134A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EFECEAD52B76CCC00051134A /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
@@ -198,6 +208,7 @@
 		EF0C0FE52B50C4E90033250C = {
 			isa = PBXGroup;
 			children = (
+				EFE1029B2D0291ED00B0D0A6 /* HP-35Tests */,
 				EF4425AF2CE6D4E000D14E0C /* CHANGELOG.md */,
 				EF0C0FF02B50C4E90033250C /* RPN-35 */,
 				EFBF5F522B8172E700634ED5 /* HP-35Tests */,
@@ -273,10 +284,19 @@
 		EFBF5F522B8172E700634ED5 /* HP-35Tests */ = {
 			isa = PBXGroup;
 			children = (
+				EFDA13542D014DA300F52D07 /* hp21 */,
 				EF57C5832BAA875D0045DAFB /* hp35 */,
 				EF57C5842BAA87710045DAFB /* hp45 */,
 			);
 			path = "HP-35Tests";
+			sourceTree = "<group>";
+		};
+		EFDA13542D014DA300F52D07 /* hp21 */ = {
+			isa = PBXGroup;
+			children = (
+				EFDA13552D014DB600F52D07 /* UserManualTests21.swift */,
+			);
+			path = hp21;
 			sourceTree = "<group>";
 		};
 		EFECEAC92B71BA1A0051134A /* InfoView */ = {
@@ -384,6 +404,7 @@
 			);
 			dependencies = (
 				EFBF5F562B8172E700634ED5 /* PBXTargetDependency */,
+				EFE1029A2D028E4500B0D0A6 /* PBXTargetDependency */,
 			);
 			name = RPN35Tests;
 			productName = Retro35Tests;
@@ -405,7 +426,7 @@
 					};
 					EFBF5F502B8172E700634ED5 = {
 						CreatedOnToolsVersion = 15.2;
-						TestTargetID = EF0C0FED2B50C4E90033250C;
+						TestTargetID = EF21AE9F2CE82E09007DAF66;
 					};
 				};
 			};
@@ -542,6 +563,7 @@
 				EFF7ABA22CF809EC00F06FBC /* DataModel21.swift in Sources */,
 				EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */,
 				EFBF5F692B8173DC00634ED5 /* View.swift in Sources */,
+				EFE102982D028DFB00B0D0A6 /* UserManualTests21.swift in Sources */,
 				EFDA13512CFFE20100F52D07 /* DebugInspector.swift in Sources */,
 				EFBF5F652B8173D000634ED5 /* Color.swift in Sources */,
 				EF57C55C2B9FCAEF0045DAFB /* SampleProblemsTests.swift in Sources */,
@@ -578,6 +600,11 @@
 			isa = PBXTargetDependency;
 			target = EF0C0FED2B50C4E90033250C /* RPN35 */;
 			targetProxy = EFBF5F552B8172E700634ED5 /* PBXContainerItemProxy */;
+		};
+		EFE1029A2D028E4500B0D0A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF21AE9F2CE82E09007DAF66 /* RPN35DEV */;
+			targetProxy = EFE102992D028E4500B0D0A6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -863,7 +890,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RPN35.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RPN35";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RPN35DEV.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RPN35DEV";
 			};
 			name = Debug;
 		};
@@ -885,7 +912,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RPN35.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RPN35";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RPN35DEV.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RPN35DEV";
 			};
 			name = Release;
 		};
