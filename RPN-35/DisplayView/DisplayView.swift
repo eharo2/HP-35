@@ -15,8 +15,10 @@ struct DisplayView: View {
             VStack(spacing: 0) {
                 ZStack {
                     displayBackground()
-                    LedsView(displayInfo: self.appService.displayInfo,
-                             fontSize: geometry.size.width/13)
+                    if appService.hp21IsOn {
+                        LedsView(displayInfo: self.appService.displayInfo,
+                                 fontSize: geometry.size.width/13)
+                   }
                 }
             }
         }

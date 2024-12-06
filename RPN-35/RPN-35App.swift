@@ -21,7 +21,7 @@ struct RPN35App: App {
                     .foregroundColor(.black)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 mainView()
-                    .padding(.top, 40)
+                    .padding(.top, 41)
             }
             .ignoresSafeArea()
         #else
@@ -35,7 +35,9 @@ struct RPN35App: App {
         VStack(spacing: 0) {
             DisplayView()
                 .frame(height: 80)
-                .padding(.bottom, 5)
+                .if(!.isHP21) {
+                    $0.padding(.bottom, 5)
+                }
                 .environmentObject(appService)
                 .toolbar {
                     HStack {
@@ -67,6 +69,17 @@ struct RPN35App: App {
                 InfoView35()
             }
             #endif
+        }
+        .if(.isHP21) { view in
+            ZStack {
+                Rectangle()
+                    .border(Color.hp21_yellow, width: 6)
+                    .cornerRadius(8)
+                    .padding(.bottom, 30)
+                view
+                    .padding(6)
+                    .padding(.bottom, 30)
+            }
         }
         #if os(macOS)
         .frame(width: 320)

@@ -19,7 +19,7 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>RPN35DEV.xcscheme_^#shared#^_</key>
+		<key>RPN35DEV.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -33,6 +33,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>EF21AE9F2CE82E09007DAF66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EFBF5F502B8172E700634ED5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

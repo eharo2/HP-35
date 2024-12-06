@@ -77,7 +77,7 @@ class Display: StackDelegate {
 
     func scientificNotation(_ value: Double, digits: Int) {
         print("SCI - Value: \(value)")
-        var formatDigits = .hp35 ? 10 : digits
+        var formatDigits = .isHP35 ? 10 : digits
         if value < 0 && formatDigits > 0 {
             formatDigits -= 1
         }
@@ -143,7 +143,11 @@ struct DisplayInfo: Equatable {
             }
         }
     }
-    var degrees: Degrees = .deg
+    var degrees: Degrees = .deg {
+        didSet {
+            print("\(degrees.name.uppercased()) is set")
+        }
+    }
 }
 
 enum Format {

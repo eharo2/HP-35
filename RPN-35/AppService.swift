@@ -19,6 +19,21 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
         }
     }
+    // HP-21
+    @Published var hp21IsOn = true {
+        didSet {
+            if hp21IsOn {
+                display.reset()
+            }
+        }
+    }
+    @Published var radIsOn = false
+//    {
+//        didSet {
+//            displayInfo.degrees = radIsOn ? .rad : .deg
+//        }
+//    }
+
     var display = Display()
     var stack = Stack()
 
@@ -93,10 +108,10 @@ class AppService: ObservableObject, DisplayManagerDelegate {
 
         if display.info.fKey {
             guard ops.count > 1 else {
-                print("Ignore. After \(.hp35 ? "'arc'" : "'shift'"): \(ops[0])")
+                print("Ignore After \(.isHP35 ? "'arc'" : "'shift'"): \(ops[0])")
                 return
             }
-            if .hp35 && !ops[1].isArcOp {
+            if .isHP35 && !ops[1].isArcOp {
                 print("Ignore. No trigonometric op: \(ops[1])")
                 return
             }
@@ -112,7 +127,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
 
         switch op {
         case .fShift:
-            print("Op: \(.hp35 ? "arc" : "shift")")
+            print("Op: \(.isHP35 ? "arc" : "shift")")
             display.info.fKey = true
         case .eex: display.processEEXInput()
         case .digit(let input):
@@ -184,7 +199,11 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
             stack.inspect()
         default:
-            stack.processOp(op, displayInfo.degrees, display.numericInput.isEmpty)
+            var degrees = displayInfo.degrees
+            if .isHP21  {
+                degrees = self.radIsOn ? .rad : .deg
+            }
+            stack.processOp(op, degrees, display.numericInput.isEmpty)
             display.reset()
         }
     }

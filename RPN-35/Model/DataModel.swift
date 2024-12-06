@@ -11,7 +11,11 @@ class DataModel {
     static let shared = DataModel()
 
     func keys(for model: Model) -> [Key] {
-        model == .hp35 ? hp35Keys : hp45Keys
+        switch Global.model {
+        case .hp35: hp35Keys
+        case .hp45: hp45Keys
+        case .hp21: hp21Keys
+        }
     }
 
     init() {}
@@ -164,7 +168,7 @@ extension String {
         case "l": [.log]
         case "n": [.ln]
         case "e": [.ex]
-        case "C": .hp35 ? [.clr] : [.none, .clr]
+        case "C": .isHP35 ? [.clr] : [.none, .clr]
         case "q": [.sqrt]
         case "a": [.fShift]
         case "s": [.sin, .asin]
@@ -178,12 +182,12 @@ extension String {
         case "\r": [.enter]
         case "h": [.chs]
         case "E": [.eex]
-        case "X": .hp35 ? [.clrX] : [.none, .clrX]
-        case "-": [.substract]
-        case "+": [.add]
-        case "*": [.multiply]
-        case "/": [.divide]
-        case "p": .hp35 ? [.pi] : [.none, .pi]
+        case "X": .isHP35 ? [.clrX] : [.none, .clrX]
+        case "-": [.substract, .mSubstract]
+        case "+": [.add, .mAdd]
+        case "*": [.multiply, .mMultiply]
+        case "/": [.divide, .mDivide]
+        case "p": .isHP35 ? [.pi] : [.none, .pi]
         case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".": [.digit(self)]
 
         // HP-45

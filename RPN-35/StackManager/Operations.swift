@@ -41,10 +41,13 @@ enum Op: Identifiable, Equatable {
     case rotateDown, rotateUp, exchangeXY
     case delete
     case sto, rcl
-    case fShift // arc in HP-35, orangeKey in HP-45
+    case fShift // arc in HP-35, orangeKey in HP-45, blue in HP-21
     case none
 
-    // HP35
+    // HP-21
+    case mSubstract, mAdd, mMultiply, mDivide
+
+    // HP-35
     var shouldDrop: Bool {
         switch self {
         case .add, .substract, .multiply, .divide, .powerXY, .powerYX: true
@@ -55,6 +58,9 @@ enum Op: Identifiable, Equatable {
     var shouldLift: Bool {
         switch self {
         case .pi, .rcl: true
+        // HP-21
+        case .mSubstract, .mAdd, .mMultiply, .mDivide: true
+        case .sto: .isHP21
         default: false
         }
     }
@@ -77,8 +83,9 @@ enum Op: Identifiable, Equatable {
 
     var noStackOperation: Bool {
         switch self {
-        case .clr, .clrX, .exchangeXY, .rotateDown, .sto: true
-        case .lstX: true // HP45
+        case .clr, .clrX, .exchangeXY, .rotateDown: true
+        case .lstX: true // HP-45
+        case .sto: !.isHP21 // HP-21
         default: false
         }
     }
@@ -92,6 +99,7 @@ enum Op: Identifiable, Equatable {
 extension Op {
     var name: String {
         var name = String("\(self)".split(separator: ".").last ?? "")
+        // name = String(name.replacingOccurrences(of: ")", with: ""))
         name = String(name.replacingOccurrences(of: "\"", with: ""))
         name = String(name.replacingOccurrences(of: "\\", with: ""))
         return ".\(name)"

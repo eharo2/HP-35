@@ -156,9 +156,16 @@ class Stack {
                 delegate?.stackDidUpdateError(error: true)
             }
 
+        // HP-45
         case .cmIn: regX = regX.cmToIn
         case .kgLb: regX = regX.kgToLb
         case .ltrGal: regX = regX.ltrToGal
+
+        // HP-21
+        case .mSubstract: regS -= regX
+        case .mAdd: regS += regX
+        case .mMultiply: regS = regS * regX
+        case .mDivide: regS = regS / regX
 
         // NO OPERAND
         case .exchangeXY: exchangeXY()
@@ -257,7 +264,7 @@ extension Stack {
         print("regZ: \(preZ.stringValue(withSize: max)) -> \(regZ)")
         print("regY: \(preY.stringValue(withSize: max)) -> \(regY)")
         print("regX: \(preX.stringValue(withSize: max)) -> \(regX)")
-        if .hp35 {
+        if .isHP35 || .isHP21 {
             print("STO: \(regS)")
         } else {
             print("lstX: \(lstX)")

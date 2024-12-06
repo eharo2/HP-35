@@ -26,6 +26,14 @@ struct KeyView: View {
     var width: CGFloat
 
     var body: some View {
+        if Global.model == .hp21 {
+            hp21_KeyView()
+        } else {
+            hp35_45KeyView()
+        }
+    }
+
+    func hp35_45KeyView() -> some View {
         VStack(spacing: 0) {
             Spacer()
             HStack(spacing: 0) {
@@ -105,12 +113,16 @@ struct KeyView: View {
     var keyWidth: CGFloat {
         switch key.type {
         // HP35
-        case .blueLarge, .lightGrayLarge: width * 3
+        case .blueLarge, .lightGrayLarge: width * 3.0
         case .white: width * 1.5
         case.brown: width
         // HP45
         case .orange, .gray, .lightGray: width * 1.2
-        case .black: width * (.hp35 ? 1.0 : 1.2)
+        case .black: width * (.isHP35 ? 1.0 : 1.2)
+        // HP21
+        case .blue: width * 1.15
+        case .blackLarge: width * 3.0
+
         default: width
         }
     }
@@ -120,13 +132,14 @@ struct KeyView: View {
         // HP35
         case .blue, .blueLarge: .keyCyan35
         case .brown: .keyBrown35
-
         // HP45
         case .orange: .keyOrange45
         case .gray: .keyGray45
         case .lightGray, .lightGrayLarge: .keyLightGray45
         case .white: .keyWhite45
         case .black: .keyBlack45
+        // HP21
+        case .blackLarge: .keyBlack45
         default: .clear
         }
     }
@@ -148,6 +161,8 @@ enum KeyType {
     case blue, blueLarge, brown, black, white
     // HP45
     case orange, gray, lightGray, lightGrayLarge
+    // HP21
+    case blackLarge
 
     case none
 }

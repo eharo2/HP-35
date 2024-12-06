@@ -27,8 +27,6 @@ extension Color {
     // HP35
     static let keyCyan35 = Color(hex: 0x67C1F7)
     static let keyBrown35 = Color(hex: 0x989798)
-    // static let keyWhite35 = Color(hex: 0xEFF0ED)
-    // static let keyBlack35 = Color(hex: 0x1F2527)
 
     static let keyOrange45 = Color(hex: 0xD48400)
     static let keyGray45 = Color(hex: 0x3B4445)
@@ -36,12 +34,17 @@ extension Color {
     static let keyLightGray45 = Color(hex: 0x9BA993)
     static let keyWhite45 = Color(hex: 0xE5E5CB)
 
-    init(hex: UInt, alpha: Double = 1) {
+    // HP21
+    static let hp21_yellow = Color(hex: 0xD7BD99)
+    static let hp21_black = Color(hex: 0x363436)
+    static let hp21_blue = Color(hex: 0x33B4CC)
+
+    init(hex: UInt, brightness: Double = 1.0, alpha: Double = 1) {
         self.init(
             .sRGB,
-            red: Double((hex >> 16) & 0xFF)/255,
-            green: Double((hex >> 8) & 0xFF)/255,
-            blue: Double(hex & 0xFF)/255,
+            red: Double((hex >> 16) & 0xFF)/255.0 * brightness,
+            green: Double((hex >> 8) & 0xFF)/255.0 * brightness,
+            blue: Double(hex & 0xFF)/255.0 * brightness,
             opacity: alpha
         )
     }

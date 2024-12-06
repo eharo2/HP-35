@@ -25,7 +25,7 @@ extension Double {
     // HP35
     func checkForOverflowResult(_ format: Format) -> String? {
         if abs(self) < pow(10, -99)   {
-            if .hp35 {
+            if .isHP35 {
                 return "0.             "
             } else {
                 return Double(0).roundedToFormat(format).resultString(format)
@@ -38,7 +38,7 @@ extension Double {
 
     // Required to reduce the accuracy discrepancies vs. the manual results
     func roundedToFormat(_ format: Format) -> Double {
-        if .hp35 {
+        if .isHP35 {
             return self
         } else {
             // Needed to fix accuray discrepancies with the manual results
@@ -50,7 +50,7 @@ extension Double {
     }
 
     func resultString(_ format: Format, f: String = #function) -> String {
-        if .hp35 {
+        if .isHP35 {
             // Result is in a fixed format for the range. Else use SCI format
             if abs(self) <= pow(10, 9) && abs(self) > pow(10, -3) {
                 return String(self).padded().noExp
@@ -84,7 +84,7 @@ extension Double {
     }
 
     private func scientificNotation(_ format: Format) -> String {
-        let digits = .hp35 ? 12 : format.digits
+        let digits = .isHP35 ? 12 : format.digits
         let scientificNotation = String(format: "%.\(digits)e", self)
         let components = scientificNotation.components(separatedBy: "e")
         guard components.count == 2, let exp = Int(components[1]) else {
@@ -237,7 +237,7 @@ enum Degrees {
 
     var name: String {
         switch self {
-        case .deg: return ""
+        // case .deg: return ""
         default: return "\(self)".uppercased()
         }
     }

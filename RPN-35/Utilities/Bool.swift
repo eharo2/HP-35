@@ -16,11 +16,15 @@ extension Bool {
 #endif
     }
 
-    static var hp35: Bool {
+    static var isHP35: Bool {
         Global.model == .hp35
     }
 
-    static var hp45: Bool {
+    static var isHP45: Bool {
         Global.model == .hp45
+    }
+
+    static var isHP21: Bool {
+        Global.model == .hp21
     }
 }
