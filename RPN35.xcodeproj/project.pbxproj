@@ -157,7 +157,6 @@
 		EFC1AF7D2B825AE400B8946A /* InfoView35.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView35.swift; sourceTree = "<group>"; };
 		EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugInspector.swift; sourceTree = "<group>"; };
 		EFDA13552D014DB600F52D07 /* UserManualTests21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests21.swift; sourceTree = "<group>"; };
-		EFE1029B2D0291ED00B0D0A6 /* HP-35Tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "HP-35Tests"; sourceTree = "<group>"; };
 		EFECEAC12B6DC4150051134A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EFECEAC32B6DC5C60051134A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EFECEAD52B76CCC00051134A /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
@@ -208,7 +207,6 @@
 		EF0C0FE52B50C4E90033250C = {
 			isa = PBXGroup;
 			children = (
-				EFE1029B2D0291ED00B0D0A6 /* HP-35Tests */,
 				EF4425AF2CE6D4E000D14E0C /* CHANGELOG.md */,
 				EF0C0FF02B50C4E90033250C /* RPN-35 */,
 				EFBF5F522B8172E700634ED5 /* HP-35Tests */,
@@ -736,7 +734,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
@@ -772,7 +770,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;

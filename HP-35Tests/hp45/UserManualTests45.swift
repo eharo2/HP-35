@@ -50,9 +50,10 @@ final class UserManualTests45: XCTestCase {
                        "3.80           ",
                        "3.16           ",
                        "12.00          ",
-                       "5.56           "]
-        let inputs = ["12\r3/", "fx" , "*", "fx", "-",
-                      "12\r3.157/", "fx" , "*", "2.157/"]
+                       "5.56           "
+        ]
+        let inputs = ["12\r3/", "ax" , "*", "ax", "-",  // 'a' = shiftKey, 'x' = lstX
+                      "12\r3.157/", "ax" , "*", "2.157/"]
         evaluate(results, inputs)
     }
 
