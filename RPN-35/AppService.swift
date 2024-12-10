@@ -40,6 +40,9 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     var enteringFIX = false
     var enteringSCI = false
 
+    // HP-21
+    var enteringDSP = false
+
     init() {
 #if os(macOS)
         setupNSEvents() // .macOS only
@@ -85,6 +88,21 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         if ops == [.fix, .sci] {
             op = display.info.fKey ? ops[1] : ops[0]
         }
+        // HP-21 DSP
+        if op == .dsp {
+            enteringDSP = true
+            return
+        }
+        if enteringDSP {
+            enteringDSP = false
+            if case .digit(".") = op {
+                enteringFIX = true
+                return
+            } else {
+                // SCI ?
+            }
+        }
+
         if op == .fix {
             print("Entering FIX")
             enteringFIX = true
@@ -162,6 +180,9 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         case .enter:
             display.processEnter()
             stack.lift(stack.regX)
+            if .isHP21 && stack.regX == 0.0 {
+                stack.regX = 0.0 // Force FIX
+            }
             stack.inspect()
         case .delete:
             guard display.info.output != 0.format(display.outputFormat.digits) else { return }

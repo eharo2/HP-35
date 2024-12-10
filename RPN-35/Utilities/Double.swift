@@ -24,11 +24,13 @@ extension Double {
 
     // HP35
     func checkForOverflowResult(_ format: Format) -> String? {
-        if abs(self) < pow(10, -99)   {
+        if abs(self) < pow(10, -99) {
             if .isHP35 {
                 return "0.             "
-            } else {
+            } else if .isHP45 {
                 return Double(0).roundedToFormat(format).resultString(format)
+            } else {
+                if self == 0.0 { return nil }
             }
         }
         if self >= pow(10, 100)       { return "9.9999999999 99" }
@@ -61,7 +63,9 @@ extension Double {
         switch format {
         case .fix(let digits):
             if !(abs(self) <= pow(10, 9) && abs(self) > pow(10, -3)) {
-                return self.scientificNotation(format)
+                if !.isHP21 || self != 0.0 {
+                    return self.scientificNotation(format)
+                }
             }
             var stringValue = String(self)
             let components = stringValue.components(separatedBy: ".")

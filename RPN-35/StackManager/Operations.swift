@@ -46,6 +46,7 @@ enum Op: Identifiable, Equatable {
 
     // HP-21
     case mSubstract, mAdd, mMultiply, mDivide
+    case dsp
 
     // HP-35
     var shouldDrop: Bool {
