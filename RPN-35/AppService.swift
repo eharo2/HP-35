@@ -95,11 +95,18 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         }
         if enteringDSP {
             enteringDSP = false
-            if case .digit(".") = op {
-                enteringFIX = true
+            enteringSCI = true
+            enteringFIX = false
+            switch op {
+            case .digit(let value):
+                if value == "." {
+                    enteringFIX = true
+                    enteringSCI = false
+                    return
+                }
+            default:
+                print("Ignore after DSP: \(ops)")
                 return
-            } else {
-                // SCI ?
             }
         }
 
