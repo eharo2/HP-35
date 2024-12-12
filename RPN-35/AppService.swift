@@ -20,19 +20,14 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         }
     }
     // HP-21
-    @Published var hp21IsOn = true {
+    @Published var hp21OnOffPosition = TogglePosition.right {
         didSet {
-            if hp21IsOn {
+            if hp21OnOffPosition == .right {
                 display.reset()
             }
         }
     }
-    @Published var radIsOn = false
-//    {
-//        didSet {
-//            displayInfo.degrees = radIsOn ? .rad : .deg
-//        }
-//    }
+    @Published var radDegPosition = TogglePosition.left
 
     var display = Display()
     var stack = Stack()
@@ -229,7 +224,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         default:
             var degrees = displayInfo.degrees
             if .isHP21  {
-                degrees = self.radIsOn ? .rad : .deg
+                degrees = self.radDegPosition == .right ? .rad : .deg
             }
             stack.processOp(op, degrees, display.numericInput.isEmpty)
             display.reset()

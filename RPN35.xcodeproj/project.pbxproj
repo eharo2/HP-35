@@ -82,6 +82,9 @@
 		EFBF5F6C2B8173E600634ED5 /* HP15C-Simulator-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4007461F2B524E0700696D02 /* HP15C-Simulator-Font.ttf */; };
 		EFBF5F6D2B8173EC00634ED5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
 		EFC1AF7E2B825AE400B8946A /* InfoView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1AF7D2B825AE400B8946A /* InfoView35.swift */; };
+		EFD5B7772D0A7ABD00F9191C /* Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5B7762D0A7AB300F9191C /* Toggle.swift */; };
+		EFD5B7782D0A7ABD00F9191C /* Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5B7762D0A7AB300F9191C /* Toggle.swift */; };
+		EFD5B7792D0A7ABD00F9191C /* Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5B7762D0A7AB300F9191C /* Toggle.swift */; };
 		EFDA13512CFFE20100F52D07 /* DebugInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */; };
 		EFDA13522CFFE20100F52D07 /* DebugInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */; };
 		EFDA13532CFFE20100F52D07 /* DebugInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */; };
@@ -155,6 +158,7 @@
 		EFBF5F512B8172E700634ED5 /* RPN35Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RPN35Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFBF5F532B8172E700634ED5 /* UserManualTests1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests1.swift; sourceTree = "<group>"; };
 		EFC1AF7D2B825AE400B8946A /* InfoView35.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView35.swift; sourceTree = "<group>"; };
+		EFD5B7762D0A7AB300F9191C /* Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toggle.swift; sourceTree = "<group>"; };
 		EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugInspector.swift; sourceTree = "<group>"; };
 		EFDA13552D014DB600F52D07 /* UserManualTests21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests21.swift; sourceTree = "<group>"; };
 		EFECEAC12B6DC4150051134A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -252,14 +256,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		EF21AEC22CF0258A007DAF66 /* SnackBar */ = {
-			isa = PBXGroup;
-			children = (
-				EF21AEC32CF0259E007DAF66 /* SnackBar.swift */,
-			);
-			path = SnackBar;
-			sourceTree = "<group>";
-		};
 		EF57C5832BAA875D0045DAFB /* hp35 */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,16 +324,17 @@
 		EFECEACE2B71BB230051134A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */,
-				EF21AEC22CF0258A007DAF66 /* SnackBar */,
 				EFF4766B2B992B1E00A5744A /* Bool.swift */,
 				EFECEAC32B6DC5C60051134A /* Color.swift */,
+				EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */,
+				EFECEAD52B76CCC00051134A /* DebugView.swift */,
 				40DDDE302B548EDE005F95B3 /* Double.swift */,
 				EF0C101D2B50C7710033250C /* Images.swift */,
 				EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */,
+				EF21AEC32CF0259E007DAF66 /* SnackBar.swift */,
 				EFB91B112B60BAE000A6347F /* String.swift */,
+				EFD5B7762D0A7AB300F9191C /* Toggle.swift */,
 				EFECEAC12B6DC4150051134A /* View.swift */,
-				EFECEAD52B76CCC00051134A /* DebugView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -503,6 +500,7 @@
 				EFF476682B981E7300A5744A /* Display.swift in Sources */,
 				EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */,
 				EFF7ABA32CF809EC00F06FBC /* DataModel21.swift in Sources */,
+				EFD5B7792D0A7ABD00F9191C /* Toggle.swift in Sources */,
 				EF57C55E2BA10F550045DAFB /* DataModel.swift in Sources */,
 				EF57C5612BA10F8E0045DAFB /* KeyboardView.swift in Sources */,
 				EFA959692CF442F8009D557D /* KeyViewHP21.swift in Sources */,
@@ -538,6 +536,7 @@
 				EF21AEAD2CE82E09007DAF66 /* Display.swift in Sources */,
 				EF21AEAE2CE82E09007DAF66 /* DebugView.swift in Sources */,
 				EFF7ABA42CF809EC00F06FBC /* DataModel21.swift in Sources */,
+				EFD5B7782D0A7ABD00F9191C /* Toggle.swift in Sources */,
 				EF21AEAF2CE82E09007DAF66 /* DataModel.swift in Sources */,
 				EF21AEB02CE82E09007DAF66 /* KeyboardView.swift in Sources */,
 				EFA9596A2CF442F8009D557D /* KeyViewHP21.swift in Sources */,
@@ -565,6 +564,7 @@
 				EFDA13512CFFE20100F52D07 /* DebugInspector.swift in Sources */,
 				EFBF5F652B8173D000634ED5 /* Color.swift in Sources */,
 				EF57C55C2B9FCAEF0045DAFB /* SampleProblemsTests.swift in Sources */,
+				EFD5B7772D0A7ABD00F9191C /* Toggle.swift in Sources */,
 				EFBF5F5F2B8173B400634ED5 /* DisplayView.swift in Sources */,
 				EFBF5F662B8173D200634ED5 /* Double.swift in Sources */,
 				EF57C5802BA540250045DAFB /* ErrorTests.swift in Sources */,
