@@ -121,6 +121,11 @@ extension Double {
         return coeficient + exponent
     }
 
+    func roundToDecimals(_ decimals: Int) -> Double {
+        let multiplier = pow(10.0, Double(decimals))
+        return (self * multiplier).rounded() / multiplier
+    }
+
     /// Used for Stack inspection only
     func stringValue(withSize size: Int) -> String {
         var string = String(self)
@@ -200,6 +205,29 @@ extension Double {
 
     var ltrToGal: Double {
         return self / 3.785_411_784 // 1 Gal = 3.785411784 Ltr.
+    }
+
+    var toDMS: Double {
+        let degrees = Int(self)
+        let fractional = (self - Double(degrees)).roundToDecimals(4)
+        let mins = Int(fractional * 60.0)
+        let minsString = mins < 10 ? "0\(mins)" : String(mins)
+        let secs = Int(((fractional * 60.0 - Double(mins)) * 60.0).roundToDecimals(0))
+        let secssString = secs < 10 ? "0\(secs)" : String(secs)
+        let result = "\(degrees)." + minsString + secssString
+        return Double(result) ?? self
+    }
+
+    var fromDMS: Double {
+        let degrees = Int(self)
+        let fractional = Int((self - Double(degrees)).roundToDecimals(4) * 10000.0)
+        let fractionString = String(fractional)
+        let minsString = String(fractionString.prefix(2))
+        let secsString = String(fractionString.suffix(2))
+        let mins = (Double(minsString) ?? 0.0)/60.0
+        let secs = (Double(secsString) ?? 0.0)/3600.0
+        let decimalDegrees = Double(degrees) + mins + secs
+        return decimalDegrees
     }
 
     private var timeString: String {

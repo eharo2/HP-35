@@ -14,11 +14,8 @@ struct HPToggle: View {
         HStack(spacing: 0.0) {
             ZStack {
                 Text(with[0])
-                    .foregroundColor(.gray(0.9))
-                    .padding(.trailing, -1.5)
-                    .padding(.bottom, -1.0)
-                Text(with[0])
                     .foregroundColor(.gray(0.1))
+                    .shadow(color: .init(white: 0.6), radius: 0.0, x: 1.0, y: 1.0)
             }
             ZStack {
                 Rectangle()
@@ -46,6 +43,7 @@ struct HPToggle: View {
                         .padding(0.5)
                     }
                     .frame(width: 30.0, height: 20.0)
+                    .shadow(color: .black, radius: 2.0, x: 1.0, y: -1.0)
                     if position == .left {
                         Spacer()
                             .frame(width: 15.0)
@@ -59,11 +57,8 @@ struct HPToggle: View {
             .padding(.horizontal, 8.0)
             ZStack {
                 Text(with[1])
-                    .foregroundColor(.gray(0.9))
-                    .padding(.trailing, -1.5)
-                    .padding(.bottom, -1)
-                Text(with[1])
                     .foregroundColor(.gray(0.1))
+                    .shadow(color: .init(white: 0.6), radius: 0.0, x: 1.0, y: 1.0)
             }
         }
         .frame(height: 45.0)

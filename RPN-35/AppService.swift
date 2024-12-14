@@ -226,6 +226,9 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             if .isHP21  {
                 degrees = self.radDegPosition == .right ? .rad : .deg
             }
+            if op == .toDMS {
+                display.outputFormat = .fix(4)
+            }
             stack.processOp(op, degrees, display.numericInput.isEmpty)
             display.reset()
         }

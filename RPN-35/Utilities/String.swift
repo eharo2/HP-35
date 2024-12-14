@@ -26,9 +26,18 @@ extension String {
         return self.matches("ff\\d$")
     }
 
+    func zeroPadded(digits: Int) -> String {
+        if self.count >= digits { return String(self.prefix(digits)) }
+        var string = self
+        for _ in self.count..<digits {
+            string += "0"
+        }
+        return string
+    }
+
     // Strips trailing '0's and add spaces up to 12 spaces
-    func padded(keepZeros: Bool = false) -> String {
-        let truncated = String(String(self).prefix(12))
+    func padded(digits: Int = 12, keepZeros: Bool = false) -> String {
+        let truncated = String(String(self).prefix(digits))
         let components = truncated.components(separatedBy: ".")
         var string = self
         switch components.count {
@@ -49,7 +58,7 @@ extension String {
         case 1: string = "\(components[0])."
         default: break
         }
-        let upperBound = 12
+        let upperBound = digits
         if string.count <= upperBound {
             for _ in string.count..<upperBound {
                 string += " "
@@ -68,5 +77,11 @@ extension String {
         let range = NSRange(location: .zero, length: self.utf16.count)
         let matches = regex.matches(in: self, range: range)
         return matches.count == 1
+    }
+
+    func character(at index: Int) -> String? {
+        guard index >= 0 && index < self.count else { return nil }
+        let stringIndex = self.index(self.startIndex, offsetBy: index)
+        return String(self[stringIndex])
     }
 }

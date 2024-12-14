@@ -32,6 +32,9 @@ enum Op: Identifiable, Equatable {
     case clr, clrX, lstX
     case toP, toR // Polar / Cartesian
     case toH, toHMS
+
+    // HP-45
+    case toDMS, fromDMS
     case cmIn, kgLb, ltrGal // Metric conversions
 
     case fix, sci, eng
@@ -86,6 +89,7 @@ enum Op: Identifiable, Equatable {
         switch self {
         case .clr, .clrX, .exchangeXY, .rotateDown: true
         case .lstX: true // HP-45
+        case .toDMS, .fromDMS: true
         case .sto: !.isHP21 // HP-21
         default: false
         }
