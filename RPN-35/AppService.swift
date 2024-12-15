@@ -67,7 +67,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         guard ops.count > 0 else { return }
         var op: Op = ops[0]
 
-        if op != .clrX && displayInfo.error { return }
+        if op != .clrX && displayInfo.showError { return }
 
         // Shift Key - Handle Mac Keyboard Input
         if op == .fShift {

@@ -119,16 +119,20 @@ class Display: StackDelegate {
     }
 
     func stackDidUpdateError(error: Bool) {
-        info.error = error
+        info.showError = error
         if error {
-            info.output = "-9.999999999-99"
+            if .isHP21 {
+                info.output = "ERROR".padded(digits: 15).replacingOccurrences(of: ".", with: "")
+            } else {
+                info.output = "-9.999999999-99"
+            }
         }
     }
 }
 
 struct DisplayInfo: Equatable {
     var output: String = ""
-    var error: Bool = false
+    var showError: Bool = false
     var fKey = false {
         didSet {
             if fKey {
