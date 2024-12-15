@@ -20,25 +20,23 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         }
     }
     // HP-21
-    @Published var hp21IsOn = true {
+    @Published var hp21OnOffPosition = TogglePosition.right {
         didSet {
-            if hp21IsOn {
+            if hp21OnOffPosition == .right {
                 display.reset()
             }
         }
     }
-    @Published var radIsOn = false
-//    {
-//        didSet {
-//            displayInfo.degrees = radIsOn ? .rad : .deg
-//        }
-//    }
+    @Published var radDegPosition = TogglePosition.left
 
     var display = Display()
     var stack = Stack()
 
     var enteringFIX = false
     var enteringSCI = false
+
+    // HP-21
+    var enteringDSP = false
 
     init() {
 #if os(macOS)
@@ -85,6 +83,28 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         if ops == [.fix, .sci] {
             op = display.info.fKey ? ops[1] : ops[0]
         }
+        // HP-21 DSP
+        if op == .dsp {
+            enteringDSP = true
+            return
+        }
+        if enteringDSP {
+            enteringDSP = false
+            enteringSCI = true
+            enteringFIX = false
+            switch op {
+            case .digit(let value):
+                if value == "." {
+                    enteringFIX = true
+                    enteringSCI = false
+                    return
+                }
+            default:
+                print("Ignore after DSP: \(ops)")
+                return
+            }
+        }
+
         if op == .fix {
             print("Entering FIX")
             enteringFIX = true
@@ -162,6 +182,9 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         case .enter:
             display.processEnter()
             stack.lift(stack.regX)
+            if .isHP21 && stack.regX == 0.0 {
+                stack.regX = 0.0 // Force FIX
+            }
             stack.inspect()
         case .delete:
             guard display.info.output != 0.format(display.outputFormat.digits) else { return }
@@ -201,7 +224,10 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         default:
             var degrees = displayInfo.degrees
             if .isHP21  {
-                degrees = self.radIsOn ? .rad : .deg
+                degrees = self.radDegPosition == .right ? .rad : .deg
+            }
+            if op == .toDMS {
+                display.outputFormat = .fix(4)
             }
             stack.processOp(op, degrees, display.numericInput.isEmpty)
             display.reset()

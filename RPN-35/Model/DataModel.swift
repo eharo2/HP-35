@@ -188,6 +188,7 @@ extension String {
         case "*": [.multiply, .mMultiply]
         case "/": [.divide, .mDivide]
         case "p": .isHP35 ? [.pi] : [.none, .pi]
+        case "Y": .isHP21 ? [.dsp] : [.none]
         case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".": [.digit(self)]
 
         // HP-45

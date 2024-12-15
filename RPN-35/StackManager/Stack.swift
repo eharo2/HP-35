@@ -160,6 +160,8 @@ class Stack {
         case .cmIn: regX = regX.cmToIn
         case .kgLb: regX = regX.kgToLb
         case .ltrGal: regX = regX.ltrToGal
+        case .toDMS: regX = regX.toDMS
+        case .fromDMS: regX = regX.fromDMS
 
         // HP-21
         case .mSubstract: regS -= regX

@@ -88,10 +88,10 @@ extension KeyboardView {
                 .padding(.trailing, -0.5)
                 .padding(.bottom, -11.0)
             HStack {
-                toggle(with: ["OFF", "ON"], value: $appService.hp21IsOn)
+                HPToggle(with: ["OFF", "ON"], position: $appService.hp21OnOffPosition)
                     .padding(.leading, 20.0)
                 Spacer()
-                toggle(with: ["DEG", "RAD"], value: $appService.radIsOn)
+                HPToggle(with: ["DEG", "RAD"], position: $appService.radDegPosition)
                     .padding(.trailing, 20.0)
             }
             .background(Color.hp21_black)
@@ -102,6 +102,7 @@ extension KeyboardView {
         }
     }
 
+    // Not used - Use HPToggle instead
     func toggle(with: [String], value: Binding<Bool>) -> some View {
         HStack(spacing: 0.0) {
             ZStack {
@@ -128,34 +129,6 @@ extension KeyboardView {
             .padding(.trailing, 10.0)
             .frame(height: 45.0)
             .font(Font.custom("Century Gothic", size: 16))
-        }
-    }
-}
-
-struct CustomToggleStyle: ToggleStyle {
-    var onColor: Color
-    var offColor: Color
-    var thumbColor: Color
-
-    func makeBody(configuration: Self.Configuration) -> some View {
-        HStack {
-            configuration.label
-                .font(.body)
-            Spacer()
-            RoundedRectangle(cornerRadius: 16.0, style: .circular)
-                .fill(configuration.isOn ? onColor : offColor)
-                .frame(width: 50.0, height: 30.0)
-                .overlay(
-                    Circle()
-                        .fill(thumbColor)
-                        .padding(2.0)
-                        .offset(x: configuration.isOn ? 10.0 : -10.0)
-                )
-                .onTapGesture {
-                    withAnimation(.smooth(duration: 0.2)) {
-                        configuration.isOn.toggle()
-                    }
-                }
         }
     }
 }

@@ -65,7 +65,7 @@ extension DataModel {
                                             "M", Sym.divide, 12, 12, 2),
             Key(type: .white, ops: [.digit("0")], "0", "", 17, 0, 0),
             Key(type: .white, ops: [.digit(".")], Sym.dot, "", 17, 0, 0, ""),
-            Key(type: .white, "DSP", "", 15, 0, 0, ""),
+            Key(type: .white, ops: [.dsp], "DSP", "", 15, 0, 0, ""),
         ]
     }
 }
