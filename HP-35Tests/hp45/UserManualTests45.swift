@@ -68,6 +68,35 @@ final class UserManualTests45: XCTestCase {
         evaluate(results, inputs)
     }
 
+    func test_STO_RCL_Page_27() throws {
+        //             "1234567890ABCDE"
+        let results = ["88.00          ",
+                       "88.00          ",
+                       "0.09           ",
+                       "0.23           ",
+                       "0.19           ",
+                       "0.49           "]
+
+        let inputs = ["8\r20+17+43+", "S1", "8R1/", "20R1/", "17R1/", "43R1/"]
+        evaluate(results, inputs)
+    }
+
+    func test_Reg_Arithmetic_Page_27() throws {
+        //             "1234567890ABCDE"
+        let results = ["6.00           ", "2.00           ", "8.00           ",
+                       "3.00           ", "5.00           ", "7.00           ",
+                       "5.00           ", "6.00           ", "5.00           ",
+                       "3.00           ", "2.00           ", "0.25           ",
+                       "20.00          ", "100.00         ", "0.             ",
+                       "1.00           ", "1.00           ", "1.00           ",
+                       "1.00           ", "2.00           "]
+
+        let inputs = ["6S1", "2S+1", "R1", "3S-1", "R1", "2R+1", "R1",
+                      "11R-1", "R1", "3S1", "2S+1", ".25S/1", "R1",
+                      "5R*1", "0S4", "1S+4", "1S+4", "1S+4", "1S-4", "R4"]
+        evaluate(results, inputs)
+    }
+
     func evaluate(_ results: [String], _ inputs: [String], f: String = #function) {
         for index in 0..<inputs.count {
             let input = inputs[index]

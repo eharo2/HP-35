@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Op: Identifiable, Equatable {
+indirect enum Op: Identifiable, Equatable {
     var id: String { UUID().uuidString }
 
     case digit(_ value: String)
@@ -43,7 +43,7 @@ enum Op: Identifiable, Equatable {
 
     case rotateDown, rotateUp, exchangeXY
     case delete
-    case sto, rcl
+    case sto(_ value: Int, op: Op), rcl(_ value: Int, op: Op)
     case fShift // arc in HP-35, orangeKey in HP-45, blue in HP-21
     case none
 

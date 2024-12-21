@@ -33,9 +33,9 @@ extension DataModel {
                                                              Sym.right, "P", 10, 13, 0),
             Key(type: .black, ops: [.ex, .ln], Sym.e, Sym.x, 17, 13, 6,
                                                     "ln", "", 15, 0, 2),
-            Key(type: .black, ops: [.sto, .log], "STO", "", 14, 0, 0,
+            Key(type: .black, ops: [.sto(0, op: .none), .log], "STO", "", 14, 0, 0,
                                                  "", "log", 0, 15, 2),
-            Key(type: .black, ops: [.rcl, .tenX], "RCL", "", 14, 0, 0,
+            Key(type: .black, ops: [.rcl(0, op: .none), .tenX], "RCL", "", 14, 0, 0,
                                                "10", Sym.x, 13, 12, 8),
             // Row 4
             Key(type: .blackLarge, ops: [.enter], "ENTER \(Sym.up35)", "", 17, 0, 0),

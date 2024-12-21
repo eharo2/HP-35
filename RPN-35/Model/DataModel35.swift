@@ -23,8 +23,8 @@ extension DataModel {
             Key(type: .black, ops: [.inverse], fLabel1: "1/", fLabel2: Sym.x, fLabel1Size: 13, fLabel2Size: 16, fOffset: 0),
             Key(type: .black, ops: [.exchangeXY], fLabel1: Sym.exchange),
             Key(type: .black, ops: [.rotateDown], fLabel1: "R\(Sym.down35)", fLabel1Size: 14),
-            Key(type: .black, ops: [.sto], fLabel1: "STO", fLabel1Size: 14),
-            Key(type: .black, ops: [.rcl], fLabel1: "RCL", fLabel1Size: 14),
+            Key(type: .black, ops: [.sto(0, op: .none)], fLabel1: "STO", fLabel1Size: 14),
+            Key(type: .black, ops: [.rcl(0, op: .none)], fLabel1: "RCL", fLabel1Size: 14),
 
             Key(type: .blueLarge, ops: [.enter], bLabel1: "ENTER \(Sym.up35)"),
             Key(type: .blue, ops: [.chs], fLabel1: "CH S", fLabel1Size: 14),

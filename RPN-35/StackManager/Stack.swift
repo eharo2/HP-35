@@ -34,6 +34,8 @@ class Stack {
             delegate?.stackDidUpdateRegX(value: regX)
         }
     }
+    // HP-45
+    var regsSTO: [Double] = Array(repeating: 0.0, count: 9)
 
     func processOp(_ op: Op, _ degrees: Degrees, _ numericInputIsEmpty: Bool) {
         if op.shouldDrop {
@@ -173,9 +175,45 @@ class Stack {
         case .exchangeXY: exchangeXY()
         case .rotateUp: rotateUp()
         case .rotateDown: rotateDown()
-        case .sto: regS       = regX
-        case .rcl: regX       = regS
-
+        case .sto(let value, let op):
+            if value == 0 {
+                regS = regX
+                regX = regS // Force FIX
+            } else {
+                let tempX = regX
+                switch op {
+                case .mAdd: regsSTO[value] += regX
+                case .mSubstract: regsSTO[value] -= regX
+                case .mMultiply: regsSTO[value] *= regX
+                case .mDivide:
+                    if regX > 0.0 {
+                        regsSTO[value] /= regX
+                    } else {
+                        delegate?.stackDidUpdateError(error: true)
+                    }
+                default: regsSTO[value] = regX
+                }
+                regX = tempX // Force FIX
+                inspectSTO()
+            }
+        case .rcl(let value, let op):
+            if value == 0 {
+                regX = regS
+            } else {
+                switch op {
+                case .mAdd: regX += regsSTO[value]
+                case .mSubstract: regX -= regsSTO[value]
+                case .mMultiply: regX *= regsSTO[value]
+                case .mDivide:
+                    if regsSTO[value] > 0.0 {
+                        regX /= regsSTO[value]
+                    } else {
+                        delegate?.stackDidUpdateError(error: true)
+                    }
+                default: regX = regsSTO[value]
+                }
+                inspectSTO()
+            }
         case .pi: regX        = Double.pi
         case .random: regX    = Double.random(in: 0..<1)
 
@@ -192,12 +230,18 @@ class Stack {
 // MARK: - Stack Operations
     /// Stack Clear
     func clear() {
-        regX = 0
-        regY = 0
-        regZ = 0
-        regT = 0
-        regS = 0
-        lstX = 0
+        regX = 0.0
+        regY = 0.0
+        regZ = 0.0
+        regT = 0.0
+        regS = 0.0
+        lstX = 0.0
+        // HP-45
+        regsSTO[4] = 0.0 // Regs 1-4 are persisted until power off
+        regsSTO[5] = 0.0
+        regsSTO[6] = 0.0
+        regsSTO[7] = 0.0
+        regsSTO[8] = 0.0
         copyValues()
     }
 
@@ -271,6 +315,18 @@ extension Stack {
         } else {
             print("lstX: \(lstX)")
         }
+        print()
+    }
+
+    func inspectSTO() {
+        var max = 0
+        let regs = [preX, regsSTO[1]]
+        for reg in regs where String(reg).count > max {
+            max = String(reg).count
+        }
+        print("===== STO[1] =====")
+        print("STO reg1: \(regs[1])")
+        print("STO regX: \(regX)")
         print()
     }
 }
