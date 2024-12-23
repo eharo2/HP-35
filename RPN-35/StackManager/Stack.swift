@@ -35,7 +35,8 @@ class Stack {
         }
     }
     // HP-45
-    var regsSTO: [Double] = Array(repeating: 0.0, count: 9)
+    var regsSTO: [Double] = Array(repeating: 0.0, count: 10) // 0 not used.  STO n = index
+    var sigmaArray: [Double] = .init() // Used for std deviation
 
     func processOp(_ op: Op, _ degrees: Degrees, _ numericInputIsEmpty: Bool) {
         if op.shouldDrop {
@@ -194,7 +195,7 @@ class Stack {
                 default: regsSTO[value] = regX
                 }
                 regX = tempX // Force FIX
-                inspectSTO()
+                inspectSTO(sto: value)
             }
         case .rcl(let value, let op):
             if value == 0 {
@@ -212,8 +213,12 @@ class Stack {
                     }
                 default: regX = regsSTO[value]
                 }
-                inspectSTO()
+                inspectSTO(sto: value)
             }
+        case .stdDev:
+            inspectStdDev()
+            regX = sigmaArray.avg()
+            regY = sigmaArray.std()
         case .pi: regX        = Double.pi
         case .random: regX    = Double.random(in: 0..<1)
 
@@ -223,6 +228,13 @@ class Stack {
             delegate?.stackDidUpdateError(error: false)
             regX = 0.0
         case .lstX: lift(lstX)
+        case .sumPlus:
+            sigmaArray.append(regX)
+            regsSTO[5] = Double(sigmaArray.count)
+            regsSTO[6] += Double(Int(pow(regX, 2.0)))
+            regsSTO[7] = sigmaArray.sum()
+            regsSTO[8] += regY
+            regX = regsSTO[5]
         default: print("NOP: \(op)")
         }
     }
@@ -236,13 +248,15 @@ class Stack {
         regT = 0.0
         regS = 0.0
         lstX = 0.0
+        copyValues()
+
         // HP-45
-        regsSTO[4] = 0.0 // Regs 1-4 are persisted until power off
-        regsSTO[5] = 0.0
+        regsSTO[5] = 0.0 // Regs 1-4 are persisted until power off
         regsSTO[6] = 0.0
         regsSTO[7] = 0.0
         regsSTO[8] = 0.0
-        copyValues()
+        regsSTO[9] = 0.0
+        sigmaArray.removeAll()
     }
 
     /// Stack Lift Operation for new input
@@ -318,15 +332,23 @@ extension Stack {
         print()
     }
 
-    func inspectSTO() {
+    func inspectSTO(sto: Int) {
         var max = 0
-        let regs = [preX, regsSTO[1]]
+        let regs = [preX, regsSTO[sto]]
         for reg in regs where String(reg).count > max {
             max = String(reg).count
         }
         print("===== STO[1] =====")
-        print("STO reg1: \(regs[1])")
+        print("STO reg\(sto): \(regsSTO[sto])")
         print("STO regX: \(regX)")
         print()
+    }
+
+    func inspectStdDev() {
+        print("===== StdDev =====")
+        print("Count: \(sigmaArray.count)")
+        print("Sum: \(sigmaArray.sum())")
+        print("Mean: \(sigmaArray.avg())")
+        print("stdDev: \(sigmaArray.std())")
     }
 }

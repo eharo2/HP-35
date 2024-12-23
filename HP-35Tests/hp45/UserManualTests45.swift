@@ -97,6 +97,20 @@ final class UserManualTests45: XCTestCase {
         evaluate(results, inputs)
     }
 
+    func test_Statistical_Page_34() throws {
+        //             "1234567890ABCDE"
+        let results = ["10.00          ", "64.40          ", "10.10          ",
+                       "12.00          ", "65.00          ", "12.29          "]
+
+        let inputs = ["62Z84Z47Z58Z68Z60Z62Z59Z71Z73Z",
+                      "aD", // shift RotateDown
+                      "L", // Exchange X-Y
+                      "87Z49Z",
+                      "aD",
+                      "L"]
+        evaluate(results, inputs)
+    }
+
     func evaluate(_ results: [String], _ inputs: [String], f: String = #function) {
         for index in 0..<inputs.count {
             let input = inputs[index]

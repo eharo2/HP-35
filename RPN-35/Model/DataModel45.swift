@@ -36,8 +36,8 @@ extension DataModel {
             // Row 2
             Key(type: .lightGray, ops: [.exchangeXY, .factorial], "", Sym.exchange, 0, 14, 4,
                                                                   "", "n!", 0, 16, 2),
-            Key(type: .lightGray, ops: [.rotateDown], "", "R\(Sym.down35)", 0, 14, 2,
-                                            "", "\(Sym.x)\(Sym.macron), s", 0, 16, 2),
+            Key(type: .lightGray, ops: [.rotateDown, .stdDev], "", "R\(Sym.down35)", 0, 14, 2,
+                                                               "", "\(Sym.x)\(Sym.macron), s", 0, 16, 2),
             Key(type: .lightGray, ops: [.sto(0, op: .none), .toDMS], "STO", "", 14, 0, 0,
                                        Sym.right, "D.MS", 8, 12, 0),
             Key(type: .lightGray, ops: [.rcl(0, op: .none), .fromDMS], "RCL", "", 14, 0, 0,
@@ -69,7 +69,7 @@ extension DataModel {
             Key(type: .white, ops: [.digit("0"), .lstX], "0", "", 17, 0, 0,
                                                          "LAST ", Sym.x, 12, 16, 4),
             Key(type: .white, ops: [.digit("."), .pi], Sym.dot, "", 17, 0, 0, "", Sym.pi, 0, 19, 2),
-            Key(type: .white, Sym.summation, "+", 17, 17, 0, "", "\(Sym.summation)-", 14, 14, 2),
+            Key(type: .white, ops: [.sumPlus, .sumMinus],  Sym.summation, "+", 17, 17, 0, "", "\(Sym.summation)-", 14, 14, 2),
         ]
     }
 }

@@ -71,9 +71,9 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     func processOps(_ ops: [Op]) {
         // Inspect
         if display.info.fKey && ops == [.fShift] {
-            print("Process: \([Op.fix].names)")
+            print("Process Ops: \([Op.fix].names)")
         } else {
-            print("Process: \(ops.names)")
+            print("Process Ops: \(ops.names)")
         }
 
         guard ops.count > 0 else { return }
@@ -234,6 +234,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             op = ops[0]
         }
 
+        print("Process Op: \(op)")
         switch op {
         case .fShift:
             print("Op: \(.isHP35 ? "arc" : "shift")")

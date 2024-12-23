@@ -176,7 +176,7 @@ extension String {
         case "t": [.tan, .atan]
         case "i": [.inverse]
         case "L": [.exchangeXY]
-        case "D": [.rotateDown]
+        case "D": .isHP45 ? [.rotateDown, .stdDev] : [.rotateDown]
         case "S": [.sto(0, op: .none)]
         case "R": [.rcl(0, op: .none)]
         case "\r": [.enter]
@@ -195,6 +195,7 @@ extension String {
         case "f": [.fix]
         case "P": [.toP, .toR]
         case "x": [.none, .lstX]
+        case "Z": [.sumPlus, .sumMinus]
 
         // Mac Keyboard only
         case .delete: [.delete]
