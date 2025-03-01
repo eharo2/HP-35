@@ -72,7 +72,7 @@ struct KeyboardView: View {
     }
 
     func resetView() {
-        appService.display.info.error = false
+        appService.display.info.showError = false
         appService.hp21OnOffPosition = .right
         appService.stack.clear()
         appService.stack.inspect()

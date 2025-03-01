@@ -34,6 +34,9 @@ class Stack {
             delegate?.stackDidUpdateRegX(value: regX)
         }
     }
+    // HP-45
+    var regsSTO: [Double] = Array(repeating: 0.0, count: 10) // 0 not used.  STO n = index
+    var sigmaArray: [Double] = .init() // Used for std deviation
 
     func processOp(_ op: Op, _ degrees: Degrees, _ numericInputIsEmpty: Bool) {
         if op.shouldDrop {
@@ -173,9 +176,49 @@ class Stack {
         case .exchangeXY: exchangeXY()
         case .rotateUp: rotateUp()
         case .rotateDown: rotateDown()
-        case .sto: regS       = regX
-        case .rcl: regX       = regS
-
+        case .sto(let value, let op):
+            if value == 0 {
+                regS = regX
+                regX = regS // Force FIX
+            } else {
+                let tempX = regX
+                switch op {
+                case .mAdd: regsSTO[value] += regX
+                case .mSubstract: regsSTO[value] -= regX
+                case .mMultiply: regsSTO[value] *= regX
+                case .mDivide:
+                    if regX > 0.0 {
+                        regsSTO[value] /= regX
+                    } else {
+                        delegate?.stackDidUpdateError(error: true)
+                    }
+                default: regsSTO[value] = regX
+                }
+                regX = tempX // Force FIX
+                inspectSTO(sto: value)
+            }
+        case .rcl(let value, let op):
+            if value == 0 {
+                regX = regS
+            } else {
+                switch op {
+                case .mAdd: regX += regsSTO[value]
+                case .mSubstract: regX -= regsSTO[value]
+                case .mMultiply: regX *= regsSTO[value]
+                case .mDivide:
+                    if regsSTO[value] > 0.0 {
+                        regX /= regsSTO[value]
+                    } else {
+                        delegate?.stackDidUpdateError(error: true)
+                    }
+                default: regX = regsSTO[value]
+                }
+                inspectSTO(sto: value)
+            }
+        case .stdDev:
+            inspectStdDev()
+            regX = sigmaArray.avg()
+            regY = sigmaArray.std()
         case .pi: regX        = Double.pi
         case .random: regX    = Double.random(in: 0..<1)
 
@@ -185,6 +228,13 @@ class Stack {
             delegate?.stackDidUpdateError(error: false)
             regX = 0.0
         case .lstX: lift(lstX)
+        case .sumPlus:
+            sigmaArray.append(regX)
+            regsSTO[5] = Double(sigmaArray.count)
+            regsSTO[6] += Double(Int(pow(regX, 2.0)))
+            regsSTO[7] = sigmaArray.sum()
+            regsSTO[8] += regY
+            regX = regsSTO[5]
         default: print("NOP: \(op)")
         }
     }
@@ -192,13 +242,21 @@ class Stack {
 // MARK: - Stack Operations
     /// Stack Clear
     func clear() {
-        regX = 0
-        regY = 0
-        regZ = 0
-        regT = 0
-        regS = 0
-        lstX = 0
+        regX = 0.0
+        regY = 0.0
+        regZ = 0.0
+        regT = 0.0
+        regS = 0.0
+        lstX = 0.0
         copyValues()
+
+        // HP-45
+        regsSTO[5] = 0.0 // Regs 1-4 are persisted until power off
+        regsSTO[6] = 0.0
+        regsSTO[7] = 0.0
+        regsSTO[8] = 0.0
+        regsSTO[9] = 0.0
+        sigmaArray.removeAll()
     }
 
     /// Stack Lift Operation for new input
@@ -272,5 +330,25 @@ extension Stack {
             print("lstX: \(lstX)")
         }
         print()
+    }
+
+    func inspectSTO(sto: Int) {
+        var max = 0
+        let regs = [preX, regsSTO[sto]]
+        for reg in regs where String(reg).count > max {
+            max = String(reg).count
+        }
+        print("===== STO[1] =====")
+        print("STO reg\(sto): \(regsSTO[sto])")
+        print("STO regX: \(regX)")
+        print()
+    }
+
+    func inspectStdDev() {
+        print("===== StdDev =====")
+        print("Count: \(sigmaArray.count)")
+        print("Sum: \(sigmaArray.sum())")
+        print("Mean: \(sigmaArray.avg())")
+        print("stdDev: \(sigmaArray.std())")
     }
 }

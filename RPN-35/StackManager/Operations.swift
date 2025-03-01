@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Op: Identifiable, Equatable {
+indirect enum Op: Identifiable, Equatable {
     var id: String { UUID().uuidString }
 
     case digit(_ value: String)
@@ -36,6 +36,8 @@ enum Op: Identifiable, Equatable {
     // HP-45
     case toDMS, fromDMS
     case cmIn, kgLb, ltrGal // Metric conversions
+    case sumPlus, sumMinus
+    case stdDev
 
     case fix, sci, eng
     case eex
@@ -43,7 +45,7 @@ enum Op: Identifiable, Equatable {
 
     case rotateDown, rotateUp, exchangeXY
     case delete
-    case sto, rcl
+    case sto(_ value: Int, op: Op), rcl(_ value: Int, op: Op)
     case fShift // arc in HP-35, orangeKey in HP-45, blue in HP-21
     case none
 
@@ -88,9 +90,13 @@ enum Op: Identifiable, Equatable {
     var noStackOperation: Bool {
         switch self {
         case .clr, .clrX, .exchangeXY, .rotateDown: true
-        case .lstX: true // HP-45
+        // HP-45
+        case .lstX: true
+        case .sumPlus, .sumMinus: true
+        case .stdDev: true
+        // HP-21
         case .toDMS, .fromDMS: true
-        case .sto: !.isHP21 // HP-21
+        case .sto: !.isHP21
         default: false
         }
     }

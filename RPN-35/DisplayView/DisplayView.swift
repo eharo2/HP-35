@@ -51,36 +51,42 @@ extension DisplayView {
 }
 
 struct LedsView: View {
-    @ObservedObject var timer: LedTimer
+    @ObservedObject var errorTimer: ErrorTimer
+    let displayInfo: DisplayInfo
     let fontSize: CGFloat
 
     init(displayInfo: DisplayInfo, fontSize: CGFloat) {
-        self.timer = LedTimer(displayInfo)
+        self.errorTimer = ErrorTimer()
+        self.displayInfo = displayInfo
         self.fontSize = fontSize
     }
+
     var body: some View {
         VStack(spacing: 0) {
-            Text(timer.text)
+            Text(displayInfo.output)
                 .lineLimit(1)
             .kerning(5)
             .font(Font.custom("HP15C-Simulator-Font", size: fontSize))
-            .foregroundColor(.red)
+            .foregroundColor(ledColor)
             .padding(.bottom, 5)
             .padding(.leading, 5)
         }
         .padding(.horizontal, 20)
     }
 
-    class LedTimer: ObservableObject {
-        @Published var text: String = ""
+    var ledColor: Color {
+        displayInfo.showError && errorTimer.errorTick ? .black : .red
+    }
 
-        init(_ displayInfo: DisplayInfo) {
-            if displayInfo.error {
-                Timer.scheduledTimer(withTimeInterval: 0.4, repeats: true) { _ in
-                    self.text = self.text.isEmpty ? displayInfo.output : ""
+    class ErrorTimer: ObservableObject {
+        @Published var errorTick = false
+        var timer: Timer!
+
+        init() {
+            DispatchQueue.main.async {
+                self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+                    self.errorTick.toggle()
                 }
-            } else {
-                self.text = displayInfo.output
             }
         }
     }

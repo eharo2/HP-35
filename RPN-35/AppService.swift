@@ -35,8 +35,20 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     var enteringFIX = false
     var enteringSCI = false
 
+    // HP-45
+    var enteringSTO = false
+    var stoOp: Op = .none
+    var enteringRCL = false
     // HP-21
     var enteringDSP = false
+
+    var degrees: Degrees {
+       var degrees = displayInfo.degrees
+       if .isHP21  {
+           degrees = self.radDegPosition == .right ? .rad : .deg
+       }
+    return degrees
+    }
 
     init() {
 #if os(macOS)
@@ -59,15 +71,15 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     func processOps(_ ops: [Op]) {
         // Inspect
         if display.info.fKey && ops == [.fShift] {
-            print("Process: \([Op.fix].names)")
+            print("Process Ops: \([Op.fix].names)")
         } else {
-            print("Process: \(ops.names)")
+            print("Process Ops: \(ops.names)")
         }
 
         guard ops.count > 0 else { return }
         var op: Op = ops[0]
 
-        if op != .clrX && displayInfo.error { return }
+        if op != .clrX && displayInfo.showError { return }
 
         // Shift Key - Handle Mac Keyboard Input
         if op == .fShift {
@@ -102,6 +114,83 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             default:
                 print("Ignore after DSP: \(ops)")
                 return
+            }
+        }
+
+        if .isHP45 { // HP-45
+            if op == .sto(0, op: .none) {
+                enteringSTO = true
+                return
+            }
+            if op == .rcl(0, op: .none) {
+                enteringRCL = true
+                return
+            }
+            if enteringSTO {
+                if op == .add {
+                    stoOp = .mAdd
+                    return
+                }
+                if op == .substract {
+                    stoOp = .mSubstract
+                    return
+                }
+                if op == .multiply {
+                    stoOp = .mMultiply
+                    return
+                }
+                if op == .divide {
+                    stoOp = .mDivide
+                    return
+                }
+                if op == .add {
+                    stoOp = .mAdd
+                    return
+                }
+                if case .digit(let value) = op {
+                    if value == "0" || value == "." {
+                        print("Ignore after STO in HP-45")
+                        enteringSTO = false
+                        return
+                    }
+                } else {
+                    print("Ignore after STO in HP-45")
+                    enteringSTO = false
+                    return
+                }
+            }
+            if enteringRCL {
+                if op == .add {
+                    stoOp = .mAdd
+                    return
+                }
+                if op == .substract {
+                    stoOp = .mSubstract
+                    return
+                }
+                if op == .multiply {
+                    stoOp = .mMultiply
+                    return
+                }
+                if op == .divide {
+                    stoOp = .mDivide
+                    return
+                }
+                if op == .add {
+                    stoOp = .mAdd
+                    return
+                }
+                if case .digit(let value) = op {
+                    if value == "0" || value == "." {
+                        print("Ignore after RCL in HP-45")
+                        enteringRCL = false
+                        return
+                    }
+                } else {
+                    print("Ignore after RCL in HP-45")
+                    enteringRCL = false
+                    return
+                }
             }
         }
 
@@ -145,12 +234,29 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             op = ops[0]
         }
 
+        print("Process Op: \(op)")
         switch op {
         case .fShift:
             print("Op: \(.isHP35 ? "arc" : "shift")")
             display.info.fKey = true
         case .eex: display.processEEXInput()
         case .digit(let input):
+            if enteringSTO { // HP-45
+                op = .sto(Int(input) ?? 0, op: stoOp)
+                stoOp = .none
+                stack.processOp(op, degrees, display.numericInput.isEmpty)
+                enteringSTO = false
+                display.reset()
+                return
+            }
+            if enteringRCL { // HP-45
+                op = .rcl(Int(input) ?? 0, op: stoOp)
+                stoOp = .none
+                stack.processOp(op, degrees, display.numericInput.isEmpty)
+                enteringRCL = false
+                display.reset()
+                return
+            }
             if display.enteringEex {
                 guard input != "." else { return }
                 guard let first = display.expInput.first else { return }
@@ -222,10 +328,6 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
             stack.inspect()
         default:
-            var degrees = displayInfo.degrees
-            if .isHP21  {
-                degrees = self.radDegPosition == .right ? .rad : .deg
-            }
             if op == .toDMS {
                 display.outputFormat = .fix(4)
             }

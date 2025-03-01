@@ -62,6 +62,9 @@
 		EFA959692CF442F8009D557D /* KeyViewHP21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA959682CF442E2009D557D /* KeyViewHP21.swift */; };
 		EFA9596A2CF442F8009D557D /* KeyViewHP21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA959682CF442E2009D557D /* KeyViewHP21.swift */; };
 		EFA9596B2CF442F8009D557D /* KeyViewHP21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA959682CF442E2009D557D /* KeyViewHP21.swift */; };
+		EFB108D22D18FC7A0032F830 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB108D12D18FC760032F830 /* Array.swift */; };
+		EFB108D32D18FC7A0032F830 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB108D12D18FC760032F830 /* Array.swift */; };
+		EFB108D42D18FC7A0032F830 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB108D12D18FC760032F830 /* Array.swift */; };
 		EFB91B122B60BAE000A6347F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB91B112B60BAE000A6347F /* String.swift */; };
 		EFBDF48E2BAFCCF1002F3F64 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */; };
 		EFBDF48F2BAFCD10002F3F64 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */; };
@@ -153,6 +156,7 @@
 		EF57C5852BAA879C0045DAFB /* UserManualTests45.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests45.swift; sourceTree = "<group>"; };
 		EF9A63A82B7B12490096822D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		EFA959682CF442E2009D557D /* KeyViewHP21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyViewHP21.swift; sourceTree = "<group>"; };
+		EFB108D12D18FC760032F830 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		EFB91B112B60BAE000A6347F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
 		EFBF5F512B8172E700634ED5 /* RPN35Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RPN35Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +328,7 @@
 		EFECEACE2B71BB230051134A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				EFB108D12D18FC760032F830 /* Array.swift */,
 				EFF4766B2B992B1E00A5744A /* Bool.swift */,
 				EFECEAC32B6DC5C60051134A /* Color.swift */,
 				EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */,
@@ -504,6 +509,7 @@
 				EF57C55E2BA10F550045DAFB /* DataModel.swift in Sources */,
 				EF57C5612BA10F8E0045DAFB /* KeyboardView.swift in Sources */,
 				EFA959692CF442F8009D557D /* KeyViewHP21.swift in Sources */,
+				EFB108D32D18FC7A0032F830 /* Array.swift in Sources */,
 				EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */,
 				EF0C0FF22B50C4E90033250C /* RPN-35App.swift in Sources */,
 				EFB91B122B60BAE000A6347F /* String.swift in Sources */,
@@ -540,6 +546,7 @@
 				EF21AEAF2CE82E09007DAF66 /* DataModel.swift in Sources */,
 				EF21AEB02CE82E09007DAF66 /* KeyboardView.swift in Sources */,
 				EFA9596A2CF442F8009D557D /* KeyViewHP21.swift in Sources */,
+				EFB108D22D18FC7A0032F830 /* Array.swift in Sources */,
 				EF21AEB12CE82E09007DAF66 /* DataModel35.swift in Sources */,
 				EF21AEB22CE82E09007DAF66 /* RPN-35App.swift in Sources */,
 				EF21AEB32CE82E09007DAF66 /* String.swift in Sources */,
@@ -558,6 +565,7 @@
 				EFF476662B981DD100A5744A /* DataModel45.swift in Sources */,
 				EFF476652B981DCD00A5744A /* DataModel35.swift in Sources */,
 				EFF7ABA22CF809EC00F06FBC /* DataModel21.swift in Sources */,
+				EFB108D42D18FC7A0032F830 /* Array.swift in Sources */,
 				EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */,
 				EFBF5F692B8173DC00634ED5 /* View.swift in Sources */,
 				EFE102982D028DFB00B0D0A6 /* UserManualTests21.swift in Sources */,
@@ -734,7 +742,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
@@ -751,7 +759,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -770,7 +778,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
@@ -787,7 +795,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

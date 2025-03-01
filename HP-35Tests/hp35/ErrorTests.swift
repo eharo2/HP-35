@@ -35,7 +35,7 @@ final class ErrorTests2: XCTestCase {
             }
             XCTAssertEqual(appService.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
-            XCTAssertTrue(appService.displayInfo.error)
+            XCTAssertTrue(appService.displayInfo.showError)
         }
     }
 
@@ -54,7 +54,7 @@ final class ErrorTests2: XCTestCase {
             }
             XCTAssertEqual(appService.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
-            XCTAssertTrue(appService.displayInfo.error)
+            XCTAssertTrue(appService.displayInfo.showError)
         }
     }
 
@@ -79,7 +79,7 @@ final class ErrorTests2: XCTestCase {
             }
             XCTAssertEqual(appService.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
-            XCTAssertTrue(appService.displayInfo.error)
+            XCTAssertTrue(appService.displayInfo.showError)
         }
     }
 
@@ -102,7 +102,7 @@ final class ErrorTests2: XCTestCase {
             }
             XCTAssertEqual(appService.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
-            XCTAssertTrue(appService.displayInfo.error)
+            XCTAssertTrue(appService.displayInfo.showError)
         }
     }
 }
