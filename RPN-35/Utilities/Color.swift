@@ -39,6 +39,16 @@ extension Color {
     static let hp21_black = Color(hex: 0x363436)
     static let hp21_blue = Color(hex: 0x33B4CC)
 
+    // MK61
+    static let mk61_white = Color(hex: 0xE5E5CB)
+    static let mk61_yellow = Color(hex: 0xEAD006)
+    static let mk61_blue = Color(hex: 0x00C5F3)
+    static let mk61_red = Color(hex: 0xDF4B52)
+
+    static let mk61_ledGreen = Color(hex: 0xB0FFFF)
+    static let mk61_displayGreen = Color(hex: 0x0F2C2D)
+    static let mk61_ledGreenBack = Color(hex: 0x169D9B)
+
     init(hex: UInt, brightness: Double = 1.0, alpha: Double = 1) {
         self.init(
             .sRGB,

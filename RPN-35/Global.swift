@@ -8,9 +8,9 @@
 import Foundation
 
 struct Global {
-    static var model: Model = .hp21
+    static var model: Model = .mk61
 }
 
 enum Model {
-    case hp35, hp45, hp21
+    case hp35, hp45, hp21, mk61
 }

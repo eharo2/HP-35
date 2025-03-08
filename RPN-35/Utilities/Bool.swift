@@ -27,4 +27,8 @@ extension Bool {
     static var isHP21: Bool {
         Global.model == .hp21
     }
+
+    static var isMK61: Bool {
+        Global.model == .mk61
+    }
 }

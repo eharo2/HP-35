@@ -26,7 +26,9 @@ struct KeyView: View {
     var width: CGFloat
 
     var body: some View {
-        if Global.model == .hp21 {
+        if Global.model == .mk61 {
+            mk61_KeyView()
+        } else if Global.model == .hp21 {
             hp21_KeyView()
         } else {
             hp35_45KeyView()
@@ -90,11 +92,11 @@ struct KeyView: View {
         }
     }
 
-    func subview(_ color: Color) -> some View {
+    func subview(_ color: Color, radiusFactor: CGFloat = 0.1) -> some View {
         GeometryReader { geometry in
             let w = geometry.size.width
             let h = geometry.size.height
-            let r = h * 0.1
+            let r = h * radiusFactor
             Path { path in
                 path.move(to: CGPoint(x: r, y: 0))
                 path.addArc(tangent1End: CGPoint(x: w, y: 0),
@@ -123,6 +125,9 @@ struct KeyView: View {
         case .blue: width * 1.15
         case .blackLarge: width * 3.0
 
+        // MK61
+        case .mkWhite, .mkYellow, .mkBlue, .mkRed: width * 1.35
+
         default: width
         }
     }
@@ -140,6 +145,11 @@ struct KeyView: View {
         case .black: .keyBlack45
         // HP21
         case .blackLarge: .keyBlack45
+        // MK61
+        case .mkWhite: .mk61_white
+        case .mkYellow: .mk61_yellow
+        case .mkBlue: .mk61_blue
+        case .mkRed: .mk61_red
         default: .clear
         }
     }
@@ -151,6 +161,9 @@ struct KeyView: View {
         // HP45
         case .gray, .black: .white
         case .lightGray, .lightGrayLarge: .black
+        // MK61
+        case .mkYellow, .mkWhite: .black
+        case .mkRed, .mkBlue: .white
         default: .white
         }
     }
@@ -163,6 +176,12 @@ enum KeyType {
     case orange, gray, lightGray, lightGrayLarge
     // HP21
     case blackLarge
+
+    // MMK61
+    case mkWhite
+    case mkYellow
+    case mkBlue
+    case mkRed
 
     case none
 }

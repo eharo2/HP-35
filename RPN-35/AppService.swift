@@ -51,6 +51,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     }
 
     init() {
+        // Font.availableFonts()
 #if os(macOS)
         setupNSEvents() // .macOS only
 #endif

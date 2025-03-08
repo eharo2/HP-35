@@ -4,9 +4,12 @@
 <dict>
 	<key>ATSApplicationFontsPath</key>
 	<string>AppIcon-mac</string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>HP15C-Simulator-Font.ttf</string>
+		<string>Saira-VariableFont_wdth,wght.ttf</string>
 	</array>
 </dict>
 </plist>

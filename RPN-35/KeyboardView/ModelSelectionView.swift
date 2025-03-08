@@ -74,11 +74,22 @@ extension KeyboardView {
                             .kerning(5.0)
                             .minimumScaleFactor(0.8)
                     })
+                    Spacer()
+                    Button(action: {
+                        Global.model = .mk61
+                        resetView()
+                        showModelSelectionView = false
+                    }, label: {
+                        Text(Cyrilic.mk61Label)
+                            .font(.mk61Font(size: 18.0))
+                            .kerning(5.0)
+                            .minimumScaleFactor(0.8)
+                    })
                 }
                 .padding(.vertical, 18)
             }
         }
-        .frame(height: 155.0)
+        .frame(height: 200.0)
         .cornerRadius(6.0)
         .padding(.horizontal, 13)
         .padding(.bottom, 35.0)
@@ -92,6 +103,7 @@ extension KeyboardView {
         case .hp21 : "21"
         case .hp35 : "35"
         case .hp45 : "45"
+        case .mk61 : "61"
         }
     }
 }

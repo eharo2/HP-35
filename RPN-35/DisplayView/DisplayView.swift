@@ -32,21 +32,32 @@ extension DisplayView {
             Rectangle()
                 .foregroundColor(.black)
             Rectangle()
-                .foregroundColor(.black)
-                .padding(.horizontal, 5)
-            Rectangle()
-                .foregroundColor(.red).opacity(0.6)
+                .foregroundColor(backgroundColor)
                 .opacity(0.7)
-                .cornerRadius(5)
-                .padding(10)
+                .cornerRadius(5.0)
+                .padding(10.0)
             Rectangle()
-                .foregroundColor(.displayRed)
-                .cornerRadius(5)
+                .foregroundColor(displayColor)
+                .cornerRadius(5.0)
                 .padding(10.5)
-                .padding(.leading, 5)
+                .padding(.leading, 5.0)
         }
-        .padding(.vertical, 0)
+        .padding(.vertical, 0.0)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    var displayColor: Color {
+        if .isMK61 {
+            return .mk61_displayGreen
+        }
+        return .displayRed
+    }
+
+    var backgroundColor: Color {
+        if .isMK61 {
+            return .mk61_ledGreenBack
+        }
+        return .red.opacity(0.6)
     }
 }
 
@@ -62,20 +73,23 @@ struct LedsView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 0.0) {
             Text(displayInfo.output)
                 .lineLimit(1)
-            .kerning(5)
-            .font(Font.custom("HP15C-Simulator-Font", size: fontSize))
-            .foregroundColor(ledColor)
-            .padding(.bottom, 5)
-            .padding(.leading, 5)
+                .kerning(5.0)
+                .font(.hp15cFont(size: fontSize))
+                .foregroundColor(ledColor)
+                .padding(.bottom, 5.0)
+                .padding(.leading, 5.0)
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 20.0)
     }
 
     var ledColor: Color {
-        displayInfo.showError && errorTimer.errorTick ? .black : .red
+        if .isMK61 {
+            return .mk61_ledGreen
+        }
+        return displayInfo.showError && errorTimer.errorTick ? .black : .red
     }
 
     class ErrorTimer: ObservableObject {
