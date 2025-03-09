@@ -53,6 +53,10 @@ indirect enum Op: Identifiable, Equatable {
     case mSubstract, mAdd, mMultiply, mDivide
     case dsp
 
+    // MK 61
+    case max
+    case wr, rw, nx, xn, abt, bn, npr // place holders
+
     // HP-35
     var shouldDrop: Bool {
         switch self {

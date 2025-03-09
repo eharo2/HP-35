@@ -21,7 +21,7 @@ struct RPN35App: App {
                     .foregroundColor(.black)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 mainView()
-                    .padding(.top, 41)
+                    .padding(.top, 41.0)
             }
             .ignoresSafeArea()
         #else
@@ -32,11 +32,11 @@ struct RPN35App: App {
     }
 
     func mainView() -> some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 0.0) {
             DisplayView()
-                .frame(height: 80)
+                .frame(height: 80.0)
                 .if(!.isHP21) {
-                    $0.padding(.bottom, 5)
+                    $0.padding(.bottom, 5.0)
                 }
                 .environmentObject(appService)
                 .toolbar {
@@ -59,7 +59,7 @@ struct RPN35App: App {
                 KeyboardView()
                     .environmentObject(appService)
                     #if os(macOS)
-                    .frame(height: 580)
+                    .frame(height: 580.0)
                     #else
                     .frame(maxHeight: .infinity)
                     #endif
@@ -73,16 +73,16 @@ struct RPN35App: App {
         .if(.isHP21) { view in
             ZStack {
                 Rectangle()
-                    .border(Color.hp21_yellow, width: 6)
-                    .cornerRadius(8)
-                    .padding(.bottom, 30)
+                    .border(Color.hp21_yellow, width: 4.0)
+                    .cornerRadius(8.0)
+                    .padding(.bottom, 30.0)
                 view
-                    .padding(6)
-                    .padding(.bottom, 30)
+                    .padding(6.0)
+                    .padding(.bottom, 30.0)
             }
         }
         #if os(macOS)
-        .frame(width: 320)
+        .frame(width: 320.0)
         #else
         .frame(maxWidth: .infinity)
         #endif

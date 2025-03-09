@@ -15,6 +15,7 @@ class DataModel {
         case .hp35: hp35Keys
         case .hp45: hp45Keys
         case .hp21: hp21Keys
+        case .mk61: mk61Keys
         }
     }
 
@@ -35,6 +36,11 @@ class DataModel {
         let fLabel1Size: CGFloat
         let fLabel2Size: CGFloat
         let fOffset: CGFloat
+        let gLabel1: String
+        let gLabel2: String
+        let gLabel1Size: CGFloat
+        let gLabel2Size: CGFloat
+        let gOffset: CGFloat
 
         // Initializer for HP-35 keys
         init(
@@ -49,7 +55,12 @@ class DataModel {
             fLabel2: String = "",
             fLabel1Size: CGFloat = 16,
             fLabel2Size: CGFloat = 11,
-            fOffset: CGFloat = 4) {
+            fOffset: CGFloat = 4,
+            gLabel1: String = "",
+            gLabel2: String = "",
+            gLabel1Size: CGFloat = 16,
+            gLabel2Size: CGFloat = 11,
+            gOffset: CGFloat = 4) {
                 self.type = type
                 self.ops = ops
                 self.bLabel1 = bLabel1
@@ -62,6 +73,11 @@ class DataModel {
                 self.fLabel1Size = fLabel1Size
                 self.fLabel2Size = fLabel2Size
                 self.fOffset = fOffset
+                self.gLabel1 = gLabel1
+                self.gLabel2 = gLabel2
+                self.gLabel1Size = gLabel1Size
+                self.gLabel2Size = gLabel2Size
+                self.gOffset = gOffset
             }
 
         // Aditional initializer to simplify HP-45 keys
@@ -77,7 +93,12 @@ class DataModel {
             _ fLabel2: String = "",
             _ fLabel1Size: CGFloat = 0,
             _ fLabel2Size: CGFloat = 0,
-            _ fOffset: CGFloat = 0) {
+            _ fOffset: CGFloat = 0,
+            _ gLabel1: String = "",
+            _ gLabel2: String = "",
+            _ gLabel1Size: CGFloat = 15,
+            _ gLabel2Size: CGFloat = 0,
+            _ gOffset: CGFloat = 0) {
                 self.type = type
                 self.ops = ops
                 self.bLabel1 = bLabel1
@@ -90,21 +111,42 @@ class DataModel {
                 self.fLabel1Size = fLabel1Size
                 self.fLabel2Size = fLabel2Size
                 self.fOffset = fOffset
+                self.gLabel1 = gLabel1
+                self.gLabel2 = gLabel2
+                self.gLabel1Size = gLabel1Size
+                self.gLabel2Size = gLabel2Size
+                self.gOffset = gOffset
             }
 
         var bLabel: some View { BLabel(key: self) }
         var fLabel: some View { FLabel(key: self) }
+        var gLabel: some View { GLabel(key: self) }
     }
 
     struct BLabel: View {
         let key: Key
+        let font1: Font
+        let font2: Font
+
+        init(key: Key) {
+            self.key = key
+            let size1 = key.bLabel1Size * (.mac ? 1.0 : 1.2)
+            let size2 = key.bLabel2Size * (.mac ? 1.0 : 1.2)
+            if .isMK61 {
+                self.font1 = .mk61Font(size: size1).weight(.semibold)
+                self.font2 = .mk61Font(size: size2).weight(.semibold)
+            } else {
+                self.font1 = .system(size: size1)
+                self.font2 = .system(size: size2)
+            }
+        }
 
         var body: some View {
-            HStack(spacing: 0) {
+            HStack(spacing: 0.0) {
                 Text(key.bLabel1)
-                    .font(.system(size: key.bLabel1Size * (.mac ? 1.0 : 1.2), weight: .regular))
+                    .font(font1)
                 Text(key.bLabel2)
-                    .font(.system(size: key.bLabel2Size * (.mac ? 1.0 : 1.2), weight: .regular))
+                    .font(font2)
                     .baselineOffset(key.bOffset)
             }
         }
@@ -114,12 +156,26 @@ class DataModel {
         let key: Key
 
         var body: some View {
-            HStack(spacing: 0) {
+            HStack(spacing: 0.0) {
                 Text(key.fLabel1)
                     .font(.system(size: key.fLabel1Size * (.mac ? 1.0 : 1.2), weight: .regular))
                 Text(key.fLabel2)
                     .baselineOffset(key.fOffset)
                     .font(.system(size: key.fLabel2Size * (.mac ? 1.0 : 1.2), weight: .regular))
+            }
+        }
+    }
+
+    struct GLabel: View {
+        let key: Key
+
+        var body: some View {
+            HStack(spacing: 0.0) {
+                Text(key.gLabel1)
+                    .font(.system(size: key.gLabel1Size * (.mac ? 1.0 : 1.2), weight: .regular))
+                Text(key.gLabel2)
+                    .baselineOffset(key.gOffset)
+                    .font(.system(size: key.gLabel2Size * (.mac ? 1.0 : 1.2), weight: .regular))
             }
         }
     }
@@ -148,6 +204,18 @@ struct Sym {
     static let rightTriangle = "\u{25B6}"
 
     static let on = "\u{23FB}"
+
+    // MK 61
+    static let notEqual = "\u{2260}"
+    static let greaterEqual = "\u{2265}"
+    static let leftArrow = "\u{2190}"
+    static let rightArrow = "\u{2192}"
+    static let leftRightArrow = "\u{2194}"
+    static let upChevron = "\u{2303}"
+    static let downChevron = "\u{2304}"
+    static let lineCircle = "\u{29B5}"
+    static let plusCircle = "\u{2295}"
+
 }
 
 extension Sym {

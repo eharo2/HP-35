@@ -14,17 +14,25 @@ struct KeyboardView: View {
     @State var showModelSelectionView = false
 
     var body: some View {
+        if .isMK61 {
+            mkKeyboardView()
+        } else {
+            hpKeyboardView()
+        }
+    }
+
+    func hpKeyboardView() -> some View {
         VStack {
             if .isHP21 {
                 topToggleView()
             }
             ZStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(Color.fKey35, lineWidth: .isHP21 ? 0.5 : 2)
+                RoundedRectangle(cornerRadius: 4.0)
+                    .stroke(Color.fKey35, lineWidth: .isHP21 ? 0.5 : 2.0)
                     .background(keyboardBackgroundColor)
-                    .padding(.horizontal, 5)
-                    .padding(.bottom, .mac ? 2 : -1)
-                VStack(spacing: 0) {
+                    .padding(.horizontal, 5.0)
+                    .padding(.bottom, .mac ? 2.0 : -1.0)
+                VStack(spacing: 0.0) {
                     if .isHP21 {
                         ForEach(1..<3) { row in
                             keysRow(index: row * 5, numKeys: 5)
@@ -39,7 +47,7 @@ struct KeyboardView: View {
                         keysRow(index: row * 4 + 19, numKeys: 4)
                     }
                 }
-                .padding(.bottom, 15)
+                .padding(.bottom, 15.0)
             }
             logoLabelView()
         }
@@ -52,6 +60,7 @@ struct KeyboardView: View {
     var keyboardBackgroundColor: Color {
         switch Global.model {
         case .hp21: .hp21_black
+        case .mk61: .hp21_black
         default: .gray35
         }
     }
