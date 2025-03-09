@@ -10,16 +10,14 @@ import SwiftUI
 extension KeyboardView {
     func mkKeyboardView() -> some View {
         VStack(spacing: 0.0) {
-            Rectangle()
-                .foregroundColor(.mk61_displayGreen)
-                .frame(height: 60.0)
-                .frame(maxWidth: .infinity)
+            Image("mk61_green_backplane").resizable()
+                .frame(maxWidth: .infinity, maxHeight: 140.0)
             mkLogoLabelView()
             mkTopToggleView()
             VStack(spacing: 0.0) {
                 ForEach(0..<6) { row in
                     mkKeysRow(index: row * 5, numKeys: 5)
-                        .if(row == 2) {
+                        .if(row == 5) {
                             $0 // .border(Color.yellow, width: 0.33)
                         }
                 }
@@ -36,14 +34,14 @@ extension KeyboardView {
     func mkLogoLabelView() -> some View {
         HStack {
             Text(Cyrilic.mk61Label)
-                .font(.mk61Font(size: 18.0).bold())
+                .font(.mk61Font(size: 16.0).bold())
                 .kerning(5.0)
                 .minimumScaleFactor(0.8)
                 .lineLimit(1)
                 .foregroundColor(.white)
         }
         .padding(.top, 10.0)
-        .padding(.bottom, 5.0)
+        .padding(.bottom, 0.0)
         .frame(maxWidth: .infinity)
         .onTapGesture {
             showModelSelectionView.toggle()
@@ -59,7 +57,7 @@ extension KeyboardView {
                 .padding(.trailing, 20.0)
         }
         .padding(.horizontal, 10.0)
-        .padding(.bottom, 10.0)
+        .padding(.bottom, 5.0)
     }
 
     func mkKeysRow(index: Int, numKeys: Int) -> some View {

@@ -9,43 +9,61 @@ import SwiftUI
 
 extension KeyView {
     func mk61_KeyView() -> some View {
-        VStack(spacing: 0.0) {
-            HStack(spacing: 5.0) {
-                key.fLabel
-                    .foregroundColor(.mk61_yellow)
-                    .padding(.trailing, key.type == .lightGrayLarge ? 15.0 : 0.0)
-                customGLabel()
-            }
-            ZStack {
-                Rectangle()
-                    .foregroundColor(.black)
-                    .cornerRadius(5.0)
-                    .padding(.horizontal, 6.5)
+        ZStack {
+            // KeyView with bLabel
+            VStack(spacing: 0.0) {
+                Spacer()
                 ZStack {
-                    keyViewMK61(keyColor)
-                        .padding(.horizontal, 7.0)
-                    VStack(spacing: 0.0) {
-                        Group {
-                            if key.ops[0] == .wr {
-                                Text(Sym.rightArrow)
+                    Rectangle()
+                        .foregroundColor(.black)
+                        .cornerRadius(5.0)
+                        .padding(.horizontal, 6.5)
+                    ZStack {
+                        keyViewMK61(keyColor)
+                            .padding(.horizontal, 7.0)
+                        VStack(spacing: 0.0) {
+                            Group {
+                                if key.ops[0] == .wr {
+                                    Text(Sym.rightArrow)
+                                }
+                                if key.ops[0] == .rw {
+                                    Text(Sym.leftArrow)
+                                }
                             }
-                            if key.ops[0] == .rw {
-                                Text(Sym.leftArrow)
-                            }
+                            .padding(.top, -5.0)
+                            .padding(.bottom, -5.0)
+                            key.bLabel
+                                .padding(.vertical, vPadding)
+                                .padding(.bottom, 7.0)
                         }
-                        .padding(.top, -5.0)
-                        .padding(.bottom, -5.0)
-                        key.bLabel
-                            .padding(.vertical, vPadding)
-                            .padding(.bottom, 9.0)
+                        .foregroundColor(foregroundColor)
                     }
-                    .foregroundColor(foregroundColor)
+                    .padding(1.0)
+                    .padding(.top, clicked ? 2.0 : 0.0)
                 }
-                .padding(1.0)
-                .padding(.top, clicked ? 2.0 : 0.0)
+                .frame(height: width)
+                .padding(.bottom, 16.0)
             }
-            .frame(height: width)
-            .padding(.bottom, 5.0)
+            // fLabel
+            VStack(spacing: 0.0) {
+                HStack(spacing: 3.0) {
+                    if key.ops[0] == .digit(".") {
+                        Image(systemName: "arrow.trianglehead.2.clockwise.rotate.90")
+                            .foregroundColor(.mk61_yellow)
+                    } else {
+                        key.fLabel
+                            .foregroundColor(.mk61_yellow)
+                            .padding(.trailing, key.type == .lightGrayLarge ? 15.0 : 0.0)
+                    }
+                    customGLabel()
+                }
+                .padding(.top, 10.0)
+                Spacer()
+                    .frame(minHeight: 60.0)
+            }
+            VStack(spacing: 0.0) {
+                smallLabel()
+            }
         }
         .frame(minWidth: keyWidth) // .border(Color.red)
         .onTapGesture {
@@ -86,6 +104,12 @@ extension KeyView {
                 customGSubLabel(arrow: Sym.leftArrow, text: "O / //")
             } else if key.ops[0] == .exchangeXY {
                 customGSubLabel(arrow: Sym.rightArrow, text: "O / //")
+            } else if key.ops[0] == .digit(".") {
+                Image(systemName: "chevron.up")
+                    .foregroundColor(.mk61_blue)
+            } else if key.ops[0] == .abt {
+                Image(systemName: "chevron.down")
+                    .foregroundColor(.mk61_blue)
             } else {
                 key.gLabel
                     .foregroundColor(.mk61_blue)
@@ -93,17 +117,57 @@ extension KeyView {
         }
     }
 
+    func smallLabel() -> some View {
+        ZStack {
+            if key.ops[0] == .digit(".") {
+                VStack {
+                    Spacer()
+                    Text("a")
+                        .font(.mk61Font(size: 12.0))
+                }
+            } else if key.ops[0] == .chs {
+                VStack {
+                    Spacer()
+                    Text("b")
+                        .font(.mk61Font(size: 12.0))
+                }
+            } else if key.ops[0] == .eex {
+                VStack {
+                    Spacer()
+                    Text("c")
+                        .font(.mk61Font(size: 12.0))
+                }
+            } else if key.ops[0] == .clrX {
+                VStack {
+                    Spacer()
+                    Text("d")
+                        .font(.mk61Font(size: 12.0))
+                }
+            } else if key.ops[0] == .enter {
+                HStack {
+                    Spacer()
+                    Text("e")
+                        .font(.mk61Font(size: 12.0))
+                        .padding(.top, 10.0)
+                }
+            } else {
+                EmptyView()
+            }
+        }
+        .foregroundColor(.white)
+    }
+
     func customGSubLabel(arrow: String, text: String) -> some View {
         ZStack {
             Text(arrow)
-                .font(.mk61Font(size: 15.0))
+                .font(.mk61Font(size: 18.0))
                 .padding(.bottom, 10.0)
             Text(text)
-                .font(.mk61Font(size: 14.0))
-                .padding(.top, 10.0)
+                .font(.mk61Font(size: 13.0))
+                .padding(.top, 12.0)
         }
         .foregroundColor(.mk61_blue)
-        .padding(.top, -3.0)
+        .padding(.top, -10.0)
     }
 
     var vPadding: CGFloat {

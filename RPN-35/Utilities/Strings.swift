@@ -29,8 +29,12 @@ struct Cyrilic {
     static let dn = Self.d + Self.p
     static let bn = Self.b + Self.p
     static let nn = Self.p + Self.p
-    static let cx = Self.c + Self.x
+    static let cx = Self.c + Self.x // СХ - CLR X
     static let hon = Self.h + Self.o + Self.p
     static let nrp = Self.p + Self.s + Self.r
     static let nhb = Self.n + Self.h + Self.b
+    // П->Х - STO X
+    // Х->П - RCL X
+    // ВП   - EEX
+    // СF   - CLR F
 }

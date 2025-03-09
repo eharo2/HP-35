@@ -171,8 +171,8 @@ struct MKToggle: View {
                 }
             }
         }
-        .frame(height: 65.0)
-        .font(Font.mk61Font(size: 16.0).bold())
+        .frame(height: 60.0)
+        .font(Font.mk61Font(size: 14.0).bold())
     }
 
     var leftLabel: String {

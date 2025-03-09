@@ -43,11 +43,15 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     var enteringDSP = false
 
     var degrees: Degrees {
-       var degrees = displayInfo.degrees
-       if .isHP21  {
-           degrees = self.radDegPosition == .right ? .rad : .deg
-       }
-    return degrees
+        var degrees = displayInfo.degrees
+        if .isHP21  {
+            degrees = self.radDegPosition == .right ? .rad : .deg
+        }
+        if .isMK61  {
+            degrees = radDegPosition == .left ? .rad :
+            (radDegPosition == .right ?  .deg : .grd)
+        }
+        return degrees
     }
 
     init() {

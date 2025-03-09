@@ -54,7 +54,8 @@ indirect enum Op: Identifiable, Equatable {
     case dsp
 
     // MK 61
-    case wr, rw, nx, xn
+    case max
+    case wr, rw, nx, xn, abt, bn, npr // place holders
 
     // HP-35
     var shouldDrop: Bool {
