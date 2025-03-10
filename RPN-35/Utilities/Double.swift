@@ -253,14 +253,16 @@ extension Double {
         }
     }
 
-    var factorial: Int? {
-        func fact(_ n: Int) -> Int {
-            if n == 0 { return 1 }
-            return n * fact(n - 1)
+    var factorial: Double? {
+        var value = Int(self)
+        guard value > 0 else { return 1 }
+        var result: Double = self
+        while value > 1 {
+            result = result * (Double(value - 1))
+            value -= 1
+            print("value: \(value), result: \(result)")
         }
-
-        guard self >= 0 else { return nil }
-        return fact(Int(self))
+        return result
     }
 }
 

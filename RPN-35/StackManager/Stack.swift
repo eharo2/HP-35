@@ -153,8 +153,12 @@ class Stack {
         case .toHMS: regX = regX.toHMS
 
         case .factorial:
+            guard regX >= 0.0 else {
+                delegate?.stackDidUpdateError(error: true)
+                return
+            }
             if let factorial = regX.factorial {
-                regX = Double(factorial)
+                regX = factorial
             } else {
                 delegate?.stackDidUpdateError(error: true)
             }

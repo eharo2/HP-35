@@ -8,7 +8,7 @@
 import Foundation
 
 struct Global {
-    static var model: Model = .mk61
+    static var model: Model = .hp35
 }
 
 enum Model {
