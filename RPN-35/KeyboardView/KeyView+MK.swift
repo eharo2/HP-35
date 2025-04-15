@@ -61,11 +61,12 @@ extension KeyView {
                 Spacer()
                     .frame(minHeight: 60.0)
             }
+            .frame(maxHeight: 85.0)
             VStack(spacing: 0.0) {
-                smallLabel()
+                smallLabel() // Used for the a, b, c, d, e labels
             }
         }
-        .frame(minWidth: keyWidth) // .border(Color.red)
+        .frame(minWidth: keyWidth)
         .onTapGesture {
             #if os(iOS)
             haptic.impactOccurred()

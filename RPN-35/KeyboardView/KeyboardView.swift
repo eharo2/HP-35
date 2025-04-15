@@ -22,32 +22,37 @@ struct KeyboardView: View {
     }
 
     func hpKeyboardView() -> some View {
-        VStack {
-            if .isHP21 {
-                topToggleView()
-            }
+        VStack(spacing: 0.0) {
             ZStack {
                 RoundedRectangle(cornerRadius: 4.0)
                     .stroke(Color.fKey35, lineWidth: .isHP21 ? 0.5 : 2.0)
                     .background(keyboardBackgroundColor)
                     .padding(.horizontal, 5.0)
-                    .padding(.bottom, .mac ? 2.0 : -1.0)
-                VStack(spacing: 0.0) {
+                    .padding(.bottom, .mac ? 2.0 : 8.0)
+                VStack {
+                    if .isHP35 || .isHP45 {
+                        hp35And45TopToggleView()
+                    }
                     if .isHP21 {
-                        ForEach(1..<3) { row in
-                            keysRow(index: row * 5, numKeys: 5)
+                        hp21TopToggleView()
+                    }
+                    VStack(spacing: 0.0) {
+                        if .isHP21 {
+                            ForEach(1..<3) { row in
+                                keysRow(index: row * 5, numKeys: 5)
+                            }
+                        } else {
+                            ForEach(0..<3) { row in
+                                keysRow(index: row * 5, numKeys: 5)
+                            }
                         }
-                    } else {
-                        ForEach(0..<3) { row in
-                            keysRow(index: row * 5, numKeys: 5)
+                        keysRow(index: 15, numKeys: 4)
+                        ForEach(0..<4) { row in
+                            keysRow(index: row * 4 + 19, numKeys: 4)
                         }
                     }
-                    keysRow(index: 15, numKeys: 4)
-                    ForEach(0..<4) { row in
-                        keysRow(index: row * 4 + 19, numKeys: 4)
-                    }
+                    .padding(.bottom, 15.0)
                 }
-                .padding(.bottom, 15.0)
             }
             logoLabelView()
         }

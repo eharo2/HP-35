@@ -70,7 +70,24 @@ extension KeyView {
 }
 
 extension KeyboardView {
-    func topToggleView() -> some View {
+    func hp35And45TopToggleView() -> some View {
+        HStack {
+            HPToggle(with: ["OFF", "ON"], position: $appService.hp21OnOffPosition)
+                .padding(.leading, 20.0)
+            if .isHP35 {
+                Circle()
+                    .foregroundColor(appService.hp21OnOffPosition == .right ? .red : .black)
+                    .frame(width: 8.0, height: 8.0)
+                    .padding(.horizontal, 4.0)
+            }
+            Spacer()
+        }
+        .background(Color.clear)
+        .padding(.top, 5.0)
+        .padding(.bottom, -10.0)
+    }
+
+    func hp21TopToggleView() -> some View {
         ZStack {
             Rectangle()
                 .frame(height: 45.0)
