@@ -68,9 +68,7 @@ extension KeyView {
         }
         .frame(minWidth: keyWidth)
         .onTapGesture {
-            #if os(iOS)
-            haptic.impactOccurred()
-            #endif
+            KeyFeedbackGenerator.shared.vibrate()
             clicked = true
             DispatchQueue.global().async {
                 ops = key.ops.isEmpty ? [.digit(key.bLabel1)] : key.ops

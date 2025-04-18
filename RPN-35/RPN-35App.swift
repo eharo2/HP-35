@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct RPN35App: App {
     @StateObject var appService = AppService()
+    @StateObject var tutorialViewModel = TutorialViewModel()
     @State var showKeyboard: Bool = !.mac
     @State var showInfo: Bool = false
 
@@ -22,6 +23,7 @@ struct RPN35App: App {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 mainView()
                     .padding(.top, 41.0)
+                tutorialView()
             }
             .ignoresSafeArea()
         #else

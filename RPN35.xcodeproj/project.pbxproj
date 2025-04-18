@@ -20,6 +20,12 @@
 		EF0C0FF92B50C4EB0033250C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
 		EF0C101C2B50C5150033250C /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
 		EF0C101E2B50C7710033250C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101D2B50C7710033250C /* Images.swift */; };
+		EF1863152DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
+		EF1863162DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
+		EF1863172DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
+		EF1863192DB09C6700406F58 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863182DB09C6300406F58 /* Tutorial.swift */; };
+		EF18631A2DB09C6700406F58 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863182DB09C6300406F58 /* Tutorial.swift */; };
+		EF18631B2DB09C6700406F58 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863182DB09C6300406F58 /* Tutorial.swift */; };
 		EF21AEA12CE82E09007DAF66 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC12B6DC4150051134A /* View.swift */; };
 		EF21AEA22CE82E09007DAF66 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
 		EF21AEA32CE82E09007DAF66 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4766B2B992B1E00A5744A /* Bool.swift */; };
@@ -163,6 +169,8 @@
 		EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF0C101B2B50C5150033250C /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		EF0C101D2B50C7710033250C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		EF1863142DB090F200406F58 /* KeyFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFeedback.swift; sourceTree = "<group>"; };
+		EF1863182DB09C6300406F58 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		EF21AEC02CE82E09007DAF66 /* RPN35DEV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPN35DEV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF21AEC32CF0259E007DAF66 /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
 		EF2547F82D77DDA800B3B64D /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -262,6 +270,7 @@
 			children = (
 				400746212B524E2500696D02 /* Info.plist */,
 				EF0C0FF12B50C4E90033250C /* RPN-35App.swift */,
+				EF1863182DB09C6300406F58 /* Tutorial.swift */,
 				EF9A63A82B7B12490096822D /* Global.swift */,
 				EF0C101B2B50C5150033250C /* AppService.swift */,
 				EFF4766A2B981EB000A5744A /* StackManager */,
@@ -364,6 +373,7 @@
 				40DDDE302B548EDE005F95B3 /* Double.swift */,
 				EFFDB7662D74C0A00095CFB8 /* Font.swift */,
 				EF0C101D2B50C7710033250C /* Images.swift */,
+				EF1863142DB090F200406F58 /* KeyFeedback.swift */,
 				EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */,
 				EF21AEC32CF0259E007DAF66 /* SnackBar.swift */,
 				EFB91B112B60BAE000A6347F /* String.swift */,
@@ -531,6 +541,7 @@
 				EFFDB75C2D73922D0095CFB8 /* KeyView+MK.swift in Sources */,
 				40DDDE2F2B530DB3005F95B3 /* Stack.swift in Sources */,
 				EF0C0FF42B50C4E90033250C /* DisplayView.swift in Sources */,
+				EF1863172DB090F900406F58 /* KeyFeedback.swift in Sources */,
 				EFF7ABA62CFBF30300F06FBC /* ModelSelectionView.swift in Sources */,
 				EFC1AF7E2B825AE400B8946A /* InfoView35.swift in Sources */,
 				EFFDB7692D74C0A40095CFB8 /* Font.swift in Sources */,
@@ -549,6 +560,7 @@
 				EFFDB74C2D738AA60095CFB8 /* KeyboardView+MK.swift in Sources */,
 				EF0C0FF22B50C4E90033250C /* RPN-35App.swift in Sources */,
 				EF2547FA2D77DDAC00B3B64D /* Strings.swift in Sources */,
+				EF18631A2DB09C6700406F58 /* Tutorial.swift in Sources */,
 				EFB91B122B60BAE000A6347F /* String.swift in Sources */,
 				EF02EA692B93E71E00B917F0 /* GInput.swift in Sources */,
 				40DDDE312B548EDE005F95B3 /* Double.swift in Sources */,
@@ -573,6 +585,7 @@
 				EFFDB75B2D73922D0095CFB8 /* KeyView+MK.swift in Sources */,
 				EF21AEA72CE82E09007DAF66 /* Stack.swift in Sources */,
 				EF21AEA82CE82E09007DAF66 /* DisplayView.swift in Sources */,
+				EF1863152DB090F900406F58 /* KeyFeedback.swift in Sources */,
 				EFF7ABA82CFBF30300F06FBC /* ModelSelectionView.swift in Sources */,
 				EF21AEA92CE82E09007DAF66 /* InfoView35.swift in Sources */,
 				EFFDB7682D74C0A40095CFB8 /* Font.swift in Sources */,
@@ -591,6 +604,7 @@
 				EFFDB74B2D738AA60095CFB8 /* KeyboardView+MK.swift in Sources */,
 				EF21AEB22CE82E09007DAF66 /* RPN-35App.swift in Sources */,
 				EF2547F92D77DDAC00B3B64D /* Strings.swift in Sources */,
+				EF18631B2DB09C6700406F58 /* Tutorial.swift in Sources */,
 				EF21AEB32CE82E09007DAF66 /* String.swift in Sources */,
 				EF21AEB42CE82E09007DAF66 /* GInput.swift in Sources */,
 				EF21AEB52CE82E09007DAF66 /* Double.swift in Sources */,
@@ -607,6 +621,8 @@
 			files = (
 				EFF476662B981DD100A5744A /* DataModel45.swift in Sources */,
 				EFF476652B981DCD00A5744A /* DataModel35.swift in Sources */,
+				EF1863162DB090F900406F58 /* KeyFeedback.swift in Sources */,
+				EF1863192DB09C6700406F58 /* Tutorial.swift in Sources */,
 				EFF7ABA22CF809EC00F06FBC /* DataModel21.swift in Sources */,
 				EFFDB75D2D73922D0095CFB8 /* KeyView+MK.swift in Sources */,
 				EFFDB7672D74C0A40095CFB8 /* Font.swift in Sources */,
@@ -790,7 +806,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
@@ -807,7 +823,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -826,7 +842,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
@@ -843,7 +859,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

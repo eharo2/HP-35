@@ -56,7 +56,7 @@ struct HPToggle: View {
                 }
                 .onTapGesture {
                     self.position = self.position == .left ? .right : .left
-                    haptic.impactOccurred()
+                    KeyFeedbackGenerator.shared.vibrate(forceFeedback: true)
                 }
             }
             .frame(width: 45.0)
@@ -111,9 +111,6 @@ struct MKToggle: View {
     let labels: [String]
     @Binding var position: TogglePosition
     @State var previousPosition: TogglePosition = .left
-#if os(iOS)
-    let haptic = UIImpactFeedbackGenerator(style: .soft)
-#endif
 
     var body: some View {
         VStack(spacing: 0.0) {
@@ -129,12 +126,12 @@ struct MKToggle: View {
                         Rectangle()
                             .onTapGesture {
                                 position = .left
-                                haptic.impactOccurred()
+                                KeyFeedbackGenerator.shared.vibrate(forceFeedback: true)
                             }
                         Rectangle()
                             .onTapGesture {
                                 position = .right
-                                haptic.impactOccurred()
+                                KeyFeedbackGenerator.shared.vibrate(forceFeedback: true)
                             }
                     }
                     .foregroundColor(.gray35)
@@ -156,7 +153,7 @@ struct MKToggle: View {
                                 } else {
                                     position = .center
                                 }
-                                haptic.impactOccurred()
+                                KeyFeedbackGenerator.shared.vibrate()
                             }
                         if position == .center {
                             Spacer()

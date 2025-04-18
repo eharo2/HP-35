@@ -11,14 +11,21 @@ struct KeyboardView: View {
     @EnvironmentObject var appService: AppService
     @State var ops: [Op] = []
 
-    @State var showModelSelectionView = false
-
     var body: some View {
-        if .isMK61 {
-            mkKeyboardView()
-        } else {
-            hpKeyboardView()
+        Group {
+            if .isMK61 {
+                mkKeyboardView()
+            } else {
+                hpKeyboardView()
+            }
         }
+        .sheet(isPresented: $appService.showModelSelectionView) {
+            modelSelectionView()
+                .presentationDetents([.fraction(0.27)])
+        }
+        // .snackBar(isPresenting: $showModelSelectionView, offset: 25,
+        //           view: modelSelectionView)
+        .syncOps($appService.ops, with: $ops)
     }
 
     func hpKeyboardView() -> some View {
@@ -57,9 +64,6 @@ struct KeyboardView: View {
             logoLabelView()
         }
         .background(keyboardBackgroundColor)
-        .snackBar(isPresenting: $showModelSelectionView, offset: 25,
-                  view: modelSelectionView)
-        .syncOps($appService.ops, with: $ops)
     }
 
     var keyboardBackgroundColor: Color {
@@ -87,7 +91,7 @@ struct KeyboardView: View {
 
     func resetView() {
         appService.display.info.showError = false
-        appService.hp21OnOffPosition = .right
+        appService.onOffPosition = .right
         appService.stack.clear()
         appService.stack.inspect()
     }

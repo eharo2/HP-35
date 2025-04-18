@@ -18,17 +18,13 @@ extension KeyboardView {
                 ForEach(0..<6) { row in
                     mkKeysRow(index: row * 5, numKeys: 5)
                         .if(row == 5) {
-                            $0 // .border(Color.yellow, width: 0.33)
+                            $0
                         }
                 }
             }
-            // .border(Color.yellow, width: 0.33)
         }
         .padding(.bottom, 35.0)
         .background(keyboardBackgroundColor)
-        .snackBar(isPresenting: $showModelSelectionView, offset: 25.0,
-                  view: modelSelectionView)
-        .syncOps($appService.ops, with: $ops)
     }
 
     func mkLogoLabelView() -> some View {
@@ -44,13 +40,13 @@ extension KeyboardView {
         .padding(.bottom, 0.0)
         .frame(maxWidth: .infinity)
         .onTapGesture {
-            showModelSelectionView.toggle()
+            appService.showModelSelectionView = true
         }
     }
 
     func mkTopToggleView() -> some View {
         HStack {
-            MKToggle(labels: [Cyrilic.on], position: $appService.hp21OnOffPosition)
+            MKToggle(labels: [Cyrilic.on], position: $appService.onOffPosition)
                 .padding(.leading, 20.0)
             Spacer()
             MKToggle(labels: [Cyrilic.rad, Cyrilic.grd, Cyrilic.deg], position: $appService.radDegPosition)

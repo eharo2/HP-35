@@ -18,10 +18,6 @@ struct KeyView: View {
         }
     }
 
-    #if os(iOS)
-    let haptic = UIImpactFeedbackGenerator(style: .soft)
-    #endif
-
     var key: DataModel.Key
     var width: CGFloat
 
@@ -65,9 +61,7 @@ struct KeyView: View {
         }
         .frame(width: keyWidth)
         .onTapGesture {
-            #if os(iOS)
-            haptic.impactOccurred()
-            #endif
+            KeyFeedbackGenerator.shared.vibrate()
             clicked = true
             DispatchQueue.global().async {
                 ops = key.ops.isEmpty ? [.digit(key.bLabel1)] : key.ops

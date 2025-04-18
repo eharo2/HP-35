@@ -8,6 +8,7 @@
 import SwiftUI
 
 class AppService: ObservableObject, DisplayManagerDelegate {
+    @Published var showModelSelectionView = false
     @Published var displayInfo = DisplayInfo()
     @Published var model: Model!
     @Published var ops: [Op] = [] {
@@ -20,10 +21,12 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         }
     }
     // HP-21
-    @Published var hp21OnOffPosition = TogglePosition.right {
+    @Published var onOffPosition = TogglePosition.right {
         didSet {
-            if hp21OnOffPosition == .right {
+            KeyFeedbackGenerator.shared.onOffPosition = onOffPosition
+            if onOffPosition == .right {
                 display.reset()
+                stack.clear()
             }
         }
     }

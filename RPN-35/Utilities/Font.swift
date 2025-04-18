@@ -16,6 +16,10 @@ extension Font {
         Font.custom(CustomFont.mk61.name, size: size)
     }
 
+    static func century(size: CGFloat) -> Font {
+        Font.custom("Century Gothic", size: size)
+    }
+
     static func availableFonts() {
         for fontFamilyNames in UIFont.familyNames {
             for fontName in UIFont.fontNames(forFamilyName: fontFamilyNames) {

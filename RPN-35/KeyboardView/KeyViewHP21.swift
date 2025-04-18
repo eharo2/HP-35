@@ -34,9 +34,7 @@ extension KeyView {
         }
         .frame(width: keyWidth)
         .onTapGesture {
-#if os(iOS)
-            haptic.impactOccurred()
-#endif
+            KeyFeedbackGenerator.shared.vibrate()
             clicked = true
             DispatchQueue.global().async {
                 ops = key.ops.isEmpty ? [.digit(key.bLabel1)] : key.ops
@@ -72,11 +70,11 @@ extension KeyView {
 extension KeyboardView {
     func hp35And45TopToggleView() -> some View {
         HStack {
-            HPToggle(with: ["OFF", "ON"], position: $appService.hp21OnOffPosition)
+            HPToggle(with: ["OFF", "ON"], position: $appService.onOffPosition)
                 .padding(.leading, 20.0)
             if .isHP35 {
                 Circle()
-                    .foregroundColor(appService.hp21OnOffPosition == .right ? .red : .black)
+                    .foregroundColor(appService.onOffPosition == .right ? .red : .black)
                     .frame(width: 8.0, height: 8.0)
                     .padding(.horizontal, 4.0)
             }
@@ -105,7 +103,7 @@ extension KeyboardView {
                 .padding(.trailing, -0.5)
                 .padding(.bottom, -11.0)
             HStack {
-                HPToggle(with: ["OFF", "ON"], position: $appService.hp21OnOffPosition)
+                HPToggle(with: ["OFF", "ON"], position: $appService.onOffPosition)
                     .padding(.leading, 20.0)
                 Spacer()
                 HPToggle(with: ["DEG", "RAD"], position: $appService.radDegPosition)
