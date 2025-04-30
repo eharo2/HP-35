@@ -5,7 +5,9 @@
 //  Created by Enrique Haro on 4/16/25.
 //
 
+#if os(iOS)
 import UIKit
+#endif
 
 class KeyFeedbackGenerator {
     static let shared = KeyFeedbackGenerator()
@@ -18,10 +20,10 @@ class KeyFeedbackGenerator {
     private init() {}
 
     func vibrate(forceFeedback: Bool = false) {
+#if os(iOS)
         // On/Off Key should always vibrate
         guard onOffPosition == .right || forceFeedback else { return }
         KeyFeedbackGenerator.shared.haptic.impactOccurred()
+#endif
     }
 }
-
-

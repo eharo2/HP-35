@@ -79,7 +79,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     func processOps(_ ops: [Op]) {
         // Inspect
         if display.info.fKey && ops == [.fShift] {
-            print("Process Ops: \([Op.fix].names)")
+            print("Process fKey: \(display.info.fKey), ops: \(ops.names)")
         } else {
             print("Process Ops: \(ops.names)")
         }
@@ -89,6 +89,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
 
         if op != .clrX && displayInfo.showError { return }
 
+        // print("Process Op: \(op)") // , \(op.name)")
         // Shift Key - Handle Mac Keyboard Input
         if op == .fShift {
             if !display.info.fKey {
@@ -125,7 +126,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
         }
 
-        if .isHP45 { // HP-45
+        if .isHP45 && !display.info.fKey { // HP-45 STO/RCL Ops w/o Shift
             if op == .sto(0, op: .none) {
                 enteringSTO = true
                 return
@@ -242,7 +243,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             op = ops[0]
         }
 
-        print("Process Op: \(op)")
+        // print("Process Op before switch: \(op)")
         switch op {
         case .fShift:
             print("Op: \(.isHP35 ? "arc" : "shift")")
@@ -336,8 +337,12 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
             stack.inspect()
         default:
+            print("Process default Op: \(op)")
             if op == .toDMS {
                 display.outputFormat = .fix(4)
+            }
+            if op == .fromDMS {
+                display.outputFormat = .fix(2)
             }
             stack.processOp(op, degrees, display.numericInput.isEmpty)
             display.reset()

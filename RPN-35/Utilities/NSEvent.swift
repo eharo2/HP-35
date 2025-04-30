@@ -16,7 +16,9 @@ extension AppService {
             // Safety reset mechanism in Mac Keyboard. Does not work in UnitTests
             if input == "\u{1B}" { // ESC
                 print("NSEvent: ESC")
+#if os(iOS)
                 self?.fShiftKey = false
+#endif
                 self?.display.reset()
                 self?.stack.clear()
                 self?.stack.inspect()

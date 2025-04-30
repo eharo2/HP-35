@@ -21,11 +21,13 @@ extension Font {
     }
 
     static func availableFonts() {
+#if os(iOS)
         for fontFamilyNames in UIFont.familyNames {
             for fontName in UIFont.fontNames(forFamilyName: fontFamilyNames) {
                 print("Font:\(fontName)")
             }
         }
+#endif
     }
 }
 

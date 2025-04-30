@@ -79,6 +79,7 @@ indirect enum Op: Identifiable, Equatable {
         switch self {
         case .sqrt, .powTwo, .inverse, .log, .tenX, .ln, .ex, .pi, .chs: true
         case .toP, .toR, .factorial, .percentage, .delta: true
+        case .toDMS, .fromDMS: true
         case .cmIn, .kgLb, .ltrGal: true
         default: false
         }
@@ -99,7 +100,6 @@ indirect enum Op: Identifiable, Equatable {
         case .sumPlus, .sumMinus: true
         case .stdDev: true
         // HP-21
-        case .toDMS, .fromDMS: true
         case .sto: !.isHP21
         default: false
         }
@@ -115,6 +115,7 @@ extension Op {
     var name: String {
         var name = String("\(self)".split(separator: ".").last ?? "")
         // name = String(name.replacingOccurrences(of: ")", with: ""))
+        name = String(name.replacingOccurrences(of: ")", with: ""))
         name = String(name.replacingOccurrences(of: "\"", with: ""))
         name = String(name.replacingOccurrences(of: "\\", with: ""))
         return ".\(name)"

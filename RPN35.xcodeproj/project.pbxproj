@@ -58,6 +58,7 @@
 		EF2547F92D77DDAC00B3B64D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2547F82D77DDA800B3B64D /* Strings.swift */; };
 		EF2547FA2D77DDAC00B3B64D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2547F82D77DDA800B3B64D /* Strings.swift */; };
 		EF2547FB2D77DDAC00B3B64D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2547F82D77DDA800B3B64D /* Strings.swift */; };
+		EF4719872DC06E7200DA3EB4 /* DMSTests45.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4719862DC06E6500DA3EB4 /* DMSTests45.swift */; };
 		EF57C55C2B9FCAEF0045DAFB /* SampleProblemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55B2B9FCAEF0045DAFB /* SampleProblemsTests.swift */; };
 		EF57C55E2BA10F550045DAFB /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55D2BA10F550045DAFB /* DataModel.swift */; };
 		EF57C55F2BA10F550045DAFB /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C55D2BA10F550045DAFB /* DataModel.swift */; };
@@ -175,6 +176,7 @@
 		EF21AEC32CF0259E007DAF66 /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
 		EF2547F82D77DDA800B3B64D /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		EF4425AF2CE6D4E000D14E0C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		EF4719862DC06E6500DA3EB4 /* DMSTests45.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSTests45.swift; sourceTree = "<group>"; };
 		EF57C55B2B9FCAEF0045DAFB /* SampleProblemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleProblemsTests.swift; sourceTree = "<group>"; };
 		EF57C55D2BA10F550045DAFB /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		EF57C5602BA10F8E0045DAFB /* KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				EF57C5852BAA879C0045DAFB /* UserManualTests45.swift */,
+				EF4719862DC06E6500DA3EB4 /* DMSTests45.swift */,
 			);
 			path = hp45;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				EFB108D42D18FC7A0032F830 /* Array.swift in Sources */,
 				EF2547FB2D77DDAC00B3B64D /* Strings.swift in Sources */,
 				EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */,
+				EF4719872DC06E7200DA3EB4 /* DMSTests45.swift in Sources */,
 				EFBF5F692B8173DC00634ED5 /* View.swift in Sources */,
 				EFE102982D028DFB00B0D0A6 /* UserManualTests21.swift in Sources */,
 				EFDA13512CFFE20100F52D07 /* DebugInspector.swift in Sources */,

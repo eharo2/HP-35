@@ -208,26 +208,25 @@ extension Double {
     }
 
     var toDMS: Double {
-        let degrees = Int(self)
-        let fractional = (self - Double(degrees)).roundToDecimals(4)
-        let mins = Int(fractional * 60.0)
-        let minsString = mins < 10 ? "0\(mins)" : String(mins)
-        let secs = Int(((fractional * 60.0 - Double(mins)) * 60.0).roundToDecimals(0))
-        let secssString = secs < 10 ? "0\(secs)" : String(secs)
-        let result = "\(degrees)." + minsString + secssString
-        return Double(result) ?? self
+        let degrees = floor(self)
+        let fractional = self - degrees
+        let totalSeconds = fractional * 3_600.0
+        let minutes = floor(totalSeconds/60.0)
+        let seconds = totalSeconds.truncatingRemainder(dividingBy: 60.0)
+        let minString = String(format: "%02.0f", minutes)
+        let secString = String(format: "%02.0f", seconds)
+        let combinedFraction = Double("0.\(minString)\(secString)") ?? 0.0
+        return degrees + combinedFraction
     }
 
     var fromDMS: Double {
-        let degrees = Int(self)
-        let fractional = Int((self - Double(degrees)).roundToDecimals(4) * 10000.0)
-        let fractionString = String(fractional)
-        let minsString = String(fractionString.prefix(2))
-        let secsString = String(fractionString.suffix(2))
-        let mins = (Double(minsString) ?? 0.0)/60.0
-        let secs = (Double(secsString) ?? 0.0)/3600.0
-        let decimalDegrees = Double(degrees) + mins + secs
-        return decimalDegrees
+        let degrees = floor(self)
+        let fraction = self - degrees
+        let string = String(format: "%.4f", fraction).suffix(4)
+        let padded = string.padding(toLength: 4, withPad: "0", startingAt: 0)
+        guard let minutes = Double(padded.prefix(2)),
+              let seconds = Double(padded.suffix(2)) else { return self }
+        return degrees + (minutes/60.0) + (seconds/3_600.0)
     }
 
     private var timeString: String {

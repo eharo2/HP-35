@@ -262,6 +262,8 @@ extension String {
         // HP-45
         case "f": [.fix]
         case "P": [.toP, .toR]
+        case "M": [.toDMS]
+        case "N": [.fromDMS]
         case "x": [.none, .lstX]
         case "Z": [.sumPlus, .sumMinus]
 

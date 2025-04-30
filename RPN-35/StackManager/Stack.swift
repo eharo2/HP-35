@@ -169,7 +169,6 @@ class Stack {
         case .ltrGal: regX = regX.ltrToGal
         case .toDMS: regX = regX.toDMS
         case .fromDMS: regX = regX.fromDMS
-
         // HP-21
         case .mSubstract: regS -= regX
         case .mAdd: regS += regX
