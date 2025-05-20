@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct RPN35App: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     @StateObject var appService = AppService()
     @StateObject var tutorialViewModel = TutorialViewModel()
     @State var showKeyboard: Bool = !.mac

@@ -8,7 +8,12 @@
 import Foundation
 
 struct Global {
-    static var model: Model = .hp35
+    static var model: Model = .hp35 {
+        didSet {
+            UserDefaults.standard.set("\(model)", forKey: UserDefaults.selectedModel)
+            UserDefaults.standard.synchronize()
+        }
+    }
 }
 
 enum Model {

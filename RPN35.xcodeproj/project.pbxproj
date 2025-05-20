@@ -102,6 +102,9 @@
 		EFDA13522CFFE20100F52D07 /* DebugInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */; };
 		EFDA13532CFFE20100F52D07 /* DebugInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */; };
 		EFE102982D028DFB00B0D0A6 /* UserManualTests21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA13552D014DB600F52D07 /* UserManualTests21.swift */; };
+		EFE6A1722DDC270D00103697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6A1712DDC270800103697 /* AppDelegate.swift */; };
+		EFE6A1732DDC270D00103697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6A1712DDC270800103697 /* AppDelegate.swift */; };
+		EFE6A1742DDC270D00103697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6A1712DDC270800103697 /* AppDelegate.swift */; };
 		EFECEAC22B6DC4150051134A /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC12B6DC4150051134A /* View.swift */; };
 		EFECEAC42B6DC5C60051134A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAC32B6DC5C60051134A /* Color.swift */; };
 		EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAD52B76CCC00051134A /* DebugView.swift */; };
@@ -194,6 +197,7 @@
 		EFD5B7762D0A7AB300F9191C /* Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toggle.swift; sourceTree = "<group>"; };
 		EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugInspector.swift; sourceTree = "<group>"; };
 		EFDA13552D014DB600F52D07 /* UserManualTests21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests21.swift; sourceTree = "<group>"; };
+		EFE6A1712DDC270800103697 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFECEAC12B6DC4150051134A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EFECEAC32B6DC5C60051134A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EFECEAD52B76CCC00051134A /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 			children = (
 				400746212B524E2500696D02 /* Info.plist */,
 				EF0C0FF12B50C4E90033250C /* RPN-35App.swift */,
+				EFE6A1712DDC270800103697 /* AppDelegate.swift */,
 				EF1863182DB09C6300406F58 /* Tutorial.swift */,
 				EF9A63A82B7B12490096822D /* Global.swift */,
 				EF0C101B2B50C5150033250C /* AppService.swift */,
@@ -536,6 +541,7 @@
 			files = (
 				EFECEAC22B6DC4150051134A /* View.swift in Sources */,
 				EFDA13522CFFE20100F52D07 /* DebugInspector.swift in Sources */,
+				EFE6A1742DDC270D00103697 /* AppDelegate.swift in Sources */,
 				EF0C097D2B51F2950085CE3B /* Operations.swift in Sources */,
 				EFF4766C2B992B1E00A5744A /* Bool.swift in Sources */,
 				EFFBE2972B8EA76F0012685A /* DataModel45.swift in Sources */,
@@ -580,6 +586,7 @@
 			files = (
 				EF21AEA12CE82E09007DAF66 /* View.swift in Sources */,
 				EFDA13532CFFE20100F52D07 /* DebugInspector.swift in Sources */,
+				EFE6A1722DDC270D00103697 /* AppDelegate.swift in Sources */,
 				EF21AEA22CE82E09007DAF66 /* Operations.swift in Sources */,
 				EF21AEA32CE82E09007DAF66 /* Bool.swift in Sources */,
 				EF21AEA42CE82E09007DAF66 /* DataModel45.swift in Sources */,
@@ -653,6 +660,7 @@
 				EFFDB74F2D738D090095CFB8 /* DataModelMK61.swift in Sources */,
 				EF21AEC52CF025AB007DAF66 /* SnackBar.swift in Sources */,
 				EF57C55F2BA10F550045DAFB /* DataModel.swift in Sources */,
+				EFE6A1732DDC270D00103697 /* AppDelegate.swift in Sources */,
 				EF57C5622BA10F8E0045DAFB /* KeyboardView.swift in Sources */,
 				EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */,
 				EFBF5F672B8173D600634ED5 /* String.swift in Sources */,
@@ -810,7 +818,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
@@ -827,7 +835,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -846,7 +854,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
@@ -863,7 +871,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

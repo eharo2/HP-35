@@ -27,6 +27,12 @@ class TutorialViewModel: ObservableObject {
     }
 }
 
+extension UserDefaults {
+    struct Key {
+        let selectedModel: String = "selectedModel"
+    }
+}
+
 extension RPN35App {
     @ViewBuilder func tutorialView() -> some View {
         if tutorialViewModel.showTutorial {

@@ -33,13 +33,16 @@ extension KeyView {
             .padding(.bottom, 5.0)
         }
         .frame(width: keyWidth)
-        .onTapGesture {
-            KeyFeedbackGenerator.shared.vibrate()
-            clicked = true
-            DispatchQueue.global().async {
-                ops = key.ops.isEmpty ? [.digit(key.bLabel1)] : key.ops
+        .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
+            .onChanged { _ in
+                guard !clicked else { return }
+                KeyFeedbackGenerator.shared.vibrate()
+                clicked = true
+                DispatchQueue.global().async {
+                    ops = key.ops.isEmpty ? [.digit(key.bLabel1)] : key.ops
+                }
             }
-        }
+        )
     }
 
     func keyView_21(_ color: Color) -> some View {
