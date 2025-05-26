@@ -9,11 +9,11 @@ import XCTest
 import RPN35
 
 final class UserManualTests1: XCTestCase {
-    let appService = AppService()
+    let rpnEngine = RPNEngine()
 
     override func setUpWithError() throws {
         Global.model = .hp35
-        appService.processOps("C".ops35)
+        rpnEngine.processOps("C".ops35)
     }
 
     override func tearDownWithError() throws { }
@@ -36,8 +36,8 @@ final class UserManualTests1: XCTestCase {
         for index in 0..<input.count {
             let key = input[index]
             let expectedResult = results[index]
-            appService.processOps(key.ops35)
-            XCTAssertEqual(appService.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
+            rpnEngine.processOps(key.ops35)
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
         }
     }
 
@@ -59,8 +59,8 @@ final class UserManualTests1: XCTestCase {
         for index in 0..<input.count {
             let key = input[index]
             let expectedResult = results[index]
-            appService.processOps(key.ops35)
-            XCTAssertEqual(appService.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
+            rpnEngine.processOps(key.ops35)
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
         }
     }
 
@@ -78,8 +78,8 @@ final class UserManualTests1: XCTestCase {
         for index in 0..<input.count {
             let key = input[index]
             let expectedResult = results[index]
-            appService.processOps(key.ops35)
-            XCTAssertEqual(appService.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
+            rpnEngine.processOps(key.ops35)
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
         }
     }
 
@@ -113,8 +113,8 @@ final class UserManualTests1: XCTestCase {
         for index in 0..<input.count {
             let key = input[index]
             let expectedResult = results[index]
-            appService.processOps(key.ops35)
-            XCTAssertEqual(appService.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
+            rpnEngine.processOps(key.ops35)
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult, "Index: \(index), Op \(key.ops35)")
         }
     }
 
@@ -138,9 +138,9 @@ final class UserManualTests1: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult, "Index: \(index), Input \(input)")
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult, "Index: \(index), Input \(input)")
         }
     }
 
@@ -168,9 +168,9 @@ final class UserManualTests1: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult, "Index: \(index), Input \(input)")
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult, "Index: \(index), Input \(input)")
         }
     }
 
@@ -199,9 +199,9 @@ final class UserManualTests1: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult, "Index: \(index), Input \(input)")
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult, "Index: \(index), Input \(input)")
         }
     }
 
@@ -226,12 +226,12 @@ final class UserManualTests1: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult, 
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult, 
                            "Index: \(index), Input \(input)")
-            XCTAssertEqual(appService.stack.regY, regY[index])
-            XCTAssertEqual(appService.stack.regZ, regZ[index])
+            XCTAssertEqual(rpnEngine.stack.regY, regY[index])
+            XCTAssertEqual(rpnEngine.stack.regZ, regZ[index])
         }
      }
 
@@ -265,11 +265,11 @@ final class UserManualTests1: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
-            print("RegX: \(appService.stack.regX)")
+            print("RegX: \(rpnEngine.stack.regX)")
         }
      }
 
@@ -295,9 +295,9 @@ final class UserManualTests1: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
         }
      }
@@ -328,9 +328,9 @@ final class UserManualTests1: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
         }
      }
@@ -359,9 +359,9 @@ final class UserManualTests1: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
         }
      }

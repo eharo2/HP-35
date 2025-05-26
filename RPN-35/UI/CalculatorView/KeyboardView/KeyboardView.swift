@@ -9,6 +9,8 @@ import SwiftUI
 
 struct KeyboardView: View {
     @EnvironmentObject var appService: AppService
+    @EnvironmentObject var rpnEngine: RPNEngine
+
     @State var ops: [Op] = []
 
     var body: some View {
@@ -19,13 +21,13 @@ struct KeyboardView: View {
                 hpKeyboardView()
             }
         }
-        .sheet(isPresented: $appService.showModelSelectionView) {
-            modelSelectionView()
-                .presentationDetents([.fraction(0.27)])
-        }
+//        .sheet(isPresented: $rpnEngine.showModelSelectionView) {
+//            ModelSelectionView()
+//                .presentationDetents([.fraction(0.27)])
+//        }
         // .snackBar(isPresenting: $showModelSelectionView, offset: 25,
         //           view: modelSelectionView)
-        .syncOps($appService.ops, with: $ops)
+        .syncOps($rpnEngine.ops, with: $ops)
     }
 
     func hpKeyboardView() -> some View {
@@ -61,7 +63,7 @@ struct KeyboardView: View {
                     .padding(.bottom, 15.0)
                 }
             }
-            logoLabelView()
+            ModelLabelView()
         }
         .background(keyboardBackgroundColor)
     }
@@ -87,16 +89,5 @@ struct KeyboardView: View {
             }
             .padding(.horizontal, width * 0.5)
         }
-    }
-
-    func resetView() {
-        appService.display.info.showError = false
-        appService.onOffPosition = .right
-        appService.stack.clear()
-        appService.stack.inspect()
-    }
-
-    var logoImage: Image {
-        .isHP45 ? Images.hpLogoGray : Images.hpLogoBlue
     }
 }

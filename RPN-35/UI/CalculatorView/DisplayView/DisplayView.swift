@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct DisplayView: View {
-    @EnvironmentObject var appService: AppService
+    @EnvironmentObject var rpnEngine: RPNEngine
 
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 ZStack {
                     displayBackground()
-                    if appService.onOffPosition == .right {
-                        LedsView(displayInfo: appService.displayInfo,
+                    if rpnEngine.onOffPosition == .right {
+                        LedsView(displayInfo: rpnEngine.displayInfo,
                                  fontSize: geometry.size.width/13)
                    }
                 }

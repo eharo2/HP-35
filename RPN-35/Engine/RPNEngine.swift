@@ -1,5 +1,5 @@
 //
-//  AppService.swift
+//  RPNEngine.swift
 //  HP-15
 //
 //  Created by Enrique Haro on 1/10/24.
@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-class AppService: ObservableObject, DisplayManagerDelegate {
-    @Published var showModelSelectionView = false
+class RPNEngine: ObservableObject, DisplayManagerDelegate {
     @Published var displayInfo = DisplayInfo()
     @Published var model: Model!
     @Published var ops: [Op] = [] {
@@ -395,5 +394,12 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     // MARK: - DisplayManagerDelegate
     func displayDidUpdateInfo(_ info: DisplayInfo) {
         displayInfo = info
+    }
+
+    func resetView() {
+        display.info.showError = false
+        onOffPosition = .right
+        stack.clear()
+        stack.inspect()
     }
 }

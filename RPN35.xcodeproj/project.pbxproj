@@ -18,7 +18,7 @@
 		EF0C0FF42B50C4E90033250C /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF32B50C4E90033250C /* DisplayView.swift */; };
 		EF0C0FF62B50C4EB0033250C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF52B50C4EB0033250C /* Assets.xcassets */; };
 		EF0C0FF92B50C4EB0033250C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
-		EF0C101C2B50C5150033250C /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
+		EF0C101C2B50C5150033250C /* RPNEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* RPNEngine.swift */; };
 		EF0C101E2B50C7710033250C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101D2B50C7710033250C /* Images.swift */; };
 		EF1863152DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
 		EF1863162DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
@@ -36,7 +36,7 @@
 		EF21AEA82CE82E09007DAF66 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF32B50C4E90033250C /* DisplayView.swift */; };
 		EF21AEA92CE82E09007DAF66 /* InfoView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1AF7D2B825AE400B8946A /* InfoView35.swift */; };
 		EF21AEAA2CE82E09007DAF66 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101D2B50C7710033250C /* Images.swift */; };
-		EF21AEAB2CE82E09007DAF66 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
+		EF21AEAB2CE82E09007DAF66 /* RPNEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* RPNEngine.swift */; };
 		EF21AEAC2CE82E09007DAF66 /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02EA6B2B96A92A00B917F0 /* KeyView.swift */; };
 		EF21AEAD2CE82E09007DAF66 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF476672B981E7300A5744A /* Display.swift */; };
 		EF21AEAE2CE82E09007DAF66 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFECEAD52B76CCC00051134A /* DebugView.swift */; };
@@ -67,6 +67,15 @@
 		EF57C5642BA296390045DAFB /* UserManualTests2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C5632BA296390045DAFB /* UserManualTests2.swift */; };
 		EF57C5802BA540250045DAFB /* ErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C57F2BA540250045DAFB /* ErrorTests.swift */; };
 		EF57C5862BAA879C0045DAFB /* UserManualTests45.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF57C5852BAA879C0045DAFB /* UserManualTests45.swift */; };
+		EF8343AC2DE4F3E900FDA227 /* AppService.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8343AB2DE4F3E300FDA227 /* AppService.swift.swift */; };
+		EF8343AD2DE4F3E900FDA227 /* AppService.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8343AB2DE4F3E300FDA227 /* AppService.swift.swift */; };
+		EF8343AE2DE4F3E900FDA227 /* AppService.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8343AB2DE4F3E300FDA227 /* AppService.swift.swift */; };
+		EF8343B02DE4F61300FDA227 /* ModelLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8343AF2DE4F60D00FDA227 /* ModelLabelView.swift */; };
+		EF8343B12DE4F61300FDA227 /* ModelLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8343AF2DE4F60D00FDA227 /* ModelLabelView.swift */; };
+		EF8343B22DE4F61300FDA227 /* ModelLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8343AF2DE4F60D00FDA227 /* ModelLabelView.swift */; };
+		EF8343BB2DE4F90400FDA227 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8343BA2DE4F90100FDA227 /* MainView.swift */; };
+		EF8343BC2DE4F90400FDA227 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8343BA2DE4F90100FDA227 /* MainView.swift */; };
+		EF8343BD2DE4F90400FDA227 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8343BA2DE4F90100FDA227 /* MainView.swift */; };
 		EF8A8F952B83CC2A00515DBE /* InfoView35.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1AF7D2B825AE400B8946A /* InfoView35.swift */; };
 		EF9A63A92B7B12490096822D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A63A82B7B12490096822D /* Global.swift */; };
 		EFA959692CF442F8009D557D /* KeyViewHP21.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA959682CF442E2009D557D /* KeyViewHP21.swift */; };
@@ -80,7 +89,7 @@
 		EFBDF48F2BAFCD10002F3F64 /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */; };
 		EFBF5F542B8172E700634ED5 /* UserManualTests1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBF5F532B8172E700634ED5 /* UserManualTests1.swift */; };
 		EFBF5F5A2B81737300634ED5 /* RPN-35App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C0FF12B50C4E90033250C /* RPN-35App.swift */; };
-		EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* AppService.swift */; };
+		EFBF5F5B2B81737800634ED5 /* RPNEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* RPNEngine.swift */; };
 		EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DDDE2E2B530DB3005F95B3 /* Stack.swift */; };
 		EFBF5F5D2B81737F00634ED5 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C097C2B51F2950085CE3B /* Operations.swift */; };
 		EFBF5F5E2B81738200634ED5 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A63A82B7B12490096822D /* Global.swift */; };
@@ -171,7 +180,7 @@
 		EF0C0FF32B50C4E90033250C /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		EF0C0FF52B50C4EB0033250C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EF0C101B2B50C5150033250C /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		EF0C101B2B50C5150033250C /* RPNEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPNEngine.swift; sourceTree = "<group>"; };
 		EF0C101D2B50C7710033250C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		EF1863142DB090F200406F58 /* KeyFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFeedback.swift; sourceTree = "<group>"; };
 		EF1863182DB09C6300406F58 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
@@ -186,6 +195,9 @@
 		EF57C5632BA296390045DAFB /* UserManualTests2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests2.swift; sourceTree = "<group>"; };
 		EF57C57F2BA540250045DAFB /* ErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTests.swift; sourceTree = "<group>"; };
 		EF57C5852BAA879C0045DAFB /* UserManualTests45.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManualTests45.swift; sourceTree = "<group>"; };
+		EF8343AB2DE4F3E300FDA227 /* AppService.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift.swift; sourceTree = "<group>"; };
+		EF8343AF2DE4F60D00FDA227 /* ModelLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLabelView.swift; sourceTree = "<group>"; };
+		EF8343BA2DE4F90100FDA227 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EF9A63A82B7B12490096822D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		EFA959682CF442E2009D557D /* KeyViewHP21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyViewHP21.swift; sourceTree = "<group>"; };
 		EFB108D12D18FC760032F830 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -275,15 +287,13 @@
 			isa = PBXGroup;
 			children = (
 				400746212B524E2500696D02 /* Info.plist */,
-				EF0C0FF12B50C4E90033250C /* RPN-35App.swift */,
 				EFE6A1712DDC270800103697 /* AppDelegate.swift */,
-				EF1863182DB09C6300406F58 /* Tutorial.swift */,
+				EF0C0FF12B50C4E90033250C /* RPN-35App.swift */,
+				EF8343AB2DE4F3E300FDA227 /* AppService.swift.swift */,
 				EF9A63A82B7B12490096822D /* Global.swift */,
-				EF0C101B2B50C5150033250C /* AppService.swift */,
-				EFF4766A2B981EB000A5744A /* StackManager */,
-				EFECEACD2B71BABE0051134A /* DisplayView */,
-				EFECEAC92B71BA1A0051134A /* InfoView */,
-				EFECEACC2B71BA840051134A /* KeyboardView */,
+				EF8343A72DE4F1E800FDA227 /* Engine */,
+				EFF4766A2B981EB000A5744A /* Stack */,
+				EF8343A82DE4F2C200FDA227 /* UI */,
 				EF02EA6A2B96A8EF00B917F0 /* Model */,
 				EFECEACE2B71BB230051134A /* Utilities */,
 				EF0C0FF52B50C4EB0033250C /* Assets.xcassets */,
@@ -322,6 +332,71 @@
 			path = hp45;
 			sourceTree = "<group>";
 		};
+		EF8343A72DE4F1E800FDA227 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				EF0C101B2B50C5150033250C /* RPNEngine.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		EF8343A82DE4F2C200FDA227 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EF8343A92DE4F31200FDA227 /* Tutorial */,
+				EF8343AA2DE4F31A00FDA227 /* ModelSelectionView */,
+				EF8343B72DE4F84E00FDA227 /* CalculatorView */,
+				EFECEAC92B71BA1A0051134A /* InfoView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EF8343A92DE4F31200FDA227 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				EF1863182DB09C6300406F58 /* Tutorial.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		EF8343AA2DE4F31A00FDA227 /* ModelSelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				EF8343AF2DE4F60D00FDA227 /* ModelLabelView.swift */,
+				EFF7ABA52CFBF2FD00F06FBC /* ModelSelectionView.swift */,
+			);
+			path = ModelSelectionView;
+			sourceTree = "<group>";
+		};
+		EF8343B72DE4F84E00FDA227 /* CalculatorView */ = {
+			isa = PBXGroup;
+			children = (
+				EF8343B92DE4F8F700FDA227 /* MainView */,
+				EFECEACD2B71BABE0051134A /* DisplayView */,
+				EFECEACC2B71BA840051134A /* KeyboardView */,
+				EF8343B82DE4F87A00FDA227 /* KeyView */,
+			);
+			path = CalculatorView;
+			sourceTree = "<group>";
+		};
+		EF8343B82DE4F87A00FDA227 /* KeyView */ = {
+			isa = PBXGroup;
+			children = (
+				EF02EA6B2B96A92A00B917F0 /* KeyView.swift */,
+				EFFDB75A2D7392270095CFB8 /* KeyView+MK.swift */,
+				EFA959682CF442E2009D557D /* KeyViewHP21.swift */,
+			);
+			path = KeyView;
+			sourceTree = "<group>";
+		};
+		EF8343B92DE4F8F700FDA227 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				EF8343BA2DE4F90100FDA227 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 		EFBF5F522B8172E700634ED5 /* HP-35Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,10 +428,6 @@
 			children = (
 				EF57C5602BA10F8E0045DAFB /* KeyboardView.swift */,
 				EFFDB74A2D738A9C0095CFB8 /* KeyboardView+MK.swift */,
-				EFF7ABA52CFBF2FD00F06FBC /* ModelSelectionView.swift */,
-				EF02EA6B2B96A92A00B917F0 /* KeyView.swift */,
-				EFFDB75A2D7392270095CFB8 /* KeyView+MK.swift */,
-				EFA959682CF442E2009D557D /* KeyViewHP21.swift */,
 			);
 			path = KeyboardView;
 			sourceTree = "<group>";
@@ -392,7 +463,7 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		EFF4766A2B981EB000A5744A /* StackManager */ = {
+		EFF4766A2B981EB000A5744A /* Stack */ = {
 			isa = PBXGroup;
 			children = (
 				40DDDE2E2B530DB3005F95B3 /* Stack.swift */,
@@ -400,7 +471,7 @@
 				EF02EA662B93E71D00B917F0 /* FInput.swift */,
 				EF02EA672B93E71E00B917F0 /* GInput.swift */,
 			);
-			path = StackManager;
+			path = Stack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -545,6 +616,7 @@
 				EF0C097D2B51F2950085CE3B /* Operations.swift in Sources */,
 				EFF4766C2B992B1E00A5744A /* Bool.swift in Sources */,
 				EFFBE2972B8EA76F0012685A /* DataModel45.swift in Sources */,
+				EF8343AC2DE4F3E900FDA227 /* AppService.swift.swift in Sources */,
 				EFECEAC42B6DC5C60051134A /* Color.swift in Sources */,
 				EF9A63A92B7B12490096822D /* Global.swift in Sources */,
 				EFFDB75C2D73922D0095CFB8 /* KeyView+MK.swift in Sources */,
@@ -555,7 +627,8 @@
 				EFC1AF7E2B825AE400B8946A /* InfoView35.swift in Sources */,
 				EFFDB7692D74C0A40095CFB8 /* Font.swift in Sources */,
 				EF0C101E2B50C7710033250C /* Images.swift in Sources */,
-				EF0C101C2B50C5150033250C /* AppService.swift in Sources */,
+				EF8343BD2DE4F90400FDA227 /* MainView.swift in Sources */,
+				EF0C101C2B50C5150033250C /* RPNEngine.swift in Sources */,
 				EF02EA6C2B96A92A00B917F0 /* KeyView.swift in Sources */,
 				EFF476682B981E7300A5744A /* Display.swift in Sources */,
 				EFECEAD62B76CCC00051134A /* DebugView.swift in Sources */,
@@ -573,6 +646,7 @@
 				EFB91B122B60BAE000A6347F /* String.swift in Sources */,
 				EF02EA692B93E71E00B917F0 /* GInput.swift in Sources */,
 				40DDDE312B548EDE005F95B3 /* Double.swift in Sources */,
+				EF8343B22DE4F61300FDA227 /* ModelLabelView.swift in Sources */,
 				EFBDF48E2BAFCCF1002F3F64 /* NSEvent.swift in Sources */,
 				EF21AEC42CF025AB007DAF66 /* SnackBar.swift in Sources */,
 				EFFDB7512D738D090095CFB8 /* DataModelMK61.swift in Sources */,
@@ -590,6 +664,7 @@
 				EF21AEA22CE82E09007DAF66 /* Operations.swift in Sources */,
 				EF21AEA32CE82E09007DAF66 /* Bool.swift in Sources */,
 				EF21AEA42CE82E09007DAF66 /* DataModel45.swift in Sources */,
+				EF8343AE2DE4F3E900FDA227 /* AppService.swift.swift in Sources */,
 				EF21AEA52CE82E09007DAF66 /* Color.swift in Sources */,
 				EF21AEA62CE82E09007DAF66 /* Global.swift in Sources */,
 				EFFDB75B2D73922D0095CFB8 /* KeyView+MK.swift in Sources */,
@@ -600,7 +675,8 @@
 				EF21AEA92CE82E09007DAF66 /* InfoView35.swift in Sources */,
 				EFFDB7682D74C0A40095CFB8 /* Font.swift in Sources */,
 				EF21AEAA2CE82E09007DAF66 /* Images.swift in Sources */,
-				EF21AEAB2CE82E09007DAF66 /* AppService.swift in Sources */,
+				EF8343BB2DE4F90400FDA227 /* MainView.swift in Sources */,
+				EF21AEAB2CE82E09007DAF66 /* RPNEngine.swift in Sources */,
 				EF21AEAC2CE82E09007DAF66 /* KeyView.swift in Sources */,
 				EF21AEAD2CE82E09007DAF66 /* Display.swift in Sources */,
 				EF21AEAE2CE82E09007DAF66 /* DebugView.swift in Sources */,
@@ -618,6 +694,7 @@
 				EF21AEB32CE82E09007DAF66 /* String.swift in Sources */,
 				EF21AEB42CE82E09007DAF66 /* GInput.swift in Sources */,
 				EF21AEB52CE82E09007DAF66 /* Double.swift in Sources */,
+				EF8343B02DE4F61300FDA227 /* ModelLabelView.swift in Sources */,
 				EF21AEB62CE82E09007DAF66 /* NSEvent.swift in Sources */,
 				EF21AEC62CF025AB007DAF66 /* SnackBar.swift in Sources */,
 				EFFDB7502D738D090095CFB8 /* DataModelMK61.swift in Sources */,
@@ -634,11 +711,13 @@
 				EF1863162DB090F900406F58 /* KeyFeedback.swift in Sources */,
 				EF1863192DB09C6700406F58 /* Tutorial.swift in Sources */,
 				EFF7ABA22CF809EC00F06FBC /* DataModel21.swift in Sources */,
+				EF8343B12DE4F61300FDA227 /* ModelLabelView.swift in Sources */,
 				EFFDB75D2D73922D0095CFB8 /* KeyView+MK.swift in Sources */,
 				EFFDB7672D74C0A40095CFB8 /* Font.swift in Sources */,
 				EFFDB74D2D738AA60095CFB8 /* KeyboardView+MK.swift in Sources */,
 				EFB108D42D18FC7A0032F830 /* Array.swift in Sources */,
 				EF2547FB2D77DDAC00B3B64D /* Strings.swift in Sources */,
+				EF8343AD2DE4F3E900FDA227 /* AppService.swift.swift in Sources */,
 				EFBF5F5C2B81737C00634ED5 /* Stack.swift in Sources */,
 				EF4719872DC06E7200DA3EB4 /* DMSTests45.swift in Sources */,
 				EFBF5F692B8173DC00634ED5 /* View.swift in Sources */,
@@ -646,6 +725,7 @@
 				EFDA13512CFFE20100F52D07 /* DebugInspector.swift in Sources */,
 				EFBF5F652B8173D000634ED5 /* Color.swift in Sources */,
 				EF57C55C2B9FCAEF0045DAFB /* SampleProblemsTests.swift in Sources */,
+				EF8343BC2DE4F90400FDA227 /* MainView.swift in Sources */,
 				EFD5B7772D0A7ABD00F9191C /* Toggle.swift in Sources */,
 				EFBF5F5F2B8173B400634ED5 /* DisplayView.swift in Sources */,
 				EFBF5F662B8173D200634ED5 /* Double.swift in Sources */,
@@ -662,7 +742,7 @@
 				EF57C55F2BA10F550045DAFB /* DataModel.swift in Sources */,
 				EFE6A1732DDC270D00103697 /* AppDelegate.swift in Sources */,
 				EF57C5622BA10F8E0045DAFB /* KeyboardView.swift in Sources */,
-				EFBF5F5B2B81737800634ED5 /* AppService.swift in Sources */,
+				EFBF5F5B2B81737800634ED5 /* RPNEngine.swift in Sources */,
 				EFBF5F672B8173D600634ED5 /* String.swift in Sources */,
 				EFF476692B981E7300A5744A /* Display.swift in Sources */,
 				EFF7ABA72CFBF30300F06FBC /* ModelSelectionView.swift in Sources */,

@@ -9,13 +9,13 @@ import XCTest
 import RPN35
 
 final class UserManualTests45: XCTestCase {
-    let appService = AppService()
+    let rpnEngine = RPNEngine()
 
     override func setUpWithError() throws {
         Global.model = .hp45
         let ops = "fCff2" // CLR FIX2
         for op in ops {
-            appService.processOps(String(op).ops35)
+            rpnEngine.processOps(String(op).ops35)
         }
     }
 
@@ -117,9 +117,9 @@ final class UserManualTests45: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult,
                            "func \(f), Index: \(index), Input \(input)")
         }
     }

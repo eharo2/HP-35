@@ -7,28 +7,15 @@
 
 import SwiftUI
 
-extension KeyboardView {
-    func logoLabelView() -> some View {
-        HStack {
-            logoImage
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 20.0)
-            Text(" RPN \(Sym.dot) CALCULATOR  \(modelText)")
-                .font(.century(size: .mac ? 14.0 : 16.0))
-                .kerning(5.0)
-                .minimumScaleFactor(0.8)
-                .lineLimit(1)
-                .foregroundColor(.white)
-        }
-        .padding(.top, 5.0)
-        .padding(.bottom, .mac ? 10.0 : 20.0)
-        .padding(.horizontal, .mac ? 10.0 : 20.0)
-        .onTapGesture {
-            appService.showModelSelectionView = true
-        }
+struct ModelSelectionView: View {
+    @EnvironmentObject var appService: AppService
+    @EnvironmentObject var rpnEngine: RPNEngine
+
+    var body: some View {
+        modelSelectionView()
     }
 
-    func modelSelectionView() -> some View {
+    private func modelSelectionView() -> some View {
         ZStack {
             Color.gray35
                 Color.keyWhite45
@@ -70,8 +57,8 @@ extension KeyboardView {
     private func modelSelectionButton(title: String, font: Font, action: @escaping ()->Void) -> some View {
         Button(action: {
             action()
-            resetView()
             appService.showModelSelectionView = false
+            rpnEngine.resetView()
         }, label: {
             Text(title)
                 .font(font)
@@ -80,14 +67,5 @@ extension KeyboardView {
                 .padding(.vertical, 8.0)
                 .frame(maxWidth: .infinity)
         })
-    }
-
-    var modelText: String {
-        switch Global.model {
-        case .hp21 : "21"
-        case .hp35 : "35"
-        case .hp45 : "45"
-        case .mk61 : "61"
-        }
     }
 }

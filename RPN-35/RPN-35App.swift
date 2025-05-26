@@ -12,9 +12,7 @@ struct RPN35App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     @StateObject var appService = AppService()
-    @StateObject var tutorialViewModel = TutorialViewModel()
-    @State var showKeyboard: Bool = !.mac
-    @State var showInfo: Bool = false
+    @StateObject var rpnEngine = RPNEngine()
 
     var body: some Scene {
         WindowGroup {
@@ -23,73 +21,20 @@ struct RPN35App: App {
                 Rectangle()
                     .foregroundColor(.black)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                mainView()
-                    .padding(.top, 41.0)
+                MainView()
                 tutorialView()
+                if appService.showModelSelectionView {
+                    ModelSelectionView()
+                }
             }
             .ignoresSafeArea()
         #else
             mainView()
         #endif
         }
+        .environmentObject(appService)
+        .environmentObject(rpnEngine)
         .windowResizabilityContentSize()
-    }
-
-    func mainView() -> some View {
-        VStack(spacing: 0.0) {
-            DisplayView()
-                .frame(height: 80.0)
-                .if(!.isHP21) {
-                    $0.padding(.bottom, 5.0)
-                }
-                .environmentObject(appService)
-                .toolbar {
-                    HStack {
-                        #if os(macOS)
-                        Image(systemName: "book")
-                            .onTapGesture {
-                                showKeyboard = false
-                                showInfo.toggle()
-                            }
-                        #endif
-                        Image(systemName: "keyboard")
-                            .onTapGesture {
-                                showInfo = false
-                                showKeyboard.toggle()
-                            }
-                    }
-                }
-            if showKeyboard {
-                KeyboardView()
-                    .environmentObject(appService)
-                    #if os(macOS)
-                    .frame(height: 580.0)
-                    #else
-                    .frame(maxHeight: .infinity)
-                    #endif
-            }
-            #if os(macOS)
-            if showInfo {
-                InfoView35()
-            }
-            #endif
-        }
-        .if(.isHP21) { view in
-            ZStack {
-                Rectangle()
-                    .border(Color.hp21_yellow, width: 4.0)
-                    .cornerRadius(8.0)
-                    .padding(.bottom, 30.0)
-                view
-                    .padding(6.0)
-                    .padding(.bottom, 30.0)
-            }
-        }
-        #if os(macOS)
-        .frame(width: 320.0)
-        #else
-        .frame(maxWidth: .infinity)
-        #endif
     }
 }
 

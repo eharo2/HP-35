@@ -9,11 +9,11 @@ import XCTest
 import RPN35
 
 final class SampleProblemsTests: XCTestCase {
-    let appService = AppService()
+    let rpnEngine = RPNEngine()
 
     override func setUpWithError() throws {
         Global.model = .hp35
-        appService.processOps("C".ops35)
+        rpnEngine.processOps("C".ops35)
     }
 
     override func tearDownWithError() throws { }
@@ -21,12 +21,12 @@ final class SampleProblemsTests: XCTestCase {
     func test_clearKey() throws {
         let result = "0.             "
 
-        appService.displayInfo.output = "XXX"
+        rpnEngine.displayInfo.output = "XXX"
         let input = ["C"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
     }
 
     func test_Exercise1() throws {
@@ -35,9 +35,9 @@ final class SampleProblemsTests: XCTestCase {
 
         let input = ["3", "\r", "4", "*", "5", "\r", "6", "*", "+", "7", "\r", "8", "*", "+"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
     }
 
     func test_Exercise2() throws {
@@ -46,9 +46,9 @@ final class SampleProblemsTests: XCTestCase {
 
         let input = ["3", "\r", "4", "+", "5", "\r", "6", "+", "*", "7", "\r", "8", "+", "*"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
     }
 
     func test_Exercise3() throws {
@@ -59,9 +59,9 @@ final class SampleProblemsTests: XCTestCase {
                      "1", "9", "\r", "2", "\r", "4", "+", "/", "1", "3", "\r", "p", "+", "4", "/",
                      "+", "*"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
     }
 
     func test_Exercise4() throws {
@@ -70,9 +70,9 @@ final class SampleProblemsTests: XCTestCase {
 
         let input = ["3", "i", "6", "i", "+", "i"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
     }
 
     func test_Exercise5() throws {
@@ -81,9 +81,9 @@ final class SampleProblemsTests: XCTestCase {
 
         let input = ["2", "9", "2", "i", "1", "+", "i", "1", "5", "+", "i", "7", "+", "i", "3", "+"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
     }
 
     func test_Exercise6() throws {
@@ -93,9 +93,9 @@ final class SampleProblemsTests: XCTestCase {
         let input = ["4", "5", "c", "1", "5", "0", "c", "*", "4", "5", "s", "1", "5", "0", "s",
                      "*", "6", "0", "c", "*", "+", "a", "c", "6", "0", "*"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
     }
 
     func test_Exercise7a() throws {
@@ -105,11 +105,11 @@ final class SampleProblemsTests: XCTestCase {
 
         let input = ["3", "0", "\r", "t", "L", "c", "5", "*"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, resultX)
-        appService.processOps("*".ops35)
-        XCTAssertEqual(appService.displayInfo.output, resultY)
+        XCTAssertEqual(rpnEngine.displayInfo.output, resultX)
+        rpnEngine.processOps("*".ops35)
+        XCTAssertEqual(rpnEngine.displayInfo.output, resultY)
     }
 
     func test_Exercise7b() throws {
@@ -119,15 +119,15 @@ final class SampleProblemsTests: XCTestCase {
 
         var input = ["3", "\r", "\r", "4", "/", "a", "t"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, resultT)
+        XCTAssertEqual(rpnEngine.displayInfo.output, resultT)
 
         input = ["s", "/"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, resultR)
+        XCTAssertEqual(rpnEngine.displayInfo.output, resultR)
     }
 
     func test_Exercise8() throws {
@@ -136,32 +136,32 @@ final class SampleProblemsTests: XCTestCase {
 
         var input = ["2", ".", "5", "4", "S", "5", "\r", "1", "2", "*", "3", "+", "R", "*"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
 
         //       "1234567890ABCDE"
         result = "93.98          "
         input = ["3", "7", "R", "*"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
 
         //       "1234567890ABCDE"
         result = "60.96          "
         input = ["2", "4", "R", "*"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
 
         //       "1234567890ABCDE"
         result = "91.44          "
         input = ["3", "6", "R", "*"]
         for key in input {
-            appService.processOps(key.ops35)
+            rpnEngine.processOps(key.ops35)
         }
-        XCTAssertEqual(appService.displayInfo.output, result)
+        XCTAssertEqual(rpnEngine.displayInfo.output, result)
     }
 }
