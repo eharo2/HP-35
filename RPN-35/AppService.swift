@@ -35,6 +35,10 @@ class AppService: ObservableObject, DisplayManagerDelegate {
     var display = Display()
     var stack = Stack()
 
+    // Handle CHS in HP35 vs HP15C
+    // See .chs:
+    var previousOp: Op?
+
     var enteringFIX = false
     var enteringSCI = false
 
@@ -81,7 +85,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
         if display.info.fKey && ops == [.fShift] {
             print("Process fKey: \(display.info.fKey), ops: \(ops.names)")
         } else {
-            print("Process Ops: \(ops.names)")
+            // print("Process Ops: \(ops.names)")
         }
 
         guard ops.count > 0 else { return }
@@ -284,8 +288,12 @@ class AppService: ObservableObject, DisplayManagerDelegate {
                     display.numericInput = display.numericInput.replacingOccurrences(of: "-0", with: "-")
                 }
                 if let value = Double(display.numericInput) {
-                    print("Digit Input: \(value)")
+                    // print("Digit Input: \(display.numericInput)")
                     if stack.shouldLiftAtInput {
+                        // Workaround to handle CHS in HP35
+                        if previousOp == .chs {
+                            stack.regX = -stack.regX
+                        }
                         stack.lift()
                         stack.shouldLiftAtInput = false
                     }
@@ -310,6 +318,8 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
             display.update(with: display.numericInput, addExponent: false)
         case .chs:
+            // HP-35: If a number is in the display (as a result of a calculation or previous entry), pressing CHS negates that number. If CHS is pressed before entering a number, it assumes the CHS is meant for the following digit entry.
+            // HP-15C: If a number is in the display, pressing CHS will negate that number. However, if CHS is pressed before entering a number, it will negate the current number in the display, and then the next digit entered will be treated as a new number, not as part of the number that was negated.
             print("Op: \(op)")
             if display.enteringEex {
                 if let first = display.expInput.first {
@@ -337,7 +347,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             }
             stack.inspect()
         default:
-            print("Process default Op: \(op)")
+            // print("Process default Op: \(op)")
             if op == .toDMS {
                 display.outputFormat = .fix(4)
             }
@@ -347,6 +357,7 @@ class AppService: ObservableObject, DisplayManagerDelegate {
             stack.processOp(op, degrees, display.numericInput.isEmpty)
             display.reset()
         }
+        previousOp = op
     }
 
     // HP-45

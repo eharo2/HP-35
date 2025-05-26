@@ -76,7 +76,7 @@ class Display: StackDelegate {
     }
 
     func scientificNotation(_ value: Double, digits: Int) {
-        print("SCI - Value: \(value)")
+        // print("SCI - Value: \(value)")
         var formatDigits = .isHP35 ? 10 : digits
         if value < 0 && formatDigits > 0 {
             formatDigits -= 1
@@ -114,8 +114,8 @@ class Display: StackDelegate {
                 fraction += " "
             }
         }
-        print("SCI -  1234567890ABCDE")
-        print("SCI - [\(integer).\(fraction)\(exponent)]")
+//        print("SCI -  1234567890ABCDE")
+//        print("SCI - [\(integer).\(fraction)\(exponent)]")
     }
 
     func stackDidUpdateError(error: Bool) {

@@ -41,11 +41,11 @@ class Stack {
     func processOp(_ op: Op, _ degrees: Degrees, _ numericInputIsEmpty: Bool) {
         if op.shouldDrop {
             executeOp(op)
-            drop()
+            drop(op: op)
             shouldLiftAtInput = true
         } else if op.shouldLift {
             if shouldLiftAtInput || !numericInputIsEmpty {
-                lift()
+                lift(op: op)
             }
             executeOp(op)
         } else if op.noLift || op.noStackOperation {
@@ -268,7 +268,12 @@ class Stack {
         regX = value
     }
 
-    func lift() {
+    func lift(op: Op? = nil) {
+        if let op {
+            print("Stack - Lift. Op: \(op)")
+        } else {
+            print("Stack - Lift.")
+        }
         copyValues()
         regT = regZ
         regZ = regY
@@ -276,7 +281,12 @@ class Stack {
         /// regX is ready to be updated
     }
 
-    func drop() {
+    func drop(op: Op? = nil) {
+        if let op {
+            print("Stack - Drop. Op: \(op)")
+        } else {
+            print("Stack - Drop.")
+        }
         regY = regZ
         regZ = regT
         /// regT stays as constant
