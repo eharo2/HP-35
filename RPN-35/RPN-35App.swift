@@ -23,13 +23,13 @@ struct RPN35App: App {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 MainView()
                 tutorialView()
-                if appService.showModelSelectionView {
-                    ModelSelectionView()
-                }
+                ModelSelectionView()
+                    .offset(x: appService.showSelectionView ? 0 : UIScreen.main.bounds.width)
+                    .animation(.easeOut(duration: 0.25), value: appService.showSelectionView)
             }
             .ignoresSafeArea()
         #else
-            mainView()
+            MainView()
         #endif
         }
         .environmentObject(appService)

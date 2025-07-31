@@ -30,7 +30,7 @@ struct ModelLabelView: View {
         .padding(.bottom, .mac ? 10.0 : 20.0)
         .padding(.horizontal, .mac ? 10.0 : 20.0)
         .onTapGesture {
-            appService.showModelSelectionView = true
+            appService.showSelectionView.toggle()
         }
     }
 

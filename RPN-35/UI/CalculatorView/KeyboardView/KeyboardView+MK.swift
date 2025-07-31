@@ -40,7 +40,7 @@ extension KeyboardView {
         .padding(.bottom, 0.0)
         .frame(maxWidth: .infinity)
         .onTapGesture {
-            appService.showModelSelectionView = true
+            appService.showSelectionView.toggle()
         }
     }
 

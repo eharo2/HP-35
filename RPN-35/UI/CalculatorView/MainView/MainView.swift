@@ -12,16 +12,15 @@ struct MainView: View {
 
     var body: some View {
         mainView()
-            .padding(.top, 41.0)
+            .padding(6.0)
+            .padding(.top, 45.0)
     }
 
     func mainView() -> some View {
         VStack(spacing: 0.0) {
             DisplayView()
                 .frame(height: 80.0)
-                .if(!.isHP21) {
-                    $0.padding(.bottom, 5.0)
-                }
+                .padding(.bottom, 10.0)
                 .toolbar {
                     HStack {
                         #if os(macOS)
@@ -51,17 +50,6 @@ struct MainView: View {
                 InfoView35()
             }
             #endif
-        }
-        .if(.isHP21) { view in
-            ZStack {
-                Rectangle()
-                    .border(Color.hp21_yellow, width: 4.0)
-                    .cornerRadius(8.0)
-                    .padding(.bottom, 30.0)
-                view
-                    .padding(6.0)
-                    .padding(.bottom, 30.0)
-            }
         }
         #if os(macOS)
         .frame(width: 320.0)

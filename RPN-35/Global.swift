@@ -16,6 +16,17 @@ struct Global {
     }
 }
 
-enum Model {
+enum Model: Identifiable {
+    var id: String { UUID().uuidString }
+
     case hp35, hp45, hp21, mk61
+
+    var name: String {
+        switch self {
+        case .hp35: "HP-35"
+        case .hp45: "HP-45"
+        case .hp21: "HP-21"
+        case .mk61: Cyrilic.mk61Label
+        }
+    }
 }

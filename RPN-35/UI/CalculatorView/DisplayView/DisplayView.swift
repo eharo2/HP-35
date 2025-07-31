@@ -12,7 +12,7 @@ struct DisplayView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            VStack(spacing: 0) {
+            VStack(spacing: 0.0) {
                 ZStack {
                     displayBackground()
                     if rpnEngine.onOffPosition == .right {
@@ -35,14 +35,13 @@ extension DisplayView {
                 .foregroundColor(backgroundColor)
                 .opacity(0.7)
                 .cornerRadius(5.0)
-                .padding(10.0)
+                .padding(.vertical, 10.0)
+                .padding(.horizontal, 5.0)
             Rectangle()
                 .foregroundColor(displayColor)
                 .cornerRadius(5.0)
                 .padding(10.5)
-                .padding(.leading, 5.0)
         }
-        .padding(.vertical, 0.0)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
@@ -86,6 +85,9 @@ struct LedsView: View {
     }
 
     var ledColor: Color {
+        if displayInfo.enterBlink {
+            return .black
+        }
         if .isMK61 {
             return .mk61_ledGreen
         }

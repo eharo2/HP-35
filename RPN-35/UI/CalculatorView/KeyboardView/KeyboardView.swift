@@ -21,12 +21,6 @@ struct KeyboardView: View {
                 hpKeyboardView()
             }
         }
-//        .sheet(isPresented: $rpnEngine.showModelSelectionView) {
-//            ModelSelectionView()
-//                .presentationDetents([.fraction(0.27)])
-//        }
-        // .snackBar(isPresenting: $showModelSelectionView, offset: 25,
-        //           view: modelSelectionView)
         .syncOps($rpnEngine.ops, with: $ops)
     }
 
@@ -34,9 +28,9 @@ struct KeyboardView: View {
         VStack(spacing: 0.0) {
             ZStack {
                 RoundedRectangle(cornerRadius: 4.0)
-                    .stroke(Color.fKey35, lineWidth: .isHP21 ? 0.5 : 2.0)
+                    .stroke(Color.fKey35, lineWidth: 2.0)
                     .background(keyboardBackgroundColor)
-                    .padding(.horizontal, 5.0)
+                    .padding(.horizontal, 2.0)
                     .padding(.bottom, .mac ? 2.0 : 8.0)
                 VStack {
                     if .isHP35 || .isHP45 {
@@ -62,6 +56,7 @@ struct KeyboardView: View {
                     }
                     .padding(.bottom, 15.0)
                 }
+                .padding(.horizontal, 2.0)
             }
             ModelLabelView()
         }

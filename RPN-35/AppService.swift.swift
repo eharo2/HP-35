@@ -9,7 +9,7 @@ import SwiftUI
 
 class AppService: ObservableObject {
     @Published var showTutorial: Bool = true
-    @Published var showModelSelectionView = false
+    @Published var showSelectionView = false
     @Published var showKeyboard: Bool = !.mac
     @Published var showInfo: Bool = false
 

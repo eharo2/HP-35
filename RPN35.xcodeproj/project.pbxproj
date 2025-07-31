@@ -20,6 +20,9 @@
 		EF0C0FF92B50C4EB0033250C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */; };
 		EF0C101C2B50C5150033250C /* RPNEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101B2B50C5150033250C /* RPNEngine.swift */; };
 		EF0C101E2B50C7710033250C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C101D2B50C7710033250C /* Images.swift */; };
+		EF13D2D72E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */; };
+		EF13D2D82E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */; };
+		EF13D2D92E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */; };
 		EF1863152DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
 		EF1863162DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
 		EF1863172DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
@@ -182,6 +185,7 @@
 		EF0C0FF82B50C4EB0033250C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF0C101B2B50C5150033250C /* RPNEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPNEngine.swift; sourceTree = "<group>"; };
 		EF0C101D2B50C7710033250C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		EF1863142DB090F200406F58 /* KeyFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFeedback.swift; sourceTree = "<group>"; };
 		EF1863182DB09C6300406F58 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		EF21AEC02CE82E09007DAF66 /* RPN35DEV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPN35DEV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -449,6 +453,7 @@
 				EFECEAC32B6DC5C60051134A /* Color.swift */,
 				EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */,
 				EFECEAD52B76CCC00051134A /* DebugView.swift */,
+				EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */,
 				40DDDE302B548EDE005F95B3 /* Double.swift */,
 				EFFDB7662D74C0A00095CFB8 /* Font.swift */,
 				EF0C101D2B50C7710033250C /* Images.swift */,
@@ -538,7 +543,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					EF0C0FED2B50C4E90033250C = {
 						CreatedOnToolsVersion = 15.2;
@@ -615,6 +620,7 @@
 				EFE6A1742DDC270D00103697 /* AppDelegate.swift in Sources */,
 				EF0C097D2B51F2950085CE3B /* Operations.swift in Sources */,
 				EFF4766C2B992B1E00A5744A /* Bool.swift in Sources */,
+				EF13D2D82E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */,
 				EFFBE2972B8EA76F0012685A /* DataModel45.swift in Sources */,
 				EF8343AC2DE4F3E900FDA227 /* AppService.swift.swift in Sources */,
 				EFECEAC42B6DC5C60051134A /* Color.swift in Sources */,
@@ -663,6 +669,7 @@
 				EFE6A1722DDC270D00103697 /* AppDelegate.swift in Sources */,
 				EF21AEA22CE82E09007DAF66 /* Operations.swift in Sources */,
 				EF21AEA32CE82E09007DAF66 /* Bool.swift in Sources */,
+				EF13D2D72E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */,
 				EF21AEA42CE82E09007DAF66 /* DataModel45.swift in Sources */,
 				EF8343AE2DE4F3E900FDA227 /* AppService.swift.swift in Sources */,
 				EF21AEA52CE82E09007DAF66 /* Color.swift in Sources */,
@@ -708,6 +715,7 @@
 			files = (
 				EFF476662B981DD100A5744A /* DataModel45.swift in Sources */,
 				EFF476652B981DCD00A5744A /* DataModel35.swift in Sources */,
+				EF13D2D92E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */,
 				EF1863162DB090F900406F58 /* KeyFeedback.swift in Sources */,
 				EF1863192DB09C6700406F58 /* Tutorial.swift in Sources */,
 				EFF7ABA22CF809EC00F06FBC /* DataModel21.swift in Sources */,
@@ -806,6 +814,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -869,6 +878,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -898,9 +908,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
-				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "RPN-35/Info.plist";
@@ -915,7 +924,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -934,9 +943,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
-				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "RPN-35/Info.plist";
@@ -951,7 +959,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -972,7 +980,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
-				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "RPN-35/Info.plist";
@@ -1008,7 +1015,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
-				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "RPN-35/Info.plist";
@@ -1040,7 +1046,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5HRDTDUZ98;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -1062,7 +1068,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5HRDTDUZ98;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;

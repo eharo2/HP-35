@@ -302,6 +302,7 @@ class RPNEngine: ObservableObject, DisplayManagerDelegate {
                 stack.inspect()
             }
         case .enter:
+            blinkAtEnter()
             display.processEnter()
             stack.lift(stack.regX)
             if .isHP21 && stack.regX == 0.0 {
@@ -401,5 +402,14 @@ class RPNEngine: ObservableObject, DisplayManagerDelegate {
         onOffPosition = .right
         stack.clear()
         stack.inspect()
+        objectWillChange.send()
+    }
+
+    func blinkAtEnter() {
+        Task { @MainActor in
+            displayInfo.enterBlink = true
+            await Task.asyncAfter(seconds: 0.1)
+            displayInfo.enterBlink = false
+        }
     }
 }

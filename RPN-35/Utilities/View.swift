@@ -42,3 +42,65 @@ extension View {
         }
     }
 }
+
+extension View {
+    func touchHandler(_ touchState: Binding<TouchState>,
+                      _ touchPoint: Binding<CGPoint>) -> some View {
+        self.gesture(
+            DragGesture(minimumDistance: 0.0)
+                .onChanged { touch in
+                    touchPoint.wrappedValue = touch.location
+                    if touchState.wrappedValue == .moved {
+                        print("moved")
+                    }
+                    if touchState.wrappedValue == .ended {
+                        print("began")
+                        touchState.wrappedValue = .began
+                    }
+                }
+                .onEnded { touch in
+                    print("ended")
+                    touchPoint.wrappedValue = touch.location
+                    touchState.wrappedValue = .ended
+                }
+        )
+    }
+
+    func onTouchBegan(touchState: Binding<TouchState>,
+                      action: @escaping () -> Void) -> some View {
+        self.gesture(
+            DragGesture(minimumDistance: 0.0)
+                .onChanged { _ in
+                    if touchState.wrappedValue == .ended {
+                        touchState.wrappedValue = .began
+                        action()
+                    }
+                })
+    }
+
+    func onTouchMoved(touchState: Binding<TouchState>,
+                      action: @escaping () -> Void) -> some View {
+        self.gesture(
+            DragGesture(minimumDistance: 0.0)
+                .onChanged { _ in
+                    if touchState.wrappedValue != .moved {
+                        touchState.wrappedValue = .moved
+                        action()
+                    }
+                })
+    }
+
+    func onTouchEnded(touchState: Binding<TouchState>,
+                      action: @escaping () -> Void) -> some View {
+        self.gesture(
+            DragGesture(minimumDistance: 0.0)
+                .onEnded { _ in
+                    touchState.wrappedValue = .ended
+                    action()
+                })
+    }
+}
+
+enum TouchState {
+    case began, moved, ended
+}
