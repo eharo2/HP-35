@@ -7,35 +7,9 @@
 
 import SwiftUI
 
-class TutorialViewModel: ObservableObject {
-    @Published var showTutorial: Bool = true
-
-    let didShowTutorialKey: String = "didShowTutorial"
-
-    init() {
-        showTutorial = !didShowTutorialInUserDefaults()
-    }
-
-    func dismissTutorialView() {
-        showTutorial = false
-        UserDefaults.standard.set(!showTutorial, forKey: didShowTutorialKey)
-        UserDefaults.standard.synchronize()
-    }
-
-    func didShowTutorialInUserDefaults() -> Bool {
-        UserDefaults.standard.value(forKey: didShowTutorialKey) as? Bool ?? false
-    }
-}
-
-extension UserDefaults {
-    struct Key {
-        let selectedModel: String = "selectedModel"
-    }
-}
-
 extension RPN35App {
     @ViewBuilder func tutorialView() -> some View {
-        if tutorialViewModel.showTutorial {
+        if appService.showTutorial {
             ZStack {
                 Rectangle()
                     .foregroundColor(.gray).opacity(0.6)
@@ -58,7 +32,7 @@ extension RPN35App {
                     .padding(.horizontal, 12.0)
                     .padding(.bottom, 60.0)
                     .onTapGesture {
-                        tutorialViewModel.dismissTutorialView()
+                        appService.dismissTutorialView()
                     }
                 }
             }

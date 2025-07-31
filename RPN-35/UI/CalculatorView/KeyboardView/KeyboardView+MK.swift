@@ -40,16 +40,16 @@ extension KeyboardView {
         .padding(.bottom, 0.0)
         .frame(maxWidth: .infinity)
         .onTapGesture {
-            appService.showModelSelectionView = true
+            appService.showSelectionView.toggle()
         }
     }
 
     func mkTopToggleView() -> some View {
         HStack {
-            MKToggle(labels: [Cyrilic.on], position: $appService.onOffPosition)
+            MKToggle(labels: [Cyrilic.on], position: $rpnEngine.onOffPosition)
                 .padding(.leading, 20.0)
             Spacer()
-            MKToggle(labels: [Cyrilic.rad, Cyrilic.grd, Cyrilic.deg], position: $appService.radDegPosition)
+            MKToggle(labels: [Cyrilic.rad, Cyrilic.grd, Cyrilic.deg], position: $rpnEngine.radDegPosition)
                 .padding(.trailing, 20.0)
         }
         .padding(.horizontal, 10.0)

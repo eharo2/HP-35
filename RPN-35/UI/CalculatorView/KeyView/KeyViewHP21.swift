@@ -73,11 +73,11 @@ extension KeyView {
 extension KeyboardView {
     func hp35And45TopToggleView() -> some View {
         HStack {
-            HPToggle(with: ["OFF", "ON"], position: $appService.onOffPosition)
+            HPToggle(with: ["OFF", "ON"], position: $rpnEngine.onOffPosition)
                 .padding(.leading, 20.0)
             if .isHP35 {
                 Circle()
-                    .foregroundColor(appService.onOffPosition == .right ? .red : .black)
+                    .foregroundColor(rpnEngine.onOffPosition == .right ? .red : .black)
                     .frame(width: 8.0, height: 8.0)
                     .padding(.horizontal, 4.0)
             }
@@ -106,10 +106,10 @@ extension KeyboardView {
                 .padding(.trailing, -0.5)
                 .padding(.bottom, -11.0)
             HStack {
-                HPToggle(with: ["OFF", "ON"], position: $appService.onOffPosition)
+                HPToggle(with: ["OFF", "ON"], position: $rpnEngine.onOffPosition)
                     .padding(.leading, 20.0)
                 Spacer()
-                HPToggle(with: ["DEG", "RAD"], position: $appService.radDegPosition)
+                HPToggle(with: ["DEG", "RAD"], position: $rpnEngine.radDegPosition)
                     .padding(.trailing, 20.0)
             }
             .background(Color.hp21_black)

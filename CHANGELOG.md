@@ -1,3 +1,16 @@
+# Ver 2.1. Build 21
+## Jul 30, 2025
+## Update
+- New Model Selection View
+- Blink on Enter
+
+# Ver 2.0. Build 20
+## May 23, 2025
+## Bug fixes
+- CHS Bug fix
+- DMS Bug fix
+- Persist selected model
+
 # Ver 1.6. Build 16
 ## Apr 14, 2025
 ## HP-21 and MK-61 Added

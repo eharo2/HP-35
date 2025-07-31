@@ -9,15 +9,15 @@ import XCTest
 import RPN35
 
 final class ErrorTests2: XCTestCase {
-    let appService = AppService()
+    let rpnEngine = RPNEngine()
 
     override func setUpWithError() throws {
         Global.model = .hp35
-        appService.processOps("C".ops35)
+        rpnEngine.processOps("C".ops35)
     }
 
     override func tearDownWithError() throws {
-        appService.processOps("x".ops35)
+        rpnEngine.processOps("x".ops35)
     }
 
     func test_Error_divideByZero() throws {
@@ -31,11 +31,11 @@ final class ErrorTests2: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
-            XCTAssertTrue(appService.displayInfo.showError)
+            XCTAssertTrue(rpnEngine.displayInfo.showError)
         }
     }
 
@@ -50,11 +50,11 @@ final class ErrorTests2: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
-            XCTAssertTrue(appService.displayInfo.showError)
+            XCTAssertTrue(rpnEngine.displayInfo.showError)
         }
     }
 
@@ -75,11 +75,11 @@ final class ErrorTests2: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
-            XCTAssertTrue(appService.displayInfo.showError)
+            XCTAssertTrue(rpnEngine.displayInfo.showError)
         }
     }
 
@@ -98,11 +98,11 @@ final class ErrorTests2: XCTestCase {
             let expectedResult = results[index]
             for char in input {
                 let key = String(char)
-                appService.processOps(key.ops35)
+                rpnEngine.processOps(key.ops35)
             }
-            XCTAssertEqual(appService.displayInfo.output, expectedResult,
+            XCTAssertEqual(rpnEngine.displayInfo.output, expectedResult,
                            "Index: \(index), Input \(input)")
-            XCTAssertTrue(appService.displayInfo.showError)
+            XCTAssertTrue(rpnEngine.displayInfo.showError)
         }
     }
 }

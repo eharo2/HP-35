@@ -133,6 +133,7 @@ class Display: StackDelegate {
 struct DisplayInfo: Equatable {
     var output: String = ""
     var showError: Bool = false
+    var enterBlink: Bool = false
     var fKey = false {
         didSet {
             if fKey {

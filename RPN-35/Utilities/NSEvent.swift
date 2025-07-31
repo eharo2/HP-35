@@ -8,7 +8,7 @@
 import SwiftUI
 
 #if os(macOS)
-extension AppService {
+extension RPNEngine {
     func setupNSEvents() {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event -> NSEvent? in
             guard !event.isARepeat else { return nil }

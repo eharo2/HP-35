@@ -9,6 +9,8 @@ import SwiftUI
 
 struct KeyboardView: View {
     @EnvironmentObject var appService: AppService
+    @EnvironmentObject var rpnEngine: RPNEngine
+
     @State var ops: [Op] = []
 
     var body: some View {
@@ -19,22 +21,16 @@ struct KeyboardView: View {
                 hpKeyboardView()
             }
         }
-        .sheet(isPresented: $appService.showModelSelectionView) {
-            modelSelectionView()
-                .presentationDetents([.fraction(0.27)])
-        }
-        // .snackBar(isPresenting: $showModelSelectionView, offset: 25,
-        //           view: modelSelectionView)
-        .syncOps($appService.ops, with: $ops)
+        .syncOps($rpnEngine.ops, with: $ops)
     }
 
     func hpKeyboardView() -> some View {
         VStack(spacing: 0.0) {
             ZStack {
                 RoundedRectangle(cornerRadius: 4.0)
-                    .stroke(Color.fKey35, lineWidth: .isHP21 ? 0.5 : 2.0)
+                    .stroke(Color.fKey35, lineWidth: 2.0)
                     .background(keyboardBackgroundColor)
-                    .padding(.horizontal, 5.0)
+                    .padding(.horizontal, 2.0)
                     .padding(.bottom, .mac ? 2.0 : 8.0)
                 VStack {
                     if .isHP35 || .isHP45 {
@@ -60,8 +56,9 @@ struct KeyboardView: View {
                     }
                     .padding(.bottom, 15.0)
                 }
+                .padding(.horizontal, 2.0)
             }
-            logoLabelView()
+            ModelLabelView()
         }
         .background(keyboardBackgroundColor)
     }
@@ -87,16 +84,5 @@ struct KeyboardView: View {
             }
             .padding(.horizontal, width * 0.5)
         }
-    }
-
-    func resetView() {
-        appService.display.info.showError = false
-        appService.onOffPosition = .right
-        appService.stack.clear()
-        appService.stack.inspect()
-    }
-
-    var logoImage: Image {
-        .isHP45 ? Images.hpLogoGray : Images.hpLogoBlue
     }
 }
