@@ -33,11 +33,15 @@ extension Bool {
     }
 
     static var iPad: Bool {
-        !UIDevice.current.systemName.contains("iPhone")
+        UIDevice.current.systemName.contains("iPad")
         // UIDevice.current.userInterfaceIdiom == .pad
     }
 
     static var iPhone: Bool {
-        !UIDevice.current.systemName.contains("iPad")
+        UIDevice.current.systemName.contains("iPhone")
+    }
+
+    static var isSE: Bool {
+        UIDevice.current.name.contains("SE")
     }
 }

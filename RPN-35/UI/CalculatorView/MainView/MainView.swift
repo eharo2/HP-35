@@ -16,6 +16,9 @@ struct MainView: View {
             .if(.iPad) {
                 $0.padding(.top, 45.0)
             }
+            .if(.isSE) {
+                $0.padding(.top, 10.0)
+            }
     }
 
     func mainView() -> some View {

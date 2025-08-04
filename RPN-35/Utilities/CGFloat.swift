@@ -8,7 +8,7 @@
 import UIKit
 
 extension CGFloat {
-    init(_ iPhone: CGFloat, _ iPad: CGFloat) {
-        self = Bool.iPhone ? iPhone : iPad
+    init(_ iPhone: CGFloat, _ iPadOrSmallScreen: CGFloat) {
+        self = (Bool.isSE || Bool.iPad) ? iPadOrSmallScreen : iPhone
     }
 }

@@ -61,7 +61,6 @@ struct KeyboardView: View {
             ModelLabelView()
         }
         .background(keyboardBackgroundColor)
-        .border(.white)
     }
 
     var keyboardBackgroundColor: Color {
