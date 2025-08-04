@@ -27,7 +27,7 @@ struct ModelLabelView: View {
                 .foregroundColor(.white)
         }
         .padding(.top, 5.0)
-        .padding(.bottom, .mac ? 10.0 : 20.0)
+        .padding(.bottom, .mac ? 10.0 : CGFloat(20.0, 10.0))
         .padding(.horizontal, .mac ? 10.0 : 20.0)
         .onTapGesture {
             appService.showSelectionView.toggle()

@@ -35,14 +35,14 @@ extension DisplayView {
                 .foregroundColor(backgroundColor)
                 .opacity(0.7)
                 .cornerRadius(5.0)
-                .padding(.vertical, 10.0)
+                .padding(.vertical, CGFloat(10.0, 5.0))
                 .padding(.horizontal, 5.0)
             Rectangle()
                 .foregroundColor(displayColor)
                 .cornerRadius(5.0)
-                .padding(10.5)
+                .padding(CGFloat(10.5, 5.0))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity)
     }
 
     var displayColor: Color {
@@ -78,7 +78,7 @@ struct LedsView: View {
                 .kerning(5.0)
                 .font(.hp15cFont(size: fontSize))
                 .foregroundColor(ledColor)
-                .padding(.bottom, 5.0)
+                .padding(.bottom, CGFloat(5.0, 2.0))
                 .padding(.leading, 5.0)
         }
         .padding(.horizontal, 20.0)

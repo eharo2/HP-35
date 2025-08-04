@@ -10,8 +10,10 @@ import SwiftUI
 extension KeyboardView {
     func mkKeyboardView() -> some View {
         VStack(spacing: 0.0) {
-            Image("mk61_green_backplane").resizable()
-                .frame(maxWidth: .infinity, maxHeight: 140.0)
+            if .iPhone {
+                Image("mk61_green_backplane").resizable()
+                    .frame(maxWidth: .infinity, maxHeight: 120.0)
+            }
             mkLogoLabelView()
             mkTopToggleView()
             VStack(spacing: 0.0) {

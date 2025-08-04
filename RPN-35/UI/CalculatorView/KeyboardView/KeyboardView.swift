@@ -31,7 +31,7 @@ struct KeyboardView: View {
                     .stroke(Color.fKey35, lineWidth: 2.0)
                     .background(keyboardBackgroundColor)
                     .padding(.horizontal, 2.0)
-                    .padding(.bottom, .mac ? 2.0 : 8.0)
+                    .padding(.bottom, .mac ? 2.0 : CGFloat(8.0, 2.0))
                 VStack {
                     if .isHP35 || .isHP45 {
                         hp35And45TopToggleView()
@@ -54,13 +54,14 @@ struct KeyboardView: View {
                             keysRow(index: row * 4 + 19, numKeys: 4)
                         }
                     }
-                    .padding(.bottom, 15.0)
+                    .padding(.bottom, CGFloat(15.0, 20.0))
                 }
                 .padding(.horizontal, 2.0)
             }
             ModelLabelView()
         }
         .background(keyboardBackgroundColor)
+        .border(.white)
     }
 
     var keyboardBackgroundColor: Color {
@@ -75,7 +76,7 @@ struct KeyboardView: View {
         GeometryReader { geometry in
             let width = geometry.size.width/10 * 1.1
             let keys = DataModel.shared.keys(for: Global.model)
-            HStack(spacing: 0) {
+            HStack(spacing: 0.0) {
                 KeyView(ops: $ops, key: keys[index], width: width)
                 ForEach(1..<numKeys, id: \.self) { position in
                     Spacer()

@@ -22,7 +22,7 @@ extension KeyView {
                             .foregroundColor(foregroundColor)
                         key.fLabel
                             .foregroundColor(.hp21_blue)
-                            .padding(.top, 5.0)
+                            .padding(.top, CGFloat(5.0, 2.0))
                             .padding(.bottom, key.type == .white ? 2.0 : 0.0)
                     }
                 }
@@ -30,7 +30,7 @@ extension KeyView {
                 .padding(.top, clicked ? 2.0 : 0.0)
             }
             .frame(height: width * 1.2)
-            .padding(.bottom, 5.0)
+            .padding(.bottom, CGFloat(5.0, 2.0))
         }
         .frame(width: keyWidth)
         .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
@@ -84,8 +84,8 @@ extension KeyboardView {
             Spacer()
         }
         .background(Color.clear)
-        .padding(.top, 5.0)
-        .padding(.bottom, -10.0)
+        .padding(.top, CGFloat(5.0, 0.0))
+        .padding(.bottom, CGFloat(-10.0, -20.0))
     }
 
     func hp21TopToggleView() -> some View {

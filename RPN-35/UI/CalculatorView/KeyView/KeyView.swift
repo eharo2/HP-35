@@ -32,32 +32,32 @@ struct KeyView: View {
     }
 
     func hp35_45KeyView() -> some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 0.0) {
             Spacer()
-            HStack(spacing: 0) {
+            HStack(spacing: 0.0) {
                 if key.type == .lightGrayLarge {
                     Spacer()
                 }
                 key.fLabel
                     .foregroundColor(.fKey35)
-                    .padding(.trailing, key.type == .lightGrayLarge ? 15 : 0)
+                    .padding(.trailing, key.type == .lightGrayLarge ? 15.0 : 0.0)
             }
             ZStack {
                 Rectangle()
                     .foregroundColor(.black)
                     .cornerRadius(5)
                 ZStack {
-                    keyView(keyColor)
-                    key.bLabel
+                     keyView(keyColor)
+                     key.bLabel
                         .foregroundColor(foregroundColor)
-                        .padding(.bottom, 9)
-                        .padding(.trailing, 1)
+                        .padding(.bottom, CGFloat(9.0, 5.0))
+                        .padding(.trailing, 1.0)
                 }
-                .padding(1)
+                .padding(1.0)
                 .padding(.top, clicked ? 2 : 0)
             }
-            .frame(height: width)
-            .padding(.bottom, 5)
+            .frame(height: width * CGFloat(1.0, 0.9))
+            .padding(.bottom, CGFloat(5.0, 2.0))
         }
         .frame(width: keyWidth)
         .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
@@ -85,7 +85,7 @@ struct KeyView: View {
             subview(color)
                 .padding([.leading, .top], 4)
                 .padding(.trailing, 6)
-                .padding(.bottom, 13)
+                .padding(.bottom, 10)
         }
     }
 

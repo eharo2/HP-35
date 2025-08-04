@@ -5,7 +5,7 @@
 //  Created by Enrique Haro on 3/6/24.
 //
 
-import Foundation
+import UIKit
 
 extension Bool {
     static var mac: Bool {
@@ -30,5 +30,14 @@ extension Bool {
 
     static var isMK61: Bool {
         Global.model == .mk61
+    }
+
+    static var iPad: Bool {
+        !UIDevice.current.systemName.contains("iPhone")
+        // UIDevice.current.userInterfaceIdiom == .pad
+    }
+
+    static var iPhone: Bool {
+        !UIDevice.current.systemName.contains("iPad")
     }
 }

@@ -13,14 +13,16 @@ struct MainView: View {
     var body: some View {
         mainView()
             .padding(6.0)
-            .padding(.top, 45.0)
+            .if(.iPad) {
+                $0.padding(.top, 45.0)
+            }
     }
 
     func mainView() -> some View {
         VStack(spacing: 0.0) {
             DisplayView()
-                .frame(height: 80.0)
-                .padding(.bottom, 10.0)
+                .frame(height: CGFloat(80.0, 50.0))
+                .padding(.bottom, CGFloat(10.0, 5.0))
                 .toolbar {
                     HStack {
                         #if os(macOS)

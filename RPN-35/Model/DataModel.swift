@@ -130,8 +130,8 @@ class DataModel {
 
         init(key: Key) {
             self.key = key
-            let size1 = key.bLabel1Size * (.mac ? 1.0 : 1.2)
-            let size2 = key.bLabel2Size * (.mac ? 1.0 : 1.2)
+            let size1 = key.bLabel1Size * (.mac ? 1.0 : CGFloat(1.2, 1.0))
+            let size2 = key.bLabel2Size * (.mac ? 1.0 : CGFloat(1.2, 1.0))
             if .isMK61 {
                 self.font1 = .mk61Font(size: size1).weight(.semibold)
                 self.font2 = .mk61Font(size: size2).weight(.semibold)
@@ -158,10 +158,10 @@ class DataModel {
         var body: some View {
             HStack(spacing: 0.0) {
                 Text(key.fLabel1)
-                    .font(.system(size: key.fLabel1Size * (.mac ? 1.0 : 1.2), weight: .regular))
+                    .font(.system(size: key.fLabel1Size * (.mac ? 1.0 : CGFloat(1.2, 1.0)), weight: .regular))
                 Text(key.fLabel2)
                     .baselineOffset(key.fOffset)
-                    .font(.system(size: key.fLabel2Size * (.mac ? 1.0 : 1.2), weight: .regular))
+                    .font(.system(size: key.fLabel2Size * (.mac ? 1.0 : CGFloat(1.2, 1.0)), weight: .regular))
             }
         }
     }
@@ -172,10 +172,10 @@ class DataModel {
         var body: some View {
             HStack(spacing: 0.0) {
                 Text(key.gLabel1)
-                    .font(.system(size: key.gLabel1Size * (.mac ? 1.0 : 1.2), weight: .regular))
+                    .font(.system(size: key.gLabel1Size * (.mac ? 1.0 : CGFloat(1.2, 1.0)), weight: .regular))
                 Text(key.gLabel2)
                     .baselineOffset(key.gOffset)
-                    .font(.system(size: key.gLabel2Size * (.mac ? 1.0 : 1.2), weight: .regular))
+                    .font(.system(size: key.gLabel2Size * (.mac ? 1.0 : CGFloat(1.2, 1.0)), weight: .regular))
             }
         }
     }

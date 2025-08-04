@@ -23,6 +23,9 @@
 		EF13D2D72E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */; };
 		EF13D2D82E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */; };
 		EF13D2D92E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */; };
+		EF13D2DB2E41579C00C09CD8 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2DA2E41579600C09CD8 /* CGFloat.swift */; };
+		EF13D2DC2E41579C00C09CD8 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2DA2E41579600C09CD8 /* CGFloat.swift */; };
+		EF13D2DD2E41579C00C09CD8 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2DA2E41579600C09CD8 /* CGFloat.swift */; };
 		EF1863152DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
 		EF1863162DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
 		EF1863172DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
@@ -186,6 +189,7 @@
 		EF0C101B2B50C5150033250C /* RPNEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPNEngine.swift; sourceTree = "<group>"; };
 		EF0C101D2B50C7710033250C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
+		EF13D2DA2E41579600C09CD8 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		EF1863142DB090F200406F58 /* KeyFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFeedback.swift; sourceTree = "<group>"; };
 		EF1863182DB09C6300406F58 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		EF21AEC02CE82E09007DAF66 /* RPN35DEV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPN35DEV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -450,6 +454,7 @@
 			children = (
 				EFB108D12D18FC760032F830 /* Array.swift */,
 				EFF4766B2B992B1E00A5744A /* Bool.swift */,
+				EF13D2DA2E41579600C09CD8 /* CGFloat.swift */,
 				EFECEAC32B6DC5C60051134A /* Color.swift */,
 				EFDA13502CFFE1F600F52D07 /* DebugInspector.swift */,
 				EFECEAD52B76CCC00051134A /* DebugView.swift */,
@@ -642,6 +647,7 @@
 				EFD5B7792D0A7ABD00F9191C /* Toggle.swift in Sources */,
 				EF57C55E2BA10F550045DAFB /* DataModel.swift in Sources */,
 				EF57C5612BA10F8E0045DAFB /* KeyboardView.swift in Sources */,
+				EF13D2DD2E41579C00C09CD8 /* CGFloat.swift in Sources */,
 				EFA959692CF442F8009D557D /* KeyViewHP21.swift in Sources */,
 				EFB108D32D18FC7A0032F830 /* Array.swift in Sources */,
 				EFF8E6992B8EC7BA0004D2BF /* DataModel35.swift in Sources */,
@@ -691,6 +697,7 @@
 				EFD5B7782D0A7ABD00F9191C /* Toggle.swift in Sources */,
 				EF21AEAF2CE82E09007DAF66 /* DataModel.swift in Sources */,
 				EF21AEB02CE82E09007DAF66 /* KeyboardView.swift in Sources */,
+				EF13D2DC2E41579C00C09CD8 /* CGFloat.swift in Sources */,
 				EFA9596A2CF442F8009D557D /* KeyViewHP21.swift in Sources */,
 				EFB108D22D18FC7A0032F830 /* Array.swift in Sources */,
 				EF21AEB12CE82E09007DAF66 /* DataModel35.swift in Sources */,
@@ -737,6 +744,7 @@
 				EFD5B7772D0A7ABD00F9191C /* Toggle.swift in Sources */,
 				EFBF5F5F2B8173B400634ED5 /* DisplayView.swift in Sources */,
 				EFBF5F662B8173D200634ED5 /* Double.swift in Sources */,
+				EF13D2DB2E41579C00C09CD8 /* CGFloat.swift in Sources */,
 				EF57C5802BA540250045DAFB /* ErrorTests.swift in Sources */,
 				EFF476642B981DB300A5744A /* KeyView.swift in Sources */,
 				EFF4766D2B992B1E00A5744A /* Bool.swift in Sources */,
@@ -908,7 +916,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -924,7 +932,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -943,7 +951,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -959,7 +967,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
