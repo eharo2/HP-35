@@ -13,12 +13,7 @@ struct MainView: View {
     var body: some View {
         mainView()
             .padding(6.0)
-            .if(.iPad) {
-                $0.padding(.top, 45.0)
-            }
-            .if(.isSE) {
-                $0.padding(.top, 10.0)
-            }
+            .padding(.top, CGFloat(45.0, 10.0))
     }
 
     func mainView() -> some View {
