@@ -253,13 +253,13 @@ extension Double {
     }
 
     var factorial: Double? {
-        var value = Int(self)
-        guard value > 0 else { return 1 }
+        guard var intValue = self.safeInt else { return nil }
+        guard intValue > 0 else { return 1 }
         var result: Double = self
-        while value > 1 {
-            result = result * (Double(value - 1))
-            value -= 1
-            print("value: \(value), result: \(result)")
+        while intValue > 1 {
+            result = result * (Double(intValue - 1))
+            intValue -= 1
+            print("value: \(intValue), result: \(result)")
         }
         return result
     }

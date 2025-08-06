@@ -26,6 +26,9 @@
 		EF13D2DB2E41579C00C09CD8 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2DA2E41579600C09CD8 /* CGFloat.swift */; };
 		EF13D2DC2E41579C00C09CD8 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2DA2E41579600C09CD8 /* CGFloat.swift */; };
 		EF13D2DD2E41579C00C09CD8 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2DA2E41579600C09CD8 /* CGFloat.swift */; };
+		EF13D2DF2E42EFAF00C09CD8 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2DE2E42EFAC00C09CD8 /* Int.swift */; };
+		EF13D2E02E42EFAF00C09CD8 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2DE2E42EFAC00C09CD8 /* Int.swift */; };
+		EF13D2E12E42EFAF00C09CD8 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13D2DE2E42EFAC00C09CD8 /* Int.swift */; };
 		EF1863152DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
 		EF1863162DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
 		EF1863172DB090F900406F58 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1863142DB090F200406F58 /* KeyFeedback.swift */; };
@@ -190,6 +193,7 @@
 		EF0C101D2B50C7710033250C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		EF13D2DA2E41579600C09CD8 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		EF13D2DE2E42EFAC00C09CD8 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		EF1863142DB090F200406F58 /* KeyFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFeedback.swift; sourceTree = "<group>"; };
 		EF1863182DB09C6300406F58 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		EF21AEC02CE82E09007DAF66 /* RPN35DEV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPN35DEV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -461,6 +465,7 @@
 				EF13D2D62E3B0BCF00C09CD8 /* DispatchQueue.swift */,
 				40DDDE302B548EDE005F95B3 /* Double.swift */,
 				EFFDB7662D74C0A00095CFB8 /* Font.swift */,
+				EF13D2DE2E42EFAC00C09CD8 /* Int.swift */,
 				EF0C101D2B50C7710033250C /* Images.swift */,
 				EF1863142DB090F200406F58 /* KeyFeedback.swift */,
 				EFBDF48D2BAFCCF1002F3F64 /* NSEvent.swift */,
@@ -627,6 +632,7 @@
 				EFF4766C2B992B1E00A5744A /* Bool.swift in Sources */,
 				EF13D2D82E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */,
 				EFFBE2972B8EA76F0012685A /* DataModel45.swift in Sources */,
+				EF13D2E12E42EFAF00C09CD8 /* Int.swift in Sources */,
 				EF8343AC2DE4F3E900FDA227 /* AppService.swift.swift in Sources */,
 				EFECEAC42B6DC5C60051134A /* Color.swift in Sources */,
 				EF9A63A92B7B12490096822D /* Global.swift in Sources */,
@@ -677,6 +683,7 @@
 				EF21AEA32CE82E09007DAF66 /* Bool.swift in Sources */,
 				EF13D2D72E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */,
 				EF21AEA42CE82E09007DAF66 /* DataModel45.swift in Sources */,
+				EF13D2DF2E42EFAF00C09CD8 /* Int.swift in Sources */,
 				EF8343AE2DE4F3E900FDA227 /* AppService.swift.swift in Sources */,
 				EF21AEA52CE82E09007DAF66 /* Color.swift in Sources */,
 				EF21AEA62CE82E09007DAF66 /* Global.swift in Sources */,
@@ -723,6 +730,7 @@
 				EFF476662B981DD100A5744A /* DataModel45.swift in Sources */,
 				EFF476652B981DCD00A5744A /* DataModel35.swift in Sources */,
 				EF13D2D92E3B0BD800C09CD8 /* DispatchQueue.swift in Sources */,
+				EF13D2E02E42EFAF00C09CD8 /* Int.swift in Sources */,
 				EF1863162DB090F900406F58 /* KeyFeedback.swift in Sources */,
 				EF1863192DB09C6700406F58 /* Tutorial.swift in Sources */,
 				EFF7ABA22CF809EC00F06FBC /* DataModel21.swift in Sources */,
@@ -916,7 +924,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -932,7 +940,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -951,7 +959,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "\"RPN-35/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -967,7 +975,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.RPN-35";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

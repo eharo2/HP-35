@@ -234,7 +234,13 @@ class Stack {
         case .sumPlus:
             sigmaArray.append(regX)
             regsSTO[5] = Double(sigmaArray.count)
-            regsSTO[6] += Double(Int(pow(regX, 2.0)))
+            let power = regX * regX // faster than: pow(regX, 2.0)
+            if let intValue = power.safeInt {
+                regsSTO[6] += Double(intValue)
+            } else {
+                regsSTO[6] += Double(Int.max)
+                delegate?.stackDidUpdateError(error: true)
+            }
             regsSTO[7] = sigmaArray.sum()
             regsSTO[8] += regY
             regX = regsSTO[5]

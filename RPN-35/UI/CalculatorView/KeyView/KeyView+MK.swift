@@ -23,11 +23,15 @@ extension KeyView {
                             .padding(.horizontal, 7.0)
                         VStack(spacing: 0.0) {
                             Group {
-                                if key.ops[0] == .wr {
-                                    Text(Sym.rightArrow)
-                                }
-                                if key.ops[0] == .rw {
-                                    Text(Sym.leftArrow)
+                                // Validation to avoid crash. May be needed in other places
+                                // #0 (null) in Swift runtime failure: Index out of range ()
+                                if key.ops.isEmpty {
+                                    if key.ops[0] == .wr {
+                                        Text(Sym.rightArrow)
+                                    }
+                                    if key.ops[0] == .rw {
+                                        Text(Sym.leftArrow)
+                                    }
                                 }
                             }
                             .padding(.top, -5.0)
