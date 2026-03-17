@@ -38,6 +38,10 @@ class Stack {
     var regsSTO: [Double] = Array(repeating: 0.0, count: 10) // 0 not used.  STO n = index
     var sigmaArray: [Double] = .init() // Used for std deviation
 
+    let cmToInConstant: Double = 2.54
+    let kgToLbConstant: Double = 0.453_592_37
+    let ltrToGalConstant: Double = 3.785_411_784
+
     func processOp(_ op: Op, _ degrees: Degrees, _ numericInputIsEmpty: Bool) {
         if op.shouldDrop {
             executeOp(op)
@@ -164,9 +168,9 @@ class Stack {
             }
 
         // HP-45
-        case .cmIn: regX = regX.cmToIn
-        case .kgLb: regX = regX.kgToLb
-        case .ltrGal: regX = regX.ltrToGal
+        case .cmIn: regX = cmToInConstant
+        case .kgLb: regX = kgToLbConstant
+        case .ltrGal: regX = ltrToGalConstant
         case .toDMS: regX = regX.toDMS
         case .fromDMS: regX = regX.fromDMS
         // HP-21
