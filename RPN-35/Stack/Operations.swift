@@ -71,6 +71,8 @@ indirect enum Op: Identifiable, Equatable {
         // HP-21
         case .mSubstract, .mAdd, .mMultiply, .mDivide: true
         case .sto: .isHP21
+        // HP-45
+        case .cmIn, .kgLb, .ltrGal: true
         default: false
         }
     }
@@ -80,7 +82,6 @@ indirect enum Op: Identifiable, Equatable {
         case .sqrt, .powTwo, .inverse, .log, .tenX, .ln, .ex, .pi, .chs: true
         case .toP, .toR, .factorial, .percentage, .delta: true
         case .toDMS, .fromDMS: true
-        case .cmIn, .kgLb, .ltrGal: true
         default: false
         }
     }

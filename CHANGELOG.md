@@ -1,6 +1,7 @@
 # Ver 2.4. Build 24
 ## Mar 16, 2026
-- Fix HP-45 cm/In conversion 
+## Bug fixes
+- Fix HP-45 cm/In conversion
 
 # Ver 2.3. Build 23
 ## Aug 05, 2025
