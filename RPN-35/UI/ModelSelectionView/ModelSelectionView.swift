@@ -13,7 +13,7 @@ struct ModelSelectionView: View {
 //    @State var touchState = TouchState.ended
 //    @State var touchPoint: CGPoint = .zero
 
-    let models: [Model] = [.hp35, .hp45, .hp21, .mk61]
+    let models: [Model] = [.hp35, .hp45, .hp21] // , .mk61]
 
     var body: some View {
         VStack(spacing: 0.0) {

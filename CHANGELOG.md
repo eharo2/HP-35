@@ -1,3 +1,9 @@
+# Ver 2.5. Build 25
+## Mar 16, 2026
+## Update
+- Disabled the MK-61 model to review the implementation
+- Fix HP-45 cm/In conversion
+
 # Ver 2.4. Build 24
 ## Mar 16, 2026
 ## Bug fixes
