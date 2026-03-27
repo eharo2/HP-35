@@ -248,6 +248,21 @@ class Stack {
             regsSTO[7] = sigmaArray.sum()
             regsSTO[8] += regY
             regX = regsSTO[5]
+        case .sumMinus:
+            if let index = sigmaArray.firstIndex(of: regX) {
+                sigmaArray.remove(at: index)
+            }
+            regsSTO[5] = Double(sigmaArray.count)
+            let power = regX * regX // same as sumPlus
+            if let intValue = power.safeInt {
+                regsSTO[6] -= Double(intValue)
+            } else {
+                regsSTO[6] -= Double(Int.max)
+                delegate?.stackDidUpdateError(error: true)
+            }
+            regsSTO[7] = sigmaArray.sum()
+            regsSTO[8] -= regY
+            regX = regsSTO[5]
         default: print("NOP: \(op)")
         }
     }
